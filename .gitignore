@@ -1,0 +1,10 @@
+/target/
+
+# MacOS spezifisch
+*.DS_Store
+../.DS_Store
+
+
+# Eclipse spezifisch
+.classpath
+.project
