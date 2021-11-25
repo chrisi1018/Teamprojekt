@@ -11,7 +11,9 @@ import javax.swing.JPanel;
 public class MainController {
 
 	private JPanel plainTextPanel;
+	private String plainLabelName = "Klartext";
 	private JPanel cryptoTextPanel;
+	private String cryptoLabelName = "Geheimtext";
 	private JPanel keyPanel;
 	private JPanel menuPanel;
 
@@ -20,8 +22,8 @@ public class MainController {
 	 * 
 	 */
 	public MainController() {
-		TextField plainText = new TextField();
-		TextField cryptoText = new TextField();
+		TextField plainText = new TextField(plainLabelName);
+		TextField cryptoText = new TextField(cryptoLabelName);
 		plainTextPanel = plainText.createTextfieldPanel();
 		cryptoTextPanel = cryptoText.createTextfieldPanel();
 
