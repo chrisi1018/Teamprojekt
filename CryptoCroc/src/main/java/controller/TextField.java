@@ -17,12 +17,25 @@ public class TextField {
 	private JTextField text;
 	private JLabel label;
 
-	public TextField() {
-
+	/**
+	 * Konstruktor für ein TextField
+	 * 
+	 * @param name der Name bzw Titel des Textfelds
+	 */
+	public TextField(String name) {
+		label = new JLabel(name);
 	}
 
+	/**
+	 * Methode zum Erstellen eines TextFields
+	 * 
+	 * @return ein JPanel mit einem label und textfeld darunter
+	 */
 	public JPanel createTextfieldPanel() {
-		return null;
+		JPanel panel = new JPanel(new BorderLayout());
+		panel.add(label, BorderLayout.PAGE_START);
+		panel.add(text, BorderLayout.PAGE_END);
+		return panel;
 	}
 
 }
