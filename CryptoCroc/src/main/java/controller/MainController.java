@@ -1,18 +1,48 @@
+package controller;
+
 import javax.swing.JPanel;
-import javax.swing.JButton;
 
+/**
+ * Klasse die für das Erzeugen der GUI-Elemente zuständig ist
+ * 
+ * @author zes
+ * @version 1.0
+ */
+public class MainController {
 
-public class PanelCreator {
+	private JPanel plainTextPanel;
+	private JPanel cryptoTextPanel;
+	private JPanel keyPanel;
+	private JPanel menuPanel;
 
-	public JPanel panel = new JPanel(new FlowLayout(SwingConstants.LEADING, 10, 10));
-	
-	public PanelCreator(JPanel panel) {
-		this.panel = panel;
-		
+	/**
+	 * Konstruktor, der die GUI-Elemente erzeugt
+	 * 
+	 */
+	public MainController() {
+		TextField plainText = new TextField();
+		TextField cryptoText = new TextField();
+		plainTextPanel = plainText.createTextfieldPanel();
+		cryptoTextPanel = cryptoText.createTextfieldPanel();
+
 	}
-	
-	
-	public create(JTextField text) {
-		// TODO
+
+	/**
+	 * Liefert das TextPanel mit dem Klartext
+	 * 
+	 * @return das TextPanel mit dem Klartext
+	 */
+	public JPanel getPlainTextPanel() {
+		return plainTextPanel;
 	}
+
+	/**
+	 * Liefert das TextPanel mit dem Geheimtext
+	 * 
+	 * @return das TextPanel mit dem verschlüsselten Text
+	 */
+	public JPanel getCryptoTextPanel() {
+		return cryptoTextPanel;
+	}
+
 }
