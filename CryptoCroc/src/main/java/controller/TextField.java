@@ -1,5 +1,7 @@
 package controller;
 
+import java.awt.BorderLayout;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -17,16 +19,23 @@ public class TextField {
 
 	/**
 	 * Konstruktor für ein TextField
+	 * 
+	 * @param name der Name bzw Titel des Textfelds
 	 */
-	public TextField() {
-
+	public TextField(String name) {
+		label = new JLabel(name);
 	}
 
 	/**
 	 * Methode zum Erstellen eines TextFields
+	 * 
+	 * @return ein JPanel mit einem Label und ein Textfeld darunter
 	 */
 	public JPanel createTextfieldPanel() {
-		return null;
+		JPanel panel = new JPanel(new BorderLayout());
+		panel.add(label, BorderLayout.PAGE_START);
+		panel.add(text, BorderLayout.PAGE_END);
+		return panel;
 	}
 
 }
