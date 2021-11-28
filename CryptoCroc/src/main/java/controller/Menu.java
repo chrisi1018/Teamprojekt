@@ -28,4 +28,19 @@ public class Menu {
 			menu.add(item);
 		}
 	}
+	
+	/**
+	 * Fügt der Menueleiste ein neues Menue mit übergebenen Unterpunkten hinzu
+	 * 
+	 * @param name Nem des neuen Menues
+	 * @param menus zugehörige Menuepunkte
+	 */
+	public void addMenu(String name, String[] menus) {
+		JMenu newMenu = new JMenu(name);
+		menuBar.add(newMenu);
+		for (int i=0; i<=menus.length; i++) {
+			JMenuItem item = new JMenuItem(menus[i]);
+			newMenu.add(item);
+		}
+	}
 }

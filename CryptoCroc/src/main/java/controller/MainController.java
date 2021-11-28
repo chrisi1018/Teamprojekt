@@ -17,7 +17,8 @@ public class MainController {
 	 * 
 	 */
 	public MainController() {
-		
+		this.menubar = new Menu({"Speichern", "Laden"});
+		this.menuBar.addMenu("Erklärungen", {"Caesar", "Monoalphabetisch"});
 	}
 
 }
