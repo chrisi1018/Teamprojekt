@@ -10,6 +10,7 @@ public class MainController {
 
 	private TextField plainText;
 	private TextField cryptoText;
+	private Menu menuBar;
 
 	/**
 	 * Konstruktor, der die GUI-Elemente erzeugt
