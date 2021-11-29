@@ -14,7 +14,7 @@ import javax.swing.JTextField;
  */
 public class TextField {
 
-	private JTextField text;
+	private JTextField text = new JTextField();
 	private JLabel label;
 
 	/**
