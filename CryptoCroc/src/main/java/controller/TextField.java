@@ -4,17 +4,17 @@ import java.awt.BorderLayout;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.JTextArea;
 
 /**
  * Beschreibt ein TextField in CryptoCroc
  * 
  * @author zes
- * @version 1.0
+ * @version 1.1
  */
 public class TextField {
 
-	private JTextField text = new JTextField();
+	private JTextArea text = new JTextArea();
 	private JLabel label;
 
 	/**
@@ -34,7 +34,7 @@ public class TextField {
 	public JPanel createTextfieldPanel() {
 		JPanel panel = new JPanel(new BorderLayout());
 		panel.add(label, BorderLayout.PAGE_START);
-		panel.add(text, BorderLayout.PAGE_END);
+		panel.add(text, BorderLayout.CENTER);
 		return panel;
 	}
 
