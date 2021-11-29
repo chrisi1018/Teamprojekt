@@ -12,8 +12,8 @@ import javax.swing.JMenuBar;
  */
 public class MainController {
 
-	private TextField plainText;
-	private TextField cryptoText;
+	private TextField plainText = new TextField("Klartext");
+	private TextField cryptoText = new TextField("Geheimtext");
 	private Gui gui;
 
 	/**
@@ -23,8 +23,8 @@ public class MainController {
 	public MainController() {
 		this.gui = new Gui(
 				new JMenuBar(),
-				new JPanel(), //Klartextpanel
-				new JPanel(), //Cryptotextpanel
+				plainText.createTextfieldPanel(), //Klartextpanel
+				cryptoText.createTextfieldPanel(), //Cryptotextpanel
 				new JPanel()  //keyPanel
 				);
 	}
