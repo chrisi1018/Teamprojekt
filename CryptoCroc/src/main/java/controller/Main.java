@@ -1,4 +1,4 @@
-package model;
+package controller;
 
 /**
  * Main Klasse für CryptoCroc, welches MainController kreeiert
@@ -13,7 +13,7 @@ public class Main {
 	 * @param args Eingabe String
 	 */
 	public static void main(String[] args) {
-		// TODO
+		MainController programm = new MainController();
 	}
 
 }
