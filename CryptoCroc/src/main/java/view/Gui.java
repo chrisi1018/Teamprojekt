@@ -19,7 +19,6 @@ public class Gui {
 	private JPanel clearText;
 	private JPanel cryptoText;
 	private JPanel key;
-	private BorderLayout layout = new BorderLayout();
 	/**
 	 * Konstruktor erzeugt den Frame und legt das Layout fest.
 	 * 
@@ -37,8 +36,9 @@ public class Gui {
 		this.frame = new JFrame("CryptoCroc");
 		this.frame.setSize(1280,800);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(layout);
+		frame.setLayout(new BorderLayout(0,0));
 		
+		JPanel panel = new JPanel(new BorderLayout(4,4));
 		this.clearText = clearText;
 		this.clearText.setVisible(true);
 		this.cryptoText = cryptoText;
@@ -47,13 +47,18 @@ public class Gui {
 		this.key.setVisible(true);
 		
 		this.frame.setJMenuBar(menu);
-		this.frame.add(this.clearText, BorderLayout.WEST);
-		this.clearText.setPreferredSize(new Dimension(500,800));
-		this.frame.add(this.cryptoText, BorderLayout.EAST);
-		this.cryptoText.setPreferredSize(new Dimension(500,800));
-		this.frame.add(this.key, BorderLayout.CENTER);
-		this.key.setPreferredSize(new Dimension(280,800));
+		panel.add(this.clearText, BorderLayout.WEST);
+		this.clearText.setPreferredSize(new Dimension(500,740));
+		panel.add(this.cryptoText, BorderLayout.EAST);
+		this.cryptoText.setPreferredSize(new Dimension(500,740));
+		panel.add(this.key, BorderLayout.CENTER);
+		this.key.setPreferredSize(new Dimension(200,740));
 		
+		this.frame.add(panel, BorderLayout.CENTER);
+		this.frame.add(new JPanel(), BorderLayout.NORTH);
+		this.frame.add(new JPanel(), BorderLayout.SOUTH);
+		this.frame.add(new JPanel(), BorderLayout.WEST);
+		this.frame.add(new JPanel(), BorderLayout.EAST);
 		this.frame.setResizable(false);
 		this.frame.setVisible(true);
 		
