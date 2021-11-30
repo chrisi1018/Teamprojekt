@@ -54,6 +54,7 @@ public class Gui {
 		this.frame.add(this.key, BorderLayout.CENTER);
 		this.key.setPreferredSize(new Dimension(280,800));
 		
+		this.frame.setResizable(false);
 		this.frame.setVisible(true);
 		
 		
