@@ -15,14 +15,17 @@ public class MainController {
 	private TextField plainText = new TextField("Klartext");
 	private TextField cryptoText = new TextField("Geheimtext");
 	private Gui gui;
+	private Menu menuBar;
 
 	/**
 	 * Konstruktor, der die GUI-Elemente erzeugt
 	 * 
 	 */
 	public MainController() {
+		this.menubar = new Menu({"Speichern", "Laden"});
+		this.menuBar.addMenu("Erklärungen", {"Caesar", "Monoalphabetisch"});
 		this.gui = new Gui(
-				new JMenuBar(),
+				menuBar,
 				plainText.createTextfieldPanel(), //Klartextpanel
 				cryptoText.createTextfieldPanel(), //Cryptotextpanel
 				new JPanel()  //keyPanel
