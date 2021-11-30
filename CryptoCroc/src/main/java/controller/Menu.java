@@ -43,4 +43,12 @@ public class Menu {
 			newMenu.add(item);
 		}
 	}
+	
+	/**
+	 * Gibt die Menueleiste der aktuellen Instanz zurück
+	 * @return this.menuBar Menueleiste
+	 */
+	public JMenuBar getJMenuBar() {
+		return this.menuBar;
+	}
 }
