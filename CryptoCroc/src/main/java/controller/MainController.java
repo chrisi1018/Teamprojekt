@@ -25,7 +25,7 @@ public class MainController {
 		this.menubar = new Menu({"Speichern", "Laden"});
 		this.menuBar.addMenu("Erklärungen", {"Caesar", "Monoalphabetisch"});
 		this.gui = new Gui(
-				menuBar,
+				this.menuBar.getJMenuBar();
 				plainText.createTextfieldPanel(), //Klartextpanel
 				cryptoText.createTextfieldPanel(), //Cryptotextpanel
 				new JPanel()  //keyPanel
