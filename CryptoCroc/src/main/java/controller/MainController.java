@@ -20,10 +20,6 @@ public class MainController {
 	 * 
 	 */
 	public MainController() {
-		this.menubar = new Menu({"Speichern", "Laden"});
-		this.menuBar.addMenu("Erklärungen", {"Caesar", "Monoalphabetisch"});
-		this.gui = new Gui(
-				this.menuBar.getJMenuBar();
 		this.menuBar = new Menu(new String[]{"Speichern", "Laden"}); //definiert eine neue Menueleiste mit Menue
 		this.menuBar.addMenu("Erklärungen", new String[]{"Caesar", "Monoalphabetisch"}); //fuegt ein neues Menue hinzu
 		this.gui = new Gui(
