@@ -19,15 +19,12 @@ public class MainController {
 	public MainController() {
 		this.menubar = new Menu({"Speichern", "Laden"});
 		this.menuBar.addMenu("Erklärungen", {"Caesar", "Monoalphabetisch"});
-<<<<<<< Updated upstream
-=======
 		this.gui = new Gui(
 				this.menuBar.getJMenuBar();
 				plainText.createTextfieldPanel(), //Klartextpanel
 				cryptoText.createTextfieldPanel(), //Cryptotextpanel
 				new JPanel()  //keyPanel
 				);
->>>>>>> Stashed changes
 	}
 
 }
