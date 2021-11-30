@@ -15,11 +15,11 @@ import java.awt.Dimension;
  */
 public class Gui {
 	
-	JFrame frame;
-	JPanel clearText;
-	JPanel cryptoText;
-	JPanel key;
-	BorderLayout layout = new BorderLayout();
+	private JFrame frame;
+	private JPanel clearText;
+	private JPanel cryptoText;
+	private JPanel key;
+	private BorderLayout layout = new BorderLayout();
 	/**
 	 * Konstruktor erzeugt den Frame und legt das Layout fest.
 	 * 
