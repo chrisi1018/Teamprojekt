@@ -15,12 +15,13 @@ public class Menu {
 	private JMenuBar menuBar;
 	
 	/**
-	 * Konstruktor, der Menuepunkte entgegennimmt und diese der Menueleiste hinzufügt
+	 * Konstruktor, der Menuepunkte entgegennimmt und diese der Menueleiste hinzufuegt
 	 * 
-	 * @param menus zu hinzufügende Menuepunkte
+	 * @param menus zu hinzufuegende Menuepunkte
 	 */
 	
 	public Menu(String[] menus) {
+		menuBar = new JMenuBar();
 		JMenu menu = new JMenu("Menu");
 		menuBar.add(menu);
 		for (int i=0; i<=menus.length; i++) {
@@ -30,10 +31,10 @@ public class Menu {
 	}
 	
 	/**
-	 * Fügt der Menueleiste ein neues Menue mit übergebenen Unterpunkten hinzu
+	 * Fuegt der Menueleiste ein neues Menue mit uebergebenen Unterpunkten hinzu
 	 * 
-	 * @param name Nem des neuen Menues
-	 * @param menus zugehörige Menuepunkte
+	 * @param name Name des neuen Menues
+	 * @param menus zugehoerige Menuepunkte
 	 */
 	public void addMenu(String name, String[] menus) {
 		JMenu newMenu = new JMenu(name);
@@ -45,7 +46,8 @@ public class Menu {
 	}
 	
 	/**
-	 * Gibt die Menueleiste der aktuellen Instanz zurück
+	 * Gibt die Menueleiste der aktuellen Instanz zurueck
+	 * 
 	 * @return this.menuBar Menueleiste
 	 */
 	public JMenuBar getJMenuBar() {
