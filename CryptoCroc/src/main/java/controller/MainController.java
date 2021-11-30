@@ -20,17 +20,14 @@ public class MainController {
 	 * 
 	 */
 	public MainController() {
-<<<<<<< HEAD
 		this.menubar = new Menu({"Speichern", "Laden"});
 		this.menuBar.addMenu("Erklärungen", {"Caesar", "Monoalphabetisch"});
 		this.gui = new Gui(
 				this.menuBar.getJMenuBar();
-=======
 		this.menuBar = new Menu(new String[]{"Speichern", "Laden"}); //definiert eine neue Menueleiste mit Menue
 		this.menuBar.addMenu("Erklärungen", new String[]{"Caesar", "Monoalphabetisch"}); //fuegt ein neues Menue hinzu
 		this.gui = new Gui(
 				this.menuBar.getJMenuBar(), //Menueleiste
->>>>>>> 0ce12d4b403597884ff9056e7542214a0563b176
 				plainText.createTextfieldPanel(), //Klartextpanel
 				cryptoText.createTextfieldPanel(), //Cryptotextpanel
 				new JPanel()  //keyPanel
