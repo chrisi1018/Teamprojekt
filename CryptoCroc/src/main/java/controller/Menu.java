@@ -8,7 +8,7 @@ import javax.swing.JMenuItem;
  * Beschreibt Aufbau und Funktion der Menueleiste in CryptoCroc
  * 
  * @author Julian Singer
- * @version 1.1
+ * @version 1.2
  */
 public class Menu {
 	
@@ -24,7 +24,7 @@ public class Menu {
 		menuBar = new JMenuBar();
 		JMenu menu = new JMenu("Menu");
 		menuBar.add(menu);
-		for (int i=0; i<=menus.length; i++) {
+		for (int i=0; i<menus.length; i++) {
 			JMenuItem item = new JMenuItem(menus[i]);
 			menu.add(item);
 		}
@@ -39,7 +39,7 @@ public class Menu {
 	public void addMenu(String name, String[] menus) {
 		JMenu newMenu = new JMenu(name);
 		menuBar.add(newMenu);
-		for (int i=0; i<=menus.length; i++) {
+		for (int i=0; i<menus.length; i++) {
 			JMenuItem item = new JMenuItem(menus[i]);
 			newMenu.add(item);
 		}
