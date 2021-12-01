@@ -5,6 +5,7 @@ import java.awt.Font;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 /**
@@ -15,8 +16,9 @@ import javax.swing.JTextArea;
  */
 public class TextField {
 
-	private JTextArea text = new JTextArea();
+	private JTextArea text = new JTextArea(10, 10);
 	private JLabel label;
+	private JScrollPane scroll = new JScrollPane(text);
 
 	/**
 	 * Konstruktor für ein TextField
@@ -26,6 +28,8 @@ public class TextField {
 	public TextField(String name) {
 		label = new JLabel(name);
 		text.setFont(new Font(Font.DIALOG, Font.PLAIN, 20));
+		text.setLineWrap(true);
+		text.setWrapStyleWord(true);
 	}
 
 	/**
