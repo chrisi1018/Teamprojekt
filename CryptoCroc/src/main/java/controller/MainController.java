@@ -24,16 +24,17 @@ public class MainController {
 	 */
 	public MainController() {
 		this.menuBar = new Menu(new String[]{"Speichern", "Laden"}); //definiert eine neue Menueleiste mit Menue
-		this.menuBar.addMenu("Erklärungen", new String[]{"Caesar", "Monoalphabetisch"}); //fuegt ein neues Menue hinzu
+		this.menuBar.addMenu("Erklï¿½rungen", new String[]{"Caesar", "Monoalphabetisch"}); //fuegt ein neues Menue hinzu
 		this.gui = new Gui(
 				this.menuBar.getJMenuBar(), //Menueleiste
 				plainText.createTextfieldPanel(), //Klartextpanel
 				cryptoText.createTextfieldPanel(), //Cryptotextpanel
-				new JPanel() //keyPanel
-				//key.createKeyPanel() //kann erst hinzugefügt werden, wenn zuvor key festgelegt wurde
+				new JPanel(), //keyPanel
+				//key.createKeyPanel() //kann erst hinzugefï¿½gt werden, wenn zuvor key festgelegt wurde
+				new JPanel() // fÃ¼r das DropdownmenÃ¼
 				);
-		//key.getEncrypt().addActionListener(e -> key.getCrypt().cryptAll("Klartext")); //TODO Hier muss noch der Klartext übergeben werden 
-		//key.getDecrypt().addActionListener(e -> key.getCrypt().decryptAll("Geheimtext")); // TODO Hier muss noch der Geheimtext übergeben werden
+		//key.getEncrypt().addActionListener(e -> key.getCrypt().cryptAll("Klartext")); //TODO Hier muss noch der Klartext ï¿½bergeben werden 
+		//key.getDecrypt().addActionListener(e -> key.getCrypt().decryptAll("Geheimtext")); // TODO Hier muss noch der Geheimtext ï¿½bergeben werden
 	}
 
 }
