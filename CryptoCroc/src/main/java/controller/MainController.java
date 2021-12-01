@@ -17,6 +17,7 @@ public class MainController {
 	private Key key;
 	private Gui gui;
 	private Menu menuBar;
+	private Dropdown dropDown = new Dropdown();
 
 	/**
 	 * Konstruktor, der die GUI-Elemente erzeugt
@@ -31,7 +32,7 @@ public class MainController {
 				cryptoText.createTextfieldPanel(), //Cryptotextpanel
 				new JPanel(), //keyPanel
 				//key.createKeyPanel() //kann erst hinzugef�gt werden, wenn zuvor key festgelegt wurde
-				new JPanel() // für das Dropdownmenü
+				dropDown.createDropdown() // für das Dropdownmenü
 				);
 		//key.getEncrypt().addActionListener(e -> key.getCrypt().cryptAll("Klartext")); //TODO Hier muss noch der Klartext �bergeben werden 
 		//key.getDecrypt().addActionListener(e -> key.getCrypt().decryptAll("Geheimtext")); // TODO Hier muss noch der Geheimtext �bergeben werden
