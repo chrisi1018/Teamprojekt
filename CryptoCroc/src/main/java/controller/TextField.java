@@ -31,6 +31,8 @@ public class TextField {
 		text.setLineWrap(true);
 		// sorgt dafür das ganzes Wort in die nächste Zeile wandert
 		text.setWrapStyleWord(true);
+		
+		label.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
 	}
 
 	/**
@@ -39,13 +41,19 @@ public class TextField {
 	 * @return ein JPanel mit einem Label und ein Textfeld darunter
 	 */
 	public JPanel createTextfieldPanel() {
-		JPanel panel = new JPanel(new BorderLayout());
+		BorderLayout bLayout = new BorderLayout();
+		JPanel panel = new JPanel(bLayout);
 		panel.add(label, BorderLayout.PAGE_START);
 		panel.add(text, BorderLayout.CENTER);
+		
+		// zum scrollen durch die TextArea; wird nur angezeigt wenn nötig
 		JScrollPane scroll = new JScrollPane(text);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		scroll.setVisible(true);
 		panel.add(scroll);
+		
+		// vertikale Lücke zwischen Elementen im Panel
+		bLayout.setVgap(10);
 		return panel;
 	}
 
