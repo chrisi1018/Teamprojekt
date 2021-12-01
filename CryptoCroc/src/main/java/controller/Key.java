@@ -1,34 +1,41 @@
 package controller;
 
+import java.awt.BorderLayout;
+
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
  * 
- * @author chris
+ * @author chrisi
  *
  */
-public abstract class Key {
-	JButton encrypt;
+public class Key {
+	private JButton encrypt;
 	
 	/**
 	 * 
 	 */
 	public Key() {
-		
+		encrypt = new JButton("verschluesseln");
 	}
 	
 	/**
 	 * 
 	 * @return
 	 */
-	abstract public JPanel createKeyPanel();
+	public JPanel createKeyPanel() {
+		JPanel panel = new JPanel(new BorderLayout());
+		panel.add(encrypt, BorderLayout.CENTER);
+		return panel;
+	}
 	
 	/**
 	 * 
 	 * @return
 	 */
 	public JButton getEncrypt() {
-		return null;
+		return encrypt;
 	}
 }
