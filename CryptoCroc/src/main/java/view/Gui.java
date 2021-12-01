@@ -3,6 +3,8 @@ package view;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
@@ -19,15 +21,17 @@ public class Gui {
 	private JPanel clearText;
 	private JPanel cryptoText;
 	private JPanel key;
+	private JPanel dropDown;
 	/**
 	 * Konstruktor erzeugt den Frame und legt das Layout fest.
 	 * 
 	 * @param menu Die Menu-Bar
-	 * @param clearText enthält das Textfeld für den Klartext
-	 * @param cryptotext enthält das Textfeld für den Cryptotext
-	 * @param key enthält die Buttons verschlüsseln und die Textfelder für den Schlüssel
+	 * @param clearText enthï¿½lt das Textfeld fï¿½r den Klartext
+	 * @param cryptotext enthï¿½lt das Textfeld fï¿½r den Cryptotext
+	 * @param key enthï¿½lt die Buttons verschlï¿½sseln und die Textfelder fï¿½r den Schlï¿½ssel
+	 * @param dropDown enthÃ¤lt das Dropdown-menÃ¼
 	 */
-	public Gui(JMenuBar menu, JPanel clearText, JPanel cryptoText, JPanel key) {
+	public Gui(JMenuBar menu, JPanel clearText, JPanel cryptoText, JPanel key, JPanel dropDown) {
 		
 		//clearText.setBackground(Color.GREEN);
 		//cryptoText.setBackground(Color.BLUE);
@@ -55,7 +59,7 @@ public class Gui {
 		this.key.setPreferredSize(new Dimension(200,740));
 		
 		this.frame.add(panel, BorderLayout.CENTER);
-		this.frame.add(new JPanel(), BorderLayout.NORTH);
+		this.frame.add(dropDown, BorderLayout.NORTH);
 		this.frame.add(new JPanel(), BorderLayout.SOUTH);
 		this.frame.add(new JPanel(), BorderLayout.WEST);
 		this.frame.add(new JPanel(), BorderLayout.EAST);
