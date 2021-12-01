@@ -1,7 +1,8 @@
 package controller;
 
-import java.util.ArrayList;
+import java.awt.BorderLayout;
 import javax.swing.JComboBox;
+import javax.swing.JPanel;
 
 /**
  * Beschreibt ein Dropdown Menü für die Verschlüsselungen
@@ -12,26 +13,22 @@ import javax.swing.JComboBox;
 public class Dropdown {
 
 	private JComboBox<String> dropDown = new JComboBox<String>();
-	private ArrayList<String> options = new ArrayList<String>();
+	private String[] options;
 
 	/**
 	 * Konstruktor, der ein Dropdown Menü initialisiert
 	 */
-	public Dropdown() {
-		options.add("Caesar");
-		options.add("Monoalphabetisch");
-		for (String opt : options) {
-			dropDown.addItem(opt);
+	public Dropdown(String[] options) {
+		this.options = options;
+		for (int i = 0; i < options.length; i++) {
+			dropDown.addItem(options[i]);
 		}
-
 	}
 
-	/**
-	 * Methode die es erlaubt neue Optionen hinzuzufügen
-	 * 
-	 * @param name Name der neuen Option, der zur ArrayList hinzugefügt wird
-	 */
-	public void addOption(String name) {
-		options.add(name);
+	public JPanel createDropdown() {
+		JPanel panel = new JPanel(new BorderLayout());
+		panel.add(dropDown);
+		return panel;
 	}
+
 }

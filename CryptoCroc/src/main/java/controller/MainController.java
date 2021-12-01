@@ -17,7 +17,7 @@ public class MainController {
 	private Key key;
 	private Gui gui;
 	private Menu menuBar;
-	private Dropdown dropDown = new Dropdown();
+	private Dropdown dropDown;
 
 	/**
 	 * Konstruktor, der die GUI-Elemente erzeugt
@@ -26,6 +26,8 @@ public class MainController {
 	public MainController() {
 		this.menuBar = new Menu(new String[]{"Speichern", "Laden"}); //definiert eine neue Menueleiste mit Menue
 		this.menuBar.addMenu("Erkl�rungen", new String[]{"Caesar", "Monoalphabetisch"}); //fuegt ein neues Menue hinzu
+		
+		this.dropDown = new Dropdown(new String[] {"Caesar", "Monoalphabetisch"});
 		this.gui = new Gui(
 				this.menuBar.getJMenuBar(), //Menueleiste
 				plainText.createTextfieldPanel(), //Klartextpanel
