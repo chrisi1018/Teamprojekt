@@ -3,8 +3,6 @@ package view;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
@@ -13,7 +11,7 @@ import java.awt.Dimension;
  * Erzeugt den Frame und legt dessen Layout fest.
  * 
  * @author Julian Sturm
- * @version 1.1
+ * @version 1.2
  */
 public class Gui {
 	
@@ -49,6 +47,8 @@ public class Gui {
 		this.cryptoText.setVisible(true);
 		this.key = key;
 		this.key.setVisible(true);
+		this.dropDown = dropDown;
+		this.dropDown.setVisible(true);
 		
 		this.frame.setJMenuBar(menu);
 		panel.add(this.clearText, BorderLayout.WEST);
@@ -59,7 +59,7 @@ public class Gui {
 		this.key.setPreferredSize(new Dimension(200,740));
 		
 		this.frame.add(panel, BorderLayout.CENTER);
-		this.frame.add(dropDown, BorderLayout.NORTH);
+		this.frame.add(this.dropDown, BorderLayout.NORTH);
 		this.frame.add(new JPanel(), BorderLayout.SOUTH);
 		this.frame.add(new JPanel(), BorderLayout.WEST);
 		this.frame.add(new JPanel(), BorderLayout.EAST);
