@@ -1,41 +1,80 @@
 package controller;
 
-import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Dimension;
 
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import model.Crypt;
+
 /**
+ * Beschreibt Aufbau der Spalte für die Buttons und die Schlüssel in CryptoCroc
  * 
  * @author chrisi
- *
+ * @version 1.1
  */
-public class Key {
-	private JButton encrypt;
+public abstract class Key {
+	private JButton encrypt = new JButton("verschlüsseln");
+	private JButton decrypt = new JButton("entschlüsseln");
+	private Crypt crypt;
 	
 	/**
+	 * Erzeugt die Buttons und die Schlüssel für das JPanel
 	 * 
+	 * @return ein JPanel mit Buttons und dem Schlüssel
 	 */
-	public Key() {
-		encrypt = new JButton("verschluesseln");
-	}
+	abstract public JPanel createKeyPanel(); //Bei der Implementierung createButtonPanel hinzufügen
 	
 	/**
+	 * Erzeugt die Buttons in einem JPanel
 	 * 
-	 * @return
+	 * @return ein JPanel mit die Buttons "verschlüsseln" und "entschlüsseln"
 	 */
-	public JPanel createKeyPanel() {
-		JPanel panel = new JPanel(new BorderLayout());
-		panel.add(encrypt, BorderLayout.CENTER);
+	protected JPanel createButtonPanel() {
+		JPanel panel = new JPanel(new FlowLayout()); //FlowLayout wichtig damit Button passende Größe haben
+		panel.add(createGapPanel());
+		panel.add(encrypt);
+		panel.add(createGapPanel());
+		panel.add(decrypt);
 		return panel;
 	}
 	
 	/**
+	 * Erzeugt ein JPanel, welcher ein Abstand erzeugt
 	 * 
-	 * @return
+	 * @return ein JPanel ohne Inhalt 
+	 */
+	private JPanel createGapPanel() {
+		JPanel panel = new JPanel();
+		panel.setPreferredSize(new Dimension(0, 50));
+		return panel;
+	}
+	
+	/**
+	 * Gib den Button für die Verschlüsselung zurück
+	 * 
+	 * @return den Button "verschlüsseln"
 	 */
 	public JButton getEncrypt() {
 		return encrypt;
+	}
+	
+	/**
+	 * Gibt den Button für die Entschlüsselung zurück
+	 * 
+	 * @return den Button "entschlüsseln"
+	 */
+	public JButton getDecrypt() {
+		return decrypt;
+	}
+	
+	/**
+	 * Gibt das Verfahren für die Verschlüsselung zurück
+	 * 
+	 * @return das Verschlüsselungs-Verfahren
+	 */
+	public Crypt getCrypt() {
+		return crypt;
 	}
 }

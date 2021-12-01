@@ -1,9 +1,9 @@
 package controller;
 
-import view.Gui;
 import javax.swing.JPanel;
 
-import model.Crypt;
+import view.Gui;
+
 /**
  * Klasse die fÃ¼r das Erzeugen der GUI-Elemente zustÃ¤ndig ist
  * 
@@ -14,11 +14,9 @@ public class MainController {
 
 	private TextField plainText = new TextField("Klartext");
 	private TextField cryptoText = new TextField("Geheimtext");
-	private Key key = new Key();
+	private Key key;
 	private Gui gui;
 	private Menu menuBar;
-	
-	private Crypt crypt = new Crypt();
 
 	/**
 	 * Konstruktor, der die GUI-Elemente erzeugt
@@ -31,9 +29,11 @@ public class MainController {
 				this.menuBar.getJMenuBar(), //Menueleiste
 				plainText.createTextfieldPanel(), //Klartextpanel
 				cryptoText.createTextfieldPanel(), //Cryptotextpanel
-				key.createKeyPanel()  //keyPanel
+				new JPanel() //keyPanel
+				//key.createKeyPanel() //kann erst hinzugefügt werden, wenn zuvor key festgelegt wurde
 				);
-		key.getEncrypt().addActionListener(e -> crypt.cryptAll("Test"));
+		//key.getEncrypt().addActionListener(e -> key.getCrypt().cryptAll("Klartext")); //TODO Hier muss noch der Klartext übergeben werden 
+		//key.getDecrypt().addActionListener(e -> key.getCrypt().decryptAll("Geheimtext")); // TODO Hier muss noch der Geheimtext übergeben werden
 	}
 
 }
