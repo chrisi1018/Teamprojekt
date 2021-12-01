@@ -1,6 +1,7 @@
 package controller;
 
 import java.awt.BorderLayout;
+import java.awt.Font;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -24,6 +25,7 @@ public class TextField {
 	 */
 	public TextField(String name) {
 		label = new JLabel(name);
+		text.setFont(new Font(Font.DIALOG, Font.PLAIN, 20));
 	}
 
 	/**
