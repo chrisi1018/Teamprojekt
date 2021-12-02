@@ -20,6 +20,13 @@ public abstract class Key {
 	private Crypt crypt;
 	
 	/**
+	 * Initialisiert die Buttons durch die Action Listener
+	 */
+	public void initKey() {
+		encrypt.addActionListener(e -> crypt.cryptAll("Klartext")); //TODO Hier muss noch der Klartext übergeben werden 
+		decrypt.addActionListener(e -> crypt.decryptAll("Geheimtext")); // TODO Hier muss noch der Geheimtext übergeben werden
+	}
+	/**
 	 * Erzeugt die Buttons und die Schlüssel für das JPanel
 	 * 
 	 * @return ein JPanel mit Buttons und dem Schlüssel

@@ -30,10 +30,9 @@ public class MainController {
 				plainText.createTextfieldPanel(), //Klartextpanel
 				cryptoText.createTextfieldPanel(), //Cryptotextpanel
 				new JPanel() //keyPanel
-				//key.createKeyPanel() //kann erst hinzugefügt werden, wenn zuvor key festgelegt wurde
+				//key.createKeyPanel() //kann erst hinzugefügt werden, wenn zuvor key festgelegt wurde also mit DropDown Menü
 				);
-		//key.getEncrypt().addActionListener(e -> key.getCrypt().cryptAll("Klartext")); //TODO Hier muss noch der Klartext übergeben werden 
-		//key.getDecrypt().addActionListener(e -> key.getCrypt().decryptAll("Geheimtext")); // TODO Hier muss noch der Geheimtext übergeben werden
+		//key.initKey(); //kann erst hinzugefügt werden, wenn zuvor key festgelegt wurde also erst mit DopDown Menü
 	}
 
 }
