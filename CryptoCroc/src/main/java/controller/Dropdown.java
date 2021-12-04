@@ -31,4 +31,7 @@ public class Dropdown {
 		return panel;
 	}
 
+	public String status() {
+		return dropDown.getSelectedItem().toString();
+	}
 }
