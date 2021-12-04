@@ -59,9 +59,10 @@ public class Gui {
 		this.cryptoText.setPreferredSize(new Dimension(500, 740));
 		panel.add(this.key, BorderLayout.CENTER);
 		this.key.setPreferredSize(new Dimension(200, 740));
+		panel.add(this.dropDown, BorderLayout.NORTH);
 
 		this.frame.add(panel, BorderLayout.CENTER);
-		this.frame.add(this.dropDown, BorderLayout.NORTH);
+		this.frame.add(new JPanel(), BorderLayout.NORTH);
 		this.frame.add(new JPanel(), BorderLayout.SOUTH);
 		this.frame.add(new JPanel(), BorderLayout.WEST);
 		this.frame.add(new JPanel(), BorderLayout.EAST);
