@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Für die Ver- und Entschlüsselung der verschiedenen Verfahren
+ * Fï¿½r die Ver- und Entschlï¿½sselung der verschiedenen Verfahren
  * 
  * @author chrisi
  * @version 1.1
@@ -9,16 +9,16 @@ package model;
 public abstract class Crypt {
 	
 	/**
-	 * Verschlüsselt den Klartext
+	 * Verschlï¿½sselt den Klartext
 	 * 
 	 * @param plainText der Klartext
 	 */
-	abstract public void cryptAll(String plainText);
+	public abstract void cryptAll(String plainText);
 	
 	/**
-	 * Entschlüsselt den Geheimtext
+	 * Entschlï¿½sselt den Geheimtext
 	 * 
 	 * @param cryptoText der Geheimtext
 	 */
-	abstract public void decryptAll(String cryptoText);
+	public abstract void decryptAll(String cryptoText);
 }

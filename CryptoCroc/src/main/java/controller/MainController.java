@@ -28,17 +28,16 @@ public class MainController {
 		this.menuBar.addMenu("Erkl�rungen", new String[]{"Caesar", "Monoalphabetisch"}); //fuegt ein neues Menue hinzu
 		
 		this.dropDown = new Dropdown(new String[] {"Caesar", "Monoalphabetisch"});
+
 		this.gui = new Gui(
 				this.menuBar.getJMenuBar(), //Menueleiste
 				plainText.createTextfieldPanel(), //Klartextpanel
 				cryptoText.createTextfieldPanel(), //Cryptotextpanel
-
 				new JPanel(), //keyPanel
 				//key.createKeyPanel() //kann erst hinzugef�gt werden, wenn zuvor key festgelegt wurde
 				dropDown.createDropdown() // für das Dropdownmenü
 				);
 		//key.initKey(); //kann erst hinzugef�gt werden, wenn zuvor key festgelegt wurde also erst mit DopDown Men�
-
 	}
 
 }
