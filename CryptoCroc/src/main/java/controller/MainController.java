@@ -32,12 +32,19 @@ public class MainController {
 				this.menuBar.getJMenuBar(), //Menueleiste
 				plainText.createTextfieldPanel(), //Klartextpanel
 				cryptoText.createTextfieldPanel(), //Cryptotextpanel
+<<<<<<< HEAD
 				new JPanel(), //keyPanel
 				//key.createKeyPanel() //kann erst hinzugefï¿½gt werden, wenn zuvor key festgelegt wurde
 				dropDown.createDropdown() // fÃ¼r das DropdownmenÃ¼
 				);
 		//key.getEncrypt().addActionListener(e -> key.getCrypt().cryptAll("Klartext")); //TODO Hier muss noch der Klartext ï¿½bergeben werden 
 		//key.getDecrypt().addActionListener(e -> key.getCrypt().decryptAll("Geheimtext")); // TODO Hier muss noch der Geheimtext ï¿½bergeben werden
+=======
+				new JPanel() //keyPanel
+				//key.createKeyPanel() //kann erst hinzugefügt werden, wenn zuvor key festgelegt wurde also mit DropDown Menü
+				);
+		//key.initKey(); //kann erst hinzugefügt werden, wenn zuvor key festgelegt wurde also erst mit DopDown Menü
+>>>>>>> main
 	}
 
 }
