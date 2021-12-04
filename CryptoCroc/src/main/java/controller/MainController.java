@@ -24,15 +24,16 @@ public class MainController {
 	 */
 	public MainController() {
 		this.menuBar = new Menu(new String[]{"Speichern", "Laden"}); //definiert eine neue Menueleiste mit Menue
-		this.menuBar.addMenu("Erklärungen", new String[]{"Caesar", "Monoalphabetisch"}); //fuegt ein neues Menue hinzu
+		this.menuBar.addMenu("Erklï¿½rungen", new String[]{"Caesar", "Monoalphabetisch"}); //fuegt ein neues Menue hinzu
 		this.gui = new Gui(
 				this.menuBar.getJMenuBar(), //Menueleiste
 				plainText.createTextfieldPanel(), //Klartextpanel
 				cryptoText.createTextfieldPanel(), //Cryptotextpanel
 				new JPanel() //keyPanel
-				//key.createKeyPanel() //kann erst hinzugefügt werden, wenn zuvor key festgelegt wurde also mit DropDown Menü
+				//key.createKeyPanel()
+				//kann erst hinzugefï¿½gt werden, wenn zuvor key festgelegt wurde also mit DropDown Menï¿½
 				);
-		//key.initKey(); //kann erst hinzugefügt werden, wenn zuvor key festgelegt wurde also erst mit DopDown Menü
+		//key.initKey(); //kann erst hinzugefï¿½gt werden, wenn zuvor key festgelegt wurde also erst mit DopDown Menï¿½
 	}
 
 }

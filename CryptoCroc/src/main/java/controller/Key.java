@@ -9,37 +9,38 @@ import javax.swing.JPanel;
 import model.Crypt;
 
 /**
- * Beschreibt Aufbau der Spalte für die Buttons und die Schlüssel in CryptoCroc
+ * Beschreibt Aufbau der Spalte fï¿½r die Buttons und die Schlï¿½ssel in CryptoCroc
  * 
  * @author chrisi
  * @version 1.1
  */
 public abstract class Key {
-	private JButton encrypt = new JButton("verschlüsseln");
-	private JButton decrypt = new JButton("entschlüsseln");
+	private JButton encrypt = new JButton("verschlï¿½sseln");
+	private JButton decrypt = new JButton("entschlï¿½sseln");
 	private Crypt crypt;
 	
 	/**
 	 * Initialisiert die Buttons durch die Action Listener
 	 */
 	public void initKey() {
-		encrypt.addActionListener(e -> crypt.cryptAll("Klartext")); //TODO Hier muss noch der Klartext übergeben werden 
-		decrypt.addActionListener(e -> crypt.decryptAll("Geheimtext")); // TODO Hier muss noch der Geheimtext übergeben werden
+		encrypt.addActionListener(e -> crypt.cryptAll("Klartext")); //TODO Hier muss noch der Klartext ï¿½bergeben werden 
+		decrypt.addActionListener(e -> crypt.decryptAll("Geheimtext")); 
+		// TODO Hier muss noch der Geheimtext ï¿½bergeben werden
 	}
 	/**
-	 * Erzeugt die Buttons und die Schlüssel für das JPanel
+	 * Erzeugt die Buttons und die Schlï¿½ssel fï¿½r das JPanel
 	 * 
-	 * @return ein JPanel mit Buttons und dem Schlüssel
+	 * @return ein JPanel mit Buttons und dem Schlï¿½ssel
 	 */
-	abstract public JPanel createKeyPanel(); //Bei der Implementierung createButtonPanel hinzufügen
+	public abstract JPanel createKeyPanel(); //Bei der Implementierung createButtonPanel hinzufï¿½gen
 	
 	/**
 	 * Erzeugt die Buttons in einem JPanel
 	 * 
-	 * @return ein JPanel mit die Buttons "verschlüsseln" und "entschlüsseln"
+	 * @return ein JPanel mit die Buttons "verschlï¿½sseln" und "entschlï¿½sseln"
 	 */
 	protected JPanel createButtonPanel() {
-		JPanel panel = new JPanel(new FlowLayout()); //FlowLayout wichtig damit Button passende Größe haben
+		JPanel panel = new JPanel(new FlowLayout()); //FlowLayout wichtig damit Button passende Grï¿½ï¿½e haben
 		panel.add(createGapPanel());
 		panel.add(encrypt);
 		panel.add(createGapPanel());
@@ -59,27 +60,27 @@ public abstract class Key {
 	}
 	
 	/**
-	 * Gib den Button für die Verschlüsselung zurück
+	 * Gib den Button fï¿½r die Verschlï¿½sselung zurï¿½ck
 	 * 
-	 * @return den Button "verschlüsseln"
+	 * @return den Button "verschlï¿½sseln"
 	 */
 	public JButton getEncrypt() {
 		return encrypt;
 	}
 	
 	/**
-	 * Gibt den Button für die Entschlüsselung zurück
+	 * Gibt den Button fï¿½r die Entschlï¿½sselung zurï¿½ck
 	 * 
-	 * @return den Button "entschlüsseln"
+	 * @return den Button "entschlï¿½sseln"
 	 */
 	public JButton getDecrypt() {
 		return decrypt;
 	}
 	
 	/**
-	 * Gibt das Verfahren für die Verschlüsselung zurück
+	 * Gibt das Verfahren fï¿½r die Verschlï¿½sselung zurï¿½ck
 	 * 
-	 * @return das Verschlüsselungs-Verfahren
+	 * @return das Verschlï¿½sselungs-Verfahren
 	 */
 	public Crypt getCrypt() {
 		return crypt;
