@@ -6,6 +6,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import model.CCrypt;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -22,6 +24,7 @@ public class CKey extends Key {
 
 	JTextField key = new JTextField();
 	JLabel name = new JLabel("A");
+	CCrypt crypt = new CCrypt();
 	
 	/**
 	 * Ueberschreibt die Methode 'createKeyPanel'
