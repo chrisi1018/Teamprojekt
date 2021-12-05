@@ -23,8 +23,8 @@ public abstract class Key {
 	 * Initialisiert die Buttons durch die Action Listener
 	 */
 	public void initKey() {
-		encrypt.addActionListener(e -> crypt.cryptAll("Klartext")); //TODO Hier muss noch der Klartext �bergeben werden 
-		decrypt.addActionListener(e -> crypt.decryptAll("Geheimtext")); 
+		encrypt.addActionListener(e -> crypt.cryptAll("Klartext","key")); //TODO Hier muss noch der Klartext �bergeben werden 
+		decrypt.addActionListener(e -> crypt.decryptAll("Geheimtext","Key")); 
 		// TODO Hier muss noch der Geheimtext �bergeben werden
 	}
 	/**

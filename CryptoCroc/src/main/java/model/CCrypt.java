@@ -1,7 +1,11 @@
 package model;
 
-
-public class CCrypt /*extends Crypt*/ {
+/**
+ * 
+ * @author Julian Sturm
+ * @version 1.0
+ */
+public class CCrypt extends Crypt {
 
 	/**
 	 * Eine Methode die einen Buchstaben mit dem Cäsar-Verfahren verschlüsselt
@@ -28,7 +32,7 @@ public class CCrypt /*extends Crypt*/ {
 	 * @return der entschlüsselte Buchstabe
 	 */
 	public char decryptChar(char c, int key) {
-		return cryptChar(c, - key);
+		return cryptChar(c, 26 - key);
 	}
 	
 	/**

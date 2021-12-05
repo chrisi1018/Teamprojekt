@@ -13,12 +13,12 @@ public abstract class Crypt {
 	 * 
 	 * @param plainText der Klartext
 	 */
-	public abstract void cryptAll(String plainText);
+	public abstract String cryptAll(String plainText, String key);
 	
 	/**
 	 * Entschl�sselt den Geheimtext
 	 * 
 	 * @param cryptoText der Geheimtext
 	 */
-	public abstract void decryptAll(String cryptoText);
+	public abstract String decryptAll(String cryptoText, String key);
 }
