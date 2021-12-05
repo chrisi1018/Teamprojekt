@@ -20,21 +20,22 @@ public class Gui {
 	private JPanel key;
 
 	private JPanel dropDown;
+
 	/**
 	 * Konstruktor erzeugt den Frame und legt das Layout fest.
 	 * 
-	 * @param menu Die Menu-Bar
-	 * @param clearText enth�lt das Textfeld f�r den Klartext
+	 * @param menu       Die Menu-Bar
+	 * @param clearText  enth�lt das Textfeld f�r den Klartext
 	 * @param cryptotext enth�lt das Textfeld f�r den Cryptotext
-	 * @param key enth�lt die Buttons verschl�sseln und die Textfelder f�r den Schl�ssel
-	 * @param dropDown enthält das Dropdown-menü
+	 * @param key        enth�lt die Buttons verschl�sseln und die Textfelder f�r
+	 *                   den Schl�ssel
+	 * @param dropDown   enthält das Dropdown-menü
 	 */
 	public Gui(JMenuBar menu, JPanel clearText, JPanel cryptoText, JPanel key, JPanel dropDown) {
-		
-		//clearText.setBackground(Color.GREEN);
-		//cryptoText.setBackground(Color.BLUE);
-		//key.setBackground(Color.RED);
 
+		// clearText.setBackground(Color.GREEN);
+		// cryptoText.setBackground(Color.BLUE);
+		// key.setBackground(Color.RED);
 
 		this.frame = new JFrame("CryptoCroc");
 		this.frame.setSize(1280, 800);
@@ -51,7 +52,7 @@ public class Gui {
 
 		this.dropDown = dropDown;
 		this.dropDown.setVisible(true);
-		
+
 		this.frame.setJMenuBar(menu);
 		panel.add(this.clearText, BorderLayout.WEST);
 		this.clearText.setPreferredSize(new Dimension(500, 740));
@@ -59,7 +60,15 @@ public class Gui {
 		this.cryptoText.setPreferredSize(new Dimension(500, 740));
 		panel.add(this.key, BorderLayout.CENTER);
 		this.key.setPreferredSize(new Dimension(200, 740));
-		panel.add(this.dropDown, BorderLayout.NORTH);
+
+		// zur Seite schieben des Dropdown Menue's
+		BorderLayout bSpace = new BorderLayout();
+		JPanel space = new JPanel(bSpace);
+		space.add(this.dropDown, BorderLayout.WEST);
+		space.add(new JPanel(), BorderLayout.EAST);
+		bSpace.setHgap(30);
+
+		panel.add(space, BorderLayout.NORTH);
 
 		this.frame.add(panel, BorderLayout.CENTER);
 		this.frame.add(new JPanel(), BorderLayout.NORTH);
