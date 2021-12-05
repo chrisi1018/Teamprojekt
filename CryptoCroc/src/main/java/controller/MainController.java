@@ -18,24 +18,29 @@ public class MainController {
 	private Gui gui;
 	private Menu menuBar;
 	private Dropdown dropDown;
+	private String[] encryptOpt = { "Caesar", "Monoalphabetisch" };
 
 	/**
 	 * Konstruktor, der die GUI-Elemente erzeugt
 	 * 
 	 */
 	public MainController() {
-		this.menuBar = new Menu(new String[]{"Speichern", "Laden"}); //definiert eine neue Menueleiste mit Menue
-		this.menuBar.addMenu("Erkl�rungen", new String[]{"Caesar", "Monoalphabetisch"}); //fuegt ein neues Menue hinzu
-		this.dropDown = new Dropdown(new String[] {"Caesar", "Monoalphabetisch"});
-		this.gui = new Gui(
-				this.menuBar.getJMenuBar(), //Menueleiste
-				plainText.createTextfieldPanel(), //Klartextpanel
-				cryptoText.createTextfieldPanel(), //Cryptotextpanel
-				new JPanel(), //keyPanel
-				//key.createKeyPanel() //kann erst hinzugef�gt werden, wenn zuvor key festgelegt wurde
-				dropDown.createDropdown() // für das Dropdownmenü
-				);
-		//key.initKey(); //kann erst hinzugef�gt werden, wenn zuvor key festgelegt wurde also erst mit DopDown Men�
-	}
+		this.menuBar = new Menu(new String[] { "Speichern", "Laden" }); // definiert eine neue Menueleiste mit Menue
+		this.menuBar.addMenu("Erkl�rungen", encryptOpt); // fuegt ein neues Menue hinzu
+		this.dropDown = new Dropdown(encryptOpt);
+		this.gui = new Gui(this.menuBar.getJMenuBar(), // Menueleiste
+				plainText.createTextfieldPanel(), // Klartextpanel
+				cryptoText.createTextfieldPanel(), // Cryptotextpanel
+				new JPanel(), // keyPanel
+				// key.createKeyPanel() //kann erst hinzugef�gt werden, wenn zuvor key
+				// festgelegt wurde
 
+				dropDown.createDropdown() // für das Dropdownmenü
+		);
+		// key.initKey(); //kann erst hinzugef�gt werden, wenn zuvor key festgelegt
+		// wurde also erst mit DropDown Men�
+	}
+	
+	
+	
 }
