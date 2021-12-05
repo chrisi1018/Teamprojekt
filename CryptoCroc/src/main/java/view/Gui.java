@@ -17,8 +17,7 @@ public class Gui {
 	private JFrame frame;
 	private JPanel clearText;
 	private JPanel cryptoText;
-	private JPanel key;
-
+	private JPanel keyPanel;
 	private JPanel dropDown;
 
 	/**
@@ -31,7 +30,7 @@ public class Gui {
 	 *                   den Schl�ssel
 	 * @param dropDown   enthält das Dropdown-menü
 	 */
-	public Gui(JMenuBar menu, JPanel clearText, JPanel cryptoText, JPanel key, JPanel dropDown) {
+	public Gui(JMenuBar menu, JPanel clearText, JPanel cryptoText, JPanel keyPanel, JPanel dropDown) {
 
 		// clearText.setBackground(Color.GREEN);
 		// cryptoText.setBackground(Color.BLUE);
@@ -47,19 +46,18 @@ public class Gui {
 		this.clearText.setVisible(true);
 		this.cryptoText = cryptoText;
 		this.cryptoText.setVisible(true);
-		this.key = key;
-		this.key.setVisible(true);
-
 		this.dropDown = dropDown;
 		this.dropDown.setVisible(true);
+		this.keyPanel = keyPanel;
+		this.keyPanel.setVisible(true);
 
 		this.frame.setJMenuBar(menu);
 		panel.add(this.clearText, BorderLayout.WEST);
 		this.clearText.setPreferredSize(new Dimension(500, 740));
 		panel.add(this.cryptoText, BorderLayout.EAST);
 		this.cryptoText.setPreferredSize(new Dimension(500, 740));
-		panel.add(this.key, BorderLayout.CENTER);
-		this.key.setPreferredSize(new Dimension(200, 740));
+		panel.add(this.keyPanel, BorderLayout.CENTER);
+		this.keyPanel.setPreferredSize(new Dimension(200, 740));
 
 		// zur Seite schieben des Dropdown Menue's
 		BorderLayout bSpace = new BorderLayout();
@@ -78,5 +76,16 @@ public class Gui {
 		this.frame.setResizable(false);
 		this.frame.setVisible(true);
 
+	}
+
+	/**
+	 * Eine Setter-Methode f�r das KeyPanel-Panel
+	 * 
+	 * @param das KeyPanel panel, das eingesetzt wird
+	 */
+	public void setKeyPanel(JPanel keyPanel) {
+		this.keyPanel = keyPanel;
+		this.keyPanel.add(this.keyPanel, BorderLayout.CENTER);
+		this.keyPanel.setPreferredSize(new Dimension(200, 740));
 	}
 }
