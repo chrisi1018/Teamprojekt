@@ -45,7 +45,7 @@ public class CKey extends Key {
 		textPanel.add(Box.createRigidArea(new Dimension(0,5)));
 		textPanel.add(key);
 		key.setHorizontalAlignment(JTextField.CENTER);
-		key.setMaximumSize(new Dimension(20, 30));
+		key.setMaximumSize(new Dimension(19, 30));
 		key.setAlignmentX(Component.CENTER_ALIGNMENT);
 		
 		//fuegt das Text- und Buttonpanel zu einem Panel zusammen
