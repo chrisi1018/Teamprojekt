@@ -1,10 +1,16 @@
 package model;
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Random;
 
 
+/**
+ * @author Julian Sturm
+ * @version 1.0 
+ */
 public class CCryptTest {
 	
 	private CCrypt test;
