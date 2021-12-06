@@ -31,9 +31,9 @@ public class MainController {
 				cryptoText.createTextfieldPanel(), //Cryptotextpanel
 				new JPanel() //keyPanel
 				//key.createKeyPanel()
-				//kann erst hinzugefï¿½gt werden, wenn zuvor key festgelegt wurde also mit DropDown Menï¿½
+				//kann erst hinzugefügt werden, wenn zuvor key festgelegt wurde also mit DropDown Menü
 				);
-		//key.initKey(); //kann erst hinzugefï¿½gt werden, wenn zuvor key festgelegt wurde also erst mit DopDown Menï¿½
+		//key.initKey(); //kann erst hinzugefügt werden, wenn zuvor key festgelegt wurde also erst mit DopDown Menï¿½
 	}
 
 }
