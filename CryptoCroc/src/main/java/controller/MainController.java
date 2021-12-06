@@ -34,7 +34,6 @@ public class MainController {
 				new JPanel(), // keyPanel
 				// key.createKeyPanel() //kann erst hinzugef�gt werden, wenn zuvor key
 				// festgelegt wurde
-
 				dropDown.createDropdown() // für das Dropdownmenü
 		);
 		// key.initKey(); //kann erst hinzugef�gt werden, wenn zuvor key festgelegt
