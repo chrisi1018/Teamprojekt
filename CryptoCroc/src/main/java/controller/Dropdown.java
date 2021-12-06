@@ -3,6 +3,8 @@ package controller;
 import java.awt.BorderLayout;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  * Beschreibt ein Dropdown Menue für die Verschluesselungen
@@ -20,11 +22,13 @@ public class Dropdown {
 	 * 
 	 * @param options ein String mit allen Optionen des Dropdown Menue's
 	 */
-	public Dropdown(String[] options) {
+	public Dropdown(String[] options, ActionListener change) {
+		dropDown.setEditable(false);
 		this.options = options;
 		for (int i = 0; i < options.length; i++) {
 			dropDown.addItem(options[i]);
 		}
+		dropDown.addActionListener(change);
 	}
 
 	/**
@@ -32,7 +36,7 @@ public class Dropdown {
 	 * 
 	 * @return ein panel mit dem Dropdown Menue
 	 */
-	public JPanel createDropdown() {
+	protected JPanel createDropdown() {
 		JPanel panel = new JPanel(new BorderLayout());
 		panel.add(dropDown);
 		return panel;
@@ -43,7 +47,7 @@ public class Dropdown {
 	 * 
 	 * @return ein string, der die aktuelle Option enthält
 	 */
-	public String status() {
+	protected String status() {
 		return dropDown.getSelectedItem().toString();
 	}
 }
