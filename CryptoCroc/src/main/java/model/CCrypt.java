@@ -42,6 +42,7 @@ public class CCrypt extends Crypt {
 	 * @param stringKey der verwendete Schlüssel
 	 * @return der verschlüsselde Text
 	 */
+	@Override
 	public String cryptAll(String text, String stringKey) {
 		int key = castKey(stringKey);
 		String ret = "";
@@ -58,6 +59,7 @@ public class CCrypt extends Crypt {
 	 *  @param stringKey der verwendete Schlüssel
 	 *  @return der entschlüsselte Text
 	 */
+	@Override
 	public String decryptAll(String text, String stringKey) {
 		int key = castKey(stringKey);
 		String ret = "";
