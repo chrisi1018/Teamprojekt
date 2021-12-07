@@ -22,9 +22,16 @@ import java.awt.Component;
  */
 public class CKey extends Key {
 
-	JTextField key = new JTextField();
-	JLabel name = new JLabel("A");
-	CCrypt crypt = new CCrypt();
+	private JTextField key = new JTextField();
+	private JLabel name = new JLabel("A");
+	
+	
+	/**
+	 * Konstruktor, der der neuen Instanz die Caesar-Verschlüsselung zuordnet
+	 */
+	public CKey() {
+		super.setCrypt(new CCrypt());
+	}
 	
 	/**
 	 * Ueberschreibt die Methode 'createKeyPanel'
@@ -32,7 +39,7 @@ public class CKey extends Key {
 	@Override
 	public JPanel createKeyPanel() {
 		BorderLayout layout = new BorderLayout();
-		JLabel description = new JLabel("Schlüssel:");
+		JLabel description = new JLabel("Schlüssel");
 		description.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
 		name.setFont(new Font(Font.DIALOG, Font.BOLD, 15));
 		key.setFont(new Font(Font.DIALOG, Font.BOLD, 15));

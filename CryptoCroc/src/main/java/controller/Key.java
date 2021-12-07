@@ -48,6 +48,17 @@ public abstract class Key {
 	/**
 	 * Gib den Button für die Verschlüsselung zurück
 	 * 
+	 * @return ein JPanel ohne Inhalt 
+	 */
+	private JPanel createGapPanel() {
+		JPanel panel = new JPanel();
+		panel.setPreferredSize(new Dimension(0, 50));
+		return panel;
+	}
+	
+	/**
+	 * Gib den Button für die Verschlüsselung zurück
+	 * 
 	 * @return den Button "verschlüsseln"
 	 */
 	public JButton getEncrypt() {
@@ -70,5 +81,14 @@ public abstract class Key {
 	 */
 	public Crypt getCrypt() {
 		return crypt;
+	}
+	
+	/**
+	 * Setzt die Crypt-Instanz der aktuellen Instanz auf eine neue Crypt-Instanz
+	 * 
+	 * @param newCrypt neue Crypt-Instanz
+	 */
+	public void setCrypt(Crypt newCrypt) {
+		this.crypt = newCrypt;
 	}
 }
