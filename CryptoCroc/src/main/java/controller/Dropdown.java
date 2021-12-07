@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 /**
  * Beschreibt ein Dropdown Menue für die Verschluesselungen
@@ -21,6 +20,7 @@ public class Dropdown {
 	 * Konstruktor, der ein Dropdown Menue initialisiert
 	 * 
 	 * @param options ein String mit allen Optionen des Dropdown Menue's
+	 * @param change der Actionlistener
 	 */
 	public Dropdown(String[] options, ActionListener change) {
 		dropDown.setEditable(false);

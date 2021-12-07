@@ -72,7 +72,7 @@ public class CCrypt extends Crypt {
 	/**
 	 * Eine Methode die Überfrüft ob der Schlüssel das richtige Format hat.
 	 * 
-	 * @param string Der Schlüssel der verwendet wird.
+	 * @param key Der Schlüssel der verwendet wird.
 	 * @return ein Wahrheitswer ob der Verwendete schlüssel richtig ist.
 	 */
 	public boolean checkKey(String key) {

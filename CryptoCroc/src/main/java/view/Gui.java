@@ -26,8 +26,8 @@ public class Gui {
 	 * 
 	 * @param menu       Die Menu-Bar
 	 * @param clearText  enth�lt das Textfeld f�r den Klartext
-	 * @param cryptotext enth�lt das Textfeld f�r den Cryptotext
-	 * @param key        enth�lt die Buttons verschl�sseln und die Textfelder f�r
+	 * @param cryptoText enth�lt das Textfeld f�r den Cryptotext
+	 * @param keyPanel        enth�lt die Buttons verschl�sseln und die Textfelder f�r
 	 *                   den Schl�ssel
 	 * @param dropDown   enthält das Dropdown-menü
 	 */
@@ -78,7 +78,7 @@ public class Gui {
 	/**
 	 * Tauscht das KeyPanel aus
 	 * 
-	 * @param das KeyPanel panel, das eingesetzt wird
+	 * @param keyPanel das KeyPanel panel, das eingesetzt wird
 	 */
 	public void setKeyPanel(JPanel keyPanel) {
 		this.mainPanel.remove(this.keyPanel);

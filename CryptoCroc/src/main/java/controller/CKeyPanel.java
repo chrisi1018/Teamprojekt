@@ -49,10 +49,10 @@ public class CKeyPanel extends KeyPanel {
 		textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.PAGE_AXIS));
 		textPanel.add(description);
 		description.setAlignmentX(Component.CENTER_ALIGNMENT);
-		textPanel.add(Box.createRigidArea(new Dimension(0,20)));
+		textPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		textPanel.add(name);
 		name.setAlignmentX(Component.CENTER_ALIGNMENT);
-		textPanel.add(Box.createRigidArea(new Dimension(0,5)));
+		textPanel.add(Box.createRigidArea(new Dimension(0, 5)));
 		textPanel.add(key);
 		key.setHorizontalAlignment(JTextField.CENTER);
 		key.setMaximumSize(new Dimension(19, 30));

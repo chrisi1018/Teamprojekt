@@ -3,7 +3,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JPanel;
+
 
 import view.Gui;
 
@@ -35,7 +35,6 @@ public class MainController {
 				key = new VKeyPanel();
 			}
 			gui.setKeyPanel(key.createKeyPanel());
-			;
 		}
 	};
 

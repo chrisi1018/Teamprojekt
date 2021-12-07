@@ -1,7 +1,7 @@
 package controller;
 
 import java.awt.FlowLayout;
-import java.awt.Dimension;
+
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -23,8 +23,10 @@ public abstract class KeyPanel {
 	 * Initialisiert die Buttons durch die Action Listener
 	 */
 	public void initKey() {
-		encrypt.addActionListener(e -> crypt.cryptAll("Klartext","key")); //TODO Hier muss noch der Klartext übergeben werden 
-		decrypt.addActionListener(e -> crypt.decryptAll("Geheimtext","Key")); // TODO Hier muss noch der Geheimtext übergeben werden
+		encrypt.addActionListener(e -> crypt.cryptAll("Klartext", "key"));
+		//TODO Hier muss noch der Klartext übergeben werden 
+		decrypt.addActionListener(e -> crypt.decryptAll("Geheimtext", "Key"));
+		// TODO Hier muss noch der Geheimtext übergeben werden
 	}
 	/**
 	 * Erzeugt die Buttons und die Schlüssel für das JPanel

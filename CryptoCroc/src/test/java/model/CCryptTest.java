@@ -67,12 +67,17 @@ public class CCryptTest {
 			+ " udqn dnr ds zbbtrzl ds itrsn ctn cnknqdr ds dz qdatl. Rsds"
 			+ " bkhsz jzrc ftadqfqdm, mn rdz szjhlzsz rzmbstr drs Knqdl h"
 			+ "ortl cnknq rhs zlds.";
-	
+	/**
+	 * Initalisiert den Test
+	 */
 	@BeforeEach
 	void init() {
 		this.test = new CCrypt();
 	}
 	
+	/**
+	 * Beendet den Test
+	 */
 	@AfterEach
 	void remove() {
 		this.test = null;
@@ -83,7 +88,7 @@ public class CCryptTest {
 	 */
 	@Test
 	void fixedTestNullCrypt() {
-		assertEquals(textNull, test.cryptAll(textNull,"A"));
+		assertEquals(textNull, test.cryptAll(textNull, "A"));
 	}
 	
 	/**
@@ -91,7 +96,7 @@ public class CCryptTest {
 	 */
 	@Test
 	void ficedTestNullDecrypt() {
-		assertEquals(textNull, test.decryptAll(textNull,"A"));
+		assertEquals(textNull, test.decryptAll(textNull, "A"));
 	}
 	
 	/**
@@ -115,7 +120,7 @@ public class CCryptTest {
 	 */
 	@Test
 	void fixedTestTwelveCrypt() {
-		assertEquals(textTwelve, test.cryptAll(textNull, "M") );
+		assertEquals(textTwelve, test.cryptAll(textNull, "M"));
 	}
 	
 	/**
@@ -192,7 +197,7 @@ public class CCryptTest {
 	 */
 	@Test
 	void keyTestRight() {
-		assert(test.checkKey("A"));
+		assert (test.checkKey("A"));
 	}
 	
 	/**
@@ -200,7 +205,7 @@ public class CCryptTest {
 	 */
 	@Test
 	void keyTestWrong() {
-		assert(!test.checkKey("!"));
+		assert (!test.checkKey("!"));
 	}
 	
 	/**
@@ -208,14 +213,14 @@ public class CCryptTest {
 	 */
 	@Test
 	void keyTestLong() {
-		assert(!test.checkKey("bAHLgsdhadsgbbdjas"));
+		assert (!test.checkKey("bAHLgsdhadsgbbdjas"));
 	}
 	
 	/**
 	 * Testet die checkKey Funktion mit leerem String
 	 */
 	void keyTestNull() {
-		assert(!test.checkKey(""));
+		assert (!test.checkKey(""));
 	}
 	
 	
