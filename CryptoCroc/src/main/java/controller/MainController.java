@@ -1,5 +1,8 @@
 package controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JPanel;
 
 import view.Gui;
@@ -14,26 +17,42 @@ public class MainController {
 
 	private TextField plainText = new TextField("Klartext");
 	private TextField cryptoText = new TextField("Geheimtext");
-	private Key key;
+	private Key key = new CKey();
 	private Gui gui;
 	private Menu menuBar;
+	private Dropdown dropDown;
+	private String[] encryptOpt = { "Caesar", "Monoalphabetisch", "Vigenere" };
+	private ActionListener change = new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			String opt = dropDown.status();
+			
+			if (opt.equals(encryptOpt[0])) {
+				key = new CKey();
+			} else if (opt.equals(encryptOpt[1])) {
+				// TODO fÃ¼r einen Monoalphabetischen SchlÃ¼ssel
+			} else if (opt.equals(encryptOpt[2])) {
+				key = new VKey();
+			}
+			;
+		}
+	};
 
 	/**
 	 * Konstruktor, der die GUI-Elemente erzeugt
 	 * 
 	 */
 	public MainController() {
-		this.menuBar = new Menu(new String[]{"Speichern", "Laden"}); //definiert eine neue Menueleiste mit Menue
-		this.menuBar.addMenu("Erklärungen", new String[]{"Caesar", "Monoalphabetisch"}); //fuegt ein neues Menue hinzu
-		this.gui = new Gui(
-				this.menuBar.getJMenuBar(), //Menueleiste
-				plainText.createTextfieldPanel(), //Klartextpanel
-				cryptoText.createTextfieldPanel(), //Cryptotextpanel
-				new JPanel() //keyPanel
-				//key.createKeyPanel()
-				//kann erst hinzugefügt werden, wenn zuvor key festgelegt wurde also mit DropDown Menü
-				);
-		//key.initKey(); //kann erst hinzugefügt werden, wenn zuvor key festgelegt wurde also erst mit DopDown Menï¿½
+		this.menuBar = new Menu(new String[] { "Speichern", "Laden" }); // definiert eine neue Menueleiste mit Menue
+		this.menuBar.addMenu("Erklï¿½rungen", encryptOpt); // fuegt ein neues Menue hinzu
+		this.dropDown = new Dropdown(encryptOpt, change);
+		this.gui = new Gui(this.menuBar.getJMenuBar(), // Menueleiste
+				plainText.createTextfieldPanel(), // Klartextpanel
+				cryptoText.createTextfieldPanel(), // Cryptotextpanel
+				key.createKeyPanel(), dropDown.createDropdown() // fÃ¼r das DropdownmenÃ¼
+		);
+		this.key.initKey();
+		// kann erst hinzugefï¿½gt werden, wenn zuvor key festgelegt
+		// wurde also erst mit DropDown Menï¿½
 	}
-
 }
