@@ -32,10 +32,6 @@ public class Gui {
 	 */
 	public Gui(JMenuBar menu, JPanel clearText, JPanel cryptoText, JPanel keyPanel, JPanel dropDown) {
 
-		// clearText.setBackground(Color.GREEN);
-		// cryptoText.setBackground(Color.BLUE);
-		// key.setBackground(Color.RED);
-
 		this.frame = new JFrame("CryptoCroc");
 		this.frame.setSize(1280, 800);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
