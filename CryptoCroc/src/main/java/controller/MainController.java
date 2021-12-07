@@ -21,19 +21,20 @@ public class MainController {
 	private Gui gui;
 	private Menu menuBar;
 	private Dropdown dropDown;
-	private String[] encryptOpt = { "Caesar", "Monoalphabetisch", "Vigenere" };
+	private String[] encryptOpt = { "C\u00e4sar", "Monoalphabetisch", "Vigenere" };
 	private ActionListener change = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			String opt = dropDown.status();
-			
 			if (opt.equals(encryptOpt[0])) {
 				key = new CKey();
 			} else if (opt.equals(encryptOpt[1])) {
 				// TODO für einen Monoalphabetischen Schlüssel
+				key = new CKey();
 			} else if (opt.equals(encryptOpt[2])) {
 				key = new VKey();
 			}
+			gui.setKeyPanel(key.createKeyPanel());
 			;
 		}
 	};
@@ -44,7 +45,7 @@ public class MainController {
 	 */
 	public MainController() {
 		this.menuBar = new Menu(new String[] { "Speichern", "Laden" }); // definiert eine neue Menueleiste mit Menue
-		this.menuBar.addMenu("Erkl�rungen", encryptOpt); // fuegt ein neues Menue hinzu
+		this.menuBar.addMenu("Erkl\u00e4rungen", encryptOpt); // fuegt ein neues Menue hinzu
 		this.dropDown = new Dropdown(encryptOpt, change);
 		this.gui = new Gui(this.menuBar.getJMenuBar(), // Menueleiste
 				plainText.createTextfieldPanel(), // Klartextpanel

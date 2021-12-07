@@ -39,7 +39,7 @@ public class CKey extends Key {
 	@Override
 	public JPanel createKeyPanel() {
 		BorderLayout layout = new BorderLayout();
-		JLabel description = new JLabel("Schlüssel");
+		JLabel description = new JLabel("Schl\u00fcssel");
 		description.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
 		name.setFont(new Font(Font.DIALOG, Font.BOLD, 15));
 		key.setFont(new Font(Font.DIALOG, Font.BOLD, 15));

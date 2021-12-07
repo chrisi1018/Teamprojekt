@@ -19,6 +19,7 @@ public class Gui {
 	private JPanel cryptoText;
 	private JPanel keyPanel;
 	private JPanel dropDown;
+	private JPanel mainPanel;
 
 	/**
 	 * Konstruktor erzeugt den Frame und legt das Layout fest.
@@ -34,10 +35,10 @@ public class Gui {
 
 		this.frame = new JFrame("CryptoCroc");
 		this.frame.setSize(1280, 800);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setLayout(new BorderLayout(0, 0));
+		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.frame.setLayout(new BorderLayout(0, 0));
 
-		JPanel panel = new JPanel(new BorderLayout(4, 4));
+		this.mainPanel = new JPanel(new BorderLayout(4, 4));
 		this.clearText = clearText;
 		this.clearText.setVisible(true);
 		this.cryptoText = cryptoText;
@@ -48,11 +49,11 @@ public class Gui {
 		this.keyPanel.setVisible(true);
 
 		this.frame.setJMenuBar(menu);
-		panel.add(this.clearText, BorderLayout.WEST);
+		this.mainPanel.add(this.clearText, BorderLayout.WEST);
 		this.clearText.setPreferredSize(new Dimension(500, 740));
-		panel.add(this.cryptoText, BorderLayout.EAST);
+		this.mainPanel.add(this.cryptoText, BorderLayout.EAST);
 		this.cryptoText.setPreferredSize(new Dimension(500, 740));
-		panel.add(this.keyPanel, BorderLayout.CENTER);
+		this.mainPanel.add(this.keyPanel, BorderLayout.CENTER);
 		this.keyPanel.setPreferredSize(new Dimension(200, 740));
 
 		// zur Seite schieben des Dropdown Menue's
@@ -62,9 +63,9 @@ public class Gui {
 		space.add(new JPanel(), BorderLayout.EAST);
 		bSpace.setHgap(30);
 
-		panel.add(space, BorderLayout.NORTH);
+		this.mainPanel.add(space, BorderLayout.NORTH);
 
-		this.frame.add(panel, BorderLayout.CENTER);
+		this.frame.add(this.mainPanel, BorderLayout.CENTER);
 		this.frame.add(new JPanel(), BorderLayout.NORTH);
 		this.frame.add(new JPanel(), BorderLayout.SOUTH);
 		this.frame.add(new JPanel(), BorderLayout.WEST);
@@ -75,13 +76,18 @@ public class Gui {
 	}
 
 	/**
-	 * Eine Setter-Methode f�r das KeyPanel-Panel
+	 * Tauscht das KeyPanel aus
 	 * 
 	 * @param das KeyPanel panel, das eingesetzt wird
 	 */
 	public void setKeyPanel(JPanel keyPanel) {
+		this.mainPanel.remove(this.keyPanel);
+		this.mainPanel.revalidate();
+		this.mainPanel.repaint();
 		this.keyPanel = keyPanel;
-		this.keyPanel.add(this.keyPanel, BorderLayout.CENTER);
+		this.mainPanel.add(this.keyPanel, BorderLayout.CENTER);
 		this.keyPanel.setPreferredSize(new Dimension(200, 740));
+		this.mainPanel.revalidate();
+		this.mainPanel.repaint();
 	}
 }
