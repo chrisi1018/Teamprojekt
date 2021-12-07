@@ -17,7 +17,7 @@ public class MainController {
 
 	private TextField plainText = new TextField("Klartext");
 	private TextField cryptoText = new TextField("Geheimtext");
-	private Key key = new CKey();
+	private KeyPanel key = new CKeyPanel();
 	private Gui gui;
 	private Menu menuBar;
 	private Dropdown dropDown;
@@ -27,12 +27,12 @@ public class MainController {
 		public void actionPerformed(ActionEvent e) {
 			String opt = dropDown.status();
 			if (opt.equals(encryptOpt[0])) {
-				key = new CKey();
+				key = new CKeyPanel();
 			} else if (opt.equals(encryptOpt[1])) {
 				// TODO für einen Monoalphabetischen Schlüssel
-				key = new CKey();
+				key = new CKeyPanel();
 			} else if (opt.equals(encryptOpt[2])) {
-				key = new VKey();
+				key = new VKeyPanel();
 			}
 			gui.setKeyPanel(key.createKeyPanel());
 			;

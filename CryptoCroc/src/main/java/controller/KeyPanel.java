@@ -14,7 +14,7 @@ import model.Crypt;
  * @author chrisi
  * @version 1.1
  */
-public abstract class Key {
+public abstract class KeyPanel {
 	private JButton encrypt = new JButton("verschl\u00fcsseln");
 	private JButton decrypt = new JButton("entschl\u00fcsseln");
 	private Crypt crypt;
