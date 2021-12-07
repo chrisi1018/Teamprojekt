@@ -20,8 +20,8 @@ import javax.swing.JTextField;
  */
 public class VKey extends Key {
 
-	JTextField key = new JTextField();
-	JLabel name = new JLabel("Schlüsselwort");
+	private JTextField key = new JTextField();
+	private JLabel name = new JLabel("Schlüsselwort");
 	
 	/**
 	 * Ueberschreibt die Methode 'createKeyPanel'
@@ -29,7 +29,7 @@ public class VKey extends Key {
 	@Override
 	public JPanel createKeyPanel() {
 		BorderLayout layout = new BorderLayout();
-		JLabel description = new JLabel("Schlüssel:");
+		JLabel description = new JLabel("Schlüssel");
 		description.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
 		name.setFont(new Font(Font.DIALOG, Font.BOLD, 15));
 		key.setFont(new Font(Font.DIALOG, Font.BOLD, 15));
