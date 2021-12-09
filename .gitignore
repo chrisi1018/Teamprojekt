@@ -8,4 +8,5 @@ CryptoCroc/target/
 # Eclipse spezifisch
 *.classpath
 *.project
+*.checkstyle
 .metadata

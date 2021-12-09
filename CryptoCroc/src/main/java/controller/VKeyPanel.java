@@ -21,7 +21,7 @@ import javax.swing.JTextField;
 public class VKeyPanel extends KeyPanel {
 
 	private JTextField key = new JTextField();
-	private JLabel name = new JLabel("Schlüsselwort");
+	private JLabel name = new JLabel("Schl\u00fcsselwort");
 	
 	/**
 	 * Ueberschreibt die Methode 'createKeyPanel'
