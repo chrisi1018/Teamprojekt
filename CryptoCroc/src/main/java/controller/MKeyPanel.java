@@ -1,11 +1,14 @@
 package controller;
 
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
+import java.awt.Component;
 import java.awt.Font;
+import java.awt.GridLayout;
 
 /**
  * Definiert 'createKeyPanel'-Methode fuer monoalphabetische Verschluesselung
@@ -33,32 +36,41 @@ public class MKeyPanel extends KeyPanel {
 	public JPanel createKeyPanel() {
 		this.initNames();
 		BorderLayout bLayout = new BorderLayout();
-		JPanel keyPanel = new JPanel(bLayout);
-		JLabel description = new JLabel("Schl\\u00fcssel");
+		JLabel description = new JLabel("Schl\u00fcssel");
+		JPanel text = new JPanel();
+		text.setLayout(new BoxLayout(text, BoxLayout.PAGE_AXIS));
+		description.setAlignmentX(Component.CENTER_ALIGNMENT);
 		description.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
+		text.add(description, BorderLayout.NORTH);
+
 		for (int i = 0; i < alphabetSize; i++) {
 			names[i].setFont(new Font(Font.DIALOG, Font.BOLD, 15));
 			keys[i] = new JTextField();
 			keys[i].setFont(new Font(Font.DIALOG, Font.BOLD, 15));
 		}
 
-		JPanel[] keyName = new JPanel[alphabetSize];
-		FlowLayout fLayout = new FlowLayout();
-		fLayout.setHgap(10);
-		JPanel inputPanel = new JPanel(fLayout);
-		for (int i = 0; i < 2; i++) {
-			keyName[i] = new JPanel(bLayout);
-			keyName[i].setVisible(true);
-			keyName[i].add(names[i], BorderLayout.NORTH);
-			keyName[i].add(keys[i], BorderLayout.SOUTH);
-			inputPanel.add(keyName[i]);
-		}
+		GridLayout gLayout = new GridLayout(10, 6, 5, 5);
 
-		return inputPanel;
+		JPanel inputPanel = new JPanel(gLayout);
+		for (int i = 0; i < alphabetSize; i++) {
+			inputPanel.add(names[i]);
+			keys[i].setColumns(1);
+			inputPanel.add(keys[i]);
+		}
+		JPanel keyPanel = new JPanel(new GridLayout(3, 1));
+		JPanel filler = new JPanel();
+		filler.setSize(5, 5);
+		keyPanel.add(text, BorderLayout.PAGE_START);
+		//keyPanel.add(filler);
+		keyPanel.add(inputPanel, BorderLayout.CENTER);
+	//	keyPanel.add(filler);
+		keyPanel.add(this.createButtonPanel());
+
+		return keyPanel;
 	}
 
 	/**
-	 * Methode zum Initialisieren der Namen der Textfelder s
+	 * Methode zum Initialisieren der Namen der Textfelder
 	 */
 	private void initNames() {
 		for (int i = 0; i < alphabetSize; i++) {
