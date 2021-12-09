@@ -29,8 +29,7 @@ public class MainController {
 			if (opt.equals(encryptOpt[0])) {
 				key = new CKeyPanel();
 			} else if (opt.equals(encryptOpt[1])) {
-				// TODO für einen Monoalphabetischen Schlüssel
-				key = new CKeyPanel();
+				key = new MKeyPanel();
 			} else if (opt.equals(encryptOpt[2])) {
 				key = new VKeyPanel();
 			}
