@@ -52,17 +52,25 @@ public class MKeyPanel extends KeyPanel {
 		}
 
 		// grid für die Buchstaben und Textfelder
-		GridLayout gLayout = new GridLayout(10, 6, 5, 5);
+		GridLayout gLayout = new GridLayout(0, 6, 0, 5);
 		JPanel inputPanel = new JPanel(gLayout);
 		for (int i = 0; i < alphabetSize; i++) {
-			inputPanel.add(names[i]);
-			inputPanel.add(keys[i]);
+			if (i % 2 == 0) {
+				inputPanel.add(names[i]);
+				inputPanel.add(keys[i]);
+				inputPanel.add(new JLabel(""));
+				inputPanel.add(new JLabel(""));	
+			} else {
+				inputPanel.add(names[i]);
+				inputPanel.add(keys[i]);
+			}
+			
 		}
 
 		// alles zusammenfügen und Buttons dazu machen
-		JPanel total = new JPanel(new GridLayout(3, 1));
-		total.add(title, BorderLayout.PAGE_START);
-		total.add(inputPanel, BorderLayout.CENTER);
+		JPanel total = new JPanel(new GridLayout(3, 0));
+		total.add(title);
+		total.add(inputPanel);
 		total.add(this.createButtonPanel());
 
 		return total;
