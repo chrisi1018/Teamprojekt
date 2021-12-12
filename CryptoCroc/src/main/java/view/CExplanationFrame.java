@@ -44,7 +44,7 @@ public class CExplanationFrame extends JFrame {
 		
 		setLayout(new FlowLayout());
 		getContentPane().add(hyperlink);
-		setSize(500, 200);
+		setSize(600, 200);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}

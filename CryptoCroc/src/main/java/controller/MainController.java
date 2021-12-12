@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import view.CExplanationFrame;
 import view.Gui;
+import view.MExplanationFrame;
 import view.VExplanationFrame;
 
 /**
@@ -55,6 +56,7 @@ public class MainController {
 		// kann erst hinzugef�gt werden, wenn zuvor key festgelegt
 		// wurde also erst mit DropDown Men�
 		this.menuBar.initMenuItem(1, 0, new CExplanationFrame());
+		this.menuBar.initMenuItem(1, 1, new MExplanationFrame());
 		this.menuBar.initMenuItem(1, 2, new VExplanationFrame());
 	}
 }

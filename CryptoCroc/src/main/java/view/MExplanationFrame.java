@@ -14,20 +14,20 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 /**
- * Definiert ein neues Fenster, welches die Erläuterungen zur Vigenère-Verschlüsselung beinhaltet
+ * Definiert ein neues Fenster, welches die Erläuterungen zur Monoalphabetischen Verschlüsselung beinhaltet
  * 
  * @author Julian Singer
  * @version 1.0
  *
  */
 @SuppressWarnings("serial")
-public class VExplanationFrame extends JFrame {
+public class MExplanationFrame extends JFrame {
 	
-	private JLabel hyperlink = new JLabel("https://de.serlo.org/informatik/48392/vigen%C3%A8re-verschl%C3%BCsselung");
+	private JLabel hyperlink = new JLabel("https://www.oszhandel.de/gymnasium/faecher/informatik/krypto/monoalphabetisch.htm");
 	
-	public VExplanationFrame() {
+	public MExplanationFrame() {
 		super();
-		setTitle("Vigen\u00E8re-Verschl\u00fcsselung");
+		setTitle("Monoalphabetische Verschl\u00fcsselung");
 		hyperlink.setForeground(Color.BLUE.darker());
 		hyperlink.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		hyperlink.addMouseListener(new MouseAdapter() {
@@ -35,7 +35,7 @@ public class VExplanationFrame extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
-					Desktop.getDesktop().browse(new URI("https://de.serlo.org/informatik/48392/vigen%C3%A8re-verschl%C3%BCsselung"));
+					Desktop.getDesktop().browse(new URI("https://www.oszhandel.de/gymnasium/faecher/informatik/krypto/monoalphabetisch.htm"));
 				} catch (IOException | URISyntaxException e1) {
 					e1.printStackTrace();
 				}
