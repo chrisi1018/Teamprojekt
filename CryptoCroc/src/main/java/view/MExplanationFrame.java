@@ -25,6 +25,10 @@ public class MExplanationFrame extends JFrame {
 	
 	private JLabel hyperlink = new JLabel("https://www.oszhandel.de/gymnasium/faecher/informatik/krypto/monoalphabetisch.htm");
 	
+	/**
+	 * Konstruktor, der den Aufbau, Inhalt und die Funktion des Fensters definiert, 
+	 * das die Erklärung für die Monoalphabetische Verschlüsselung beinhalten soll
+	 */
 	public MExplanationFrame() {
 		super();
 		setTitle("Monoalphabetische Verschl\u00fcsselung");
@@ -32,6 +36,7 @@ public class MExplanationFrame extends JFrame {
 		hyperlink.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		hyperlink.addMouseListener(new MouseAdapter() {
 			
+			//Versucht den entsprechenden Link zu öffnen, wenn draufgeklickt wird
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
@@ -42,6 +47,7 @@ public class MExplanationFrame extends JFrame {
 			}
 		});
 		
+		//legt Aufbau und Funktion des Fensters fest
 		setLayout(new FlowLayout());
 		getContentPane().add(hyperlink);
 		setSize(600, 200);

@@ -25,6 +25,10 @@ public class CExplanationFrame extends JFrame {
 	
 	private JLabel hyperlink = new JLabel("https://de.serlo.org/informatik/48121/caesar-verschl%C3%BCsselung");
 	
+	/**
+	 * Konstruktor, der den Aufbau, Inhalt und die Funktion des Fensters definiert, 
+	 * das die Erklärung für die Caesar-Verschlüsselung beinhalten soll
+	 */
 	public CExplanationFrame() {
 		super();
 		setTitle("C\u00e4sar-Verschl\u00fcsselung");
@@ -32,6 +36,7 @@ public class CExplanationFrame extends JFrame {
 		hyperlink.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		hyperlink.addMouseListener(new MouseAdapter() {
 			
+			//Versucht den entsprechenden Link zu öffnen, wenn draufgeklickt wird
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
@@ -42,6 +47,7 @@ public class CExplanationFrame extends JFrame {
 			}
 		});
 		
+		//legt Aufbau und Funktion des Fensters fest
 		setLayout(new FlowLayout());
 		getContentPane().add(hyperlink);
 		setSize(600, 200);

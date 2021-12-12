@@ -49,6 +49,13 @@ public class Menu {
 		}
 	}
 	
+	/**
+	 * Oeffnet einen uebergebenen Frame, sobald das Menueitem an übergebener Stelle angeklickt wird
+	 * 
+	 * @param barIndex Index des Menues in der Menueleiste
+	 * @param menuIndex Index des Items im Menue
+	 * @param newFrame zu erstellendes Fenster
+	 */
 	public void initMenuItem(int barIndex, int menuIndex, JFrame newFrame) {
 		menuBar.getMenu(barIndex).getItem(menuIndex).addActionListener(new ActionListener() {
 			@Override
