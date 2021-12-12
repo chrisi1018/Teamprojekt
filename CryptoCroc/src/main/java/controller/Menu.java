@@ -1,8 +1,14 @@
 package controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+
+import view.CExplanationFrame;
 
 /**
  * Beschreibt Aufbau und Funktion der Menueleiste in CryptoCroc
@@ -43,6 +49,16 @@ public class Menu {
 			JMenuItem item = new JMenuItem(menus[i]);
 			newMenu.add(item);
 		}
+	}
+	
+	public void initMenuItem(int barIndex, int menuIndex) {
+		JFrame newFrame = new CExplanationFrame();
+		menuBar.getMenu(barIndex).getItem(menuIndex).addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				newFrame.setVisible(true);
+			}
+		});
 	}
 	
 	/**

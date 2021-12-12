@@ -54,5 +54,6 @@ public class MainController {
 		this.key.initKey();
 		// kann erst hinzugef�gt werden, wenn zuvor key festgelegt
 		// wurde also erst mit DropDown Men�
+		this.menuBar.initMenuItem(1, 0);
 	}
 }
