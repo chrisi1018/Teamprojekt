@@ -28,7 +28,7 @@ public class Menu {
 	
 	public Menu(String[] menus) {
 		menuBar = new JMenuBar();
-		JMenu menu = new JMenu("Menu");
+		JMenu menu = new JMenu("Men\u00fc");
 		menuBar.add(menu);
 		for (int i = 0; i < menus.length; i++) {
 			JMenuItem item = new JMenuItem(menus[i]);
