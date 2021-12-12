@@ -8,8 +8,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-import view.CExplanationFrame;
-
 /**
  * Beschreibt Aufbau und Funktion der Menueleiste in CryptoCroc
  * 
@@ -51,8 +49,7 @@ public class Menu {
 		}
 	}
 	
-	public void initMenuItem(int barIndex, int menuIndex) {
-		JFrame newFrame = new CExplanationFrame();
+	public void initMenuItem(int barIndex, int menuIndex, JFrame newFrame) {
 		menuBar.getMenu(barIndex).getItem(menuIndex).addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
