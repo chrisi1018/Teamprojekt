@@ -1,5 +1,9 @@
 package controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -22,7 +26,7 @@ public class Menu {
 	
 	public Menu(String[] menus) {
 		menuBar = new JMenuBar();
-		JMenu menu = new JMenu("Menu");
+		JMenu menu = new JMenu("Men\u00fc");
 		menuBar.add(menu);
 		for (int i = 0; i < menus.length; i++) {
 			JMenuItem item = new JMenuItem(menus[i]);
@@ -43,6 +47,22 @@ public class Menu {
 			JMenuItem item = new JMenuItem(menus[i]);
 			newMenu.add(item);
 		}
+	}
+	
+	/**
+	 * Oeffnet einen uebergebenen Frame, sobald das Menueitem an übergebener Stelle angeklickt wird
+	 * 
+	 * @param barIndex Index des Menues in der Menueleiste
+	 * @param menuIndex Index des Items im Menue
+	 * @param newFrame zu erstellendes Fenster
+	 */
+	public void initMenuItem(int barIndex, int menuIndex, JFrame newFrame) {
+		menuBar.getMenu(barIndex).getItem(menuIndex).addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				newFrame.setVisible(true);
+			}
+		});
 	}
 	
 	/**

@@ -3,9 +3,10 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
-
+import view.CExplanationFrame;
 import view.Gui;
+import view.MExplanationFrame;
+import view.VExplanationFrame;
 
 /**
  * Klasse die für das Erzeugen der GUI-Elemente zuständig ist
@@ -21,7 +22,7 @@ public class MainController {
 	private Gui gui;
 	private Menu menuBar;
 	private Dropdown dropDown;
-	private String[] encryptOpt = { "C\u00e4sar", "Monoalphabetisch", "Vigenere" };
+	private String[] encryptOpt = { "C\u00e4sar", "Monoalphabetisch", "Vigen\u00E8re" };
 	private ActionListener change = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -53,5 +54,8 @@ public class MainController {
 		this.key.initKey();
 		// kann erst hinzugef�gt werden, wenn zuvor key festgelegt
 		// wurde also erst mit DropDown Men�
+		this.menuBar.initMenuItem(1, 0, new CExplanationFrame());
+		this.menuBar.initMenuItem(1, 1, new MExplanationFrame());
+		this.menuBar.initMenuItem(1, 2, new VExplanationFrame());
 	}
 }
