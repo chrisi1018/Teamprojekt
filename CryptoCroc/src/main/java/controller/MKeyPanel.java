@@ -1,13 +1,15 @@
 package controller;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridLayout;
 
 /**
  * Definiert 'createKeyPanel'-Methode fuer monoalphabetische Verschluesselung
@@ -20,6 +22,7 @@ public class MKeyPanel extends KeyPanel {
 	private final int alphabetSize = 26;
 	private JTextField[] keys = new JTextField[alphabetSize];
 	private JLabel[] names = new JLabel[alphabetSize];
+	private JPanel[] nameKeyPanels = new JPanel[alphabetSize];
 
 	/**
 	 * Konstruktor, der der neuen Instanz eine monoalphabetische Verschluesselung
@@ -43,33 +46,36 @@ public class MKeyPanel extends KeyPanel {
 		description.setAlignmentX(Component.CENTER_ALIGNMENT);
 		description.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
 		title.add(description, BorderLayout.SOUTH);
+		// title.add(Box.createRigidArea(new Dimension(0, 20)));
 
 		// intialisiert Eintraege von keys und setzt Textstil
 		for (int i = 0; i < alphabetSize; i++) {
 			names[i].setFont(new Font(Font.DIALOG, Font.BOLD, 15));
 			keys[i] = new JTextField();
 			keys[i].setFont(new Font(Font.DIALOG, Font.BOLD, 15));
+			keys[i].setColumns(1);
+			keys[i].setPreferredSize(new Dimension(19, 30));
+
+			JPanel nameKeyPanel = new JPanel();
+			nameKeyPanel.setLayout(new BoxLayout(nameKeyPanel, BoxLayout.PAGE_AXIS));
+			nameKeyPanel.add(names[i]);
+			nameKeyPanel.add(keys[i]);
+			nameKeyPanels[i] = nameKeyPanel;
 		}
 
-		// grid für die Buchstaben und Textfelder
-		GridLayout gLayout = new GridLayout(0, 6, 0, 5);
-		JPanel inputPanel = new JPanel(gLayout);
+		// fuer die Buchstaben und Textfelder
+		FlowLayout fLayout = new FlowLayout();
+		fLayout.setVgap(25);
+		JPanel inputPanel = new JPanel(fLayout);
 		for (int i = 0; i < alphabetSize; i++) {
-			if (i % 2 == 0) {
-				inputPanel.add(names[i]);
-				inputPanel.add(keys[i]);
-				inputPanel.add(new JLabel(""));
-				inputPanel.add(new JLabel(""));	
-			} else {
-				inputPanel.add(names[i]);
-				inputPanel.add(keys[i]);
-			}
-			
+			inputPanel.add(nameKeyPanels[i]);
 		}
 
-		// alles zusammenfügen und Buttons dazu machen
-		JPanel total = new JPanel(new GridLayout(3, 0));
+		// alles zusammenfuegen und Buttons dazu machen
+		JPanel total = new JPanel();
+		total.setLayout(new BoxLayout(total, BoxLayout.PAGE_AXIS));
 		total.add(title);
+		title.add(Box.createRigidArea(new Dimension(0, 20)));
 		total.add(inputPanel);
 		total.add(this.createButtonPanel());
 
@@ -83,7 +89,7 @@ public class MKeyPanel extends KeyPanel {
 		for (int i = 0; i < alphabetSize; i++) {
 			int val = 65 + i;
 			char c = (char) val;
-			this.names[i] = new JLabel(Character.toString(c));
+			this.names[i] = new JLabel(Character.toString(c), JLabel.CENTER);
 		}
 	}
 }
