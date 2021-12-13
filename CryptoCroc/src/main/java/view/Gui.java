@@ -90,4 +90,13 @@ public class Gui {
 		this.mainPanel.revalidate();
 		this.mainPanel.repaint();
 	}
+	
+	/**
+	 * Getter-Methode für den Frame
+	 * 
+	 * @return Der Frame der Gui
+	 */
+	public JFrame getFrame() {
+		return this.frame;
+	}
 }
