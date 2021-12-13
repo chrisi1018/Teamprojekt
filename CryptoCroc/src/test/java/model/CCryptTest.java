@@ -8,6 +8,7 @@ import java.util.Random;
 
 
 /**
+ * Eine Testklasse für CCrypt
  * @author Julian Sturm
  * @version 1.0 
  */

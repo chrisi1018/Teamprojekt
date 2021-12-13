@@ -48,8 +48,20 @@ public final class TextEdit {
 		char ret = c;
 		if (c >= 'a' && c <= 'z') {
 			ret = (char) (c - ('a' - 'A'));
+			return ret;
+		} else {
+			int i = c;
+			switch(i) {
+			case 228: //ä(ae)
+				return '\u00c4';
+			case 246: //ö(oe)
+				return '\u00d6';
+			case 252: //ü(ue)
+				return '\u00dc';
+			default:
+				return ret;
+			}
 		}
-		return ret;
 	}
 	
 	/**
