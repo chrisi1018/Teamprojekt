@@ -15,24 +15,25 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 /**
- * Definiert ein neues Fenster, welches die Erläuterungen zur Caesar-Verschlüsselung beinhaltet
+ * Definiert ein neues Fenster, welches die Erläuterungen zur Haeufigkeitsanalyse beinhaltet
  * 
  * @author Julian Singer
  * @version 1.0
  *
  */
 @SuppressWarnings("serial")
-public class CExplanationFrame extends JFrame {
+public class HExplanationFrame extends JFrame {
 	
-	private JLabel hyperlink = new JLabel("https://de.serlo.org/informatik/48121/caesar-verschl%C3%BCsselung");
+	private JLabel hyperlink = new JLabel("https://kryptografie.de/kryptografie/kryptoanalyse"
+			+ "/2-3-2-brechen-von-vigenere-mittels-schluesselrekonstruktion.htm");
 	
 	/**
 	 * Konstruktor, der den Aufbau, Inhalt und die Funktion des Fensters definiert, 
-	 * das die Erklärung für die Caesar-Verschlüsselung beinhalten soll
+	 * das die Erklärung für die Haeufigkeitsanalyse beinhalten soll
 	 */
-	public CExplanationFrame() {
+	public HExplanationFrame() {
 		super();
-		setTitle("C\u00e4sar-Verschl\u00fcsselung");
+		setTitle("H\u00e4ufigkeitsanalyse");
 		hyperlink.setFont(new Font(Font.DIALOG, Font.PLAIN, 15));
 		hyperlink.setForeground(Color.BLUE.darker());
 		hyperlink.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -42,7 +43,8 @@ public class CExplanationFrame extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
-					Desktop.getDesktop().browse(new URI("https://de.serlo.org/informatik/48121/caesar-verschl%C3%BCsselung"));
+					Desktop.getDesktop().browse(new URI("https://kryptografie.de/kryptografie/kryptoanalyse"
+							+ "/2-3-2-brechen-von-vigenere-mittels-schluesselrekonstruktion.htm"));
 				} catch (IOException | URISyntaxException e1) {
 					e1.printStackTrace();
 				}

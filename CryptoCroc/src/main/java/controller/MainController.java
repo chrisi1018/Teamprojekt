@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import view.CExplanationFrame;
 import view.Gui;
+import view.HExplanationFrame;
 import view.MExplanationFrame;
 import view.VExplanationFrame;
 
@@ -22,7 +23,7 @@ public class MainController {
 	private Gui gui;
 	private Menu menuBar;
 	private Dropdown dropDown;
-	private String[] encryptOpt = { "C\u00e4sar", "Monoalphabetisch", "Vigen\u00E8re" };
+	private String[] encryptOpt = { "C\u00e4sar", "Monoalphabetisch", "Vigen\u00E8re", "H\u00e4ufigkeitsanalyse" };
 	private ActionListener change = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -57,5 +58,6 @@ public class MainController {
 		this.menuBar.initMenuItem(1, 0, new CExplanationFrame());
 		this.menuBar.initMenuItem(1, 1, new MExplanationFrame());
 		this.menuBar.initMenuItem(1, 2, new VExplanationFrame());
+		this.menuBar.initMenuItem(1, 3, new HExplanationFrame());
 	}
 }
