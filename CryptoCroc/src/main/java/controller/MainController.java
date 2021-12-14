@@ -23,7 +23,8 @@ public class MainController {
 	private Gui gui;
 	private Menu menuBar;
 	private Dropdown dropDown;
-	private String[] encryptOpt = { "C\u00e4sar", "Monoalphabetisch", "Vigen\u00E8re", "H\u00e4ufigkeitsanalyse" };
+	private String[] encryptOpt = { "C\u00e4sar", "Monoalphabetisch", "Vigen\u00E8re" };
+	private String[] explanationOpt = { "C\u00e4sar", "Monoalphabetisch", "Vigen\u00E8re", "H\u00e4ufigkeitsanalyse" };
 	private ActionListener change = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -45,7 +46,7 @@ public class MainController {
 	 */
 	public MainController() {
 		this.menuBar = new Menu(new String[] { "Speichern", "Laden" }); // definiert eine neue Menueleiste mit Menue
-		this.menuBar.addMenu("Erkl\u00e4rungen", encryptOpt); // fuegt ein neues Menue hinzu
+		this.menuBar.addMenu("Erkl\u00e4rungen", explanationOpt); // fuegt ein neues Menue hinzu
 		this.dropDown = new Dropdown(encryptOpt, change);
 		this.gui = new Gui(this.menuBar.getJMenuBar(), // Menueleiste
 				plainText.createTextfieldPanel(), // Klartextpanel
