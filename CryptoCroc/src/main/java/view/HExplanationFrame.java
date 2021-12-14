@@ -54,7 +54,7 @@ public class HExplanationFrame extends JFrame {
 		//legt Aufbau und Funktion des Fensters fest
 		setLayout(new FlowLayout());
 		getContentPane().add(hyperlink);
-		setSize(600, 200);
+		setSize(800, 300);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
