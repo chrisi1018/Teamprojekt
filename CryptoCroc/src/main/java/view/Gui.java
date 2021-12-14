@@ -82,11 +82,17 @@ public class Gui {
 	 */
 	public void setKeyPanel(JPanel keyPanel) {
 		this.mainPanel.remove(this.keyPanel);
-		this.mainPanel.revalidate();
-		this.mainPanel.repaint();
 		this.keyPanel = keyPanel;
 		this.mainPanel.add(this.keyPanel, BorderLayout.CENTER);
 		this.keyPanel.setPreferredSize(new Dimension(200, 740));
+		this.repaintFrame();
+	}
+	
+	/**
+	 * Methodie die den Frame repainted, muss nach veränderungen der Gui aufgerufen werden
+	 * 
+	 */
+	public void repaintFrame() {
 		this.mainPanel.revalidate();
 		this.mainPanel.repaint();
 	}

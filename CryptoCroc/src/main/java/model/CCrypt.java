@@ -1,7 +1,7 @@
 package model;
 
 /**
- * 
+ * Stellt die Caesar Verschuesselung zur Verfuegung.
  * @author Julian Sturm
  * @version 1.0
  */
