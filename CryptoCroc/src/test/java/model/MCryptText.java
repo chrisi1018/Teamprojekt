@@ -27,6 +27,16 @@ public class MCryptText {
 			+ " duo dolores et ea rebum. Stet clita kasd gubergren, no sea "
 			+ "takimata sanctus est Lorem ipsum dolor sit amet.";
 
+	private String textOne = "SGKTD OHLXD RGSGK LOY QDTY, EGFLTYTYXK LQROHLEOFU "
+			+ "TSOYK, LTR ROQD FGFXDN TOKDGR YTDHGK OFCORXFY XY SQWGKT TY RGSGKT "
+			+ "DQUFQ QSOJXNQD TKQY, LTR ROQD CGSXHYXQ. QY CTKG TGL TY QEEXLQD TY "
+			+ "PXLYG RXG RGSGKTL TY TQ KTWXD. LYTY ESOYQ AQLR UXWTKUKTF, FG LTQ "
+			+ "YQAODQYQ LQFEYXL TLY SGKTD OHLXD RGSGK LOY QDTY. SGKTD OHLXD RGSGK "
+			+ "LOY QDTY, EGFLTYTYXK LQROHLEOFU TSOYK, LTR ROQD FGFXDN TOKDGR YTDHGK "
+			+ "OFCORXFY XY SQWGKT TY RGSGKT DQUFQ QSOJXNQD TKQY, LTR ROQD CGSXHYXQ. Q"
+			+ "Y CTKG TGL TY QEEXLQD TY PXLYG RXG RGSGKTL TY TQ KTWXD. LYTY ESOYQ AQLR"
+			+ " UXWTKUKTF, FG LTQ YQAODQYQ LQFEYXL TLY SGKTD OHLXD RGSGK LOY QDTY.";
+
 	/**
 	 * Initalisiert den Test
 	 */
@@ -48,7 +58,17 @@ public class MCryptText {
 	 */
 	@Test
 	void noChange() {
+		// System.out.println(test.cryptAll(textNull, "QWERTZUIOPASDFGHJKLYXCVBNM"));
 		assertEquals(textNull.toUpperCase(), test.cryptAll(textNull, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
 		assertEquals(textNull.toLowerCase(), test.cryptAll(textNull, "abcdefghijklmnopqrstuvwxyz"));
+	}
+
+	/**
+	 * Testet ob Text richtig entschluesselt wird
+	 */
+	@Test
+	void decrypt() {
+		assertEquals(textOne.toUpperCase(), test.cryptAll(textNull, "QWERTZUIOPASDFGHJKLYXCVBNM"));
+		assertEquals(textOne.toLowerCase(), test.cryptAll(textNull, "qwertzuiopasdfghjklyxcvbnm"));
 	}
 }
