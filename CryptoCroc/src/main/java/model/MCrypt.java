@@ -9,6 +9,34 @@ package model;
 public class MCrypt extends Crypt {
 
 	/**
+	 * Ueberprueft ob ein Schluessel gueltig ist
+	 * 
+	 * @param key Der Schluessel der verwendet wird.
+	 * @return ob der Schluessel gueltig ist
+	 */
+	public boolean checkKey(String key) {
+		if (key.length() != 26) {
+			return false;
+		}
+		boolean allGood = true;
+
+		// checkt ob jedes Zeichen nur einmal vorkommt
+		String[] k = this.convertKeyToArray(key);
+		for (int i = 0; i < k.length; i++) {
+			String temp = k[i];
+			for (int j = 0; j < k.length; j++) {
+				if (k[i].equals(k[j]) && (i != j)) {
+					allGood = false;
+				}
+			}
+		}
+		if (allGood) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
 	 * Macht aus einem Schluesselwort ein Array
 	 * 
 	 * @param key das Schluesselwort als String
@@ -61,6 +89,10 @@ public class MCrypt extends Crypt {
 	}
 
 	/**
+	 * Verschluesselt einen Buchstaben indem es schaut an welcher Stelle der
+	 * Buchstabe im Schluessel-Array steht und dies dann in einen Großbuchstaben
+	 * umwandelt
+	 * 
 	 * @param letter
 	 * @param key
 	 * @return String
@@ -68,9 +100,10 @@ public class MCrypt extends Crypt {
 	private String decryptChar(char letter, String[] key) {
 		String val = Character.toString(letter);
 		for (int i = 0; i < key.length; i++) {
-			if (val.equals(key[i])) {
-				char c = (char) ('A' + (letter % 'A'));
+			if (val.equalsIgnoreCase(key[i])) {
+				char c = (char) ('A' + i);
 				val = Character.toString(c);
+				return val;
 			}
 		}
 		return val;
