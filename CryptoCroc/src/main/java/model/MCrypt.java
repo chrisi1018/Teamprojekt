@@ -41,7 +41,7 @@ public class MCrypt extends Crypt {
 	 * @return der verschluesselte Buchstabe als String
 	 */
 	private String cryptChar(char letter, String[] key) {
-		String val = "";
+		String val = Character.toString(letter);
 		if (letter >= 'a' && letter <= 'z') {
 			val = key[(letter) % 'a'];
 		} else if (letter >= 'A' && letter <= 'Z') {
@@ -66,7 +66,13 @@ public class MCrypt extends Crypt {
 	 * @return String
 	 */
 	private String decryptChar(char letter, String[] key) {
-		String val = "";
+		String val = Character.toString(letter);
+		for (int i = 0; i < key.length; i++) {
+			if (val.equals(key[i])) {
+				char c = (char) ('A' + (letter % 'A'));
+				val = Character.toString(c);
+			}
+		}
 		return val;
 	}
 
