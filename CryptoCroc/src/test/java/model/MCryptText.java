@@ -48,7 +48,7 @@ public class MCryptText {
 	 */
 	@Test
 	void noChange() {
-		System.out.println(test.cryptAll(textNull, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
 		assertEquals(textNull.toUpperCase(), test.cryptAll(textNull, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
+		assertEquals(textNull.toLowerCase(), test.cryptAll(textNull, "abcdefghijklmnopqrstuvwxyz"));
 	}
 }
