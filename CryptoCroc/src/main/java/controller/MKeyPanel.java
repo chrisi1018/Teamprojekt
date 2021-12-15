@@ -20,6 +20,7 @@ import java.awt.Font;
 public class MKeyPanel extends KeyPanel {
 
 	private final int alphabetSize = 26;
+	private String key;
 	private JTextField[] keys = new JTextField[alphabetSize];
 	private JLabel[] names = new JLabel[alphabetSize];
 	private JPanel[] nameKeyPanels = new JPanel[alphabetSize];
@@ -32,6 +33,23 @@ public class MKeyPanel extends KeyPanel {
 	public MKeyPanel() {
 		// super.setCrypt(new MCrypt());
 		// TODO
+	}
+
+	/**
+	 * Wandelt das Array von Schluesselbuchstaben um in ein Schluesselwort
+	 * 
+	 * @return das Schluesselwort als String
+	 */
+	private String keyAsString() {
+		this.key = "";
+		if (keys != null) {
+			for (int i = 0; i < keys.length; i++) {
+				if (keys[i] != null) {
+					this.key += keys[i];
+				}
+			}
+		}
+		return this.key;
 	}
 
 	@Override
