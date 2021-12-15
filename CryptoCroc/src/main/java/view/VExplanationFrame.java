@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Desktop;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
@@ -32,6 +33,7 @@ public class VExplanationFrame extends JFrame {
 	public VExplanationFrame() {
 		super();
 		setTitle("Vigen\u00E8re-Verschl\u00fcsselung");
+		hyperlink.setFont(new Font(Font.DIALOG, Font.PLAIN, 15));
 		hyperlink.setForeground(Color.BLUE.darker());
 		hyperlink.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		hyperlink.addMouseListener(new MouseAdapter() {
@@ -50,7 +52,7 @@ public class VExplanationFrame extends JFrame {
 		//legt Aufbau und Funktion des Fensters fest
 		setLayout(new FlowLayout());
 		getContentPane().add(hyperlink);
-		setSize(600, 200);
+		setSize(800, 300);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
