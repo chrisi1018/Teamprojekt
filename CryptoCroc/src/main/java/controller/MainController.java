@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import view.CExplanationFrame;
 import view.Gui;
+import view.HExplanationFrame;
 import view.MExplanationFrame;
 import view.VExplanationFrame;
 
@@ -23,6 +24,7 @@ public class MainController {
 	private Menu menuBar;
 	private Dropdown dropDown;
 	private String[] encryptOpt = { "C\u00e4sar", "Monoalphabetisch", "Vigen\u00E8re" };
+	private String[] explanationOpt = { "C\u00e4sar", "Monoalphabetisch", "Vigen\u00E8re", "H\u00e4ufigkeitsanalyse" };
 	private ActionListener change = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -44,7 +46,7 @@ public class MainController {
 	 */
 	public MainController() {
 		this.menuBar = new Menu(new String[] { "Speichern", "Laden" }); // definiert eine neue Menueleiste mit Menue
-		this.menuBar.addMenu("Erkl\u00e4rungen", encryptOpt); // fuegt ein neues Menue hinzu
+		this.menuBar.addMenu("Erkl\u00e4rungen", explanationOpt); // fuegt ein neues Menue hinzu
 		this.dropDown = new Dropdown(encryptOpt, change);
 		this.gui = new Gui(this.menuBar.getJMenuBar(), // Menueleiste
 				plainText.createTextfieldPanel(), // Klartextpanel
@@ -57,5 +59,6 @@ public class MainController {
 		this.menuBar.initMenuItem(1, 0, new CExplanationFrame());
 		this.menuBar.initMenuItem(1, 1, new MExplanationFrame());
 		this.menuBar.initMenuItem(1, 2, new VExplanationFrame());
+		this.menuBar.initMenuItem(1, 3, new HExplanationFrame());
 	}
 }
