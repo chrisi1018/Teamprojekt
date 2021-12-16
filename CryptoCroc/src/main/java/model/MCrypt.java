@@ -11,21 +11,24 @@ public class MCrypt extends Crypt {
 	/**
 	 * Ueberprueft ob ein Schluessel gueltig ist
 	 * 
-	 * @param key Der Schluessel der verwendet wird.
+	 * @param keyString Der Schluessel der verwendet wird.
 	 * @return ob der Schluessel gueltig ist
 	 */
-	public boolean checkKey(String key) {
-		if (key.length() != 26) {
+	public boolean checkKey(String keyString) {
+		if (keyString.length() != 26) {
 			return false;
 		}
-		boolean allGood = true;
 
+		boolean allGood = true;
 		// checkt ob jedes Zeichen nur einmal vorkommt
-		String[] k = this.convertKeyToArray(key);
-		for (int i = 0; i < k.length; i++) {
-			String temp = k[i];
-			for (int j = 0; j < k.length; j++) {
-				if (k[i].equals(k[j]) && (i != j)) {
+		String[] key = this.convertKeyToArray(keyString);
+		for (int i = 0; i < key.length; i++) {
+			char c = key[i].charAt(0);
+			if (!(c >= 'a' && c <= 'z') && !(c >= 'A' && c <= 'Z')) {
+				return false;
+			}
+			for (int j = 0; j < key.length; j++) {
+				if (key[i].equalsIgnoreCase(key[j]) && (i != j)) {
 					allGood = false;
 				}
 			}
