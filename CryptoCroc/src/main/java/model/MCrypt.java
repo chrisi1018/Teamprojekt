@@ -45,7 +45,7 @@ public class MCrypt extends Crypt {
 	 * @param key das Schluesselwort als String
 	 * @return ein Array mit in jedem Slot ein Buchstabe
 	 */
-	private String[] convertKeyToArray(String key) {
+	public String[] convertKeyToArray(String key) {
 		String[] keyArray = new String[key.length()];
 		for (int i = 0; i < keyArray.length; i++) {
 			keyArray[i] = Character.toString(key.charAt(i));
@@ -78,6 +78,7 @@ public class MCrypt extends Crypt {
 		} else if (letter >= 'A' && letter <= 'Z') {
 			val = key[(letter) % 'A'];
 		}
+		val = val.toUpperCase();
 		return val;
 	}
 
