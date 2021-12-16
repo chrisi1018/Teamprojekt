@@ -1,0 +1,37 @@
+US12 (Git:88571c0) :
+
+1. Ich klicke im Menue "Erklaerungen" mit der Maus auf ein beliebiges Menue-Item
+Erwartung: Es oeffnet sich ein neues Fenster mit dem ausgewaehlten Item im Titel und einem zugehoerigen Link
+Realitaet: Fuer jede der 4 moeglichen Erklaerungen oeffnet sich ein einheitlich grosses Fenster mit einer der Auswahl 
+entsprechenden Benennung und einem zugehoerigen blauen Link
+
+-> Beim Testen fiel auf, dass im Erklaerungs- und Dropdownmenue bei Vigenere der Akzent fehlte
+-> Dies wurde daraufhin entsprechend angepasst
+
+2. Ich fahre mit der Maus in einem beliebigen Erklaerungsfenster auf den Link und wieder weg
+Erwartung: Der Cursor-Pfeil wird zu einem Zeigefinger, solange er sich irgendwo auf dem Link befindet
+Realitaet: entspricht der Erwartung
+
+3. Ich klicke wiederholt mit der Maus auf den Link in einem beliebigen Erklaerungsfenster
+Erwartung: Bei jedem Klick oeffnet sich der angezeigte Link in einem auf dem Geraet installierten Browser
+Realitaet: entspricht der Erwartung
+
+4. Ich klicke im Menue bei beliebiger Anzahl bereits offener Erklaerungsfenster auf eine noch nicht geoeffnete Erklärung
+Erwartung: Alle geoeffneten Fenster bleiben offen und es oeffnet sich zusaetzlich ein neues Fenster fuer die ausgewaehlte Erklaerung
+Realitaet: entspricht der Erwartung
+
+5. Ich oeffne einige Erklaerungsfenster und gehe in der Taskleiste auf das Programm
+Erwartung: Ich kann jedes noch nicht geschlossene Fenster im Programm auswaehlen und so in den Vordergrund ziehen
+Realitaet: entspricht der Erwartung
+
+6. Ich will im Menue ein noch offenes Erklaerungsfenster nochmal oeffnen
+Erwartung: Es oeffnet sich kein zweites uebereinstimmendes Fenster, sondern das bereits geoeffnete kommt in den Vordergrund
+Realitaet: entspricht der Erwartung
+
+7. Ich klicke im Erklaerungsfenster oben rechts auf das Kreuz
+Erwartung: Das Erklaerungsfenster schliesst sich, doch das Hauptfenster bleibt offen
+Realitaet: entspricht der Erwartung
+
+8. Ich oeffne und schliesse ein Erklaerungsfenster und versuche es danach gleich wieder zu oeffnen
+Erwartung: Das gleiche Fenster oeffnet sich erneut und der Link bleibt auswaehlbar
+Realitaet: entspricht der Erwartung
