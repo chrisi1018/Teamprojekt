@@ -4,8 +4,6 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Random;
-
-import org.junit.Ignore;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,7 +12,7 @@ import org.junit.jupiter.api.Test;
  * Testet das monoalphabetische Verfahren
  * 
  * @author zes
- * @version 1.0
+ * @version 1.3
  */
 public class MCryptText {
 
@@ -33,7 +31,7 @@ public class MCryptText {
 			+ " duo dolores et ea rebum. Stet clita kasd gubergren, no sea "
 			+ "takimata sanctus est Lorem ipsum dolor sit amet.";
 
-	// mit qwertz verschluesselter Tekst
+	// textOG mit qwertz verschluesselt
 	private String textQWERTZ = "SGKTD OHLXD RGSGK LOY QDTY, EGFLTYTYXK LQROHLEOFU TSOYK, LTR"
 			+ " ROQD FGFXDN TOKDGR YTDHGK OFCORXFY XY SQWGKT TY RGSGKT DQUFQ QSOJXNQD TKQY, "
 			+ "LTR ROQD CGSXHYXQ. QY CTKG TGL TY QEEXLQD TY PXLYG RXG RGSGKTL TY TQ KTWXD. L"
@@ -72,7 +70,7 @@ public class MCryptText {
 				.collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append).toString();
 
 		// erstellt ein Array mit allen Buchstaben des Alphabets und streicht die raus,
-		// // die im willkuerlichen Schluessel vorkommen
+		// die im willkuerlichen Schluessel vorkommen
 		String[] alph = test.convertKeyToArray(alphabet);
 		for (int i = 0; i < alph.length; i++) {
 			if (randomKey.contains(alph[i])) {
@@ -81,14 +79,15 @@ public class MCryptText {
 		}
 
 		// falls Buchstaben doppelt vorkommen ersetze zweites Vorkommen durch Buchstaben
-		// // der noch nicht vorkam
-		for (int i = 0; i < alphabet.length(); i++) { // geht nacheinander alle Buchstaben im Schluessel durch
+		// der noch nicht vorkam
+		for (int i = 0; i < alphabet.length(); i++) {
+			// geht nacheinander alle Buchstaben im Schluessel durch
 			char c = randomKey.charAt(i);
 			for (int j = i + 1; j < alphabet.length(); j++) {
 				char b = randomKey.charAt(j);
 
 				// schaut ob der gleiche Buchstabe nochmal vorkommt, falls ja ersetze das zweite
-				// // Vorkommen durch den naechsten freien Buchstaben
+				// Vorkommen durch den naechsten freien Buchstaben
 				if (c == b) {
 					int it = 0;
 					while ((c == b) && it < alph.length) {
@@ -147,12 +146,12 @@ public class MCryptText {
 		assertTrue(test.checkKey(alphabet));
 		assertTrue(test.checkKey("QwErTzUIOpasDFGHjklYXCVBnM"));
 		assertTrue(test.checkKey("pLmNkoIjbHUZgVCFtrDXYseWaQ"));
+		assertTrue(test.checkKey(randomKey));
 	}
 
 	/**
 	 * Testet ob Text gleichbleibt bei unveraendertem Schluessel
 	 */
-
 	@Test
 	void noChange() {
 		assertEquals(textOG.toUpperCase(), test.cryptAll(textOG, alphabet));
@@ -161,6 +160,14 @@ public class MCryptText {
 		assertEquals(textOG.toUpperCase(), test.decryptAll(textOG, alphabet));
 		assertEquals(textOG.toUpperCase(), test.decryptAll(textOG, "AbCDEfGHiJKLmnoPQRsTuVWxYz"));
 		assertEquals(textOG.toUpperCase(), test.decryptAll(textOG, alphabet.toLowerCase()));
+
+		assertEquals(random.toUpperCase(), test.cryptAll(random, alphabet));
+		assertEquals(random.toUpperCase(), test.cryptAll(random, "AbCDEfGHiJKLmnoPQRsTuVWxYz"));
+		assertEquals(random.toUpperCase(), test.cryptAll(random, alphabet.toLowerCase()));
+		assertEquals(random.toUpperCase(), test.decryptAll(random, alphabet));
+		assertEquals(random.toUpperCase(), test.decryptAll(random, "AbCDEfGHiJKLmnoPQRsTuVWxYz"));
+		assertEquals(random.toUpperCase(), test.decryptAll(random, alphabet.toLowerCase()));
+
 	}
 
 	/**

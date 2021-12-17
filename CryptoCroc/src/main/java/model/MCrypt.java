@@ -4,7 +4,7 @@ package model;
  * Fuer eine monoalphabetische Verschluesselung
  * 
  * @author zes
- * @version 1.0
+ * @version 1.1
  */
 public class MCrypt extends Crypt {
 
