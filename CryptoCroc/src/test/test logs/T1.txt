@@ -1,0 +1,9 @@
+T1 (Git:2ab3420) :
+
+1. Ich kann auf ein beliebiges Schluessel-Textfeld klicken und dort Buchstaben eingeben
+Erwartung: Der eingegebene Text erscheint zeitgleich im Textfeld
+Realitaet: entspricht der Erwartung
+
+-> Beobachtung: der Abstand zwischen den Schluesselfeldern und ihrem zugehoerigen Label ist groesser als der Abstand zu einem anderen Label
+-> Beobachtung: der Abstand zwischen dem Titel "Schluessel" und den Schluesselfeldern ist groesser als erwartet
+-> verbessert in Git:4a0fe7b
