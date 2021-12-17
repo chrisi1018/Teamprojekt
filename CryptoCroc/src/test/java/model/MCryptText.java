@@ -3,12 +3,14 @@ package model;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.Random;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 /**
- * Testet das Monoalphabetische Verfahren
+ * Testet das monoalphabetische Verfahren
  * 
  * @author zes
  * @version 1.0
@@ -17,7 +19,9 @@ public class MCryptText {
 
 	private MCrypt test;
 
-	private String textNull = "Lorem ipsum dolor sit amet, consetetur"
+	private String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+	private String textOG = "Lorem ipsum dolor sit amet, consetetur"
 			+ " sadipscing elitr, sed diam nonumy eirmod tempor invidunt"
 			+ " ut labore et dolore magna aliquyam erat, sed diam voluptua."
 			+ " At vero eos et accusam et justo duo dolores et ea rebum. Stet"
@@ -28,7 +32,8 @@ public class MCryptText {
 			+ " duo dolores et ea rebum. Stet clita kasd gubergren, no sea "
 			+ "takimata sanctus est Lorem ipsum dolor sit amet.";
 
-	private String textOne = "SGKTD OHLXD RGSGK LOY QDTY, EGFLTYTYXK LQROHLEOFU TSOYK, LTR"
+	// mit qwertz verschluesselter Tekst
+	private String textQWERTZ = "SGKTD OHLXD RGSGK LOY QDTY, EGFLTYTYXK LQROHLEOFU TSOYK, LTR"
 			+ " ROQD FGFXDN TOKDGR YTDHGK OFCORXFY XY SQWGKT TY RGSGKT DQUFQ QSOJXNQD TKQY, "
 			+ "LTR ROQD CGSXHYXQ. QY CTKG TGL TY QEEXLQD TY PXLYG RXG RGSGKTL TY TQ KTWXD. L"
 			+ "YTY ESOYQ AQLR UXWTKUKTF, FG LTQ YQAODQYQ LQFEYXL TLY SGKTD OHLXD RGSGK LOY Q"
@@ -37,14 +42,64 @@ public class MCryptText {
 			+ "YXQ. QY CTKG TGL TY QEEXLQD TY PXLYG RXG RGSGKTL TY TQ KTWXD. LYTY ESOYQ AQLR U"
 			+ "XWTKUKTF, FG LTQ YQAODQYQ LQFEYXL TLY SGKTD OHLXD RGSGK LOY QDTY.";
 
-	private String nonsense = "";
+	private String random = "";
+
+	private String room = "";
+
+	private String randomKey = "";
 
 	/**
-	 * Initalisiert den Test
+	 * Initalisiert den Test und erstellt einen willkuerlichen Tekst und Schluessel
 	 */
 	@BeforeEach
 	void init() {
 		this.test = new MCrypt();
+
+		// willkuerlicher Tekst
+		int leftLimit = 65;
+		int rightLimit = 122;
+		int targetStringLength = 100;
+		Random randomizer = new Random();
+		random = randomizer.ints(leftLimit, rightLimit + 1).limit(targetStringLength)
+				.collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append).toString();
+		System.out.println(random);
+
+		// willkuerlicher Schluessel
+		int leftKeyLimit = 65;
+		int rightKeyLimit = 90;
+		int targetKeyLength = 26;
+		randomKey = randomizer.ints(leftKeyLimit, rightKeyLimit + 1).limit(targetKeyLength)
+				.collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append).toString();
+
+		// erstellt ein Array mit allen Buchstaben des Alphabets und streicht die raus,
+		// die im willkuerlichen Schluessel vorkommen
+		String[] alph = test.convertKeyToArray(alphabet);
+		for (int i = 0; i < alph.length; i++) {
+			if (randomKey.contains(alph[i])) {
+				alph[i] = "";
+			}
+		}
+
+		// falls Buchstaben doppelt vorkommen ersetze zweites Vorkommen durch Buchstaben
+		// der noch nicht vorkam
+		for (int i = 0; i < alphabet.length(); i++) {
+			// geht nacheinander alle Buchstaben im Schluessel durch
+			char c = randomKey.charAt(i);
+			for (int j = i; j < alphabet.length(); j++) {
+				char b = randomKey.charAt(j);
+
+				// schaut ob der gleiche Buchstabe nochmal vorkommt
+				if (c == b) {
+					for (int k = 0; k < alphabet.length(); k++) {
+						if (!alph[k].equals("")) {
+
+						}
+					}
+				}
+			}
+		}
+		System.out.println(test.checkKey(randomKey));
+		System.out.println(randomKey);
 	}
 
 	/**
@@ -56,14 +111,41 @@ public class MCryptText {
 	}
 
 	/**
+	 * Testet ob ein nicht gueltiger Schluessel als solchen erkannt wird
+	 */
+	@Test
+	void invalidKey() {
+		assertTrue(!test.checkKey("Q§E&(UGEB)OL=!2356tgd21qst"));
+		// 26 Leerzeichen
+		assertTrue(!test.checkKey("                          "));
+		assertTrue(!test.checkKey("AaBbCcDdEeFfGgHhIiJjKkLlMm"));
+		assertTrue(!test.checkKey("AoihbUZmOIhmHBUizbOJBSiupqNCIPAjnPAIj"));
+
+		// gueltig bis auf ein Zeichen
+		assertTrue(!test.checkKey("pLmNkoIjbHUZgVCFtrDXYse aQ"));
+	}
+
+	/**
+	 * Testet ob ein gueltiger Schluessel als solches erkannt wird
+	 */
+	@Test
+	void validKey() {
+		assertTrue(test.checkKey(alphabet));
+		assertTrue(test.checkKey("QwErTzUIOpasDFGHjklYXCVBnM"));
+		assertTrue(test.checkKey("pLmNkoIjbHUZgVCFtrDXYseWaQ"));
+	}
+
+	/**
 	 * Testet ob Text gleichbleibt bei unveraendertem Schluessel
 	 */
 	@Test
 	void noChange() {
-		assertEquals(textNull.toUpperCase(), test.cryptAll(textNull, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
-		assertEquals(textNull.toLowerCase(), test.cryptAll(textNull, "abcdefghijklmnopqrstuvwxyz"));
-		assertEquals(textNull.toUpperCase(), test.decryptAll(textNull, "ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
-		assertEquals(textNull.toUpperCase(), test.decryptAll(textNull, "abcdefghijklmnopqrstuvwxyz"));
+		assertEquals(textOG.toUpperCase(), test.cryptAll(textOG, alphabet));
+		assertEquals(textOG.toUpperCase(), test.cryptAll(textOG, "AbCDEfGHiJKLmnoPQRsTuVWxYz"));
+		assertEquals(textOG.toUpperCase(), test.cryptAll(textOG, alphabet.toLowerCase()));
+		assertEquals(textOG.toUpperCase(), test.decryptAll(textOG, alphabet));
+		assertEquals(textOG.toUpperCase(), test.decryptAll(textOG, "AbCDEfGHiJKLmnoPQRsTuVWxYz"));
+		assertEquals(textOG.toUpperCase(), test.decryptAll(textOG, alphabet.toLowerCase()));
 	}
 
 	/**
@@ -71,15 +153,25 @@ public class MCryptText {
 	 */
 	@Test
 	void decrypt() {
-		assertEquals(textNull.toUpperCase(), test.decryptAll(textOne, "QWERTZUIOPASDFGHJKLYXCVBNM"));
+		assertEquals(textOG.toUpperCase(), test.decryptAll(textQWERTZ, "QWERTZUIOPASDFGHJKLYXCVBNM"));
+		assertEquals(textOG.toUpperCase(), test.decryptAll(textQWERTZ, "qwertzuiopasdfghjklyxcvbnm"));
+		assertEquals(textOG.toUpperCase(), test.decryptAll(textQWERTZ, "QwErTzUIOpasDFGHjklYXCVBnM"));
 	}
 
 	/**
-	 * Testet ob ein nicht gueltiger Schluessel als solchen erkannt wird
+	 * Testet wie die Verschluesselung mit Unicodezeichen umgeht
 	 */
 	@Test
-	void invalidKey() {
-		assertTrue(!test.checkKey("Q§E&(UGEB)OL=!2356tgd21qst"));
-		assertTrue(test.checkKey("Q§E&(UGFB)OL=!#356tgd21qsp"));
+	void unicode() {
+		assertEquals("\u00C6\u00D8\u00C5", test.cryptAll("\u00C6\u00D8\u00C5", "pLmNkoIjbHUZgVCFtrDXYseWaQ"));
+	}
+
+	/**
+	 * Testet Entschluesselung bei zufaelligem Text und Schluessel
+	 */
+	@Test
+	void random() {
+		String enc = test.cryptAll(random, randomKey);
+		assertEquals(enc, test.decryptAll(random, randomKey));
 	}
 }
