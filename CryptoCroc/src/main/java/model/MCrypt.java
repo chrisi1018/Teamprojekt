@@ -86,7 +86,7 @@ public class MCrypt extends Crypt {
 	public String decryptAll(String cryptoText, String key) {
 		String[] keyArray = this.convertKeyToArray(key);
 		String plainText = "";
-		for (int i = 0; i < cryptoText.length(); i++) {
+		for (int i = 0; i < 5; i++) {
 			plainText += this.decryptChar(cryptoText.charAt(i), keyArray);
 		}
 		return plainText;

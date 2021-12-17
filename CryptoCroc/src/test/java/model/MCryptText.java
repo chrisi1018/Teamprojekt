@@ -42,20 +42,30 @@ public class MCryptText {
 			+ "YXQ. QY CTKG TGL TY QEEXLQD TY PXLYG RXG RGSGKTL TY TQ KTWXD. LYTY ESOYQ AQLR U"
 			+ "XWTKUKTF, FG LTQ YQAODQYQ LQFEYXL TLY SGKTD OHLXD RGSGK LOY QDTY.";
 
-	private String random = "";
+	private String random = "^EW_O`ib_dtQYuZokddOVqwccjNAhBZjCuXgeOuJzonZvu]uQ^lYqlHnIfydXGfNIsdJNUkFpWRlh]iM"
+			+ "BeXziVvOe`kIOmEXu]fK" + "PTQJMGHIZNEYBUFVDSROKCXWAL"
+			+ "O^C[OUMDG]TSNmaHijvY`BAl]UstkBS[pIreir\\IQTYEkhpcRbYFCX`IZeYNDXhLtZrD\\PsBWSVfrRv[fznGAiXj`qrGAmigrIzF"
+			+ "AOIGEKLBPWFMTNURHJVXQCZDYS"
+			+ "HzyBg]pwMMyUvwQ]svAueTpCJEEz_ZZZcGgRsetBWN^MKlDAK\\UkrDLuJCFnJIzwr`YvgJQVAj`RE[pclzZBfFBjaSJFHPWqXgOU"
+			+ "QMAEHSCRTNIPXFOBGWJVDYLUZK"
+			+ "TzWheykoF^XceEneZnLBCkveYxMPlanoMVPtGBPIlKIsyEKQAlWIXRbsBTyHBKQGJgcVIavp_AjBvxgEuudN`CwKodwvlHrWSqtG"
+			+ "XUDKJETOQMGSFNLPIYBAZCRWHV"
+			+ "WGSlhymD\\ma`]KjlgcWOSeVzlnd]uZSAVoo`aIRxw]nrVF[gFdmRZwUuSM^ZCqcWdTuNL]c^bBWjdS[xmhrO\\SzmVaSXhI`XSLuI"
+			+ "JVYLFSPAIBCWKQNDGRHMTXZUEO"
+			+ "v[DafdWi`W[h_\\`eoinvebkmeNKetTjT`xtnj]b]ogoDR[^OncmUJdV]abvYPvYi_iZw_kFZCNBQ_clFkclxsdQaeqvpyGI\\BYx^";
 
-	private String room = "";
-
-	private String randomKey = "";
+	private String randomKey = "ILTFKDVAJEPNQGXSRHOUBCYZWM";
 
 	/**
-	 * Initalisiert den Test und erstellt einen willkuerlichen Tekst und Schluessel
+	 * Initalisiert den Test und erstellt einen willkuerlichen Text und Schluessel.
+	 * Dabei wird beim Schluessel darauf geachtet, dass jeder Buchstabe nur einmal
+	 * vorkommt, indem doppelt vorkommende Buchstaben ersetzt werden
 	 */
 	@BeforeEach
 	void init() {
 		this.test = new MCrypt();
-
-		// willkuerlicher Tekst
+		/*
+		// willkuerlicher Text
 		int leftLimit = 65;
 		int rightLimit = 122;
 		int targetStringLength = 100;
@@ -85,21 +95,36 @@ public class MCryptText {
 		for (int i = 0; i < alphabet.length(); i++) {
 			// geht nacheinander alle Buchstaben im Schluessel durch
 			char c = randomKey.charAt(i);
-			for (int j = i; j < alphabet.length(); j++) {
+			for (int j = i + 1; j < alphabet.length(); j++) {
 				char b = randomKey.charAt(j);
 
-				// schaut ob der gleiche Buchstabe nochmal vorkommt
+				// schaut ob der gleiche Buchstabe nochmal vorkommt, falls ja ersetze das zwetie
+				// Vorkommen durch den naechsten freien Buchstaben
 				if (c == b) {
-					for (int k = 0; k < alphabet.length(); k++) {
-						if (!alph[k].equals("")) {
+					int it = 0;
+					while ((c == b) && it < alph.length) {
+						if (!alph[it].equals("")) {
+							b = alph[it].charAt(0);
+							alph[it] = "";
+						}
+						it++;
+					}
 
+					// modifiziert den Schluessel, so dass doppeltes Vorkommen aus dem Schluessel
+					// durch neuen Buchstaben ersetzt wird
+					String rebuild = "";
+					for (int k = 0; k < randomKey.length(); k++) {
+						if (k == j) {
+							rebuild += Character.toString(b);
+						} else {
+							rebuild += Character.toString(randomKey.charAt(k));
 						}
 					}
+					randomKey = rebuild;
 				}
 			}
 		}
-		System.out.println(test.checkKey(randomKey));
-		System.out.println(randomKey);
+		System.out.println(randomKey);*/
 	}
 
 	/**
@@ -172,6 +197,10 @@ public class MCryptText {
 	@Test
 	void random() {
 		String enc = test.cryptAll(random, randomKey);
-		assertEquals(enc, test.decryptAll(random, randomKey));
+		System.out.println(enc);
+		System.out.println(random);
+		System.out.println(test.decryptAll(random, randomKey));
+		assertEquals(random.toUpperCase(), test.decryptAll(random, randomKey));
 	}
+
 }
