@@ -24,6 +24,14 @@ public class VKeyPanel extends KeyPanel {
 	private JLabel name = new JLabel("Schl\u00fcsselwort");
 	
 	/**
+	 * 
+	 * @param controller
+	 */
+	public VKeyPanel(MainController controller) {
+		super(controller);
+	}
+	
+	/**
 	 * Ueberschreibt die Methode 'createKeyPanel'
 	 */
 	@Override
@@ -53,6 +61,14 @@ public class VKeyPanel extends KeyPanel {
 		keyPanel.add(this.createButtonPanel(), BorderLayout.CENTER);
 		
 		return keyPanel;
+	}
+	
+	/**
+	 * 
+	 */
+	@Override
+	public String getKey() {
+		return this.key.getText();
 	}
 
 }

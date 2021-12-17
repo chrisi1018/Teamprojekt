@@ -25,4 +25,11 @@ public abstract class Crypt {
 	 * @return der entschlüsselte Text
 	 */
 	public abstract String decryptAll(String cryptoText, String key);
+	
+	/**
+	 * 
+	 * @param key
+	 * @return
+	 */
+	public abstract boolean checkKey(String key);
 }

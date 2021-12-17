@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import model.Crypt;
+import model.TextEdit;
 
 /**
  * Beschreibt Aufbau der Spalte für die Buttons und die Schlüssel in CryptoCroc
@@ -18,12 +19,22 @@ public abstract class KeyPanel {
 	private JButton encrypt = new JButton("verschl\u00fcsseln");
 	private JButton decrypt = new JButton("entschl\u00fcsseln");
 	private Crypt crypt;
+	private MainController controller; 
+	//private TextEdit textEdit = new TextEdit();
+	
+	/**
+	 * 
+	 * @param controller
+	 */
+	public KeyPanel(MainController controller) {
+		this.controller = controller;
+	}
 	
 	/**
 	 * Initialisiert die Buttons durch die Action Listener
 	 */
 	public void initKey() {
-		encrypt.addActionListener(e -> crypt.cryptAll("Klartext", "key"));
+		encrypt.addActionListener(e -> this.clickButtonEncrypt());
 		//TODO Hier muss noch der Klartext übergeben werden 
 		decrypt.addActionListener(e -> crypt.decryptAll("Geheimtext", "Key"));
 		// TODO Hier muss noch der Geheimtext übergeben werden
@@ -34,6 +45,8 @@ public abstract class KeyPanel {
 	 * @return ein JPanel mit Buttons und dem Schlüssel
 	 */
 	public abstract JPanel createKeyPanel(); //Bei der Implementierung createButtonPanel hinzufügen
+	
+	public abstract String getKey();
 	
 	/**
 	 * Erzeugt die Buttons in einem JPanel
@@ -81,5 +94,25 @@ public abstract class KeyPanel {
 	 */
 	public void setCrypt(Crypt newCrypt) {
 		this.crypt = newCrypt;
+	}
+	
+	/**
+	 * 
+	 */
+	public void clickButtonEncrypt() {
+		//crypt.cryptAll("Klartext", "key")
+		String plainText;
+		String cryptoText = "";
+		String key;
+		
+		plainText = this.controller.getPlainText();
+		key = getKey();
+		if (this.crypt.checkKey(key)) {
+			cryptoText = this.crypt.cryptAll(plainText, key);
+		} else  {
+			System.out.println("CheckKey schlägt fehlt!");
+		}
+		//cryptoText = this.
+		this.controller.setCryptoText(cryptoText);
 	}
 }

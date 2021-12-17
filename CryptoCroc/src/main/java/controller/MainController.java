@@ -19,10 +19,11 @@ public class MainController {
 
 	private TextField plainText = new TextField("Klartext");
 	private TextField cryptoText = new TextField("Geheimtext");
-	private KeyPanel key = new CKeyPanel();
+	private KeyPanel key = new CKeyPanel(this);
 	private Gui gui;
 	private Menu menuBar;
 	private Dropdown dropDown;
+	private MainController controller = this;
 	private String[] encryptOpt = { "C\u00e4sar", "Monoalphabetisch", "Vigen\u00E8re" };
 	private String[] explanationOpt = { "C\u00e4sar", "Monoalphabetisch", "Vigen\u00E8re", "H\u00e4ufigkeitsanalyse" };
 	private ActionListener change = new ActionListener() {
@@ -30,11 +31,11 @@ public class MainController {
 		public void actionPerformed(ActionEvent e) {
 			String opt = dropDown.status();
 			if (opt.equals(encryptOpt[0])) {
-				key = new CKeyPanel();
+				key = new CKeyPanel(controller);
 			} else if (opt.equals(encryptOpt[1])) {
-				key = new MKeyPanel();
+				key = new MKeyPanel(controller);
 			} else if (opt.equals(encryptOpt[2])) {
-				key = new VKeyPanel();
+				key = new VKeyPanel(controller);
 			}
 			gui.setKeyPanel(key.createKeyPanel());
 		}
@@ -51,14 +52,45 @@ public class MainController {
 		this.gui = new Gui(this.menuBar.getJMenuBar(), // Menueleiste
 				plainText.createTextfieldPanel(), // Klartextpanel
 				cryptoText.createTextfieldPanel(), // Cryptotextpanel
-				key.createKeyPanel(), dropDown.createDropdown() // für das Dropdownmenü
+				key.createKeyPanel(), // Schl�sselpanel
+				dropDown.createDropdown() // Dropdownmenue
 		);
 		this.key.initKey();
-		// kann erst hinzugef�gt werden, wenn zuvor key festgelegt
-		// wurde also erst mit DropDown Men�
 		this.menuBar.initMenuItem(1, 0, new CExplanationFrame());
 		this.menuBar.initMenuItem(1, 1, new MExplanationFrame());
 		this.menuBar.initMenuItem(1, 2, new VExplanationFrame());
 		this.menuBar.initMenuItem(1, 3, new HExplanationFrame());
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getPlainText() {
+		return this.plainText.getText();
+	}
+	
+	/**
+	 * 
+	 * @param text
+	 */
+	public void setPlainText(String text) {
+		this.plainText.setText(text);
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getCryptoText() {
+		return this.cryptoText.getText();
+	}
+	
+	/**
+	 * 
+	 * @param text
+	 */
+	public void setCryptoText(String text) {
+		this.cryptoText.setText(text);
 	}
 }

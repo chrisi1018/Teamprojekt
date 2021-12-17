@@ -29,7 +29,8 @@ public class MKeyPanel extends KeyPanel {
 	 * zuordnet
 	 * 
 	 */
-	public MKeyPanel() {
+	public MKeyPanel(MainController controller) {
+		super(controller);
 		// super.setCrypt(new MCrypt());
 		// TODO
 	}
@@ -80,6 +81,18 @@ public class MKeyPanel extends KeyPanel {
 		total.add(this.createButtonPanel());
 
 		return total;
+	}
+	
+	/**
+	 * 
+	 */
+	@Override
+	public String getKey() {
+		String key = "";
+		for(int i = 0; i < this.alphabetSize; i++) {
+			key += this.keys[i].getText();
+		}
+		return key;
 	}
 
 	/**

@@ -55,5 +55,20 @@ public class TextField {
 		bLayout.setVgap(10);
 		return panel;
 	}
-
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getText() {
+		return this.text.getText();
+	}
+	
+	/**
+	 * 
+	 * @param text
+	 */
+	public void setText(String text) {
+		this.text.setText(text);
+	}
 }
