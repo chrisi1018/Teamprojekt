@@ -128,6 +128,7 @@ public class MCryptText {
 	 */
 	@Test
 	void invalidKey() {
+		assertTrue(!test.checkKey(""));
 		assertTrue(!test.checkKey("Q§E&(UGEB)OL=!2356tgd21qst"));
 		// 26 Leerzeichen
 		assertTrue(!test.checkKey("                          "));
