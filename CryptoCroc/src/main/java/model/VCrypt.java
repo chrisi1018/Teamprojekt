@@ -55,7 +55,7 @@ public class VCrypt extends Crypt {
 	}
 	
 	/**
-	 * Die Methode Überprüft ob der Schlüssel das richtige Format hat
+	 * Die Methode Überprüft ob der Schlüssel das richtige Format hat, ein String aus arabischen Buchstaben
 	 * @param key der Verwedete Schlüssel
 	 * @return Ein boolscher Wahrheitswert ob das Format des Schlüssels passt
 	 */
