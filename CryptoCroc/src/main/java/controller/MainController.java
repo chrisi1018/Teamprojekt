@@ -60,13 +60,6 @@ public class MainController {
 		this.menuBar.initExplanationItem(1, 1, new MExplanationFrame());
 		this.menuBar.initExplanationItem(1, 2, new VExplanationFrame());
 		this.menuBar.initExplanationItem(1, 3, new HExplanationFrame());
-	}
-	
-	public TextField getPlainText() {
-		return this.plainText;
-	}
-	
-	public TextField getCryptoText() {
-		return this.cryptoText;
+		this.menuBar.initSaveItem(0, 0, this.plainText, this.cryptoText);
 	}
 }

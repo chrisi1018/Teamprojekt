@@ -56,4 +56,7 @@ public class TextField {
 		return panel;
 	}
 
+	public JTextArea getTextArea() {
+		return this.text;
+	}
 }

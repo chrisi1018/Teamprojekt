@@ -2,7 +2,11 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -61,6 +65,29 @@ public class Menu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				newFrame.setVisible(true);
+			}
+		});
+	}
+	
+	public void initSaveItem(int barIndex, int menuIndex, TextField plainText, TextField cryptoText) {
+		JFileChooser fileChooser = new JFileChooser();
+		menuBar.getMenu(barIndex).getItem(menuIndex).addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int response = fileChooser.showSaveDialog(null);
+				if (response == JFileChooser.APPROVE_OPTION) {
+					File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
+					PrintWriter writer = null;
+					try {
+						writer = new PrintWriter(file);
+						writer.println(plainText.getTextArea().getText());
+					} catch (FileNotFoundException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} finally {
+						writer.close();					
+					}
+				}
 			}
 		});
 	}
