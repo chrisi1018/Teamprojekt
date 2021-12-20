@@ -7,7 +7,6 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import model.Crypt;
-import model.TextEdit;
 import view.Messages;
 
 /**
@@ -24,6 +23,7 @@ public abstract class KeyPanel {
 	
 	/**
 	 * 
+	 * 
 	 * @param controller
 	 */
 	public KeyPanel(MainController controller) {
@@ -35,10 +35,9 @@ public abstract class KeyPanel {
 	 */
 	public void initKey() {
 		encrypt.addActionListener(e -> this.clickButtonEncrypt());
-		//TODO Hier muss noch der Klartext übergeben werden 
-		decrypt.addActionListener(e -> crypt.decryptAll("Geheimtext", "Key"));
-		// TODO Hier muss noch der Geheimtext übergeben werden
+		decrypt.addActionListener(e -> this.clickButtonDecrypt());
 	}
+	
 	/**
 	 * Erzeugt die Buttons und die Schlüssel für das JPanel
 	 * 
@@ -46,6 +45,11 @@ public abstract class KeyPanel {
 	 */
 	public abstract JPanel createKeyPanel(); //Bei der Implementierung createButtonPanel hinzufügen
 	
+	/**
+	 * Gibt den aktuellen Key zurück
+	 * 
+	 * @return den aktuellen Key als String
+	 */
 	public abstract String getKey();
 	
 	/**
@@ -100,23 +104,42 @@ public abstract class KeyPanel {
 	 * 
 	 */
 	public void clickButtonEncrypt() {
-		String plainText;
-		String cryptoText;
-		String key;
+		String plainText = this.controller.getPlainText();
+		String cryptoText = this.controller.getCryptoText();
+		String key = getKey();
 		
-		plainText = this.controller.getPlainText();
-		cryptoText = this.controller.getCryptoText();
 		if (plainText.isEmpty()) {
-			Messages.errorMessage("Zum verschlüsseln muss im Klartextfeld ein Text eingegeben werden.");
+			Messages.errorMessage("Zum verschl\u00fcsseln muss im Klartextfeld ein Text eingegeben werden.");
 		} else {
-			key = getKey();
 			if (this.crypt.checkKey(key)) {
 				if (cryptoText.isEmpty() || Messages.yesNoQuestion("Darf der Geheimtext im Geheimtextfeld überschrieben werden?")) {
 					cryptoText = this.crypt.cryptAll(plainText, key);
 					this.controller.setCryptoText(cryptoText);
 				}
 			} else {
-				Messages.errorMessage("Der eigegebene Schl\u00fcssel ist nicht korrekt.");
+				Messages.errorMessage("Der eingegebene Schl\u00fcssel ist nicht korrekt.");
+			}
+		}
+	}
+	
+	/**
+	 * 
+	 */
+	public void clickButtonDecrypt() {
+		String plainText = this.controller.getPlainText();
+		String cryptoText = this.controller.getCryptoText();
+		String key = getKey();
+		
+		if (cryptoText.isEmpty()) {
+			Messages.errorMessage("Zum entschl\u00fcsseln muss im Geheimtestfeld ein Text eingegeben werden.");
+		} else {
+			if (this.crypt.checkKey(key)) {
+				if (plainText.isEmpty() || Messages.yesNoQuestion("Darf der Klartext im Klartextfeld überschrieben werden?")) {
+					plainText = this.crypt.decryptAll(cryptoText, key);
+					this.controller.setPlainText(plainText);
+				}
+			} else {
+				Messages.errorMessage("Der eingegebene Schl\u00fcssel ist nicht korrekt.");
 			}
 		}
 	}
