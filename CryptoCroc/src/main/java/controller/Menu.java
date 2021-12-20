@@ -56,7 +56,7 @@ public class Menu {
 	 * @param menuIndex Index des Items im Menue
 	 * @param newFrame zu erstellendes Fenster
 	 */
-	public void initMenuItem(int barIndex, int menuIndex, JFrame newFrame) {
+	public void initExplanationItem(int barIndex, int menuIndex, JFrame newFrame) {
 		menuBar.getMenu(barIndex).getItem(menuIndex).addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

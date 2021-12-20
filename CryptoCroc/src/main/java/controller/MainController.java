@@ -56,9 +56,17 @@ public class MainController {
 		this.key.initKey();
 		// kann erst hinzugef�gt werden, wenn zuvor key festgelegt
 		// wurde also erst mit DropDown Men�
-		this.menuBar.initMenuItem(1, 0, new CExplanationFrame());
-		this.menuBar.initMenuItem(1, 1, new MExplanationFrame());
-		this.menuBar.initMenuItem(1, 2, new VExplanationFrame());
-		this.menuBar.initMenuItem(1, 3, new HExplanationFrame());
+		this.menuBar.initExplanationItem(1, 0, new CExplanationFrame());
+		this.menuBar.initExplanationItem(1, 1, new MExplanationFrame());
+		this.menuBar.initExplanationItem(1, 2, new VExplanationFrame());
+		this.menuBar.initExplanationItem(1, 3, new HExplanationFrame());
+	}
+	
+	public TextField getPlainText() {
+		return this.plainText;
+	}
+	
+	public TextField getCryptoText() {
+		return this.cryptoText;
 	}
 }
