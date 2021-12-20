@@ -5,6 +5,9 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import model.MCrypt;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -20,7 +23,7 @@ import java.awt.Font;
 public class MKeyPanel extends KeyPanel {
 
 	private final int alphabetSize = 26;
-	private String key;
+	private String key = this.keyAsString();
 	private JTextField[] keys = new JTextField[alphabetSize];
 	private JLabel[] names = new JLabel[alphabetSize];
 	private JPanel[] nameKeyPanels = new JPanel[alphabetSize];
@@ -30,10 +33,24 @@ public class MKeyPanel extends KeyPanel {
 	 * zuordnet
 	 * 
 	 */
+<<<<<<< HEAD
 	public MKeyPanel(MainController controller) {
 		super(controller);
 		// super.setCrypt(new MCrypt());
 		// TODO
+=======
+	public MKeyPanel() {
+		super.setCrypt(new MCrypt());
+	}
+
+	/**
+	 * Methode die den aktuellen Schluessel zurueckgibt
+	 * 
+	 * @return String den Schluessel
+	 */
+	public String getKey() {
+		return this.key;
+>>>>>>> main
 	}
 
 	/**
