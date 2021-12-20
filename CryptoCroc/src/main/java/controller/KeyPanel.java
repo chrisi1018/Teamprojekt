@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 import model.Crypt;
 import model.TextEdit;
+import view.Messages;
 
 /**
  * Beschreibt Aufbau der Spalte für die Buttons und die Schlüssel in CryptoCroc
@@ -20,7 +21,6 @@ public abstract class KeyPanel {
 	private JButton decrypt = new JButton("entschl\u00fcsseln");
 	private Crypt crypt;
 	private MainController controller; 
-	//private TextEdit textEdit = new TextEdit();
 	
 	/**
 	 * 
@@ -100,19 +100,24 @@ public abstract class KeyPanel {
 	 * 
 	 */
 	public void clickButtonEncrypt() {
-		//crypt.cryptAll("Klartext", "key")
 		String plainText;
-		String cryptoText = "";
+		String cryptoText;
 		String key;
 		
 		plainText = this.controller.getPlainText();
-		key = getKey();
-		if (this.crypt.checkKey(key)) {
-			cryptoText = this.crypt.cryptAll(plainText, key);
-		} else  {
-			System.out.println("CheckKey schlägt fehlt!");
+		cryptoText = this.controller.getCryptoText();
+		if (plainText.isEmpty()) {
+			Messages.errorMessage("Zum verschlüsseln muss im Klartextfeld ein Text eingegeben werden.");
+		} else {
+			key = getKey();
+			if (this.crypt.checkKey(key)) {
+				if (cryptoText.isEmpty() || Messages.yesNoQuestion("Darf der Geheimtext im Geheimtextfeld überschrieben werden?")) {
+					cryptoText = this.crypt.cryptAll(plainText, key);
+					this.controller.setCryptoText(cryptoText);
+				}
+			} else {
+				Messages.errorMessage("Der eigegebene Schl\u00fcssel ist nicht korrekt.");
+			}
 		}
-		//cryptoText = this.
-		this.controller.setCryptoText(cryptoText);
 	}
 }
