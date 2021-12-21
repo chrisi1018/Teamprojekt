@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
  */
 public final class Messages {
 	
+	
 	/**
 	 * Privater Konstruktor für Hilfsklasse
 	 */
@@ -49,5 +50,18 @@ public final class Messages {
 			return true;
 		}
 		return false;
+	}
+	
+	/**
+	 *  Implementiert ein Pop-Up-Fenster, dass dem Benuter erlaubt eine Option von Mehrern zu wählen
+	 *  
+	 *  @param message Die Nachricht die im Pop-Up-Fenster Angezeigt wird
+	 *  @param option Ein Array indem die möglichen optionen übergeben werden
+	 *  @return Gibt an welches Position im Arry options ausgewählt wurde.
+	 */
+	public static int query(String message, String[] option) {
+		return JOptionPane.showOptionDialog(null, message, "Frage",
+				JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,
+				null, option, option[0]);
 	}
 }
