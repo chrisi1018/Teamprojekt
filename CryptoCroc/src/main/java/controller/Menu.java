@@ -11,6 +11,10 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+import view.Messages;
 
 /**
  * Beschreibt Aufbau und Funktion der Menueleiste in CryptoCroc
@@ -70,22 +74,31 @@ public class Menu {
 	}
 	
 	public void initSaveItem(int barIndex, int menuIndex, TextField plainText, TextField cryptoText) {
+		String[] options = new String[] { "Klartext", "Geheimtext" };
 		JFileChooser fileChooser = new JFileChooser();
 		menuBar.getMenu(barIndex).getItem(menuIndex).addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int response = fileChooser.showSaveDialog(null);
-				if (response == JFileChooser.APPROVE_OPTION) {
-					File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
-					PrintWriter writer = null;
-					try {
-						writer = new PrintWriter(file);
-						writer.println(plainText.getTextArea().getText());
-					} catch (FileNotFoundException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					} finally {
-						writer.close();					
+				TextField chosenTextField;
+				int textNumber = Messages.query("Welchen Text willst du speichern?", options);
+				if (textNumber != JOptionPane.CLOSED_OPTION) {
+					if (textNumber == 1) {
+						chosenTextField = cryptoText;
+					} else {
+						chosenTextField = plainText;
+					}
+					int response = fileChooser.showSaveDialog(null);
+					if (response == JFileChooser.APPROVE_OPTION) {
+						File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
+						PrintWriter writer = null;
+						try {
+							writer = new PrintWriter(file);
+							writer.println(chosenTextField.getTextArea().getText());
+						} catch (FileNotFoundException e1) {
+							e1.printStackTrace();
+						} finally {
+							writer.close();					
+						}
 					}
 				}
 			}
