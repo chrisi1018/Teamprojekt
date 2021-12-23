@@ -24,6 +24,8 @@ import view.Messages;
  */
 public class Menu {
 	
+	private final String[] options = new String[] { "Klartext", "Geheimtext" };
+	
 	private JMenuBar menuBar;
 	
 	/**
@@ -73,22 +75,33 @@ public class Menu {
 		});
 	}
 	
+	/**
+	 * Oeffnet ein Speichern-Dialogfenster, in dem man Speicherort und Name der zu speichernden Textdatei
+	 * selbst festlegen kann und erzeugt eine Textdatei mit ausgesuchtem Inhalt
+	 * 
+	 * @param barIndex Index des Menues in der Menueleiste
+	 * @param menuIndex Index des Items im Menue
+	 * @param plainText übergebenes Klartextfeld
+	 * @param cryptoText übergebenes Geheimtextfeld
+	 */
 	public void initSaveItem(int barIndex, int menuIndex, TextField plainText, TextField cryptoText) {
-		String[] options = new String[] { "Klartext", "Geheimtext" };
+		final String fileType = "txt";
 		JFileChooser fileChooser = new JFileChooser();
+		//legt fest, was beim Anklicken des Menueitems passiert
 		menuBar.getMenu(barIndex).getItem(menuIndex).addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				TextField chosenTextField;
-				String fileType = "txt";
-				FileNameExtensionFilter filter = new FileNameExtensionFilter("*.txt", fileType);
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("*." + fileType, fileType);
 				int textNumber = Messages.query("Welchen Text willst du speichern?", options);
+				//ueberprueft, ob im PopUp-Fenster ein Textfeld gewaehlt wurde und waehlt dieses
 				if (textNumber != JOptionPane.CLOSED_OPTION) {
 					if (textNumber == 1) {
 						chosenTextField = cryptoText;
 					} else {
 						chosenTextField = plainText;
 					}
+					//erzeugt eine Textdatei mit eingetipptem Namen, wenn auf 'Speichern' geklickt wird
 					fileChooser.addChoosableFileFilter(filter);
 					fileChooser.removeChoosableFileFilter(fileChooser.getAcceptAllFileFilter());
 					int response = fileChooser.showSaveDialog(null);
@@ -100,6 +113,7 @@ public class Menu {
 						} else {
 							file = new File(fileName + "." + fileType);
 						}
+						//schreibt den Text im ausgewählten Textfeld in die erzeugte Datei
 						PrintWriter writer = null;
 						try {
 							writer = new PrintWriter(file);
