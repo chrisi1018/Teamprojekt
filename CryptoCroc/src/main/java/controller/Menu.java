@@ -80,6 +80,8 @@ public class Menu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				TextField chosenTextField;
+				String fileType = "txt";
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("*.txt", fileType);
 				int textNumber = Messages.query("Welchen Text willst du speichern?", options);
 				if (textNumber != JOptionPane.CLOSED_OPTION) {
 					if (textNumber == 1) {
@@ -87,9 +89,17 @@ public class Menu {
 					} else {
 						chosenTextField = plainText;
 					}
+					fileChooser.addChoosableFileFilter(filter);
+					fileChooser.removeChoosableFileFilter(fileChooser.getAcceptAllFileFilter());
 					int response = fileChooser.showSaveDialog(null);
 					if (response == JFileChooser.APPROVE_OPTION) {
-						File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
+						String fileName = fileChooser.getSelectedFile().getAbsolutePath();
+						File file;
+						if (fileName.endsWith("." + fileType)) {
+							file = new File(fileName);
+						} else {
+							file = new File(fileName + "." + fileType);
+						}
 						PrintWriter writer = null;
 						try {
 							writer = new PrintWriter(file);
