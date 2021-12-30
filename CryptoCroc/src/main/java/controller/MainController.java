@@ -38,6 +38,8 @@ public class MainController {
 				key = new VKeyPanel(controller);
 			}
 			gui.setKeyPanel(key.createKeyPanel());
+			//Wichtig: da ansonsten die Buttons nicht mehr funktionieren
+			key.initKey();
 		}
 	};
 

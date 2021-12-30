@@ -45,7 +45,7 @@ public class MKeyPanel extends KeyPanel {
 	 */
 	@Override
 	public String getKey() {
-		return this.key;
+		return this.keyAsString();
 	}
 
 	/**
@@ -58,7 +58,7 @@ public class MKeyPanel extends KeyPanel {
 		if (keys != null) {
 			for (int i = 0; i < keys.length; i++) {
 				if (keys[i] != null) {
-					this.key += keys[i];
+					this.key += keys[i].getText();
 				}
 			}
 		}

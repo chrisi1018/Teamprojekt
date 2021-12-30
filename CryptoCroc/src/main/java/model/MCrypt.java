@@ -14,6 +14,7 @@ public class MCrypt extends Crypt {
 	 * @param keyString Der Schluessel der verwendet wird.
 	 * @return ob der Schluessel gueltig ist
 	 */
+	@Override
 	public boolean checkKey(String keyString) {
 		if (keyString.length() != 26) {
 			return false;
