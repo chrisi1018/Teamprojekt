@@ -20,7 +20,7 @@ public class TextField {
 	private JLabel label;
 
 	/**
-	 * Konstruktor für ein TextField
+	 * Konstruktor fuer ein TextField
 	 * 
 	 * @param name der Name bzw Titel des Textfelds
 	 */
@@ -28,7 +28,7 @@ public class TextField {
 		label = new JLabel(name);
 		text.setFont(new Font(Font.DIALOG, Font.PLAIN, 20));
 		text.setLineWrap(true);
-		// sorgt dafür das ganzes Wort in die nächste Zeile wandert
+		// sorgt dafuer das ganzes Wort in die naechste Zeile wandert
 		text.setWrapStyleWord(true);
 		
 		label.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
@@ -45,7 +45,7 @@ public class TextField {
 		panel.add(label, BorderLayout.PAGE_START);
 		panel.add(text, BorderLayout.CENTER);
 		
-		// zum scrollen durch die TextArea; wird nur angezeigt wenn nötig
+		// zum scrollen durch die TextArea; wird nur angezeigt wenn noetig
 		JScrollPane scroll = new JScrollPane(text);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		scroll.setVisible(true);
@@ -70,5 +70,14 @@ public class TextField {
 	 */
 	public void setText(String text) {
 		this.text.setText(text);
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public JTextArea getTextArea() {
+		return this.text;
+
 	}
 }
