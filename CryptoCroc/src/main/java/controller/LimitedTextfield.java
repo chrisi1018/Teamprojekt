@@ -1,5 +1,6 @@
 package controller;
 
+import view.Messages;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
@@ -35,7 +36,7 @@ public class LimitedTextfield extends PlainDocument {
 		if ((getLength() + str.length()) <= limit) {
 			super.insertString(offset, str, att);
 		} else {
-			
+			Messages.errorMessage("Hier kann nur ein Buchstabe eingegeben werden!");
 		}
 	}
 
