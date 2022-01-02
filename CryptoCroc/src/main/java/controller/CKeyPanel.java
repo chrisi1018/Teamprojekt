@@ -29,7 +29,8 @@ public class CKeyPanel extends KeyPanel {
 	/**
 	 * Konstruktor, der der neuen Instanz die Caesar-Verschlüsselung zuordnet
 	 */
-	public CKeyPanel() {
+	public CKeyPanel(MainController controller) {
+		super(controller);
 		super.setCrypt(new CCrypt());
 	}
 	
@@ -64,6 +65,14 @@ public class CKeyPanel extends KeyPanel {
 		keyPanel.add(this.createButtonPanel(), BorderLayout.CENTER);
 		
 		return keyPanel;
+	}
+	
+	/**
+	 * 
+	 */
+	@Override
+	public String getKey() {
+		return this.key.getText();
 	}
 
 }

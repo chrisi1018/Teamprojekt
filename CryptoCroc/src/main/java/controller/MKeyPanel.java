@@ -33,7 +33,8 @@ public class MKeyPanel extends KeyPanel {
 	 * zuordnet
 	 * 
 	 */
-	public MKeyPanel() {
+	public MKeyPanel(MainController controller) {
+		super(controller);
 		super.setCrypt(new MCrypt());
 	}
 
@@ -42,8 +43,9 @@ public class MKeyPanel extends KeyPanel {
 	 * 
 	 * @return String den Schluessel
 	 */
+	@Override
 	public String getKey() {
-		return this.key;
+		return this.keyAsString();
 	}
 
 	/**
@@ -56,7 +58,7 @@ public class MKeyPanel extends KeyPanel {
 		if (keys != null) {
 			for (int i = 0; i < keys.length; i++) {
 				if (keys[i] != null) {
-					this.key += keys[i];
+					this.key += keys[i].getText();
 				}
 			}
 		}
