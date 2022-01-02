@@ -75,6 +75,25 @@ public class Menu {
 		});
 	}
 	
+	public String createFileString(String text) {
+		String newText = "";
+		String lineSeparator = System.lineSeparator();
+		int lastIndex = 0;
+		if (text.length() > 40) {
+			for (int i = 0; i < text.length() - 40; i = i + 40) {
+				int nextIndex = i + 40;
+				newText = newText + text.substring(i, nextIndex) + lineSeparator;
+				if (Character.isWhitespace(text.charAt(nextIndex))) {
+					lastIndex = i + 41;
+				} else {
+					lastIndex = nextIndex;
+				}
+			}
+		}
+		newText = newText + text.substring(lastIndex);
+		return newText;
+	}
+	
 	/**
 	 * Oeffnet ein Speichern-Dialogfenster, in dem man Speicherort und Name der zu speichernden Textdatei
 	 * selbst festlegen kann und erzeugt eine Textdatei mit ausgesuchtem Inhalt
@@ -117,7 +136,7 @@ public class Menu {
 						PrintWriter writer = null;
 						try {
 							writer = new PrintWriter(file);
-							writer.println(chosenTextField.getTextArea().getText());
+							writer.println(createFileString(chosenTextField.getTextArea().getText()));
 						} catch (FileNotFoundException e1) {
 							e1.printStackTrace();
 						} finally {
