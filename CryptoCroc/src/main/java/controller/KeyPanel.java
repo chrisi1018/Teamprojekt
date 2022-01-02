@@ -2,7 +2,6 @@ package controller;
 
 import java.awt.FlowLayout;
 
-
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -10,7 +9,7 @@ import model.Crypt;
 import view.Messages;
 
 /**
- * Beschreibt Aufbau der Spalte für die Buttons und die Schlüssel in CryptoCroc
+ * Beschreibt Aufbau der Spalte fï¿½r die Buttons und die Schlï¿½ssel in CryptoCroc
  * 
  * @author chrisi
  * @version 1.1
@@ -19,8 +18,8 @@ public abstract class KeyPanel {
 	private JButton encrypt = new JButton("verschl\u00fcsseln");
 	private JButton decrypt = new JButton("entschl\u00fcsseln");
 	private Crypt crypt;
-	private MainController controller; 
-	
+	private MainController controller;
+
 	/**
 	 * 
 	 * 
@@ -29,7 +28,7 @@ public abstract class KeyPanel {
 	public KeyPanel(MainController controller) {
 		this.controller = controller;
 	}
-	
+
 	/**
 	 * Initialisiert die Buttons durch die Action Listener
 	 */
@@ -37,60 +36,60 @@ public abstract class KeyPanel {
 		encrypt.addActionListener(e -> this.clickButtonEncrypt());
 		decrypt.addActionListener(e -> this.clickButtonDecrypt());
 	}
-	
+
 	/**
-	 * Erzeugt die Buttons und die Schlüssel für das JPanel
+	 * Erzeugt die Buttons und die Schlï¿½ssel fï¿½r das JPanel
 	 * 
-	 * @return ein JPanel mit Buttons und dem Schlüssel
+	 * @return ein JPanel mit Buttons und dem Schlï¿½ssel
 	 */
-	public abstract JPanel createKeyPanel(); //Bei der Implementierung createButtonPanel hinzufügen
-	
+	public abstract JPanel createKeyPanel(); // Bei der Implementierung createButtonPanel hinzufï¿½gen
+
 	/**
-	 * Gibt den aktuellen Key zurück
+	 * Gibt den aktuellen Key zurï¿½ck
 	 * 
 	 * @return den aktuellen Key als String
 	 */
 	public abstract String getKey();
-	
+
 	/**
 	 * Erzeugt die Buttons in einem JPanel
 	 * 
-	 * @return ein JPanel mit die Buttons "verschlüsseln" und "entschlüsseln"
+	 * @return ein JPanel mit die Buttons "verschlï¿½sseln" und "entschlï¿½sseln"
 	 */
 	protected JPanel createButtonPanel() {
-		JPanel panel = new JPanel(new FlowLayout()); //FlowLayout wichtig damit Button passende Größe haben
+		JPanel panel = new JPanel(new FlowLayout()); // FlowLayout wichtig damit Button passende Grï¿½ï¿½e haben
 		panel.add(encrypt);
 		panel.add(decrypt);
 		return panel;
 	}
-	
+
 	/**
-	 * Gib den Button für die Verschlüsselung zurück
+	 * Gib den Button fï¿½r die Verschlï¿½sselung zurï¿½ck
 	 * 
-	 * @return den Button "verschlüsseln"
+	 * @return den Button "verschlï¿½sseln"
 	 */
 	public JButton getEncrypt() {
 		return encrypt;
 	}
-	
+
 	/**
-	 * Gibt den Button für die Entschlüsselung zurück
+	 * Gibt den Button fï¿½r die Entschlï¿½sselung zurï¿½ck
 	 * 
-	 * @return den Button "entschlüsseln"
+	 * @return den Button "entschlï¿½sseln"
 	 */
 	public JButton getDecrypt() {
 		return decrypt;
 	}
-	
+
 	/**
-	 * Gibt das Verfahren für die Verschlüsselung zurück
+	 * Gibt das Verfahren fï¿½r die Verschlï¿½sselung zurï¿½ck
 	 * 
-	 * @return das Verschlüsselungs-Verfahren
+	 * @return das Verschlï¿½sselungs-Verfahren
 	 */
 	public Crypt getCrypt() {
 		return crypt;
 	}
-	
+
 	/**
 	 * Setzt die Crypt-Instanz der aktuellen Instanz auf eine neue Crypt-Instanz
 	 * 
@@ -99,7 +98,7 @@ public abstract class KeyPanel {
 	public void setCrypt(Crypt newCrypt) {
 		this.crypt = newCrypt;
 	}
-	
+
 	/**
 	 * 
 	 */
@@ -107,12 +106,13 @@ public abstract class KeyPanel {
 		String plainText = this.controller.getPlainText();
 		String cryptoText = this.controller.getCryptoText();
 		String key = getKey();
-		
+
 		if (plainText.isEmpty()) {
 			Messages.errorMessage("Zum verschl\u00fcsseln muss im Klartextfeld ein Text eingegeben werden.");
 		} else {
 			if (this.crypt.checkKey(key)) {
-				if (cryptoText.isEmpty() || Messages.yesNoQuestion("Darf der Geheimtext im Geheimtextfeld überschrieben werden?")) {
+				if (cryptoText.isEmpty()
+						|| Messages.yesNoQuestion("Darf der Geheimtext im Geheimtextfeld ï¿½berschrieben werden?")) {
 					cryptoText = this.crypt.cryptAll(plainText, key);
 					this.controller.setCryptoText(cryptoText);
 				}
@@ -121,7 +121,7 @@ public abstract class KeyPanel {
 			}
 		}
 	}
-	
+
 	/**
 	 * 
 	 */
@@ -129,12 +129,13 @@ public abstract class KeyPanel {
 		String plainText = this.controller.getPlainText();
 		String cryptoText = this.controller.getCryptoText();
 		String key = getKey();
-		
+
 		if (cryptoText.isEmpty()) {
 			Messages.errorMessage("Zum entschl\u00fcsseln muss im Geheimtestfeld ein Text eingegeben werden.");
 		} else {
 			if (this.crypt.checkKey(key)) {
-				if (plainText.isEmpty() || Messages.yesNoQuestion("Darf der Klartext im Klartextfeld überschrieben werden?")) {
+				if (plainText.isEmpty()
+						|| Messages.yesNoQuestion("Darf der Klartext im Klartextfeld ï¿½berschrieben werden?")) {
 					plainText = this.crypt.decryptAll(cryptoText, key);
 					this.controller.setPlainText(plainText);
 				}
