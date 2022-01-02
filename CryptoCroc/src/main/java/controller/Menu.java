@@ -20,7 +20,7 @@ import view.Messages;
  * Beschreibt Aufbau und Funktion der Menueleiste in CryptoCroc
  * 
  * @author Julian Singer
- * @version 1.2
+ * @version 1.3
  */
 public class Menu {
 	
@@ -75,14 +75,23 @@ public class Menu {
 		});
 	}
 	
+	/**
+	 * Fuegt dem uebergebenen Text alle 40 Zeichen einen Zeilenumbruch hinzu und entfernt alle 
+	 * Whitespace-Chars an der Stelle des Zeilenumbruchs
+	 * 
+	 * @param text uebergebener Text
+	 * @return Text mit regelmaeßigen Zeilenumbruechen
+	 */
 	public String createFileString(String text) {
 		String newText = "";
 		String lineSeparator = System.lineSeparator();
 		int lastIndex = 0;
+		//geht nur bei über 40 Chars in Verzweigung, da sonst keine Zeilenumbrueche gebraucht werden
 		if (text.length() > 40) {
 			for (int i = 0; i < text.length() - 40; i = i + 40) {
 				int nextIndex = i + 40;
 				newText = newText + text.substring(i, nextIndex) + lineSeparator;
+				//soll (falls vorhanden) Whitespace an der nächsten Stelle ignorieren
 				if (Character.isWhitespace(text.charAt(nextIndex))) {
 					lastIndex = i + 41;
 				} else {
