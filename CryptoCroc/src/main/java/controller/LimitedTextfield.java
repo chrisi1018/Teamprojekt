@@ -33,11 +33,30 @@ public class LimitedTextfield extends PlainDocument {
 
 	@Override
 	public void insertString(int offset, String str, AttributeSet att) throws BadLocationException {
-		if ((getLength() + str.length()) <= limit) {
+		if (!this.checkValidString(str)) {
+			Messages.errorMessage("Hier können nur die Buchstaben A-Z bzw a-z eingegeben werden");
+		} else if ((getLength() + str.length()) <= limit) {
 			super.insertString(offset, str, att);
 		} else {
 			Messages.errorMessage("Hier kann nur ein Buchstabe eingegeben werden!");
 		}
 	}
 
+	/**
+	 * Ueberprueft ob ein String nur die Characters A-Z bzw a-z enthaelt
+	 * 
+	 * @param str der zu ueberpruefende String
+	 * @return ob nur die erlaubten Characters enthalten sind
+	 */
+	private boolean checkValidString(String str) {
+		boolean ok = true;
+		char[] letters = new char[str.length()];
+		for (int i = 0; i < str.length(); i++) {
+			letters[i] = str.charAt(i);
+			if (!(letters[i] >= 'a' && letters[i] <= 'z') || (letters[i] >= 'A' && letters[i] <= 'Z')) {
+				ok = false;
+			}
+		}
+		return ok;
+	}
 }
