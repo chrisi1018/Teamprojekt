@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.Scanner;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -85,21 +86,23 @@ public class Menu {
 	public String createFileString(String text) {
 		String newText = "";
 		String lineSeparator = System.lineSeparator();
-		int lastIndex = 0;
-		//geht nur bei über 50 Chars in Verzweigung, da sonst keine Zeilenumbrueche gebraucht werden
-		if (text.length() > 50) {
-			for (int i = 0; i < text.length() - 50; i = i + 50) {
-				int nextIndex = i + 50;
-				newText = newText + text.substring(i, nextIndex) + lineSeparator;
-				//soll (falls vorhanden) Whitespace an der nächsten Stelle ignorieren
-				if (Character.isWhitespace(text.charAt(nextIndex))) {
-					lastIndex = nextIndex + 1;
-				} else {
-					lastIndex = nextIndex;
-				}
-			}
+		if (text.length() <= 45) {
+			return text;
 		}
-		newText = newText + text.substring(lastIndex);
+		int indexForWordWrap = text.indexOf(" ", 45);
+		int nextWrapIndex = text.indexOf(" ", indexForWordWrap + 45);
+		if (indexForWordWrap == -1) {
+			return text;
+		//ersetzt jedes erste Leerzeichen nach 45 Zeichen durch einen Zeilenumbruch
+		} else {
+			newText = newText + text.substring(0, indexForWordWrap) + lineSeparator;
+			while (nextWrapIndex < text.length() && nextWrapIndex != -1) {
+				newText = newText + text.substring(indexForWordWrap + 1, nextWrapIndex) + lineSeparator;
+				indexForWordWrap = nextWrapIndex;
+				nextWrapIndex = text.indexOf(" ", indexForWordWrap + 45);
+			}
+			newText = newText + text.substring(indexForWordWrap + 1);
+		}
 		return newText;
 	}
 	
@@ -145,11 +148,49 @@ public class Menu {
 						PrintWriter writer = null;
 						try {
 							writer = new PrintWriter(file);
-							writer.println(createFileString(chosenTextField.getTextArea().getText()));
+							writer.println(createFileString(chosenTextField.getText()));
 						} catch (FileNotFoundException e1) {
 							e1.printStackTrace();
 						} finally {
 							writer.close();					
+						}
+					}
+				}
+			}
+		});
+	}
+	
+	public void initOpenItem(int barIndex, int menuIndex, TextField plainText, TextField cryptoText) {
+		menuBar.getMenu(barIndex).getItem(menuIndex).addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser fileChooser = new JFileChooser();
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("*.txt", "txt");
+				fileChooser.setFileFilter(filter);
+				int textNumber = Messages.query("In welches Textfeld willst du den Text einsetzen?", options);
+				//ueberprueft, ob im PopUp-Fenster ein Textfeld gewaehlt wurde
+				if (textNumber != JOptionPane.CLOSED_OPTION) {
+					int response = fileChooser.showOpenDialog(null);
+					if (response == JFileChooser.APPROVE_OPTION) {
+						File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
+						Scanner fileScanner = null;
+						try {
+							fileScanner = new Scanner(file);
+							if (file.isFile()) {
+								String text = "";
+								while (fileScanner.hasNextLine()) {
+									text = text + fileScanner.nextLine() + " ";
+								}
+								if (textNumber == 1) {
+									cryptoText.getTextArea().setText(text);
+								} else {
+									plainText.getTextArea().setText(text);
+								}
+							}
+						} catch (FileNotFoundException e1) {
+							e1.printStackTrace();
+						} finally {
+							fileScanner.close();
 						}
 					}
 				}
