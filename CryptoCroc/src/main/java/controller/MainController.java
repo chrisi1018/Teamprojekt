@@ -64,6 +64,7 @@ public class MainController {
 		this.menuBar.initExplanationItem(1, 2, new VExplanationFrame());
 		this.menuBar.initExplanationItem(1, 3, new HExplanationFrame());
 		this.menuBar.initSaveItem(0, 0, this.plainText, this.cryptoText);
+		this.menuBar.initOpenItem(0, 1, plainText, cryptoText);
 	}
 	
 	/**

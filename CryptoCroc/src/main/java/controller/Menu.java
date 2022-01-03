@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.Scanner;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -150,6 +151,44 @@ public class Menu {
 							e1.printStackTrace();
 						} finally {
 							writer.close();					
+						}
+					}
+				}
+			}
+		});
+	}
+	
+	public void initOpenItem(int barIndex, int menuIndex, TextField plainText, TextField cryptoText) {
+		menuBar.getMenu(barIndex).getItem(menuIndex).addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser fileChooser = new JFileChooser();
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("*.txt", "txt");
+				fileChooser.setFileFilter(filter);
+				int textNumber = Messages.query("In welches Textfeld willst du den Text einsetzen?", options);
+				//ueberprueft, ob im PopUp-Fenster ein Textfeld gewaehlt wurde
+				if (textNumber != JOptionPane.CLOSED_OPTION) {
+					int response = fileChooser.showOpenDialog(null);
+					if (response == JFileChooser.APPROVE_OPTION) {
+						File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
+						Scanner fileScanner = null;
+						try {
+							fileScanner = new Scanner(file);
+							if (file.isFile()) {
+								String text = "";
+								while (fileScanner.hasNextLine()) {
+									text = text + fileScanner.nextLine() + " ";
+								}
+								if (textNumber == 1) {
+									cryptoText.getTextArea().setText(text);
+								} else {
+									plainText.getTextArea().setText(text);
+								}
+							}
+						} catch (FileNotFoundException e1) {
+							e1.printStackTrace();
+						} finally {
+							fileScanner.close();
 						}
 					}
 				}
