@@ -1,6 +1,4 @@
-US16 & US25 (GIT: ac36dd0)
-
-US25:
+US18 & US25 (GIT: ac36dd0)
 
 1. Ich drücke die Buttons entschlüsseln und verschlüsseln ohne eine Eingabe zu machen:
 Erwartung: Mir wird eine Fehlermeldung ausgegeben, dass im jeweiligen Textfeld kein Text vorhanden ist.
@@ -28,10 +26,3 @@ entschlüsseln.
 Erwartung: Ich erwarte das ein Pop-Up-Fenster aufgeht und micht fragt, ob das andere Feld überschrieben
 werden soll.
 Realität: entspricht den Erwartungen, das Pop-Up-Fenster funktioniert wie erwartet.
-
-US16:
-
-1. Ich gebe einen Text mit Umlauten in das Klartextfeld ein und einen Korrekten Schlüssel und
-drücke auf entschlüsseln.
-Erwartung: die Umlaute werde umgewandelt und der Text ist in Großbuchtaben
-Realität: die Umwandlung findet nicht statt.
