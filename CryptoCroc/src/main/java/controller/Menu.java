@@ -178,13 +178,16 @@ public class Menu {
 							fileScanner = new Scanner(file);
 							if (file.isFile()) {
 								String text = "";
+								if (fileScanner.hasNextLine()) {
+									text = text + fileScanner.nextLine();
+								}
 								while (fileScanner.hasNextLine()) {
-									text = text + fileScanner.nextLine() + " ";
+									text = text + " " + fileScanner.nextLine();
 								}
 								if (textNumber == 1) {
-									cryptoText.getTextArea().setText(text);
+									cryptoText.setText(text);
 								} else {
-									plainText.getTextArea().setText(text);
+									plainText.setText(text);
 								}
 							}
 						} catch (FileNotFoundException e1) {
