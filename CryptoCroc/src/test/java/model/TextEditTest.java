@@ -14,17 +14,17 @@ public class TextEditTest {
 	/**
 	 * Ein Test String
 	 */
-	private static String testText = "Angesichts Namens Fürsorge erfüllt er,"
+	private static String testText = "Angesichts Namens F\00fcrsorge erf\00fcllt er,"
 			+ " ihn etwas will an beinahe hatte einzigen auch daß haben, daß"
-			+ " nicht ihm ervielleicht man Handschuhe womöglich auf meisten"
+			+ " nicht ihm ervielleicht man Handschuhe wom\00f6glich auf meisten"
 			+ " ihm, die seine von bei so abgegangen zwar, seiner zueinander"
-			+ " immer erkannte den in. Er sich fand seine Frühstück zuvor,"
-			+ " wobei fand Händen streckte natürlich gekränkt die Deutschland"
+			+ " immer erkannte den in. Er sich fand seine Fr\00fchst\00fcck zuvor,"
+			+ " wobei fand H\00e4nden streckte nat\00fcrlich gekr\00e4nkt die Deutschland"
 			+ " diesem, vielleicht standen hatten Besseres Mann, wozu von ging"
-			+ " ervielleicht für Gewohnheit, wie sie der vom Gelächter der. Es"
+			+ " ervielleicht f\00fcr Gewohnheit, wie sie der vom Gel\00e4chter der. Es"
 			+ " setzte den Unterschied sagte. Doch Gesellschaft neuen begreifend"
 			+ " Vielfalt, den Zimmer daß man zu dem, sagte Frau verleumdet der"
-			+ " Erlös erreichte Internet. Die zu das Medien wie, was Tür verwaschenen.";
+			+ " Erl\00f6s erreichte Internet. Die zu das Medien wie, was T\00fcr verwaschenen.";
 	
 	/**
 	 * Der Test String in Großbuchstaben
