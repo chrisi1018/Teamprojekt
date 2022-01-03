@@ -86,14 +86,14 @@ public class Menu {
 		String newText = "";
 		String lineSeparator = System.lineSeparator();
 		int lastIndex = 0;
-		//geht nur bei über 40 Chars in Verzweigung, da sonst keine Zeilenumbrueche gebraucht werden
-		if (text.length() > 40) {
-			for (int i = 0; i < text.length() - 40; i = i + 40) {
-				int nextIndex = i + 40;
+		//geht nur bei über 50 Chars in Verzweigung, da sonst keine Zeilenumbrueche gebraucht werden
+		if (text.length() > 50) {
+			for (int i = 0; i < text.length() - 50; i = i + 50) {
+				int nextIndex = i + 50;
 				newText = newText + text.substring(i, nextIndex) + lineSeparator;
 				//soll (falls vorhanden) Whitespace an der nächsten Stelle ignorieren
 				if (Character.isWhitespace(text.charAt(nextIndex))) {
-					lastIndex = i + 41;
+					lastIndex = nextIndex + 1;
 				} else {
 					lastIndex = nextIndex;
 				}
