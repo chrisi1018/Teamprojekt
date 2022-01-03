@@ -27,7 +27,8 @@ public class CKeyPanel extends KeyPanel {
 	
 	
 	/**
-	 * Konstruktor, der der neuen Instanz die Caesar-Verschlüsselung zuordnet
+	 * Konstruktor, der der neuen Instanz die Caesar-Verschlüsselung zuordnet und
+	 * die aktuelle MainController-Instanz wird gesichert
 	 */
 	public CKeyPanel(MainController controller) {
 		super(controller);
@@ -68,7 +69,7 @@ public class CKeyPanel extends KeyPanel {
 	}
 	
 	/**
-	 * 
+	 * Gibt den Schluessel als String zurueck
 	 */
 	@Override
 	public String getKey() {

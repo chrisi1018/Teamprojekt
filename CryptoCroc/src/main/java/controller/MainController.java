@@ -68,32 +68,36 @@ public class MainController {
 	}
 	
 	/**
+	 * Gibt den Klartext zurueck
 	 * 
-	 * @return
+	 * @return den Klartext als String
 	 */
 	public String getPlainText() {
 		return this.plainText.getText();
 	}
 	
 	/**
+	 * Setzt den neuen Klartext
 	 * 
-	 * @param text
+	 * @param text den Klartext
 	 */
 	public void setPlainText(String text) {
 		this.plainText.setText(text);
 	}
 	
 	/**
+	 * Gibt den Geheimtext zurueck
 	 * 
-	 * @return
+	 * @return den Geheimtext als String
 	 */
 	public String getCryptoText() {
 		return this.cryptoText.getText();
 	}
 	
 	/**
+	 * Setzt den neuen Geheimtext
 	 * 
-	 * @param text
+	 * @param text den Geheimtext
 	 */
 	public void setCryptoText(String text) {
 		this.cryptoText.setText(text);

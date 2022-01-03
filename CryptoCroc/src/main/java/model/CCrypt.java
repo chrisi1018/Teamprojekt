@@ -70,11 +70,9 @@ public class CCrypt extends Crypt {
 	}
 	
 	/**
-	 * Eine Methode die Überfrüft ob der Schlüssel das richtige Format hat.
-	 * 
-	 * @param key Der Schlüssel der verwendet wird.
-	 * @return ein Wahrheitswer ob der Verwendete schlüssel richtig ist.
+	 * Eine Methode die Ueberfrueft ob der Schluessel das richtige Format hat.
 	 */
+	@Override
 	public boolean checkKey(String key) {
 		if (key.length() != 1) {
 			return false;

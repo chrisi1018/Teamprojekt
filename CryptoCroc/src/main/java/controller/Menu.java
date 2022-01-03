@@ -86,21 +86,23 @@ public class Menu {
 	public String createFileString(String text) {
 		String newText = "";
 		String lineSeparator = System.lineSeparator();
-		int lastIndex = 0;
-		//geht nur bei über 50 Chars in Verzweigung, da sonst keine Zeilenumbrueche gebraucht werden
-		if (text.length() > 50) {
-			for (int i = 0; i < text.length() - 50; i = i + 50) {
-				int nextIndex = i + 50;
-				newText = newText + text.substring(i, nextIndex) + lineSeparator;
-				//soll (falls vorhanden) Whitespace an der nächsten Stelle ignorieren
-				if (Character.isWhitespace(text.charAt(nextIndex))) {
-					lastIndex = nextIndex + 1;
-				} else {
-					lastIndex = nextIndex;
-				}
-			}
+		if (text.length() <= 45) {
+			return text;
 		}
-		newText = newText + text.substring(lastIndex);
+		int indexForWordWrap = text.indexOf(" ", 45);
+		int nextWrapIndex = text.indexOf(" ", indexForWordWrap + 45);
+		if (indexForWordWrap == -1) {
+			return text;
+		//ersetzt jedes erste Leerzeichen nach 45 Zeichen durch einen Zeilenumbruch
+		} else {
+			newText = newText + text.substring(0, indexForWordWrap) + lineSeparator;
+			while (nextWrapIndex < text.length() && nextWrapIndex != -1) {
+				newText = newText + text.substring(indexForWordWrap + 1, nextWrapIndex) + lineSeparator;
+				indexForWordWrap = nextWrapIndex;
+				nextWrapIndex = text.indexOf(" ", indexForWordWrap + 45);
+			}
+			newText = newText + text.substring(indexForWordWrap + 1);
+		}
 		return newText;
 	}
 	
@@ -146,7 +148,7 @@ public class Menu {
 						PrintWriter writer = null;
 						try {
 							writer = new PrintWriter(file);
-							writer.println(createFileString(chosenTextField.getTextArea().getText()));
+							writer.println(createFileString(chosenTextField.getText()));
 						} catch (FileNotFoundException e1) {
 							e1.printStackTrace();
 						} finally {
