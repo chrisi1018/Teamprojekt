@@ -57,24 +57,27 @@ public class TextField {
 	}
 	
 	/**
+	 * Gibt den aktuellen Text im Textfeld zurueck
 	 * 
-	 * @return
+	 * @return den Text im Textfeld
 	 */
 	public String getText() {
 		return this.text.getText();
 	}
 	
 	/**
+	 * Gibt den Text in dem Textfeld aus
 	 * 
-	 * @param text
+	 * @param text 
 	 */
 	public void setText(String text) {
 		this.text.setText(text);
 	}
 
 	/**
+	 * Gibt das JTextArea Objekt zurueck
 	 * 
-	 * @return
+	 * @return das JTextArea Objekt
 	 */
 	public JTextArea getTextArea() {
 		return this.text;
