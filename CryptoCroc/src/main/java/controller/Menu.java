@@ -160,6 +160,16 @@ public class Menu {
 		});
 	}
 	
+	/**
+	 * Oeffnet ein Oeffnen-Dialogfenster, in dem man die zu ladende Textdatei unter allen Textdateien
+	 * selbst auswaehlen kann und ueberschreibt den Text im ausgewaehlten Textfeld mit dem Inhalt der gewaehlten
+	 * Textdatei
+	 * 
+	 * @param barIndex Index des Menues in der Menueleiste
+	 * @param menuIndex Index des Items im Menue
+	 * @param plainText übergebenes Klartextfeld
+	 * @param cryptoText übergebenes Geheimtextfeld
+	 */
 	public void initOpenItem(int barIndex, int menuIndex, TextField plainText, TextField cryptoText) {
 		menuBar.getMenu(barIndex).getItem(menuIndex).addActionListener(new ActionListener() {
 			@Override
@@ -174,6 +184,7 @@ public class Menu {
 					if (response == JFileChooser.APPROVE_OPTION) {
 						File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
 						Scanner fileScanner = null;
+						//versucht, die gewaehlte Datei auszulesen und ersetzt alle Zeilenumbrüche durch Leerzeichen
 						try {
 							fileScanner = new Scanner(file);
 							if (file.isFile()) {
@@ -184,6 +195,7 @@ public class Menu {
 								while (fileScanner.hasNextLine()) {
 									text = text + " " + fileScanner.nextLine();
 								}
+								//setzt den Text in das ausgewaehlte Textfeld
 								if (textNumber == 1) {
 									cryptoText.setText(text);
 								} else {
