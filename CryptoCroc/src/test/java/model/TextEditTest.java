@@ -14,31 +14,31 @@ public class TextEditTest {
 	/**
 	 * Ein Test String
 	 */
-	private static String testText = "Angesichts Namens F\00fcrsorge erf\00fcllt er,"
+	private static String testText = "Angesichts Namens F\u00fcrsorge erf\u00fcllt er,"
 			+ " ihn etwas will an beinahe hatte einzigen auch daß haben, daß"
-			+ " nicht ihm ervielleicht man Handschuhe wom\00f6glich auf meisten"
+			+ " nicht ihm ervielleicht man Handschuhe wom\u00f6glich auf meisten"
 			+ " ihm, die seine von bei so abgegangen zwar, seiner zueinander"
-			+ " immer erkannte den in. Er sich fand seine Fr\00fchst\00fcck zuvor,"
-			+ " wobei fand H\00e4nden streckte nat\00fcrlich gekr\00e4nkt die Deutschland"
+			+ " immer erkannte den in. Er sich fand seine Fr\u00fchst\u00fcck zuvor,"
+			+ " wobei fand H\u00e4nden streckte nat\u00fcrlich gekr\u00e4nkt die Deutschland"
 			+ " diesem, vielleicht standen hatten Besseres Mann, wozu von ging"
-			+ " ervielleicht f\00fcr Gewohnheit, wie sie der vom Gel\00e4chter der. Es"
+			+ " ervielleicht f\u00fcr Gewohnheit, wie sie der vom Gel\u00e4chter der. Es"
 			+ " setzte den Unterschied sagte. Doch Gesellschaft neuen begreifend"
 			+ " Vielfalt, den Zimmer daß man zu dem, sagte Frau verleumdet der"
-			+ " Erl\00f6s erreichte Internet. Die zu das Medien wie, was T\00fcr verwaschenen.";
+			+ " Erl\u00f6s erreichte Internet. Die zu das Medien wie, was T\u00fcr verwaschenen.";
 	
 	/**
 	 * Der Test String in Großbuchstaben
 	 */
-	private static String expectedTextOne = "ANGESICHTS NAMENS FÜRSORGE ERFÜLLT ER, IHN"
+	private static String expectedTextOne = "ANGESICHTS NAMENS F\u00dcRSORGE ERF\u00dcLLT ER, IHN"
 			+ " ETWAS WILL AN BEINAHE HATTE EINZIGEN AUCH DAß HABEN, DAß NICHT IHM"
-			+ " ERVIELLEICHT MAN HANDSCHUHE WOMÖGLICH AUF MEISTEN IHM, DIE SEINE VON"
+			+ " ERVIELLEICHT MAN HANDSCHUHE WOM\u00d6GLICH AUF MEISTEN IHM, DIE SEINE VON"
 			+ " BEI SO ABGEGANGEN ZWAR, SEINER ZUEINANDER IMMER ERKANNTE DEN IN. ER"
-			+ " SICH FAND SEINE FRÜHSTÜCK ZUVOR, WOBEI FAND HÄNDEN STRECKTE NATÜRLICH"
-			+ " GEKRÄNKT DIE DEUTSCHLAND DIESEM, VIELLEICHT STANDEN HATTEN BESSERES MANN"
-			+ ", WOZU VON GING ERVIELLEICHT FÜR GEWOHNHEIT, WIE SIE DER VOM GELÄCHTER DER."
+			+ " SICH FAND SEINE FR\u00dcHST\u00dcCK ZUVOR, WOBEI FAND H\u00c4NDEN STRECKTE NAT\u00dcRLICH"
+			+ " GEKR\u00c4NKT DIE DEUTSCHLAND DIESEM, VIELLEICHT STANDEN HATTEN BESSERES MANN"
+			+ ", WOZU VON GING ERVIELLEICHT F\u00dcR GEWOHNHEIT, WIE SIE DER VOM GEL\u00c4CHTER DER."
 			+ " ES SETZTE DEN UNTERSCHIED SAGTE. DOCH GESELLSCHAFT NEUEN BEGREIFEND"
-			+ " VIELFALT, DEN ZIMMER DAß MAN ZU DEM, SAGTE FRAU VERLEUMDET DER ERLÖS"
-			+ " ERREICHTE INTERNET. DIE ZU DAS MEDIEN WIE, WAS TÜR VERWASCHENEN.";
+			+ " VIELFALT, DEN ZIMMER DAß MAN ZU DEM, SAGTE FRAU VERLEUMDET DER ERL\u00d6S"
+			+ " ERREICHTE INTERNET. DIE ZU DAS MEDIEN WIE, WAS T\u00dcR VERWASCHENEN.";
 	
 	/**
 	 * Der Test String in Großbuchstaben und ohne Umlaute
