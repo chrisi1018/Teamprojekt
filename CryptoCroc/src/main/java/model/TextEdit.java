@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Eine Hilfklasse die Methoden zur Bearbeitung des Tesxtes zur verfügung stellt.
+ * Eine Hilfklasse die Methoden zur Bearbeitung des Tesxtes zur verfuegung stellt.
  * @author Julian
  * @version 1.0
  */
@@ -13,34 +13,34 @@ public final class TextEdit {
 	private TextEdit() { }
 	
 	/**
-	 * Eine Methode die folgende Satzzeichen ändert: ä --> ae, Ä --> Ae, ö --> oe, Ö --> Oe,
-	 * ü --> ue, Ü --> Ue, ß --> ss.
-	 * @param c das zu überprüfende Satzzeichen.
+	 * Eine Methode die folgende Satzzeichen aendert: ï¿½ --> ae, ï¿½ --> Ae, ï¿½ --> oe, ï¿½ --> Oe,
+	 * ï¿½ --> ue, ï¿½ --> Ue, ï¿½ --> ss.
+	 * @param c das zu ueberpruefende Satzzeichen.
 	 * @return die Ausgabe als String.
 	 */
 	public static String changeUmlauts(char c) {
 		int i = c;
 		switch(i) {
-		case 196: //Ä(Ae)
+		case 196: //ï¿½(Ae)
 			return "Ae";
-		case 214: //Ö(Oe)
+		case 214: //ï¿½(Oe)
 			return "Oe";
-		case 220: //Ü(Ue)
+		case 220: //ï¿½(Ue)
 			return "Ue";
-		case 223: //ß(ss)
+		case 223: //ï¿½(ss)
 			return "ss";
-		case 228: //ä(ae)
+		case 228: //ï¿½(ae)
 			return "ae";
-		case 246: //ö(oe)
+		case 246: //ï¿½(oe)
 			return "oe";
-		case 252: //ü(ue)
+		case 252: //ï¿½(ue)
 			return "ue";
 		default:
 			return "" + c;
 		}
 	}
 	/**
-	 * Eine Methode die Kleinbuchstaben in Großbuchstaben umwandelt
+	 * Eine Methode die Kleinbuchstaben in Grossbuchstaben umwandelt
 	 * @param c der Buchstabe der Umgewandelt werden soll
 	 * @return der Umgewandelte Buchstabe
 	 */
@@ -52,11 +52,11 @@ public final class TextEdit {
 		} else {
 			int i = c;
 			switch(i) {
-			case 228: //ä(ae)
+			case 228: //ï¿½(ae)
 				return '\u00c4';
-			case 246: //ö(oe)
+			case 246: //ï¿½(oe)
 				return '\u00d6';
-			case 252: //ü(ue)
+			case 252: //ï¿½(ue)
 				return '\u00dc';
 			default:
 				return ret;
@@ -65,7 +65,7 @@ public final class TextEdit {
 	}
 	
 	/**
-	 * Eine Methode die in einem String alle BUchstaben Großschreibt
+	 * Eine Methode die in einem String alle Buchstaben gross schreibt
 	 * @param text der String der umgewandelt werden soll
 	 * @return Der umgewandelte String
 	 */
@@ -81,7 +81,7 @@ public final class TextEdit {
 	}
 	
 	/**
-	 * Eine HilfMethode die sowohl Umlaute umwandel, als auch alle Buchstaben in Großbuchstaben umwandelt.
+	 * Eine HilfMethode die sowohl Umlaute umwandel, als auch alle Buchstaben in Grossbuchstaben umwandelt.
 	 * @param text der Text der umgewandelt werden soll.
 	 * @return der Umgewandelte Text.
 	 */

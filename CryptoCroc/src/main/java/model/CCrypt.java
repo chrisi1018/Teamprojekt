@@ -8,11 +8,11 @@ package model;
 public class CCrypt extends Crypt {
 
 	/**
-	 * Eine Methode die einen Buchstaben mit dem Cäsar-Verfahren verschlüsselt
+	 * Eine Methode die einen Buchstaben mit dem Caesar-Verfahren verschluesselt
 	 * 
-	 * @param c der zu verschlüsselde Buchstabe
-	 * @param key der Schlüssel mit dem verschlüsselt wird
-	 * @return der verschlüsselde Buchstabe
+	 * @param c der zu verschluesselnde Buchstabe
+	 * @param key der Schluessel mit dem verschluesselt wird
+	 * @return der verschluesselnde Buchstabe
 	 */
 	public char cryptChar(char c, int key) {
 		int temp = c;
@@ -25,22 +25,22 @@ public class CCrypt extends Crypt {
 	}
 	
 	/**
-	 * Eine Methode die einen Buchstaben mit dem Cäsar-Verfahren entschlüsselt
+	 * Eine Methode die einen Buchstaben mit dem Caesar-Verfahren entschluesselt
 	 * 
-	 * @param c der zu entschlüsselde Buchstabe
-	 * @param key der Schlüssel mit dem entschlüsselt wird
-	 * @return der entschlüsselte Buchstabe
+	 * @param c der zu entschluesselnde Buchstabe
+	 * @param key der Schluessel mit dem entschluesselt wird
+	 * @return der entschluesselte Buchstabe
 	 */
 	public char decryptChar(char c, int key) {
 		return cryptChar(c, 26 - key);
 	}
 	
 	/**
-	 * Methode die einen String mit dem Cäsar-Verfahren verschlüsselt.
+	 * Methode die einen String mit dem Caesar-Verfahren verschluesselt.
 	 * 
-	 * @param text der zu verschlüsselde Text
-	 * @param stringKey der verwendete Schlüssel
-	 * @return der verschlüsselde Text
+	 * @param text der zu verschluesselnde Text
+	 * @param stringKey der verwendete Schluessel
+	 * @return der verschluesselde Text
 	 */
 	@Override
 	public String cryptAll(String text, String stringKey) {
@@ -53,11 +53,11 @@ public class CCrypt extends Crypt {
 	}
 	
 	/**
-	 *  Methode die einen String mit dem Cäsar-Verfahren entschlüsselt.
+	 *  Methode die einen String mit dem Caesar-Verfahren entschluesselt.
 	 *  
-	 *  @param text der zu entschlüsselde Text
-	 *  @param stringKey der verwendete Schlüssel
-	 *  @return der entschlüsselte Text
+	 *  @param text der zu entschluesselnde Text
+	 *  @param stringKey der verwendete Schluessel
+	 *  @return der entschluesselte Text
 	 */
 	@Override
 	public String decryptAll(String text, String stringKey) {
@@ -70,7 +70,7 @@ public class CCrypt extends Crypt {
 	}
 	
 	/**
-	 * Eine Methode die Ueberfrueft ob der Schluessel das richtige Format hat.
+	 * Eine Methode die Ueberprueft ob der Schluessel das richtige Format hat.
 	 */
 	@Override
 	public boolean checkKey(String key) {
@@ -90,9 +90,9 @@ public class CCrypt extends Crypt {
 	
 	/**
 	 * Eine Methode die den keyString in eine IntegerVariable umwandelt.
-	 * Bei ungültiger Eingabe wird 0 als Schlüssel zurückgegeben.
+	 * Bei ungueltiger Eingabe wird 0 als Schluessel zurueckgegeben.
 	 * 
-	 * @param stringKey der Schlüssel in Stringform
+	 * @param stringKey der Schluessel in Stringform
 	 * @param die Position 
 	 */
 	private int castKey(String stringKey) {

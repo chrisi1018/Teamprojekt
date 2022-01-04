@@ -14,7 +14,7 @@ import java.awt.Font;
 import java.awt.Component;
 
 /**
- * Definiert 'createKeyPanel'-Methode f�r Caesar und speichert sein
+ * Definiert 'createKeyPanel'-Methode fuer Caesar und speichert sein
  * Schluesseltextfeld
  * 
  * @author Julian Singer
@@ -27,7 +27,7 @@ public class CKeyPanel extends KeyPanel {
 	private JLabel name = new JLabel("A");
 
 	/**
-	 * Konstruktor, der der neuen Instanz die Caesar-Verschl�sselung zuordnet
+	 * Konstruktor, der der neuen Instanz die Caesar-Verschluesselung zuordnet
 	 * 
 	 * @param controller die Controller-Instanz
 	 */

@@ -10,7 +10,8 @@ import model.TextEdit;
 import view.Messages;
 
 /**
- * Beschreibt Aufbau der Spalte f�r die Buttons und die Schl�ssel in CryptoCroc
+ * Beschreibt Aufbau der Spalte fuer die Buttons und die Schluessel in
+ * CryptoCroc
  * 
  * @author chrisi
  * @version 1.1
@@ -42,9 +43,9 @@ public abstract class KeyPanel {
 	 * 
 	 * Erzeugt die Buttons und die Schluessel fuer das JPanel
 	 * 
-	 * @return ein JPanel mit Buttons und dem Schl�ssel
+	 * @return ein JPanel mit Buttons und dem Schluessel
 	 */
-	public abstract JPanel createKeyPanel(); // Bei der Implementierung createButtonPanel hinzuf�gen
+	public abstract JPanel createKeyPanel(); // Bei der Implementierung createButtonPanel hinzufuegen
 
 	/**
 	 * Gibt den aktuellen Key zurueck
@@ -56,37 +57,37 @@ public abstract class KeyPanel {
 	/**
 	 * Erzeugt die Buttons in einem JPanel
 	 * 
-	 * @return ein JPanel mit die Buttons "verschl�sseln" und "entschl�sseln"
+	 * @return ein JPanel mit die Buttons "verschluesseln" und "entschluesseln"
 	 */
 	protected JPanel createButtonPanel() {
-		JPanel panel = new JPanel(new FlowLayout()); // FlowLayout wichtig damit Button passende Gr��e haben
+		JPanel panel = new JPanel(new FlowLayout()); // FlowLayout wichtig damit Button passende Groesse haben
 		panel.add(encrypt);
 		panel.add(decrypt);
 		return panel;
 	}
 
 	/**
-	 * Gib den Button f�r die Verschl�sselung zur�ck
+	 * Gib den Button fuer die Verschluesselung zurueck
 	 * 
-	 * @return den Button "verschl�sseln"
+	 * @return den Button "verschluesseln"
 	 */
 	public JButton getEncrypt() {
 		return encrypt;
 	}
 
 	/**
-	 * Gibt den Button f�r die Entschl�sselung zur�ck
+	 * Gibt den Button fuer die Entschluesselung zurueck
 	 * 
-	 * @return den Button "entschl�sseln"
+	 * @return den Button "entschluesseln"
 	 */
 	public JButton getDecrypt() {
 		return decrypt;
 	}
 
 	/**
-	 * Gibt das Verfahren f�r die Verschl�sselung zur�ck
+	 * Gibt das Verfahren fuer die Verschluesselung zurueck
 	 * 
-	 * @return das Verschl�sselungs-Verfahren
+	 * @return das Verschluesselungs-Verfahren
 	 */
 	public Crypt getCrypt() {
 		return crypt;
@@ -114,8 +115,8 @@ public abstract class KeyPanel {
 			Messages.errorMessage("Zum verschl\u00fcsseln muss im Klartextfeld ein Text eingegeben werden.");
 		} else { // Wird ausgefuert nur wenn ein Klartext gegeben ist
 			if (this.crypt.checkKey(key)) {
-				if (cryptoText.isEmpty()
-						|| Messages.yesNoQuestion("Darf der Geheimtext im Geheimtextfeld �berschrieben werden?")) {
+				if (cryptoText.isEmpty() || Messages
+						.yesNoQuestion("Darf der Geheimtext im Geheimtextfeld \u00fcberschrieben werden?")) {
 					plainText = TextEdit.editText(plainText);
 					cryptoText = this.crypt.cryptAll(plainText, key); // Der verschluesselte Text wird erzeugt und
 					this.controller.setCryptoText(cryptoText); // im Geheimtextfeld ausgegeben
@@ -140,7 +141,7 @@ public abstract class KeyPanel {
 		} else { // Wird ausgefuert nur wenn ein Geheimtext gegeben ist
 			if (this.crypt.checkKey(key)) {
 				if (plainText.isEmpty()
-						|| Messages.yesNoQuestion("Darf der Klartext im Klartextfeld �berschrieben werden?")) {
+						|| Messages.yesNoQuestion("Darf der Klartext im Klartextfeld \u00fcberschrieben werden?")) {
 					cryptoText = TextEdit.editText(cryptoText);
 					plainText = this.crypt.decryptAll(cryptoText, key); // Der entschluesselte Text wird erzeugt und
 					this.controller.setPlainText(plainText); // im Klartextfeld ausgegeben

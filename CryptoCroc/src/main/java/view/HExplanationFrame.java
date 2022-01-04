@@ -15,7 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 /**
- * Definiert ein neues Fenster, welches die Erläuterungen zur Haeufigkeitsanalyse beinhaltet
+ * Definiert ein neues Fenster, welches die Erlaeuterungen zur Haeufigkeitsanalyse beinhaltet
  * 
  * @author Julian Singer
  * @version 1.0
@@ -29,7 +29,7 @@ public class HExplanationFrame extends JFrame {
 	
 	/**
 	 * Konstruktor, der den Aufbau, Inhalt und die Funktion des Fensters definiert, 
-	 * das die Erklärung für die Haeufigkeitsanalyse beinhalten soll
+	 * das die Erklaerung fuer die Haeufigkeitsanalyse beinhalten soll
 	 */
 	public HExplanationFrame() {
 		super();
@@ -39,7 +39,7 @@ public class HExplanationFrame extends JFrame {
 		hyperlink.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		hyperlink.addMouseListener(new MouseAdapter() {
 			
-			//Versucht den entsprechenden Link zu öffnen, wenn draufgeklickt wird
+			//Versucht den entsprechenden Link zu oeffnen, wenn draufgeklickt wird
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {

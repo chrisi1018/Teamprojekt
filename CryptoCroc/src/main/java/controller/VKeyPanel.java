@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
- * Definiert 'createKeyPanel'-Methode für Vigenere und speichert sein Schluesseltextfeld
+ * Definiert 'createKeyPanel'-Methode fuer Vigenere und speichert sein Schluesseltextfeld
  * 
  * @author Julian Singer
  * @version 1.0

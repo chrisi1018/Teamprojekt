@@ -54,7 +54,7 @@ public class MainController {
 		this.gui = new Gui(this.menuBar.getJMenuBar(), // Menueleiste
 				plainText.createTextfieldPanel(), // Klartextpanel
 				cryptoText.createTextfieldPanel(), // Cryptotextpanel
-				key.createKeyPanel(), // Schlüsselpanel
+				key.createKeyPanel(), // Schluesselpanel
 				dropDown.createDropdown() // Dropdownmenue
 		);
 		this.key.initKey();

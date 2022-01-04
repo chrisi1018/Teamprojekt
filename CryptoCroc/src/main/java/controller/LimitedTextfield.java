@@ -53,7 +53,7 @@ public class LimitedTextfield extends PlainDocument {
 		char[] letters = new char[str.length()];
 		for (int i = 0; i < str.length(); i++) {
 			letters[i] = str.charAt(i);
-			if (!((letters[i] >= 'a' && letters[i] <= 'z') || (letters[i] >= 'A' && letters[i] <= 'Z')) ) {
+			if (!((letters[i] >= 'a' && letters[i] <= 'z') || (letters[i] >= 'A' && letters[i] <= 'Z'))) {
 				ok = false;
 			}
 		}
