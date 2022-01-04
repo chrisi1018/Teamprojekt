@@ -1,0 +1,9 @@
+T6 (Git:fc1860d) :
+
+1. Ich kann auf ein beliebiges Schluessel-Textfeld bei der Caesar- oder Monoalphabetischen Verschluesselung klicken und dort nicht mehr als einen Character eingeben
+Erwartung: Sobald mehr als ein Character eingegeben wird, erscheint eine Fehlermeldung
+Realitaet: entspricht der Erwartung
+
+2. Ich kann in den Schluessel-Textfeldern der Caesar- und Monoalphabetischen Verschluesselung keine Characters ausserhalb den Intervallen A-Z, a-z eintippen
+Erwartung: sobald ein ungueltiger Character eingegeben wird, erscheint eine Fehlermeldung
+Realitaet: entspricht der Erwartung
