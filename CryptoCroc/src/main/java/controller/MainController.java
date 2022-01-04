@@ -64,35 +64,40 @@ public class MainController {
 		this.menuBar.initExplanationItem(1, 2, new VExplanationFrame());
 		this.menuBar.initExplanationItem(1, 3, new HExplanationFrame());
 		this.menuBar.initSaveItem(0, 0, this.plainText, this.cryptoText);
+		this.menuBar.initOpenItem(0, 1, plainText, cryptoText);
 	}
 	
 	/**
+	 * Gibt den Klartext zurueck
 	 * 
-	 * @return
+	 * @return den Klartext als String
 	 */
 	public String getPlainText() {
 		return this.plainText.getText();
 	}
 	
 	/**
+	 * Setzt den neuen Klartext
 	 * 
-	 * @param text
+	 * @param text den Klartext
 	 */
 	public void setPlainText(String text) {
 		this.plainText.setText(text);
 	}
 	
 	/**
+	 * Gibt den Geheimtext zurueck
 	 * 
-	 * @return
+	 * @return den Geheimtext als String
 	 */
 	public String getCryptoText() {
 		return this.cryptoText.getText();
 	}
 	
 	/**
+	 * Setzt den neuen Geheimtext
 	 * 
-	 * @param text
+	 * @param text den Geheimtext
 	 */
 	public void setCryptoText(String text) {
 		this.cryptoText.setText(text);

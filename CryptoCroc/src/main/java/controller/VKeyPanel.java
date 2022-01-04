@@ -24,8 +24,9 @@ public class VKeyPanel extends KeyPanel {
 	private JLabel name = new JLabel("Schl\u00fcsselwort");
 	
 	/**
+	 * Die aktuelle MainController-Instanz wird gesichert
 	 * 
-	 * @param controller
+	 * @param controller die MainController-Instanz
 	 */
 	public VKeyPanel(MainController controller) {
 		super(controller);
@@ -64,7 +65,7 @@ public class VKeyPanel extends KeyPanel {
 	}
 	
 	/**
-	 * 
+	 * Gibt den Schluessel als String zurueck
 	 */
 	@Override
 	public String getKey() {

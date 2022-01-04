@@ -31,7 +31,7 @@ public class MKeyPanel extends KeyPanel {
 
 	/**
 	 * Konstruktor, der der neuen Instanz eine monoalphabetische Verschluesselung
-	 * zuordnet
+	 * zuordnet und die aktuelle MainController-Instanz wird gesichert
 	 * 
 	 * @param controller die Controller-Instanz
 	 */
@@ -42,8 +42,6 @@ public class MKeyPanel extends KeyPanel {
 
 	/**
 	 * Methode die den aktuellen Schluessel zurueckgibt
-	 * 
-	 * @return String den Schluessel
 	 */
 	@Override
 	public String getKey() {

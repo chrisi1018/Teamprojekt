@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import model.Crypt;
+import model.TextEdit;
 import view.Messages;
 
 /**
@@ -21,9 +22,9 @@ public abstract class KeyPanel {
 	private MainController controller;
 
 	/**
+	 * Die aktuelle MainController-Instanz wird gesichert
 	 * 
-	 * 
-	 * @param controller
+	 * @param controller die MainController-Instanz
 	 */
 	public KeyPanel(MainController controller) {
 		this.controller = controller;
@@ -38,14 +39,22 @@ public abstract class KeyPanel {
 	}
 
 	/**
+<<<<<<< HEAD
 	 * Erzeugt die Buttons und die Schl�ssel f�r das JPanel
+=======
+	 * Erzeugt die Buttons und die Schluessel fuer das JPanel
+>>>>>>> main
 	 * 
 	 * @return ein JPanel mit Buttons und dem Schl�ssel
 	 */
 	public abstract JPanel createKeyPanel(); // Bei der Implementierung createButtonPanel hinzuf�gen
 
 	/**
+<<<<<<< HEAD
 	 * Gibt den aktuellen Key zur�ck
+=======
+	 * Gibt den aktuellen Key zurueck
+>>>>>>> main
 	 * 
 	 * @return den aktuellen Key als String
 	 */
@@ -100,7 +109,8 @@ public abstract class KeyPanel {
 	}
 
 	/**
-	 * 
+	 * Der Klartext wird verschluesselt und im Geheimtextfeld ausgegeben.
+	 * Ausfuehrung bei clicken auf den Button "verschluesseln".
 	 */
 	public void clickButtonEncrypt() {
 		String plainText = this.controller.getPlainText();
@@ -109,12 +119,12 @@ public abstract class KeyPanel {
 
 		if (plainText.isEmpty()) {
 			Messages.errorMessage("Zum verschl\u00fcsseln muss im Klartextfeld ein Text eingegeben werden.");
-		} else {
+		} else { //Wird ausgefuert nur wenn ein Klartext gegeben ist
 			if (this.crypt.checkKey(key)) {
-				if (cryptoText.isEmpty()
-						|| Messages.yesNoQuestion("Darf der Geheimtext im Geheimtextfeld �berschrieben werden?")) {
-					cryptoText = this.crypt.cryptAll(plainText, key);
-					this.controller.setCryptoText(cryptoText);
+				if (cryptoText.isEmpty() || Messages.yesNoQuestion("Darf der Geheimtext im Geheimtextfeld �berschrieben werden?")) {
+					plainText = TextEdit.editText(plainText);
+					cryptoText = this.crypt.cryptAll(plainText, key); //Der verschluesselte Text wird erzeugt und
+					this.controller.setCryptoText(cryptoText);		  //im Geheimtextfeld ausgegeben
 				}
 			} else {
 				Messages.errorMessage("Der eingegebene Schl\u00fcssel ist nicht korrekt.");
@@ -123,7 +133,8 @@ public abstract class KeyPanel {
 	}
 
 	/**
-	 * 
+	 * Der Geheimtext wird entschluesselt und im Klartestfeld ausgegeben.
+	 * Ausfuehrung bei clicken auf den Button "entschluesseln".
 	 */
 	public void clickButtonDecrypt() {
 		String plainText = this.controller.getPlainText();
@@ -131,13 +142,13 @@ public abstract class KeyPanel {
 		String key = getKey();
 
 		if (cryptoText.isEmpty()) {
-			Messages.errorMessage("Zum entschl\u00fcsseln muss im Geheimtestfeld ein Text eingegeben werden.");
-		} else {
+			Messages.errorMessage("Zum entschl\u00fcsseln muss im Geheimtextfeld ein Text eingegeben werden.");
+		} else { //Wird ausgefuert nur wenn ein Geheimtext gegeben ist
 			if (this.crypt.checkKey(key)) {
-				if (plainText.isEmpty()
-						|| Messages.yesNoQuestion("Darf der Klartext im Klartextfeld �berschrieben werden?")) {
-					plainText = this.crypt.decryptAll(cryptoText, key);
-					this.controller.setPlainText(plainText);
+				if (plainText.isEmpty() || Messages.yesNoQuestion("Darf der Klartext im Klartextfeld �berschrieben werden?")) {
+					cryptoText = TextEdit.editText(cryptoText);
+					plainText = this.crypt.decryptAll(cryptoText, key); //Der entschluesselte Text wird erzeugt und
+					this.controller.setPlainText(plainText);			//im Klartextfeld ausgegeben
 				}
 			} else {
 				Messages.errorMessage("Der eingegebene Schl\u00fcssel ist nicht korrekt.");

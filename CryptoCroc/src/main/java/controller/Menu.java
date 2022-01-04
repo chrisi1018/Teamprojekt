@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.Scanner;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -20,7 +21,7 @@ import view.Messages;
  * Beschreibt Aufbau und Funktion der Menueleiste in CryptoCroc
  * 
  * @author Julian Singer
- * @version 1.2
+ * @version 1.3
  */
 public class Menu {
 	
@@ -76,6 +77,36 @@ public class Menu {
 	}
 	
 	/**
+	 * Fuegt dem uebergebenen Text alle 40 Zeichen einen Zeilenumbruch hinzu und entfernt alle 
+	 * Whitespace-Chars an der Stelle des Zeilenumbruchs
+	 * 
+	 * @param text uebergebener Text
+	 * @return Text mit regelmaeﬂigen Zeilenumbruechen
+	 */
+	public String createFileString(String text) {
+		String newText = "";
+		String lineSeparator = System.lineSeparator();
+		if (text.length() <= 45) {
+			return text;
+		}
+		int indexForWordWrap = text.indexOf(" ", 45);
+		int nextWrapIndex = text.indexOf(" ", indexForWordWrap + 45);
+		if (indexForWordWrap == -1) {
+			return text;
+		//ersetzt jedes erste Leerzeichen nach 45 Zeichen durch einen Zeilenumbruch
+		} else {
+			newText = newText + text.substring(0, indexForWordWrap) + lineSeparator;
+			while (nextWrapIndex < text.length() && nextWrapIndex != -1) {
+				newText = newText + text.substring(indexForWordWrap + 1, nextWrapIndex) + lineSeparator;
+				indexForWordWrap = nextWrapIndex;
+				nextWrapIndex = text.indexOf(" ", indexForWordWrap + 45);
+			}
+			newText = newText + text.substring(indexForWordWrap + 1);
+		}
+		return newText;
+	}
+	
+	/**
 	 * Oeffnet ein Speichern-Dialogfenster, in dem man Speicherort und Name der zu speichernden Textdatei
 	 * selbst festlegen kann und erzeugt eine Textdatei mit ausgesuchtem Inhalt
 	 * 
@@ -117,11 +148,64 @@ public class Menu {
 						PrintWriter writer = null;
 						try {
 							writer = new PrintWriter(file);
-							writer.println(chosenTextField.getTextArea().getText());
+							writer.println(createFileString(chosenTextField.getText()));
 						} catch (FileNotFoundException e1) {
 							e1.printStackTrace();
 						} finally {
 							writer.close();					
+						}
+					}
+				}
+			}
+		});
+	}
+	
+	/**
+	 * Oeffnet ein Oeffnen-Dialogfenster, in dem man die zu ladende Textdatei unter allen Textdateien
+	 * selbst auswaehlen kann und ueberschreibt den Text im ausgewaehlten Textfeld mit dem Inhalt der gewaehlten
+	 * Textdatei
+	 * 
+	 * @param barIndex Index des Menues in der Menueleiste
+	 * @param menuIndex Index des Items im Menue
+	 * @param plainText ¸bergebenes Klartextfeld
+	 * @param cryptoText ¸bergebenes Geheimtextfeld
+	 */
+	public void initOpenItem(int barIndex, int menuIndex, TextField plainText, TextField cryptoText) {
+		menuBar.getMenu(barIndex).getItem(menuIndex).addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser fileChooser = new JFileChooser();
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("*.txt", "txt");
+				fileChooser.setFileFilter(filter);
+				int textNumber = Messages.query("In welches Textfeld willst du den Text einsetzen?", options);
+				//ueberprueft, ob im PopUp-Fenster ein Textfeld gewaehlt wurde
+				if (textNumber != JOptionPane.CLOSED_OPTION) {
+					int response = fileChooser.showOpenDialog(null);
+					if (response == JFileChooser.APPROVE_OPTION) {
+						File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
+						Scanner fileScanner = null;
+						//versucht, die gewaehlte Datei auszulesen und ersetzt alle Zeilenumbr¸che durch Leerzeichen
+						try {
+							fileScanner = new Scanner(file);
+							if (file.isFile()) {
+								String text = "";
+								if (fileScanner.hasNextLine()) {
+									text = text + fileScanner.nextLine();
+								}
+								while (fileScanner.hasNextLine()) {
+									text = text + " " + fileScanner.nextLine();
+								}
+								//setzt den Text in das ausgewaehlte Textfeld
+								if (textNumber == 1) {
+									cryptoText.setText(text);
+								} else {
+									plainText.setText(text);
+								}
+							}
+						} catch (FileNotFoundException e1) {
+							e1.printStackTrace();
+						} finally {
+							fileScanner.close();
 						}
 					}
 				}

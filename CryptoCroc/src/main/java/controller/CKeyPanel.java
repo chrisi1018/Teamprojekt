@@ -73,7 +73,7 @@ public class CKeyPanel extends KeyPanel {
 	}
 
 	/**
-	 * 
+	 * Gibt den Schluessel als String zurueck
 	 */
 	@Override
 	public String getKey() {
