@@ -203,6 +203,8 @@ public class Menu {
 								}
 							}
 						} catch (FileNotFoundException e1) {
+							Messages.errorMessage("Die gew\u00e4hlte Datei konnte nicht "
+									+ "gefunden oder ausgelesen werden");
 							e1.printStackTrace();
 						} finally {
 							fileScanner.close();
