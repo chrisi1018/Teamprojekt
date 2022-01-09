@@ -144,15 +144,22 @@ public class Menu {
 						} else {
 							file = new File(fileName + "." + fileType);
 						}
-						//schreibt den Text im ausgewaehlten Textfeld in die erzeugte Datei
-						PrintWriter writer = null;
-						try {
-							writer = new PrintWriter(file);
-							writer.println(createFileString(chosenTextField.getText()));
-						} catch (FileNotFoundException e1) {
-							e1.printStackTrace();
-						} finally {
-							writer.close();					
+						//prueft, ob die Datei bereits existiert
+						if (file.exists()) {
+							boolean replace = Messages.yesNoQuestion("Es existiert dort bereits eine Datei mit "
+									+ "diesem Namen. Wollen Sie diese Datei wirklich ersetzen?");
+							if (replace) {
+								//schreibt den Text im ausgewaehlten Textfeld in die erzeugte Datei
+								PrintWriter writer = null;
+								try {
+									writer = new PrintWriter(file);
+									writer.println(createFileString(chosenTextField.getText()));
+								} catch (FileNotFoundException e1) {
+									e1.printStackTrace();
+								} finally {
+									writer.close();					
+								}
+							}
 						}
 					}
 				}

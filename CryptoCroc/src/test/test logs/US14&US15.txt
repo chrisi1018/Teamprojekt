@@ -42,6 +42,14 @@ Erwartung: Es oeffnet sich eine Fehlermeldung mit der Bemerkung: "Die gewaehlte 
 oder ausgelesen werden"
 Realitaet: entspricht der Erwartung
 
+10. Ich will einen neuen Text als "Test2" auf dem Desktop speichern und waehle im Warnungsfenster "Ja"
+Erwartung: Der Text in der Datei "Test2" wird durch den neuen Text ersetzt
+Realitaet: entspricht der Erwartung
+
+11. Ich will einen neuen Text als "Test2" auf dem Desktop speichern und waehle im Warnungsfenster "Nein"
+Erwartung: Der neue Text wird nicht gespeichert
+Realitaet: entspricht der Erwartung
+
 
 Texte:
 
