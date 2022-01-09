@@ -83,4 +83,13 @@ public class TextField {
 		return this.text;
 
 	}
+	
+	/**
+	 * Gibt zurueck, ob das Textfeld leer ist
+	 * 
+	 * @return ob Feld leer
+	 */
+	public boolean isEmpty() {
+		return this.getText().equals("");
+	}
 }

@@ -1,4 +1,4 @@
-US14&US15 (Git:537455a) :
+US14&US15 (Git:8a27173) :
 
 1. Ich tippe ins Klartextfeld einen Text(a., siehe unten) und tippe dann im Menue auf "Speichern" und "Klartext",
 waehle dann den Desktop als Speicherort und tippe "Test1" in das Dateinamenfeld
@@ -42,13 +42,29 @@ Erwartung: Es oeffnet sich eine Fehlermeldung mit der Bemerkung: "Die gewaehlte 
 oder ausgelesen werden"
 Realitaet: entspricht der Erwartung
 
-10. Ich will einen neuen Text als "Test2" auf dem Desktop speichern und waehle im Warnungsfenster "Ja"
+10. Ich will einen neuen Text als "Test2" auf dem Desktop speichern, obwohl dort bereits eine Textdatei
+"Test2" existiert
+Erwartung: Beim Speicherversuch werde ich in einem neuen Fenster gefragt, ob ich die alte Textdatei ersetzen will
+Realitaet: entspricht der Erwartung
+
+11. Ich waehle im Warnungsfenster aus 10. "Ja"
 Erwartung: Der Text in der Datei "Test2" wird durch den neuen Text ersetzt
 Realitaet: entspricht der Erwartung
 
-11. Ich will einen neuen Text als "Test2" auf dem Desktop speichern und waehle im Warnungsfenster "Nein"
-Erwartung: Der neue Text wird nicht gespeichert
+12. Ich waehle im Warnungsfenster aus 10. "Nein"
+Erwartung: Nichts passiert, die neue Textdatei wird also nicht gespeichert
 Realitaet: entspricht der Erwartung
+
+13. Ich will einen Text in einem Textfeld oeffnen, in dem bereits etwas steht
+Erwartung: Ich werde in einem neuen Fenster gefragt, ob ich den alten Text durch den zu ladenden ersetzen will
+Realitaet: entspricht der Erwartung
+
+14. Ich waehle im Warnungsfenster aus 13. "Ja"
+Erwartung: Der vorige Inhalt wird durch den Inhalt der geladenen Textdatei ersetzt
+Realitaet: entspricht der Erwartung
+
+15. Ich waehle im Warnungsfenster aus 13. "Nein"
+Erwartung: Nichts passiert, der neue Text wird also nicht geladen
 
 
 Texte:

@@ -160,6 +160,17 @@ public class Menu {
 									writer.close();					
 								}
 							}
+						} else {
+							//schreibt den Text im ausgewaehlten Textfeld in die erzeugte Datei
+							PrintWriter writer = null;
+							try {
+								writer = new PrintWriter(file);
+								writer.println(createFileString(chosenTextField.getText()));
+							} catch (FileNotFoundException e1) {
+								e1.printStackTrace();
+							} finally {
+								writer.close();					
+							}
 						}
 					}
 				}
@@ -202,11 +213,28 @@ public class Menu {
 								while (fileScanner.hasNextLine()) {
 									text = text + " " + fileScanner.nextLine();
 								}
-								//setzt den Text in das ausgewaehlte Textfeld
+								//setzt den Text in das ausgewaehlte Textfeld, falls es leer ist oder ueberschrieben
+								//werden soll
 								if (textNumber == 1) {
-									cryptoText.setText(text);
+									if (cryptoText.isEmpty()) {
+										cryptoText.setText(text);
+									} else {
+										boolean replace = Messages.yesNoQuestion("Im ausgew\u00e4hlten Feld "
+												+ "existiert bereits ein Text. Wollen Sie diesen wirklich ersetzen?");
+										if (replace) {
+											cryptoText.setText(text);
+										}
+									}
 								} else {
-									plainText.setText(text);
+									if (plainText.isEmpty()) {
+										plainText.setText(text);
+									} else {
+										boolean replace = Messages.yesNoQuestion("Im ausgew\u00e4hlten Feld "
+												+ "existiert bereits ein Text. Wollen Sie diesen wirklich ersetzen?");
+										if (replace) {
+											plainText.setText(text);
+										}
+									}
 								}
 							}
 						} catch (FileNotFoundException e1) {
