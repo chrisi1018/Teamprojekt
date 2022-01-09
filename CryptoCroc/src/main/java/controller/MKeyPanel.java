@@ -18,7 +18,7 @@ import java.awt.Font;
  * Definiert 'createKeyPanel'-Methode fuer monoalphabetische Verschluesselung
  * 
  * @author zes
- * @version 1.0
+ * @version 1.3
  */
 public class MKeyPanel extends KeyPanel {
 
@@ -27,11 +27,13 @@ public class MKeyPanel extends KeyPanel {
 	private JTextField[] keys = new JTextField[alphabetSize];
 	private JLabel[] names = new JLabel[alphabetSize];
 	private JPanel[] nameKeyPanels = new JPanel[alphabetSize];
+	private int maxInput = 1;
 
 	/**
 	 * Konstruktor, der der neuen Instanz eine monoalphabetische Verschluesselung
 	 * zuordnet und die aktuelle MainController-Instanz wird gesichert
 	 * 
+	 * @param controller die Controller-Instanz
 	 */
 	public MKeyPanel(MainController controller) {
 		super(controller);
@@ -84,6 +86,7 @@ public class MKeyPanel extends KeyPanel {
 			keys[i].setFont(new Font(Font.DIALOG, Font.BOLD, 15));
 			keys[i].setColumns(1);
 			keys[i].setPreferredSize(new Dimension(19, 30));
+			keys[i].setDocument(new LimitedTextfield(maxInput));
 
 			JPanel nameKeyPanel = new JPanel();
 			nameKeyPanel.setLayout(new BoxLayout(nameKeyPanel, BoxLayout.PAGE_AXIS));

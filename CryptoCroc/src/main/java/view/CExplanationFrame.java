@@ -15,7 +15,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 /**
- * Definiert ein neues Fenster, welches die Erläuterungen zur Caesar-Verschlüsselung beinhaltet
+ * Definiert ein neues Fenster, welches die Erlaeuterungen zur Caesar-Verschluesselung beinhaltet
  * 
  * @author Julian Singer
  * @version 1.0
@@ -28,7 +28,7 @@ public class CExplanationFrame extends JFrame {
 	
 	/**
 	 * Konstruktor, der den Aufbau, Inhalt und die Funktion des Fensters definiert, 
-	 * das die Erklärung für die Caesar-Verschlüsselung beinhalten soll
+	 * das die Erklaerung fuer die Caesar-Verschluesselung beinhalten soll
 	 */
 	public CExplanationFrame() {
 		super();
@@ -38,11 +38,12 @@ public class CExplanationFrame extends JFrame {
 		hyperlink.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		hyperlink.addMouseListener(new MouseAdapter() {
 			
-			//Versucht den entsprechenden Link zu öffnen, wenn draufgeklickt wird
+			//Versucht den entsprechenden Link zu oeffnen, wenn draufgeklickt wird
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
-					Desktop.getDesktop().browse(new URI("https://de.serlo.org/informatik/48121/caesar-verschl%C3%BCsselung"));
+					Desktop.getDesktop()
+							.browse(new URI("https://de.serlo.org/informatik/48121/caesar-verschl%C3%BCsselung"));
 				} catch (IOException | URISyntaxException e1) {
 					e1.printStackTrace();
 				}

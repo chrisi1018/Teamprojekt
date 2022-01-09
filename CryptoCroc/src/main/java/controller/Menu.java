@@ -61,7 +61,7 @@ public class Menu {
 	}
 	
 	/**
-	 * Oeffnet einen uebergebenen Frame, sobald das Menueitem an übergebener Stelle angeklickt wird
+	 * Oeffnet einen uebergebenen Frame, sobald das Menueitem an uebergebener Stelle angeklickt wird
 	 * 
 	 * @param barIndex Index des Menues in der Menueleiste
 	 * @param menuIndex Index des Items im Menue
@@ -81,7 +81,7 @@ public class Menu {
 	 * Whitespace-Chars an der Stelle des Zeilenumbruchs
 	 * 
 	 * @param text uebergebener Text
-	 * @return Text mit regelmaeßigen Zeilenumbruechen
+	 * @return Text mit regelmaeï¿½igen Zeilenumbruechen
 	 */
 	public String createFileString(String text) {
 		String newText = "";
@@ -112,8 +112,8 @@ public class Menu {
 	 * 
 	 * @param barIndex Index des Menues in der Menueleiste
 	 * @param menuIndex Index des Items im Menue
-	 * @param plainText übergebenes Klartextfeld
-	 * @param cryptoText übergebenes Geheimtextfeld
+	 * @param plainText uebergebenes Klartextfeld
+	 * @param cryptoText uebergebenes Geheimtextfeld
 	 */
 	public void initSaveItem(int barIndex, int menuIndex, TextField plainText, TextField cryptoText) {
 		final String fileType = "txt";
@@ -144,7 +144,7 @@ public class Menu {
 						} else {
 							file = new File(fileName + "." + fileType);
 						}
-						//schreibt den Text im ausgewählten Textfeld in die erzeugte Datei
+						//schreibt den Text im ausgewï¿½hlten Textfeld in die erzeugte Datei
 						PrintWriter writer = null;
 						try {
 							writer = new PrintWriter(file);
@@ -167,8 +167,8 @@ public class Menu {
 	 * 
 	 * @param barIndex Index des Menues in der Menueleiste
 	 * @param menuIndex Index des Items im Menue
-	 * @param plainText übergebenes Klartextfeld
-	 * @param cryptoText übergebenes Geheimtextfeld
+	 * @param plainText uebergebenes Klartextfeld
+	 * @param cryptoText uebergebenes Geheimtextfeld
 	 */
 	public void initOpenItem(int barIndex, int menuIndex, TextField plainText, TextField cryptoText) {
 		menuBar.getMenu(barIndex).getItem(menuIndex).addActionListener(new ActionListener() {
@@ -184,7 +184,7 @@ public class Menu {
 					if (response == JFileChooser.APPROVE_OPTION) {
 						File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
 						Scanner fileScanner = null;
-						//versucht, die gewaehlte Datei auszulesen und ersetzt alle Zeilenumbrüche durch Leerzeichen
+						//versucht, die gewaehlte Datei auszulesen und ersetzt alle Zeilenumbrï¿½che durch Leerzeichen
 						try {
 							fileScanner = new Scanner(file);
 							if (file.isFile()) {
