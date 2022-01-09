@@ -144,7 +144,7 @@ public class Menu {
 						} else {
 							file = new File(fileName + "." + fileType);
 						}
-						//schreibt den Text im ausgew�hlten Textfeld in die erzeugte Datei
+						//schreibt den Text im ausgewaehlten Textfeld in die erzeugte Datei
 						PrintWriter writer = null;
 						try {
 							writer = new PrintWriter(file);
@@ -184,7 +184,7 @@ public class Menu {
 					if (response == JFileChooser.APPROVE_OPTION) {
 						File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
 						Scanner fileScanner = null;
-						//versucht, die gewaehlte Datei auszulesen und ersetzt alle Zeilenumbr�che durch Leerzeichen
+						//versucht, die gewaehlte Datei auszulesen und ersetzt alle Zeilenumbrueche durch Leerzeichen
 						try {
 							fileScanner = new Scanner(file);
 							if (file.isFile()) {
