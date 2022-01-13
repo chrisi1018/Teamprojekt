@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
  * @author zes
  * @version 1.3
  */
-public class MCryptText {
+public class MCryptTest {
 
 	private MCrypt test;
 
