@@ -1,0 +1,25 @@
+US10 (GIT: c98288c)
+
+1. Ich wähle das Cäsar-Verfahren aus. Gebe einen Text in das "Klartextfeld" ein. 
+Wähle eine Schlüssel und drücke auf den Button "verschlüsseln".
+Erwartung:	Der Text im "Klartextfeld" wird, mit dem ausgewählten Schlüssel, verschlüsselt 
+		und dieser verschlüsselte Text, wird im "Geheimtextfeld" ausgegeben.
+Realität:	Entspricht den Erwartungen.
+
+2. Ich wähle das Cäsar-Verfahren aus. Gebe einen Text in das "Geheimtextfeld" ein.
+Wähle den Schlüssel und drücke auf den Button "entschlüsseln".
+Erwartungen:	Der Text im "Geheimtextfeld" wird, mit dem ausgewählten Schlüssel, entschlüsselt
+		und dieser entschlüsselte Text, wird im "Klartextfeld" ausgegeben.
+Realität:	Entspricht den Erwartungen.
+
+3. Ich wähle das Monoalphabetische-Verfahren aus. Gebe einen Text in das "Klartextfeld" ein.
+Wähle die Schlüssel und drücke auf den Button "verschlüsseln".
+Erwartung:	Der Text im "Klartextfeld" wird, mit den ausgewählten Schlüsseln, verschlüsselt 
+		und dieser verschlüsselte Text, wird im "Geheimtextfeld" ausgegeben.
+Realität:	Entspricht den Erwartungen.
+
+4. Ich wähle das Monoalphabetische-Verfahren aus. Gebe einen Text in das "Geheimtextfeld" ein.
+Wähle die Schlüssel und drücke auf den Button "entschlüsseln".
+Erwartungen:	Der Text im "Geheimtextfeld" wird, mit den ausgewählten Schlüsseln, entschlüsselt
+		und dieser entschlüsselte Text, wird im "Klartextfeld" ausgegeben.
+Realität:	Entspricht den Erwartungen.
