@@ -58,7 +58,7 @@ public class MainController {
 				dropDown.createDropdown() // Dropdownmenue
 		);
 		this.key.initKey();
-
+		//initialisiert die Menueitems
 		this.menuBar.initExplanationItem(1, 0, new CExplanationFrame());
 		this.menuBar.initExplanationItem(1, 1, new MExplanationFrame());
 		this.menuBar.initExplanationItem(1, 2, new VExplanationFrame());

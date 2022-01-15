@@ -21,7 +21,7 @@ import view.Messages;
  * Beschreibt Aufbau und Funktion der Menueleiste in CryptoCroc
  * 
  * @author Julian Singer
- * @version 1.3
+ * @version 1.4
  */
 public class Menu {
 	
@@ -77,11 +77,11 @@ public class Menu {
 	}
 	
 	/**
-	 * Fuegt dem uebergebenen Text alle 40 Zeichen einen Zeilenumbruch hinzu und entfernt alle 
+	 * Fuegt dem uebergebenen Text alle 45 Zeichen einen Zeilenumbruch hinzu und entfernt alle 
 	 * Whitespace-Chars an der Stelle des Zeilenumbruchs
 	 * 
 	 * @param text uebergebener Text
-	 * @return Text mit regelmae�igen Zeilenumbruechen
+	 * @return Text mit regelmaessigen Zeilenumbruechen
 	 */
 	public String createFileString(String text) {
 		String newText = "";
@@ -147,7 +147,7 @@ public class Menu {
 						//prueft, ob die Datei bereits existiert
 						if (file.exists()) {
 							boolean replace = Messages.yesNoQuestion("Es existiert dort bereits eine Datei mit "
-									+ "diesem Namen. Wollen Sie diese Datei wirklich ersetzen?");
+									+ "diesem Namen. Willst du diese Datei wirklich ersetzen?");
 							if (replace) {
 								//schreibt den Text im ausgewaehlten Textfeld in die erzeugte Datei
 								PrintWriter writer = null;
@@ -220,7 +220,7 @@ public class Menu {
 										cryptoText.setText(text);
 									} else {
 										boolean replace = Messages.yesNoQuestion("Im ausgew\u00e4hlten Feld "
-												+ "existiert bereits ein Text. Wollen Sie diesen wirklich ersetzen?");
+												+ "existiert bereits ein Text. Willst du diesen wirklich ersetzen?");
 										if (replace) {
 											cryptoText.setText(text);
 										}
@@ -230,7 +230,7 @@ public class Menu {
 										plainText.setText(text);
 									} else {
 										boolean replace = Messages.yesNoQuestion("Im ausgew\u00e4hlten Feld "
-												+ "existiert bereits ein Text. Wollen Sie diesen wirklich ersetzen?");
+												+ "existiert bereits ein Text. Willst du diesen wirklich ersetzen?");
 										if (replace) {
 											plainText.setText(text);
 										}

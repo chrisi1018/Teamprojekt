@@ -1,14 +1,14 @@
 package model;
 
 /**
- * Eine Hilfklasse die Methoden zur Bearbeitung des Tesxtes zur verfuegung stellt.
+ * Eine Hilfsklasse, die Methoden zur Bearbeitung des Textes zur Verfuegung stellt.
  * @author Julian
  * @version 1.0
  */
 public final class TextEdit {
 
 	/**
-	 * Privater Kunstrukto fuer Hilfsklasse
+	 * Privater Kunstruktor fuer Hilfsklasse
 	 */
 	private TextEdit() { }
 	
@@ -81,7 +81,7 @@ public final class TextEdit {
 	}
 	
 	/**
-	 * Eine HilfMethode die sowohl Umlaute umwandel, als auch alle Buchstaben in Grossbuchstaben umwandelt.
+	 * Eine HilfsMethode, die sowohl Umlaute umwandelt, als auch alle Buchstaben in Grossbuchstaben umwandelt.
 	 * @param text der Text der umgewandelt werden soll.
 	 * @return der Umgewandelte Text.
 	 */

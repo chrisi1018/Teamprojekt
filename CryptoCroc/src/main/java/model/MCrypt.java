@@ -95,7 +95,7 @@ public class MCrypt extends Crypt {
 
 	/**
 	 * Verschluesselt einen Buchstaben indem es schaut an welcher Stelle der
-	 * Buchstabe im Schluessel-Array steht und dies dann in einen Großbuchstaben
+	 * Buchstabe im Schluessel-Array steht und dies dann in einen Grossbuchstaben
 	 * umwandelt
 	 * 
 	 * @param letter

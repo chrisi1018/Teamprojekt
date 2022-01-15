@@ -19,7 +19,7 @@ Erwartung: siehe 1. und 3.
 Realitaet: entspricht der Erwartung
 
 5. Ich tippe im Menue auf "Laden" und "Klartext" und durchsuche das Suchfenster nach auswaehlbaren 
-Nicht-.txt-Dateien auf meinem Gerät
+Nicht-.txt-Dateien auf meinem Geraet
 Erwartung: Es koennen nur .txt-Dateien geoeffnet werden
 Realitaet: Alle gefundenen Dateien, die geoeffnet werden konnten, waren .txt-Dateien
 
@@ -65,6 +65,7 @@ Realitaet: entspricht der Erwartung
 
 15. Ich waehle im Warnungsfenster aus 13. "Nein"
 Erwartung: Nichts passiert, der neue Text wird also nicht geladen
+Realitaet: entspricht der Erwartung
 
 
 Texte:

@@ -124,7 +124,7 @@ public class MCryptTest {
 	}
 
 	/**
-	 * Testet ob ein nicht gueltiger Schluessel als solchen erkannt wird
+	 * Testet ob ein nicht gueltiger Schluessel als solcher erkannt wird
 	 */
 	@Test
 	void invalidKey() {
@@ -140,7 +140,7 @@ public class MCryptTest {
 	}
 
 	/**
-	 * Testet ob ein gueltiger Schluessel als solches erkannt wird
+	 * Testet ob ein gueltiger Schluessel als solcher erkannt wird
 	 */
 	@Test
 	void validKey() {

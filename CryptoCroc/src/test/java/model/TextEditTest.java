@@ -97,7 +97,7 @@ public class TextEditTest {
 	}
 
 	/**
-	 * Testet die Methide editText
+	 * Testet die Methode editText
 	 */
 	@Test
 	void testEditText() {

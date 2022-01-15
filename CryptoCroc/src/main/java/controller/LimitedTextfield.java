@@ -34,7 +34,7 @@ public class LimitedTextfield extends PlainDocument {
 	@Override
 	public void insertString(int offset, String str, AttributeSet att) throws BadLocationException {
 		if (!this.checkValidString(str)) {
-			Messages.errorMessage("Hier können nur die Buchstaben A-Z bzw a-z eingegeben werden");
+			Messages.errorMessage("Hier k\u00f6nnen nur die Buchstaben A-Z bzw a-z eingegeben werden");
 		} else if ((getLength() + str.length()) <= limit) {
 			super.insertString(offset, str, att);
 		} else {

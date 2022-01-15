@@ -28,7 +28,7 @@ public class TextField {
 		label = new JLabel(name);
 		text.setFont(new Font(Font.DIALOG, Font.PLAIN, 20));
 		text.setLineWrap(true);
-		// sorgt dafuer das ganzes Wort in die naechste Zeile wandert
+		// sorgt dafuer, dass ganzes Wort in die naechste Zeile wandert
 		text.setWrapStyleWord(true);
 		
 		label.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
@@ -51,7 +51,7 @@ public class TextField {
 		scroll.setVisible(true);
 		panel.add(scroll);
 		
-		// vertikale Lücke zwischen Elementen im Panel
+		// vertikale Luecke zwischen Elementen im Panel
 		bLayout.setVgap(10);
 		return panel;
 	}

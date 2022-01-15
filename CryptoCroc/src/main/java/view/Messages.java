@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
  * Eine Hilfsklasse die Methoden fuer die Ausgabe von Pop-Up Mitteilungen bereit
  * stellt.
  * 
- * @author Julian
+ * @author Julian Sturm
  * @version 1.0
  */
 public final class Messages {
@@ -53,7 +53,7 @@ public final class Messages {
 	}
 
 	/**
-	 * Implementiert ein Pop-Up-Fenster, dass dem Benuter erlaubt eine Option von
+	 * Implementiert ein Pop-Up-Fenster, dass dem Benutzer erlaubt eine Option von
 	 * mehreren zu waehlen
 	 * 
 	 * @param message Die Nachricht die im Pop-Up-Fenster Angezeigt wird

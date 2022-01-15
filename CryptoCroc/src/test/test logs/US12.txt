@@ -16,7 +16,7 @@ Realitaet: entspricht der Erwartung
 Erwartung: Bei jedem Klick oeffnet sich der angezeigte Link in einem auf dem Geraet installierten Browser
 Realitaet: entspricht der Erwartung
 
-4. Ich klicke im Menue bei beliebiger Anzahl bereits offener Erklaerungsfenster auf eine noch nicht geoeffnete Erklärung
+4. Ich klicke im Menue bei beliebiger Anzahl bereits offener Erklaerungsfenster auf eine noch nicht geoeffnete Erklaerung
 Erwartung: Alle geoeffneten Fenster bleiben offen und es oeffnet sich zusaetzlich ein neues Fenster fuer die ausgewaehlte Erklaerung
 Realitaet: entspricht der Erwartung
 
