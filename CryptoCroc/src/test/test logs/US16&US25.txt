@@ -10,7 +10,8 @@ eingegeben wurde.
 Realität: Entspricht den Erwartungen
 
 3. Ich gebe im Geheimtextfeld einen Text ein und klicke auf entschlüsseln.
-Erwartung: Mir wird eine Fehlermeldung ausgegeben, dass ein falscher bzw fehlender Schlüssel.
+Erwartung: Mir wird eine Fehlermeldung ausgegeben, dass ein falscher bzw fehlender Schlüssel
+eingegeben wurde.
 Realität: Entspricht den Erwartungen
 
 4. Ich gebe im Klartextfeld einen Text ein und gebe einen richtigen Schlüssel ein und klicke auf verschlüsseln.
