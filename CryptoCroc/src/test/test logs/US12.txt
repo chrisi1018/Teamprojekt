@@ -1,5 +1,9 @@
 US12 (Git:88571c0) :
 
+Java-Version: 1.8
+Betriebssystem: Windows 11
+getestet von: Julian Singer
+
 1. Ich klicke im Menue "Erklaerungen" mit der Maus auf ein beliebiges Menue-Item
 Erwartung: Es oeffnet sich ein neues Fenster mit dem ausgewaehlten Item im Titel und einem zugehoerigen Link
 Realitaet: Fuer jede der 4 moeglichen Erklaerungen oeffnet sich ein einheitlich grosses Fenster mit einer der Auswahl 
