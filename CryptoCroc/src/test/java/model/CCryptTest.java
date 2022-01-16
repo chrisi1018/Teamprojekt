@@ -185,6 +185,7 @@ public class CCryptTest {
 	@Test
 	void keyTestRight() {
 		assert (test.checkKey("A"));
+		assert (test.checkKey("z"));
 	}
 
 	/**
