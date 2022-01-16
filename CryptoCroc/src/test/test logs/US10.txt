@@ -23,3 +23,15 @@ Waehle die Schluessel und druecke auf den Button "entschluesseln".
 Erwartungen:	Der Text im "Geheimtextfeld" wird, mit den ausgewaehlten Schluesseln, entschluesselt
 		und dieser entschluesselte Text, wird im "Klartextfeld" ausgegeben.
 Realitaet:	Entspricht den Erwartungen.
+
+5. Ich waehle das Vigenère-Verfahren aus. Gebe einen Text in das "Klartextfeld" ein.
+Waehle den Schluessel und druecke auf den Button "verschluesseln".
+Erwartung:	Der Text im "Klartextfeld" wird, mit dem ausgewaehlten Schluessel, verschluesselt 
+		und dieser verschluesselte Text, wird im "Geheimtextfeld" ausgegeben.
+Realitaet:	Entspricht den Erwartungen.
+
+6. Ich waehle das Vigenère-Verfahren aus. Gebe einen Text in das "Geheimtextfeld" ein.
+Waehle den Schluessel und druecke auf den Button "entschluesseln".
+Erwartungen:	Der Text im "Geheimtextfeld" wird, mit dem ausgewaehlten Schluessel, entschluesselt
+		und dieser entschluesselte Text, wird im "Klartextfeld" ausgegeben.
+Realitaet:	Entspricht den Erwartungen.
