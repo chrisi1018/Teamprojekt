@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Die Klasse stellt die Viginére-Verschlüsselung zur Verfügung.
+ * Die Klasse stellt die Viginére-Verschluesselung zur Verfuegung.
  * 
  * @author Julian
  * @version 1.0
@@ -9,30 +9,30 @@ package model;
 public class VCrypt extends Crypt {
 	
 	/**
-	 * Die Cäsar-Verschlüsselung wird verwendet
+	 * Die Caesar-Verschluesselung wird verwendet
 	 */
 	CCrypt caesar = new CCrypt();
 	
 	/**
-	 * Die Methode verschlüsselt einen Text mit der Viginére-Verschlüsselung indem mit einem Zähler
-	 * über das Schlüsselwort gelaufen wird, und dann mit dem Buchstaben des Schlüsselworts die
-	 * Cäsar-Verschlüsselung angewandt wird.
-	 * @param text Der mit der Viginére-Verschlüsselung zu verschlüsselde Text
+	 * Die Methode verschluesselt einen Text mit der Viginére-Verschluesselung indem mit einem Zaehler
+	 * ueber das Schluesselwort gelaufen wird, und dann mit dem Buchstaben des Schluesselworts die
+	 * Caesar-Verschluesselung angewandt wird.
+	 * @param text Der mit der Viginére-Verschluesselung zu verschluesselde Text
 	 * @param key der Verwendete Text
-	 * @return der verschlüsseltet Text
+	 * @return der verschluesseltet Text
 	 */
 	@Override
 	public String cryptAll(String text, String key) {
 		String ret = "";
-		int counter = 0; //Zählt über das Schlüsselwort
+		int counter = 0; //Zaehlt ueber das Schluesselwort
 		for (int i = 0; i < text.length(); i++) {
 			char c = text.charAt(i);
 			ret = ret + caesar.cryptChar(c, castKey(key.charAt(counter)));
 			if (c >= 'A' && c <= 'z' && (c <= 'Z' || c >= 'a')) {
-			//Counter Zählt nur weiter wenn auch ein Buchstabe Verschlüsselt wird
+			//Counter Zaehlt nur weiter wenn auch ein Buchstabe Verschluesselt wird
 				counter++;
 			}
-			if (counter == key.length()) { //Überprüft ob das Schlüsselwort abgelaufen wurde
+			if (counter == key.length()) { //ueberprueft ob das Schluesselwort abgelaufen wurde
 				counter = 0;
 			}
 		}
@@ -40,22 +40,22 @@ public class VCrypt extends Crypt {
 	}
 	
 	/**
-	 * Die Methode entschlüsselt einen Text der mit Viginère-Verschlüsselung verschlüsselt wurden, indem
-	 * mit einem Zähler über das Schlüsselwort gelaufen wird, und dann mit dem Buchstaben des Schlüsselworts
-	 * die Entschlüsselung des Cäsar-Verfahren angewandt wird.
+	 * Die Methode entschluesselt einen Text der mit Viginère-Verschluesselung verschluesselt wurden, indem
+	 * mit einem Zaehler ueber das Schluesselwort gelaufen wird, und dann mit dem Buchstaben des Schluesselworts
+	 * die Entschluesselung des Caesar-Verfahren angewandt wird.
 	 */
 	@Override
 	public String decryptAll(String text, String key) {
 		String ret = "";
-		int counter = 0; //Zählt über das Schlüsselwort
+		int counter = 0; //Zaehlt ueber das Schluesselwort
 		for (int i = 0; i < text.length(); i++) {
 			char c = text.charAt(i);
 			ret = ret + caesar.decryptChar(c, castKey(key.charAt(counter)));
 			if (c >= 'A' && c <= 'z' && (c <= 'Z' || c >= 'a')) {
-				//Counter Zählt nur weiter wenn auch ein Buchstabe Verschlüsselt wird
+				//Counter Zaehlt nur weiter wenn auch ein Buchstabe Verschluesselt wird
 					counter++;
 				}
-			if (counter == key.length()) { //Überprüft ob das Schlüsselwort abgelaufen wurde
+			if (counter == key.length()) { //ueberprueft ob das Schluesselwort abgelaufen wurde
 				counter = 0;
 			}
 		}
@@ -63,9 +63,9 @@ public class VCrypt extends Crypt {
 	}
 	
 	/**
-	 * Die Methode Überprüft ob der Schlüssel das richtige Format hat, ein String aus arabischen Buchstaben
-	 * @param key der Verwedete Schlüssel
-	 * @return Ein boolscher Wahrheitswert ob das Format des Schlüssels passt
+	 * Die Methode ueberprueft ob der Schluessel das richtige Format hat, ein String aus arabischen Buchstaben
+	 * @param key der Verwedete Schluessel
+	 * @return Ein boolscher Wahrheitswert ob das Format des Schluessels passt
 	 */
 	public boolean checkKey(String key) {
 		if (key.equals("")) {
@@ -84,7 +84,7 @@ public class VCrypt extends Crypt {
 	}
 	
 	/**
-	 * Die Methode wandelt einen Charakter in einen Integer für die Verschlüsselung um
+	 * Die Methode wandelt einen Charakter in einen Integer fuer die Verschluesselung um
 	 * @param c
 	 * @return
 	 */
