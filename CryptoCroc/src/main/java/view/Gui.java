@@ -89,7 +89,7 @@ public class Gui {
 	}
 	
 	/**
-	 * Methode die den Frame repainted, muss nach veraenderungen der Gui aufgerufen werden
+	 * Methode die den Frame repainted, muss nach Veraenderungen der Gui aufgerufen werden
 	 * 
 	 */
 	public void repaintFrame() {

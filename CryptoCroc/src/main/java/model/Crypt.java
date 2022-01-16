@@ -21,8 +21,8 @@ public abstract class Crypt {
 	 * Entschluesselt den Geheimtext
 	 * 
 	 * @param cryptoText der Geheimtext
-	 * @param key der Schlüssel
-	 * @return der entschlüsselte Text
+	 * @param key der Schluessel
+	 * @return der entschluesselte Text
 	 */
 	public abstract String decryptAll(String cryptoText, String key);
 	

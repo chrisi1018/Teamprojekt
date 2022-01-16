@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 
 /**
- * Beschreibt ein Dropdown Menue für die Verschluesselungen
+ * Beschreibt ein Dropdown Menue fuer die Verschluesselungen
  * 
  * @author zes
  * @version 1.0
@@ -45,7 +45,7 @@ public class Dropdown {
 	/**
 	 * Gibt die aktuelle Option aus
 	 * 
-	 * @return ein string, der die aktuelle Option enthält
+	 * @return ein string, der die aktuelle Option enthaelt
 	 */
 	protected String status() {
 		return dropDown.getSelectedItem().toString();

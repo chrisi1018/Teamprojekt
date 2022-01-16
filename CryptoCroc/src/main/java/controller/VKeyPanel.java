@@ -11,6 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import model.MCrypt;
+import model.VCrypt;
+
 /**
  * Definiert 'createKeyPanel'-Methode fuer Vigenere und speichert sein Schluesseltextfeld
  * 
@@ -30,6 +33,7 @@ public class VKeyPanel extends KeyPanel {
 	 */
 	public VKeyPanel(MainController controller) {
 		super(controller);
+		super.setCrypt(new VCrypt());
 	}
 	
 	/**

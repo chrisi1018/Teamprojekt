@@ -5,12 +5,13 @@ Erwartung: Mir wird eine Fehlermeldung ausgegeben, dass im jeweiligen Textfeld k
 Realität: Entspricht den Erwartungen
 
 2. Ich gebe im Klartextfeld einen Text ein und klicke auf verschlüsseln.
-Erwartung: Mir wird eine Fehlermeldung ausgegeben, dass ein falscher bzw fehlender Schlüssel.
-Eingegeben wurde.
+Erwartung: Mir wird eine Fehlermeldung ausgegeben, dass ein falscher bzw fehlender Schlüssel
+eingegeben wurde.
 Realität: Entspricht den Erwartungen
 
 3. Ich gebe im Geheimtextfeld einen Text ein und klicke auf entschlüsseln.
-Erwartung: Mir wird eine Fehlermeldung ausgegeben, dass ein falscher bzw fehlender Schlüssel.
+Erwartung: Mir wird eine Fehlermeldung ausgegeben, dass ein falscher bzw fehlender Schlüssel
+eingegeben wurde.
 Realität: Entspricht den Erwartungen
 
 4. Ich gebe im Klartextfeld einen Text ein und gebe einen richtigen Schlüssel ein und klicke auf verschlüsseln.
@@ -23,6 +24,6 @@ Realität: entspricht den Erwartungen
 
 6. Ich gebe in beiden Feldern einen Text ein und einen richtigen Schlüssel und Versuche diese zu ver- und
 entschlüsseln.
-Erwartung: Ich erwarte das ein Pop-Up-Fenster aufgeht und micht fragt, ob das andere Feld überschrieben
+Erwartung: Ich erwarte das ein Pop-Up-Fenster aufgeht und mich fragt, ob das andere Feld überschrieben
 werden soll.
 Realität: entspricht den Erwartungen, das Pop-Up-Fenster funktioniert wie erwartet.
