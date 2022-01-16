@@ -26,8 +26,12 @@ public class VCrypt extends Crypt {
 		String ret = "";
 		int counter = 0; //Zählt über das Schlüsselwort
 		for (int i = 0; i < text.length(); i++) {
-			ret = ret + caesar.cryptChar(text.charAt(i), castKey(key.charAt(counter)));
-			counter++;
+			char c = text.charAt(i);
+			ret = ret + caesar.cryptChar(c, castKey(key.charAt(counter)));
+			if (c >= 'A' && c <= 'z' && (c <= 'Z' || c >= 'a')) {
+			//Counter Zählt nur weiter wenn auch ein Buchstabe Verschlüsselt wird
+				counter++;
+			}
 			if (counter == key.length()) { //Überprüft ob das Schlüsselwort abgelaufen wurde
 				counter = 0;
 			}
@@ -45,8 +49,12 @@ public class VCrypt extends Crypt {
 		String ret = "";
 		int counter = 0; //Zählt über das Schlüsselwort
 		for (int i = 0; i < text.length(); i++) {
-			ret = ret + caesar.decryptChar(text.charAt(i), castKey(key.charAt(counter)));
-			counter++;
+			char c = text.charAt(i);
+			ret = ret + caesar.decryptChar(c, castKey(key.charAt(counter)));
+			if (c >= 'A' && c <= 'z' && (c <= 'Z' || c >= 'a')) {
+				//Counter Zählt nur weiter wenn auch ein Buchstabe Verschlüsselt wird
+					counter++;
+				}
 			if (counter == key.length()) { //Überprüft ob das Schlüsselwort abgelaufen wurde
 				counter = 0;
 			}
@@ -60,12 +68,15 @@ public class VCrypt extends Crypt {
 	 * @return Ein boolscher Wahrheitswert ob das Format des Schlüssels passt
 	 */
 	public boolean checkKey(String key) {
+		if (key.equals("")) {
+			return false;
+		}
 		for (int i = 0; i < key.length(); i++) {
 			char c = key.charAt(i);
-			if (c < 'a' || c > 'Z') {
+			if (c < 'A' || c > 'z') {
 				return false;
 			}
-			if (c > 'z' && c < 'A') {
+			if (c > 'Z' && c < 'a') {
 				return false;
 			}
 		}
