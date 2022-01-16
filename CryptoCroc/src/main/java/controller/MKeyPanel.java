@@ -77,7 +77,6 @@ public class MKeyPanel extends KeyPanel {
 		description.setAlignmentX(Component.CENTER_ALIGNMENT);
 		description.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
 		title.add(description, BorderLayout.SOUTH);
-		// title.add(Box.createRigidArea(new Dimension(0, 20)));
 
 		// intialisiert Eintraege von keys und setzt Textstil
 		for (int i = 0; i < alphabetSize; i++) {
