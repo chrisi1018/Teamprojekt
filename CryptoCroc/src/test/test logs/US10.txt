@@ -1,5 +1,9 @@
 US10 (GIT: c98288c)
 
+Java-Version: 	1.8
+Betriebssystem: Windows 10 Pro
+getestet von: 	Christina Blach
+
 1. Ich waehle das Caesar-Verfahren aus. Gebe einen Text in das "Klartextfeld" ein. 
 Waehle eine Schluessel und druecke auf den Button "verschluesseln".
 Erwartung:	Der Text im "Klartextfeld" wird, mit dem ausgewaehlten Schluessel, verschluesselt 
@@ -28,10 +32,16 @@ Realitaet:	Entspricht den Erwartungen.
 Waehle den Schluessel und druecke auf den Button "verschluesseln".
 Erwartung:	Der Text im "Klartextfeld" wird, mit dem ausgewaehlten Schluessel, verschluesselt 
 		und dieser verschluesselte Text, wird im "Geheimtextfeld" ausgegeben.
-Realitaet:	Entspricht den Erwartungen.
+Realitaet:	Entspricht nicht den Erwartungen.
+
+-> Beobachtung: Es wird kein Geheimtext ausgegeben.
+-> In Issue 2 festgehalten und verbessert.
 
 6. Ich waehle das Vigenère-Verfahren aus. Gebe einen Text in das "Geheimtextfeld" ein.
 Waehle den Schluessel und druecke auf den Button "entschluesseln".
 Erwartungen:	Der Text im "Geheimtextfeld" wird, mit dem ausgewaehlten Schluessel, entschluesselt
 		und dieser entschluesselte Text, wird im "Klartextfeld" ausgegeben.
-Realitaet:	Entspricht den Erwartungen.
+Realitaet:	Entspricht nicht den Erwartungen.
+
+-> Beobachtung: Es wird kein Klartext ausgegeben.
+-> In Issue 2 festgehalten und verbessert.
