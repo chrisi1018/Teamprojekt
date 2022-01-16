@@ -25,11 +25,11 @@ public class Gui {
 	 * Konstruktor erzeugt den Frame und legt das Layout fest.
 	 * 
 	 * @param menu       Die Menu-Bar
-	 * @param clearText  enth�lt das Textfeld f�r den Klartext
-	 * @param cryptoText enth�lt das Textfeld f�r den Cryptotext
-	 * @param keyPanel        enth�lt die Buttons verschl�sseln und die Textfelder f�r
-	 *                   den Schl�ssel
-	 * @param dropDown   enthält das Dropdown-menü
+	 * @param clearText  enthaelt das Textfeld fuer den Klartext
+	 * @param cryptoText enthaelt das Textfeld fuer den Cryptotext
+	 * @param keyPanel        enthaelt die Buttons verschluesseln und die Textfelder fuer
+	 *                   den Schluessel
+	 * @param dropDown   enthaelt das Dropdown-menue
 	 */
 	public Gui(JMenuBar menu, JPanel clearText, JPanel cryptoText, JPanel keyPanel, JPanel dropDown) {
 
@@ -89,7 +89,7 @@ public class Gui {
 	}
 	
 	/**
-	 * Methodie die den Frame repainted, muss nach ver�nderungen der Gui aufgerufen werden
+	 * Methode die den Frame repainted, muss nach Veraenderungen der Gui aufgerufen werden
 	 * 
 	 */
 	public void repaintFrame() {

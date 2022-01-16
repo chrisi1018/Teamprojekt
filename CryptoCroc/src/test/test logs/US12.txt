@@ -1,12 +1,16 @@
 US12 (Git:88571c0) :
 
+Java-Version: 1.8
+Betriebssystem: Windows 11
+getestet von: Julian Singer
+
 1. Ich klicke im Menue "Erklaerungen" mit der Maus auf ein beliebiges Menue-Item
 Erwartung: Es oeffnet sich ein neues Fenster mit dem ausgewaehlten Item im Titel und einem zugehoerigen Link
 Realitaet: Fuer jede der 4 moeglichen Erklaerungen oeffnet sich ein einheitlich grosses Fenster mit einer der Auswahl 
 entsprechenden Benennung und einem zugehoerigen blauen Link
 
 -> Beim Testen fiel auf, dass im Erklaerungs- und Dropdownmenue bei Vigenere der Akzent fehlte
--> Dies wurde daraufhin entsprechend angepasst
+-> Dies wurde daraufhin entsprechend angepasst (Git: 455caca)
 
 2. Ich fahre mit der Maus in einem beliebigen Erklaerungsfenster auf den Link und wieder weg
 Erwartung: Der Cursor-Pfeil wird zu einem Zeigefinger, solange er sich irgendwo auf dem Link befindet
@@ -16,7 +20,7 @@ Realitaet: entspricht der Erwartung
 Erwartung: Bei jedem Klick oeffnet sich der angezeigte Link in einem auf dem Geraet installierten Browser
 Realitaet: entspricht der Erwartung
 
-4. Ich klicke im Menue bei beliebiger Anzahl bereits offener Erklaerungsfenster auf eine noch nicht geoeffnete Erklärung
+4. Ich klicke im Menue bei beliebiger Anzahl bereits offener Erklaerungsfenster auf eine noch nicht geoeffnete Erklaerung
 Erwartung: Alle geoeffneten Fenster bleiben offen und es oeffnet sich zusaetzlich ein neues Fenster fuer die ausgewaehlte Erklaerung
 Realitaet: entspricht der Erwartung
 

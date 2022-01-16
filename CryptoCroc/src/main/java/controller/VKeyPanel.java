@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
- * Definiert 'createKeyPanel'-Methode für Vigenere und speichert sein Schluesseltextfeld
+ * Definiert 'createKeyPanel'-Methode fuer Vigenere und speichert sein Schluesseltextfeld
  * 
  * @author Julian Singer
  * @version 1.0
@@ -22,6 +22,15 @@ public class VKeyPanel extends KeyPanel {
 
 	private JTextField key = new JTextField();
 	private JLabel name = new JLabel("Schl\u00fcsselwort");
+	
+	/**
+	 * Die aktuelle MainController-Instanz wird gesichert
+	 * 
+	 * @param controller die MainController-Instanz
+	 */
+	public VKeyPanel(MainController controller) {
+		super(controller);
+	}
 	
 	/**
 	 * Ueberschreibt die Methode 'createKeyPanel'
@@ -53,6 +62,14 @@ public class VKeyPanel extends KeyPanel {
 		keyPanel.add(this.createButtonPanel(), BorderLayout.CENTER);
 		
 		return keyPanel;
+	}
+	
+	/**
+	 * Gibt den Schluessel als String zurueck
+	 */
+	@Override
+	public String getKey() {
+		return this.key.getText();
 	}
 
 }

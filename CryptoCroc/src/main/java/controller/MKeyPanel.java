@@ -5,6 +5,9 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import model.MCrypt;
+
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -15,24 +18,34 @@ import java.awt.Font;
  * Definiert 'createKeyPanel'-Methode fuer monoalphabetische Verschluesselung
  * 
  * @author zes
- * @version 1.0
+ * @version 1.3
  */
 public class MKeyPanel extends KeyPanel {
 
 	private final int alphabetSize = 26;
-	private String key;
+	private String key = this.keyAsString();
 	private JTextField[] keys = new JTextField[alphabetSize];
 	private JLabel[] names = new JLabel[alphabetSize];
 	private JPanel[] nameKeyPanels = new JPanel[alphabetSize];
+	private int maxInput = 1;
 
 	/**
 	 * Konstruktor, der der neuen Instanz eine monoalphabetische Verschluesselung
-	 * zuordnet
+	 * zuordnet und die aktuelle MainController-Instanz wird gesichert
 	 * 
+	 * @param controller die Controller-Instanz
 	 */
-	public MKeyPanel() {
-		// super.setCrypt(new MCrypt());
-		// TODO
+	public MKeyPanel(MainController controller) {
+		super(controller);
+		super.setCrypt(new MCrypt());
+	}
+
+	/**
+	 * Methode die den aktuellen Schluessel zurueckgibt
+	 */
+	@Override
+	public String getKey() {
+		return this.keyAsString();
 	}
 
 	/**
@@ -45,7 +58,7 @@ public class MKeyPanel extends KeyPanel {
 		if (keys != null) {
 			for (int i = 0; i < keys.length; i++) {
 				if (keys[i] != null) {
-					this.key += keys[i];
+					this.key += keys[i].getText();
 				}
 			}
 		}
@@ -73,6 +86,7 @@ public class MKeyPanel extends KeyPanel {
 			keys[i].setFont(new Font(Font.DIALOG, Font.BOLD, 15));
 			keys[i].setColumns(1);
 			keys[i].setPreferredSize(new Dimension(19, 30));
+			keys[i].setDocument(new LimitedTextfield(maxInput));
 
 			JPanel nameKeyPanel = new JPanel();
 			nameKeyPanel.setLayout(new BoxLayout(nameKeyPanel, BoxLayout.PAGE_AXIS));

@@ -18,7 +18,7 @@ Realitaet: der Text bleibt in der gleichen Zeile und verschwindet ins unendliche
 
 -> (Git:8fd7b1d) :
 
-3. Ich tippe mehr Text ein als ein Textfeld groß ist
+3. Ich tippe mehr Text ein als ein Textfeld gross ist
 Erwartung: es erscheint eine Scrollbar
 Realitaet: der Text verschwindet
 

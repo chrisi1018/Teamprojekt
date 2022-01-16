@@ -15,7 +15,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 /**
- * Definiert ein neues Fenster, welches die Erläuterungen zur Monoalphabetischen Verschlüsselung beinhaltet
+ * Definiert ein neues Fenster, welches die Erlaeuterungen zur Monoalphabetischen
+ * Verschluesselung beinhaltet
  * 
  * @author Julian Singer
  * @version 1.0
@@ -23,12 +24,13 @@ import javax.swing.JLabel;
  */
 @SuppressWarnings("serial")
 public class MExplanationFrame extends JFrame {
-	
-	private JLabel hyperlink = new JLabel("https://www.oszhandel.de/gymnasium/faecher/informatik/krypto/monoalphabetisch.htm");
-	
+
+	private JLabel hyperlink = new JLabel(
+			"https://www.oszhandel.de/gymnasium/faecher/informatik/krypto/monoalphabetisch.htm");
+
 	/**
-	 * Konstruktor, der den Aufbau, Inhalt und die Funktion des Fensters definiert, 
-	 * das die Erklärung für die Monoalphabetische Verschlüsselung beinhalten soll
+	 * Konstruktor, der den Aufbau, Inhalt und die Funktion des Fensters definiert,
+	 * das die Erklaerung fuer die Monoalphabetische Verschluesselung beinhalten soll
 	 */
 	public MExplanationFrame() {
 		super();
@@ -37,19 +39,20 @@ public class MExplanationFrame extends JFrame {
 		hyperlink.setForeground(Color.BLUE.darker());
 		hyperlink.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		hyperlink.addMouseListener(new MouseAdapter() {
-			
-			//Versucht den entsprechenden Link zu öffnen, wenn draufgeklickt wird
+
+			// Versucht den entsprechenden Link zu oeffnen, wenn draufgeklickt wird
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				try {
-					Desktop.getDesktop().browse(new URI("https://www.oszhandel.de/gymnasium/faecher/informatik/krypto/monoalphabetisch.htm"));
+					Desktop.getDesktop().browse(new URI(
+							"https://www.oszhandel.de/gymnasium/faecher/informatik/krypto/monoalphabetisch.htm"));
 				} catch (IOException | URISyntaxException e1) {
 					e1.printStackTrace();
 				}
 			}
 		});
-		
-		//legt Aufbau und Funktion des Fensters fest
+
+		// legt Aufbau und Funktion des Fensters fest
 		setLayout(new FlowLayout());
 		getContentPane().add(hyperlink);
 		setSize(800, 300);

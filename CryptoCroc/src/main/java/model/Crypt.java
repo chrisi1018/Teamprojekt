@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Fï¿½r die Ver- und Entschlï¿½sselung der verschiedenen Verfahren
+ * Fuer die Ver- und Entschluesselung der verschiedenen Verfahren
  * 
  * @author chrisi
  * @version 1.1
@@ -9,20 +9,28 @@ package model;
 public abstract class Crypt {
 	
 	/**
-	 * Verschlï¿½sselt den Klartext
+	 * Verschluesselt den Klartext
 	 * 
 	 * @param plainText der Klartext
-	 * @param key der Schlüssel
-	 * @return der verschlüsselte Text
+	 * @param key der Schluessel
+	 * @return der verschluesselte Text
 	 */
 	public abstract String cryptAll(String plainText, String key);
 	
 	/**
-	 * Entschlï¿½sselt den Geheimtext
+	 * Entschluesselt den Geheimtext
 	 * 
 	 * @param cryptoText der Geheimtext
-	 * @param key der Schlüssel
-	 * @return der entschlüsselte Text
+	 * @param key der Schluessel
+	 * @return der entschluesselte Text
 	 */
 	public abstract String decryptAll(String cryptoText, String key);
+	
+	/**
+	 * Ueberfruefung ob der Schluessel das richtige Format hat
+	 * 
+	 * @param key der Schluessel der verwendet wird
+	 * @return ein Wahrheitswert ob der verwendete Schluessel richtig ist
+	 */
+	public abstract boolean checkKey(String key);
 }

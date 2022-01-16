@@ -1,0 +1,59 @@
+US3-US7 & US18 (Git:8751a50) :
+
+Java-Version: 1.8
+Betriebssystem: Windows 11
+getestet von: Julian Singer
+
+1. Ich starte die Software
+Erwartung: Es oeffnet sich ein neues Fenster mit den auswaehlbaren Menues "Menue" und "Erklaerungen" in
+der Menueleiste, darunter einem Dropdownmenue und 2 Textfeldern namens "Klartext" und "Geheimtext" und 
+dazwischen einem Schluesselfeld namens "A" und 2 Buttons "Verschluesseln" und "Entschluesseln"
+Realitaet: entspricht der Erwartung
+
+US6:
+2. Ich gehe mit der Maus auf die Menues in der Menueleiste
+Erwartung: Es werden weitere auswaehlbare Menueitems angezeigt, genauer: bei "Menue": "Speichern", "Laden" und 
+bei "Erklaerungen": "Caesar", "Monoalphabetisch", "Vigenere" und "Haeufigkeitsanalyse"
+Realitaet: entspricht der Erwartung
+
+US7:
+3. Ich klicke mit der Maus auf das Dropdownmenue
+Erwartung: Es werden mir die Verschluesselungen "Caesar", "Monoalphabetisch" und "Vigenere" angezeigt, die ich 
+auch mit der Maus auswaehlen kann
+Realitaet: entspricht der Erwartung
+
+4. Ich waehle im Dropdownmenue mehrfach eine beliebige Verschluesselung aus
+Erwartung: Ich kann uneingeschraenkt beliebig oft wechseln und bei jedem Wechsel passt sich das Schluesselfeld 
+an die Auswahl an
+Realitaet: entspricht der Erwartung
+
+US5:
+5. Ich klicke mal bei "Caesar" und "Vigenere" auf das Schluesseltextfeld und tippe Buchstaben ein
+Erwartung: Der eingegebene Text erscheint zeitgleich im Textfeld
+Realitaet: entspricht der Erwartung
+
+US3 & US4:
+6. Ich versuche bei Caesar und Monoalphabetischer Verschluesselung mit eingegebenem Klar- und Geheimtext und 
+Schluessel auf die Buttons "Verschluesseln" und "Entschluesseln" zu klicken
+Erwartung: Der jeweilige Text wird ver- oder entschluesselt und im jeweils anderen Textfeld angezeigt, d.h.
+die Buttons haben funktionierende ActionListener
+Realitaet: entspricht der Erwartung
+
+US18:
+7. Ich versuche bei Caesar und Monoalphabetischer Verschluesselung einen Klartext zu verschluesseln, wobei
+im Geheimtextfeld bereits ein Text steht
+Erwartung: Es erscheint eine Bestätigungsanfrage, die fragt, ob ich den bestehenden Text ueberschreiben will
+Realitaet: entspricht der Erwartung
+
+8. Ich versuche bei Caesar und Monoalphabetischer Verschluesselung einen Geheimtext zu entschluesseln, wobei
+im Klartextfeld bereits ein Text steht
+Erwartung: Es erscheint eine Bestätigungsanfrage, die fragt, ob ich den bestehenden Text ueberschreiben will
+Realitaet: entspricht der Erwartung
+
+9. Ich klicke in der in 7. und 8. erscheinenden Anfrage auf "JA"
+Erwartung: Der vorherige Text wird durch den neu bestimmten ersetzt
+Realitaet: entspricht der Erwartung
+
+10. Ich klicke in der in 7. und 8. erscheinenden Anfrage auf "Nein"
+Erwartung: Der vorherige Text bleibt bestehen
+Realitaet: entspricht der Erwartung

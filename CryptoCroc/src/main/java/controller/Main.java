@@ -1,14 +1,14 @@
 package controller;
 
 /**
- * Main Klasse für CryptoCroc, welches MainController kreeiert
+ * Main Klasse fuer CryptoCroc, welches MainController kreiert
  * 
  * @author zes
  * @version 1.0
  */
 public class Main {
 	/**
-	 * main methode, die den MainController kreeiert
+	 * main methode, die den MainController kreiert
 	 * 
 	 * @param args Eingabe String
 	 */
