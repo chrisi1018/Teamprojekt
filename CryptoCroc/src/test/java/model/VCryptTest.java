@@ -74,7 +74,7 @@ public class VCryptTest {
 	private String testkey = "qwertzuiopasdfghjklyxcvbnm";
 	
 	/**
-	 * Initilisiert die Klasse in der die Verschlüsselungmethoden gespeichert sind.
+	 * Initilisiert die Klasse in der die Verschluesselungmethoden gespeichert sind.
 	 */
 	@BeforeEach
 	void init() {
@@ -82,7 +82,7 @@ public class VCryptTest {
 	}
 	
 	/**
-	 * Löscht die Klasse in der die Verschlüsselungmethoden gespeichert sind.
+	 * Löscht die Klasse in der die Verschluesselungmethoden gespeichert sind.
 	 */
 	@AfterEach
 	void remove() {
@@ -90,7 +90,7 @@ public class VCryptTest {
 	}
 	
 	/**
-	 * Testet die Methode encryptAll und decrypt All mit einem BeispielText und BeispeilSchlüssel
+	 * Testet die Methode encryptAll und decrypt All mit einem BeispielText und BeispeilSchluessel
 	 */
 	void testCryptAll() {
 		assertEquals(codeText, test.cryptAll(testText, testkey));
