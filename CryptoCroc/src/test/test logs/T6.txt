@@ -1,5 +1,9 @@
 T6 (Git:fc1860d) :
 
+Java-Version: 1.8
+Betriebssystem: macOS Monterey
+getestet von: Zoe Sobota
+
 1. Ich kann auf ein beliebiges Schluessel-Textfeld bei der Caesar- oder Monoalphabetischen Verschluesselung klicken und dort nicht mehr als einen Character eingeben
 Erwartung: Sobald mehr als ein Character eingegeben wird, erscheint eine Fehlermeldung
 Realitaet: entspricht der Erwartung

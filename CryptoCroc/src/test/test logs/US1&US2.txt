@@ -1,4 +1,8 @@
-US1 & US2 (Git:0c3aeae) :
+US1 & US2 (Git:61f71be) :
+
+Java-Version: 1.8
+Betriebssystem: macOS Monterey
+getestet von: Zoe Sobota
 
 1. Ich tippe Text ein in einer der zwei Textfelder
 Erwartung: der Text erscheint zeitgleich im Textfeld
@@ -6,20 +10,20 @@ Realitaet: entspricht der Erwartung
 
 -> Beobachtung: das Textfeld ist nur eine Textzeile
 -> Beobachtung: die Luecke zwischen Textfeldern und Labeln ist unerwartet gross
-
--> (Git:c701c75) :
+-> In Issues 6 und 7 festgehalten und verbessert
 
 2. Ich tippe mehr Text ein als eine Zeile lang ist
 Erwartung: der Text springt automatisch in die naechste Zeile um
 Realitaet: der Text bleibt in der gleichen Zeile und verschwindet ins unendliche
 
+-> verbessert sodass Realitaet der Erwartung entspricht
+
 -> Beobachtung: der Text und die Labels sind sehr klein
 -> Beobachtung: die Luecke zwischen Textfeldern und Label ist sehr klein
-
--> (Git:8fd7b1d) :
+-> In Issues 8 und 9 festgehalten und verbessert
 
 3. Ich tippe mehr Text ein als ein Textfeld gross ist
 Erwartung: es erscheint eine Scrollbar
 Realitaet: der Text verschwindet
 
--> (Git: 61f71be)
+-> verbessert sodass Realitaet der Erwartung entspricht
