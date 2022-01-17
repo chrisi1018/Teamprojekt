@@ -13,15 +13,12 @@ import java.util.Random;
  * @version 1.0
  */
 public class VCryptTest {
-	
+
 	private VCrypt test;
-	
-	private String testText = "Lorem ipsum dolor sit amet,"
-			+ " consectetuer adipiscing elit. Aenean commodo"
-			+ " ligula eget dolor. Aenean massa. Cum sociis"
-			+ " natoque penatibus et magnis dis parturient"
-			+ " montes, nascetur ridiculus mus. Donec quam"
-			+ " felis, ultricies nec, pellentesque eu, pretium"
+
+	private String testText = "Lorem ipsum dolor sit amet," + " consectetuer adipiscing elit. Aenean commodo"
+			+ " ligula eget dolor. Aenean massa. Cum sociis" + " natoque penatibus et magnis dis parturient"
+			+ " montes, nascetur ridiculus mus. Donec quam" + " felis, ultricies nec, pellentesque eu, pretium"
 			+ " quis, sem. Nulla consequat massa quis enim. Donec"
 			+ " pede justo, fringilla vel, aliquet nec, vulputate"
 			+ " eget, arcu. In enim justo, rhoncus ut, imperdiet a,"
@@ -33,21 +30,17 @@ public class VCryptTest {
 			+ " in, viverra quis, feugiat a, tellus. Phasellus viverra"
 			+ " nulla ut metus varius laoreet. Quisque rutrum. Aenean"
 			+ " imperdiet. Etiam ultricies nisi vel augue. Curabitur"
-			+ " ullamcorper ultricies nisi. Nam eget dui. Etiam"
-			+ " rhoncus. Maecenas tempus, tellus eget condimentum"
+			+ " ullamcorper ultricies nisi. Nam eget dui. Etiam" + " rhoncus. Maecenas tempus, tellus eget condimentum"
 			+ " rhoncus, sem quam semper libero, sit amet adipiscing"
 			+ " sem neque sed ipsum. Nam quam nunc, blandit vel,"
 			+ " luctus pulvinar, hendrerit id, lorem. Maecenas nec"
-			+ " odio et ante tincidunt tempus. Donec vitae sapien"
-			+ " ut libero venenatis faucibus. Nullam quis ante."
+			+ " odio et ante tincidunt tempus. Donec vitae sapien" + " ut libero venenatis faucibus. Nullam quis ante."
 			+ " Etiam sit amet orci eget eros faucibus tincidunt."
 			+ " Duis leo. Sed fringilla mauris sit amet nibh. Donec"
-			+ " sodales sagittis magna. Sed consequat, leo eget"
-			+ " bibendum sodales, augue velit cursus nunc,";
-	
+			+ " sodales sagittis magna. Sed consequat, leo eget" + " bibendum sodales, augue velit cursus nunc,";
+
 	private String codeText = "Bkvvf hjaib dgotx zrd lkbv, xpaeuyxvmtyz"
-			+ " osihlxipwq pjfv. Vfaqqj gfflilc aiyxqg lpoe blnjs."
-			+ " Nqdaee fzmao. Rue vtiprc yyqqlvr bujekbaoa si"
+			+ " osihlxipwq pjfv. Vfaqqj gfflilc aiyxqg lpoe blnjs." + " Nqdaee fzmao. Rue vtiprc yyqqlvr bujekbaoa si"
 			+ " msjsoz msd nxtoveuujx dhmnmg, cakfjzba btbfepmhe"
 			+ " cqw. Uhmyk ejae ijrpb, ewrokxjre dag, gxkfmbiektzk ld"
 			+ ", zccqkpn dgyo, wvf. Motzp cgqxkxdke kxunb dgyo iebl."
@@ -70,9 +63,9 @@ public class VCryptTest {
 			+ " ifajrlfq qkidvpkjx. Unhm tsd. Swg kxpwqtjic hbhdyo wzm zgmh"
 			+ " citk. Iuunm dmacgff eqcmkmhm uovns. Vjj jxxdcnwvu, yqe akvm"
 			+ " acjscdmp xukjvpq, xwbvr huhmk vtlaih nmqh,";
-	
+
 	private String testkey = "qwertzuiopasdfghjklyxcvbnm";
-	
+
 	/**
 	 * Initilisiert die Klasse in der die Verschluesselungmethoden gespeichert sind.
 	 */
@@ -80,7 +73,7 @@ public class VCryptTest {
 	void init() {
 		this.test = new VCrypt();
 	}
-	
+
 	/**
 	 * Loescht die Klasse in der die Verschluesselungmethoden gespeichert sind.
 	 */
@@ -88,16 +81,16 @@ public class VCryptTest {
 	void remove() {
 		this.test = null;
 	}
-	
+
 	/**
-	 * Testet die Methode encryptAll und decrypt All mit einem BeispielText und BeispeilSchluessel
+	 * Testet die Methode encryptAll und decrypt All mit einem BeispielText und
+	 * BeispeilSchluessel
 	 */
 	void testCryptAll() {
 		assertEquals(codeText, test.cryptAll(testText, testkey));
 		assertEquals(testText, test.decryptAll(codeText, testkey));
 	}
-	
-	
+
 	/**
 	 * Testet die checkKey-Methode, ob sie einen Korekten Schluessel richtig erkennt
 	 */
@@ -105,15 +98,15 @@ public class VCryptTest {
 	void testCheckKeyTrue() {
 		assert (test.checkKey("Test"));
 	}
-	
+
 	/**
 	 * Testet ob die checkKey-Methode richtig mit einem leeren Schluessel umgeht.
 	 */
-	@Test 
+	@Test
 	void testCheckKeyEmpty() {
 		assert (!test.checkKey(""));
 	}
-	
+
 	/**
 	 * Testet wie die checkKey-Methode mit einigen falschen Schluesseln umgeht.
 	 */
@@ -121,14 +114,12 @@ public class VCryptTest {
 	void testCheckKeyFalse() {
 		assert (!test.checkKey("Das ist ein Test"));
 		assert (!test.checkKey("Das ist ein Test!"));
-		assert (!test.checkKey("awldk1j2�i/][0e12uedwqd"));
+		assert (!test.checkKey("awldk1j2\u00fci/][0e12uedwqd"));
 		assert (!test.checkKey("2"));
-		assert (!test.checkKey("���"));
+		assert (!test.checkKey("\u00fc\u00f6\u00e4"));
 		assert (!test.checkKey("[]"));
 	}
-	
-	
-	
+
 	/**
 	 * Testet die Verschluesselung und Entschluesselung mit zufaelligem Text und
 	 * zufaelligen Schluessel
