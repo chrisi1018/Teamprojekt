@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Random;
 
 /**
- * Eine TestKlasse für VCryptTest
+ * Eine TestKlasse fuer VCryptTest
  * 
  * @author Julian Sturm
  * @version 1.0
@@ -82,7 +82,7 @@ public class VCryptTest {
 	}
 	
 	/**
-	 * Löscht die Klasse in der die Verschluesselungmethoden gespeichert sind.
+	 * Loescht die Klasse in der die Verschluesselungmethoden gespeichert sind.
 	 */
 	@AfterEach
 	void remove() {
@@ -121,9 +121,9 @@ public class VCryptTest {
 	void testCheckKeyFalse() {
 		assert (!test.checkKey("Das ist ein Test"));
 		assert (!test.checkKey("Das ist ein Test!"));
-		assert (!test.checkKey("awldk1j2üi/][0e12uedwqd"));
+		assert (!test.checkKey("awldk1j2ï¿½i/][0e12uedwqd"));
 		assert (!test.checkKey("2"));
-		assert (!test.checkKey("üöä"));
+		assert (!test.checkKey("ï¿½ï¿½ï¿½"));
 		assert (!test.checkKey("[]"));
 	}
 	
