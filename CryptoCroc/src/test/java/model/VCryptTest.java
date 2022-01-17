@@ -16,9 +16,12 @@ public class VCryptTest {
 
 	private VCrypt test;
 
-	private String testText = "Lorem ipsum dolor sit amet," + " consectetuer adipiscing elit. Aenean commodo"
-			+ " ligula eget dolor. Aenean massa. Cum sociis" + " natoque penatibus et magnis dis parturient"
-			+ " montes, nascetur ridiculus mus. Donec quam" + " felis, ultricies nec, pellentesque eu, pretium"
+	private String testText = "Lorem ipsum dolor sit amet," 
+			+ " consectetuer adipiscing elit. Aenean commodo"
+			+ " ligula eget dolor. Aenean massa. Cum sociis"
+			+ " natoque penatibus et magnis dis parturient"
+			+ " montes, nascetur ridiculus mus. Donec quam"
+			+ " felis, ultricies nec, pellentesque eu, pretium"
 			+ " quis, sem. Nulla consequat massa quis enim. Donec"
 			+ " pede justo, fringilla vel, aliquet nec, vulputate"
 			+ " eget, arcu. In enim justo, rhoncus ut, imperdiet a,"
@@ -30,17 +33,21 @@ public class VCryptTest {
 			+ " in, viverra quis, feugiat a, tellus. Phasellus viverra"
 			+ " nulla ut metus varius laoreet. Quisque rutrum. Aenean"
 			+ " imperdiet. Etiam ultricies nisi vel augue. Curabitur"
-			+ " ullamcorper ultricies nisi. Nam eget dui. Etiam" + " rhoncus. Maecenas tempus, tellus eget condimentum"
+			+ " ullamcorper ultricies nisi. Nam eget dui. Etiam"
+			+ " rhoncus. Maecenas tempus, tellus eget condimentum"
 			+ " rhoncus, sem quam semper libero, sit amet adipiscing"
 			+ " sem neque sed ipsum. Nam quam nunc, blandit vel,"
 			+ " luctus pulvinar, hendrerit id, lorem. Maecenas nec"
-			+ " odio et ante tincidunt tempus. Donec vitae sapien" + " ut libero venenatis faucibus. Nullam quis ante."
+			+ " odio et ante tincidunt tempus. Donec vitae sapien"
+			+ " ut libero venenatis faucibus. Nullam quis ante."
 			+ " Etiam sit amet orci eget eros faucibus tincidunt."
 			+ " Duis leo. Sed fringilla mauris sit amet nibh. Donec"
-			+ " sodales sagittis magna. Sed consequat, leo eget" + " bibendum sodales, augue velit cursus nunc,";
+			+ " sodales sagittis magna. Sed consequat, leo eget"
+			+ " bibendum sodales, augue velit cursus nunc,";
 
 	private String codeText = "Bkvvf hjaib dgotx zrd lkbv, xpaeuyxvmtyz"
-			+ " osihlxipwq pjfv. Vfaqqj gfflilc aiyxqg lpoe blnjs." + " Nqdaee fzmao. Rue vtiprc yyqqlvr bujekbaoa si"
+			+ " osihlxipwq pjfv. Vfaqqj gfflilc aiyxqg lpoe blnjs."
+			+ " Nqdaee fzmao. Rue vtiprc yyqqlvr bujekbaoa si"
 			+ " msjsoz msd nxtoveuujx dhmnmg, cakfjzba btbfepmhe"
 			+ " cqw. Uhmyk ejae ijrpb, ewrokxjre dag, gxkfmbiektzk ld"
 			+ ", zccqkpn dgyo, wvf. Motzp cgqxkxdke kxunb dgyo iebl."
@@ -131,10 +138,10 @@ public class VCryptTest {
 		int targetStringLength = 1000;
 		Random random = new Random();
 		StringBuilder buffer = new StringBuilder(targetStringLength);
-		for (int j = 0; j < 100; j++) {
+		for (int j = 0; j < 100; j++) { //Schleife um den Test mehrfach durch zu fuehren
 			random = new Random();
 			buffer = new StringBuilder(targetStringLength);
-			for (int i = 0; i < targetStringLength; i++) {
+			for (int i = 0; i < targetStringLength; i++) { //Schleife fuer Stringbuilder fuer den Random Text
 				int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
 				buffer.append((char) randomLimitedInt);
 			}
@@ -145,7 +152,7 @@ public class VCryptTest {
 			targetStringLength = j + 1;
 			random = new Random();
 			buffer = new StringBuilder(targetStringLength);
-			for (int i = 0; i < targetStringLength; i++) {
+			for (int i = 0; i < targetStringLength; i++) { //Schleife fuer Stringbuilder fuer den Schluessel
 				int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
 				buffer.append((char) randomLimitedInt);
 			}

@@ -1,5 +1,9 @@
 US18 & US25 (GIT: ac36dd0)
 
+Java-Version: 1.8
+Betriebssystem: Windows 11
+getestet von: Julian Sturm
+
 1. Ich drücke die Buttons entschlüsseln und verschlüsseln ohne eine Eingabe zu machen:
 Erwartung: Mir wird eine Fehlermeldung ausgegeben, dass im jeweiligen Textfeld kein Text vorhanden ist.
 Realität: Entspricht den Erwartungen

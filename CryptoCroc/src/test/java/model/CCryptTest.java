@@ -155,10 +155,10 @@ public class CCryptTest {
 		int targetStringLength = 100;
 		Random random = new Random();
 		StringBuilder buffer = new StringBuilder(targetStringLength);
-		for (int j = 0; j < 100; j++) {
+		for (int j = 0; j < 100; j++) { //Schleife um den Test mehrfach durch zu fuehren
 			random = new Random();
 			buffer = new StringBuilder(targetStringLength);
-			for (int i = 0; i < targetStringLength; i++) {
+			for (int i = 0; i < targetStringLength; i++) { //Schleife für Stringbuilder des Random Text
 				int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
 				buffer.append((char) randomLimitedInt);
 			}
@@ -169,7 +169,7 @@ public class CCryptTest {
 			targetStringLength = 1;
 			random = new Random();
 			buffer = new StringBuilder(targetStringLength);
-			for (int i = 0; i < targetStringLength; i++) {
+			for (int i = 0; i < targetStringLength; i++) { //Schleife für Stringbuilder des Random key
 				int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
 				buffer.append((char) randomLimitedInt);
 			}
