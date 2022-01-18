@@ -25,7 +25,7 @@ public class Dropdown {
 	public Dropdown(String[] options, ActionListener change) {
 		dropDown.setEditable(false);
 		this.options = options;
-		for (int i = 0; i < options.length; i++) {
+		for (int i = 0; i < this.options.length; i++) {
 			dropDown.addItem(options[i]);
 		}
 		dropDown.addActionListener(change);
