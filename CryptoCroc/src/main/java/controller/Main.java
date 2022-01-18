@@ -13,7 +13,7 @@ public class Main {
 	 * @param args Eingabe String
 	 */
 	public static void main(String[] args) {
-		MainController programm = new MainController();
+		new MainController();
 	}
 
 }
