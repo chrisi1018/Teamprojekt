@@ -33,7 +33,7 @@ Erwartung: Der eingegebene Text erscheint zeitgleich im Textfeld
 Realitaet: entspricht der Erwartung
 
 US3 & US4:
-6. Ich versuche bei Caesar und Monoalphabetischer Verschluesselung mit eingegebenem Klar- und Geheimtext und 
+6. Ich versuche bei beliebiger Verschluesselung mit eingegebenem Klar- und Geheimtext und 
 Schluessel auf die Buttons "Verschluesseln" und "Entschluesseln" zu klicken
 Erwartung: Der jeweilige Text wird ver- oder entschluesselt und im jeweils anderen Textfeld angezeigt, d.h.
 die Buttons haben funktionierende ActionListener
