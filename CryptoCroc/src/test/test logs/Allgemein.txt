@@ -38,22 +38,3 @@ Schluessel auf die Buttons "Verschluesseln" und "Entschluesseln" zu klicken
 Erwartung: Der jeweilige Text wird ver- oder entschluesselt und im jeweils anderen Textfeld angezeigt, d.h.
 die Buttons haben funktionierende ActionListener
 Realitaet: entspricht der Erwartung
-
-US18:
-7. Ich versuche bei Caesar und Monoalphabetischer Verschluesselung einen Klartext zu verschluesseln, wobei
-im Geheimtextfeld bereits ein Text steht
-Erwartung: Es erscheint eine Bestätigungsanfrage, die fragt, ob ich den bestehenden Text ueberschreiben will
-Realitaet: entspricht der Erwartung
-
-8. Ich versuche bei Caesar und Monoalphabetischer Verschluesselung einen Geheimtext zu entschluesseln, wobei
-im Klartextfeld bereits ein Text steht
-Erwartung: Es erscheint eine Bestätigungsanfrage, die fragt, ob ich den bestehenden Text ueberschreiben will
-Realitaet: entspricht der Erwartung
-
-9. Ich klicke in der in 7. und 8. erscheinenden Anfrage auf "JA"
-Erwartung: Der vorherige Text wird durch den neu bestimmten ersetzt
-Realitaet: entspricht der Erwartung
-
-10. Ich klicke in der in 7. und 8. erscheinenden Anfrage auf "Nein"
-Erwartung: Der vorherige Text bleibt bestehen
-Realitaet: entspricht der Erwartung
