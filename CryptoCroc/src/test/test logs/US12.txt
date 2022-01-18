@@ -10,7 +10,7 @@ Realitaet: Fuer jede der 4 moeglichen Erklaerungen oeffnet sich ein einheitlich 
 entsprechenden Benennung und einem zugehoerigen blauen Link
 
 -> Beim Testen fiel auf, dass im Erklaerungs- und Dropdownmenue bei Vigenere der Akzent fehlte
--> Dies wurde daraufhin entsprechend angepasst (Issue 10)
+-> In Issue 10 festgehalten und verbessert
 
 2. Ich fahre mit der Maus in einem beliebigen Erklaerungsfenster auf den Link und wieder weg
 Erwartung: Der Cursor-Pfeil wird zu einem Zeigefinger, solange er sich irgendwo auf dem Link befindet
