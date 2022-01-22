@@ -4,8 +4,8 @@ Java-Version: 1.8
 Betriebssystem: macOS Monterey
 getestet von: Zoe Sobota
 
-1. Ich kann auf ein beliebiges Schluessel-Textfeld klicken und dort Buchstaben eingeben
-Erwartung: Der eingegebene Text erscheint zeitgleich im Textfeld
+1. Ich klicke einmal auf jedes Schluesseltextfeld und tippe jeweils den darueberstehenden Buchstaben ein
+Erwartung: Der eingegebene Buchstabe erscheint zeitgleich im Textfeld
 Realitaet: entspricht der Erwartung
 
 -> Beobachtung: der Abstand zwischen den Schluesselfeldern und ihrem zugehoerigen Label ist groesser als der Abstand zu einem anderen Label
