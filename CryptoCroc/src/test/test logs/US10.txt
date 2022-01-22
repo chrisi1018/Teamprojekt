@@ -4,43 +4,43 @@ Java-Version: 	1.8
 Betriebssystem: Windows 10 Pro
 getestet von: 	Christina Blach
 
-1. Ich waehle das Caesar-Verfahren aus. Gebe einen Text in das "Klartextfeld" ein. 
-Waehle eine Schluessel und druecke auf den Button "verschluesseln".
-Erwartung:	Der Text im "Klartextfeld" wird, mit dem ausgewaehlten Schluessel, verschluesselt 
-		und dieser verschluesselte Text, wird im "Geheimtextfeld" ausgegeben.
+1. Ich waehle das Caesar-Verfahren aus. Gebe "Hallo" in das Klartextfeld und "a" in das Schluesseltextfeld ein 
+und druecke auf den Button "verschluesseln".
+Erwartung:	Der Text im Klartextfeld wird mit dem ausgewaehlten Schluessel verschluesselt 
+		und der verschluesselte Text "HALLO" wird im Geheimtextfeld ausgegeben.
 Realitaet:	Entspricht den Erwartungen.
 
-2. Ich waehle das Caesar-Verfahren aus. Gebe einen Text in das "Geheimtextfeld" ein.
-Waehle den Schluessel und druecke auf den Button "entschluesseln".
-Erwartungen:	Der Text im "Geheimtextfeld" wird, mit dem ausgewaehlten Schluessel, entschluesselt
-		und dieser entschluesselte Text, wird im "Klartextfeld" ausgegeben.
+2. Ich waehle das Caesar-Verfahren aus. Gebe "Hallo" in das Geheimtextfeld und "a" in das Schluesseltextfeld ein 
+und druecke auf den Button "entschluesseln".
+Erwartungen:	Der Text im Geheimtextfeld wird mit dem ausgewaehlten Schluessel entschluesselt
+		und der entschluesselte Text "HALLO" wird im Klartextfeld ausgegeben.
 Realitaet:	Entspricht den Erwartungen.
 
-3. Ich waehle das Monoalphabetische-Verfahren aus. Gebe einen Text in das "Klartextfeld" ein.
-Waehle die Schluessel und druecke auf den Button "verschluesseln".
-Erwartung:	Der Text im "Klartextfeld" wird, mit den ausgewaehlten Schluesseln, verschluesselt 
-		und dieser verschluesselte Text, wird im "Geheimtextfeld" ausgegeben.
+3. Ich waehle das Monoalphabetische Verfahren aus. Gebe "Hallo" in das Klartextfeld und in jedes Schluesseltextfeld 
+den darueberstehenden Buchstaben ein und druecke auf den Button "verschluesseln".
+Erwartung:	Der Text im Klartextfeld wird mit den ausgewaehlten Schluesseln verschluesselt 
+		und der verschluesselte Text "HALLO" wird im Geheimtextfeld ausgegeben.
 Realitaet:	Entspricht den Erwartungen.
 
-4. Ich waehle das Monoalphabetische-Verfahren aus. Gebe einen Text in das "Geheimtextfeld" ein.
-Waehle die Schluessel und druecke auf den Button "entschluesseln".
-Erwartungen:	Der Text im "Geheimtextfeld" wird, mit den ausgewaehlten Schluesseln, entschluesselt
-		und dieser entschluesselte Text, wird im "Klartextfeld" ausgegeben.
+4. Ich waehle das Monoalphabetische Verfahren aus. Gebe "Hallo" in das Geheimtextfeld und in jedes 
+Schluesseltextfeld den darueberstehenden Buchstaben ein und druecke auf den Button "entschluesseln".
+Erwartungen:	Der Text im Geheimtextfeld wird mit den ausgewaehlten Schluesseln entschluesselt
+		und der entschluesselte Text "HALLO" wird im Klartextfeld ausgegeben.
 Realitaet:	Entspricht den Erwartungen.
 
-5. Ich waehle das Vigenere-Verfahren aus. Gebe einen Text in das "Klartextfeld" ein.
-Waehle den Schluessel und druecke auf den Button "verschluesseln".
-Erwartung:	Der Text im "Klartextfeld" wird, mit dem ausgewaehlten Schluessel, verschluesselt 
-		und dieser verschluesselte Text, wird im "Geheimtextfeld" ausgegeben.
+5. Ich waehle das Vigenere-Verfahren aus. Gebe "Hallo" in das Klartextfeld und "abc" in das Schluesseltextfeld ein
+und druecke auf den Button "verschluesseln".
+Erwartung:	Der Text im Klartextfeld wird mit dem ausgewaehlten Schluessel verschluesselt 
+		und der verschluesselte Text "HBNLP" wird im Geheimtextfeld ausgegeben.
 Realitaet:	Entspricht nicht den Erwartungen.
 
 -> Beobachtung: Es wird kein Geheimtext ausgegeben.
 -> In Issue 2 festgehalten und verbessert.
 
-6. Ich waehle das Vigenere-Verfahren aus. Gebe einen Text in das "Geheimtextfeld" ein.
-Waehle den Schluessel und druecke auf den Button "entschluesseln".
-Erwartungen:	Der Text im "Geheimtextfeld" wird, mit dem ausgewaehlten Schluessel, entschluesselt
-		und dieser entschluesselte Text, wird im "Klartextfeld" ausgegeben.
+6. Ich waehle das Vigenere-Verfahren aus. Gebe "hbnlp" in das Geheimtextfeld und "abc" in das Schluesseltextfeld 
+ein und druecke auf den Button "entschluesseln".
+Erwartungen:	Der Text im Geheimtextfeld wird mit dem ausgewaehlten Schluessel entschluesselt
+		und der entschluesselte Text "HALLO" wird im Klartextfeld ausgegeben.
 Realitaet:	Entspricht nicht den Erwartungen.
 
 -> Beobachtung: Es wird kein Klartext ausgegeben.
