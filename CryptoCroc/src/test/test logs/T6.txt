@@ -4,10 +4,25 @@ Java-Version: 1.8
 Betriebssystem: macOS Monterey
 getestet von: Zoe Sobota
 
-1. Ich kann auf ein beliebiges Schluessel-Textfeld bei der Caesar- oder Monoalphabetischen Verschluesselung klicken und dort nicht mehr als einen Character eingeben
-Erwartung: Sobald mehr als ein Character eingegeben wird, erscheint eine Fehlermeldung
+1. Ich klicke bei der Caesar-Verschluesselung auf das Schluesseltextfeld und versuche nacheinander nur "AB", "RJ",
+"GI", "XY" und "ZO" einzugeben
+Erwartung: Bei jedem Versuch erscheint beim Eintippen des zweiten Characters eine Fehlermeldung und der zweite 
+Character wird nicht in das Textfeld eingefuegt
 Realitaet: entspricht der Erwartung
 
-2. Ich kann in den Schluessel-Textfeldern der Caesar- und Monoalphabetischen Verschluesselung keine Characters ausserhalb den Intervallen A-Z, a-z eintippen
-Erwartung: sobald ein ungueltiger Character eingegeben wird, erscheint eine Fehlermeldung
+2. Ich klicke bei der Monoalphabetischen Verschluesselung einmal auf jedes Schluesseltextfeld und versuche 
+in jedes Feld zweimal den darüberstehenden Buchstaben einzugeben
+Erwartung: Bei jedem Versuch erscheint beim Eintippen des zweiten Characters eine Fehlermeldung  und der zweite 
+Character wird nicht in das Textfeld eingefuegt
+Realitaet: entspricht der Erwartung
+
+3. Ich klicke bei der Caesar-Verschluesselung auf das Schluesseltextfeld und versuche nacheinander nur "<", ".", 
+"+", "6", "?", "#" und "ue"(als Umlaut) einzugeben
+Erwartung: Bei jedem Versuch wird das Zeichen nicht in das Textfeld eingefuegt und es erscheint eine Fehlermeldung
+Realitaet: entspricht der Erwartung
+
+4. Ich klicke bei der Monoalphabetischen Verschluesselung einmal auf jedes Schluesseltextfeld und versuche 
+nacheinander "<", "!", "%", "&", "/", "(", ")", "=", "?", ",", ".", "+", "1", "2", "3", "4", "5", "6", "7", "8", 
+"9", "0", "ss"(als scharfes s), "ae", "oe" und "ue"(als Umlaute) einzugeben
+Erwartung: Bei jedem Versuch wird das Zeichen nicht in das Textfeld eingefuegt und es erscheint eine Fehlermeldung
 Realitaet: entspricht der Erwartung
