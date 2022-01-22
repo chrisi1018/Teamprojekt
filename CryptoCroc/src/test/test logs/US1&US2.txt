@@ -37,4 +37,9 @@ Erwartung: Sobald der Platz im Textfeld nicht mehr für die uebrigen "w" ausreich
 um eine weitere Zeile, fuegt dort die fehlenden "w" ein und es erscheint eine Scrollbar zum Navigieren
 Realitaet: Der Text verschwindet
 
+6. Ich tippe 750mal "w" im Geheimtextfeld ein
+Erwartung: Sobald der Platz im Textfeld nicht mehr für die uebrigen "w" ausreicht, erweitert sich das Textfeld
+um eine weitere Zeile, fuegt dort die fehlenden "w" ein und es erscheint eine Scrollbar zum Navigieren
+Realitaet: Der Text verschwindet
+
 -> verbessert, sodass Realitaet der Erwartung entspricht
