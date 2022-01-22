@@ -1,4 +1,4 @@
-US3-US7 & US18 (Git:8751a50) :
+US3-US7 (Git:8751a50) :
 
 Java-Version: 1.8
 Betriebssystem: Windows 11
@@ -11,30 +11,72 @@ dazwischen einem Schluesselfeld namens "A" und 2 Buttons "Verschluesseln" und "E
 Realitaet: entspricht der Erwartung
 
 US6:
-2. Ich gehe mit der Maus auf die Menues in der Menueleiste
-Erwartung: Es werden weitere auswaehlbare Menueitems angezeigt, genauer: bei "Menue": "Speichern", "Laden" und 
-bei "Erklaerungen": "Caesar", "Monoalphabetisch", "Vigenere" und "Haeufigkeitsanalyse"
+2. Ich klicke mit der Maus auf "Menue" in der Menueleiste
+Erwartung: Es werden weitere auswaehlbare Menueitems angezeigt, genauer: "Speichern" und "Laden"
+Realitaet: entspricht der Erwartung
+
+3. Ich klicke mit der Maus auf "Erklaerungen" in der Menueleiste
+Erwartung: Es werden weitere auswaehlbare Menueitems angezeigt, genauer: "Caesar", "Monoalphabetisch", 
+"Vigenere" und "Haeufigkeitsanalyse"
 Realitaet: entspricht der Erwartung
 
 US7:
-3. Ich klicke mit der Maus auf das Dropdownmenue
+4. Ich klicke mit der Maus auf das Dropdownmenue
 Erwartung: Es werden mir die Verschluesselungen "Caesar", "Monoalphabetisch" und "Vigenere" angezeigt, die ich 
 auch mit der Maus auswaehlen kann
 Realitaet: entspricht der Erwartung
 
-4. Ich waehle im Dropdownmenue mehrfach eine beliebige Verschluesselung aus
-Erwartung: Ich kann uneingeschraenkt beliebig oft wechseln und bei jedem Wechsel passt sich das Schluesselfeld 
-an die Auswahl an
+5. Ich klicke im Dropdownmenue nacheinander auf Verschluesselungen in folgender Reihenfolge: C, M, V, C, M, V, C,
+V, M, V, M, C, V, C, M, M, V, C, M, C, V, V, V, C, C, C, M, M, M ( wobei C fuer Caesar, M fuer Monoalphabetisch und
+V fuer Vigenere steht) 
+Erwartung: Bei jedem Wechsel der Verschluesselung aendert sich das Schluesselfeld entsprechend der ausgewaehlten 
+Verschluesselung und beim Klicken auf die gleiche Verschluesselung aendert sich nichts
 Realitaet: entspricht der Erwartung
 
 US5:
-5. Ich klicke mal bei "Caesar" und "Vigenere" auf das Schluesseltextfeld und tippe Buchstaben ein
-Erwartung: Der eingegebene Text erscheint zeitgleich im Textfeld
+6. Ich klicke bei "Caesar" auf das Schluesseltextfeld und druecke in folgender Reihenfolge auf die Tasten:
+"A", Backspace, "T", Backspace, "Z", Backspace, "N"
+Erwartung: Die eingegebenen Buchstaben erscheinen und verschwinden im Textfeld zeitgleich zur Eingabe
+Realitaet: entspricht der Erwartung
+
+7. Ich klicke bei "Vigenere" auf das Schluesseltextfeld und druecke in folgender Reihenfolge auf die Tasten:
+"H", "A", "L", "L", "O", Backspace, "E", "N", Backspace, Backspace, Backspace, Backspace
+Erwartung: Die eingegebenen Buchstaben erscheinen und verschwinden im Textfeld zeitgleich zur Eingabe
 Realitaet: entspricht der Erwartung
 
 US3 & US4:
-6. Ich versuche bei beliebiger Verschluesselung mit eingegebenem Klar- und Geheimtext und 
-Schluessel auf die Buttons "Verschluesseln" und "Entschluesseln" zu klicken
-Erwartung: Der jeweilige Text wird ver- oder entschluesselt und im jeweils anderen Textfeld angezeigt, d.h.
-die Buttons haben funktionierende ActionListener
+8. Ich versuche bei der Caesar-Verschluesselung mit eingegebenem Klartext und Schluessel auf den 
+Button "Verschluesseln" zu klicken
+Erwartung: Der Klartext  wird verschluesselt und im Geheimtextfeld angezeigt, d.h.
+der Button "Verschluesseln" hat einen funktionierenden ActionListener
+Realitaet: entspricht der Erwartung
+
+9. Ich versuche bei der Caesar-Verschluesselung mit eingegebenem Geheimtext und Schluessel auf den 
+Button "Entschluesseln" zu klicken
+Erwartung: Der Geheimtext  wird entschluesselt und im Klartextfeld angezeigt, d.h.
+der Button "Entschluesseln" hat einen funktionierenden ActionListener
+Realitaet: entspricht der Erwartung
+
+10. Ich versuche bei der Monoalphabetischen Verschluesselung mit eingegebenem Klartext und Schluessel auf den
+Button "Verschluesseln" zu klicken
+Erwartung: Der Klartext  wird verschluesselt und im Geheimtextfeld angezeigt, d.h.
+der Button "Verschluesseln" hat einen funktionierenden ActionListener
+Realitaet: entspricht der Erwartung
+
+11. Ich versuche bei der Monoalphabetischen Verschluesselung mit eingegebenem Geheimtext und Schluessel auf den
+Button "Entschluesseln" zu klicken
+Erwartung: Der Geheimtext  wird entschluesselt und im Klartextfeld angezeigt, d.h.
+der Button "Entschluesseln" hat einen funktionierenden ActionListener
+Realitaet: entspricht der Erwartung
+
+12. Ich versuche bei der Vigenere-Verschluesselung mit eingegebenem Klartext und Schluessel auf den 
+Button "Verschluesseln" zu klicken
+Erwartung: Der Klartext  wird verschluesselt und im Geheimtextfeld angezeigt, d.h.
+der Button "Verschluesseln" hat einen funktionierenden ActionListener
+Realitaet: entspricht der Erwartung
+
+13. Ich versuche bei der Vigenere-Verschluesselung mit eingegebenem Geheimtext und Schluessel auf den 
+Button "Entschluesseln" zu klicken
+Erwartung: Der Geheimtext  wird entschluesselt und im Klartextfeld angezeigt, d.h.
+der Button "Entschluesseln" hat einen funktionierenden ActionListener
 Realitaet: entspricht der Erwartung
