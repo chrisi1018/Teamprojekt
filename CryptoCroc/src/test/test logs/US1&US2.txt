@@ -4,7 +4,11 @@ Java-Version: 1.8
 Betriebssystem: macOS Monterey
 getestet von: Zoe Sobota
 
-1. Ich tippe Text ein in einer der zwei Textfelder
+1. Ich tippe im Klartextfeld "Hallo, ich bins" ein
+Erwartung: der Text erscheint zeitgleich im Textfeld
+Realitaet: entspricht der Erwartung
+
+2. Ich tippe im Geheimtextfeld "Hallo, ich bins" ein
 Erwartung: der Text erscheint zeitgleich im Textfeld
 Realitaet: entspricht der Erwartung
 
@@ -12,9 +16,15 @@ Realitaet: entspricht der Erwartung
 -> Beobachtung: die Luecke zwischen Textfeldern und Labeln ist unerwartet gross
 -> In Issues 6 und 7 festgehalten und verbessert
 
-2. Ich tippe mehr Text ein als eine Zeile lang ist
-Erwartung: der Text springt automatisch in die naechste Zeile um
-Realitaet: der Text bleibt in der gleichen Zeile und verschwindet ins unendliche
+3. Ich tippe im Klartextfeld "Hallo, mein Name ist Max Mustermann. Ich bin 30 Jahre alt und studiere 
+Informatik am Karlsruher Institut für Technologie" ein
+Erwartung: Der Text springt bei Eingabe am Zeilenende automatisch in die naechste Zeile um
+Realitaet: Der Text bleibt in der gleichen Zeile und verschwindet ins unendliche
+
+4. Ich tippe im Geheimtextfeld "Hallo, mein Name ist Max Mustermann. Ich bin 30 Jahre alt und studiere 
+Informatik am Karlsruher Institut für Technologie" ein
+Erwartung: Der Text springt bei Eingabe am Zeilenende automatisch in die naechste Zeile um
+Realitaet: Der Text bleibt in der gleichen Zeile und verschwindet ins unendliche
 
 -> verbessert sodass Realitaet der Erwartung entspricht
 
@@ -22,8 +32,9 @@ Realitaet: der Text bleibt in der gleichen Zeile und verschwindet ins unendliche
 -> Beobachtung: die Luecke zwischen Textfeldern und Label ist sehr klein
 -> In Issues 8 und 9 festgehalten und verbessert
 
-3. Ich tippe mehr Text ein als ein Textfeld gross ist
-Erwartung: es erscheint eine Scrollbar
-Realitaet: der Text verschwindet
+5. Ich tippe 750mal "w" im Klartextfeld ein
+Erwartung: Sobald der Platz im Textfeld nicht mehr für die uebrigen "w" ausreicht, erweitert sich das Textfeld
+um eine weitere Zeile, fuegt dort die fehlenden "w" ein und es erscheint eine Scrollbar zum Navigieren
+Realitaet: Der Text verschwindet
 
--> verbessert sodass Realitaet der Erwartung entspricht
+-> verbessert, sodass Realitaet der Erwartung entspricht
