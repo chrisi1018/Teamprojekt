@@ -5,6 +5,7 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 import javax.swing.JTextField;
+import java.awt.Color;
 
 /**
  * Textfeld bei der immer nur ein Buchstabe zwischen A und Z eingegeben werden
@@ -54,13 +55,8 @@ public class LimitedTextfield extends PlainDocument {
 		if (!this.checkValidString(str)) {
 			Messages.errorMessage("Hier k\u00f6nnen nur die Buchstaben A-Z bzw a-z eingegeben werden!");
 		} else if (index != -1) {
-			int number = checkPermuation(str);
-			if (number != -1) {
-				char c = (char) ('A' + number);
-				Messages.errorMessage("Du hast diesen Buchstaben schon verwendet im Textfeld " + c + " !");
-			} else if ((getLength() + str.length()) <= limit) {
-				super.insertString(offset, str, att);
-			}
+			super.insertString(offset, str, att);
+			checkPermuation();
 		} else if ((getLength() + str.length()) <= limit) {
 			super.insertString(offset, str, att);
 		} else {
@@ -93,20 +89,25 @@ public class LimitedTextfield extends PlainDocument {
 	 * @retunr gibt -1 wenn eine Permuationvorliegt ansonsten den Index des TextFeldes, indem der Buchstabe schon
 	 * steht
 	 */
-	private int checkPermuation(String str) {
-		int ret = -1;
+	private void checkPermuation() {
 		for (int i = 0; i < 26; i++) {
-			if (i != index) {
-				String otherString = textFields[i].getText();
-				System.out.println(otherString);
-				if (!otherString.equals("")) {
-					if (str.equalsIgnoreCase(otherString)) {
-						ret = i;
-						break;
-					}
+			boolean red = false;
+			String firstText = textFields[i].getText();
+			for (int j = 0; j < 26; j++) {
+				String secondText = textFields[j].getText();
+				if (i != j && firstText.equalsIgnoreCase(secondText) && !secondText.equals("")) {
+					textFields[i].setBackground(Color.RED);
+					textFields[j].setBackground(Color.RED);
+					red = true;
+					break;
 				}
 			}
+			if (red) {
+				textFields[i].setBackground(Color.RED);
+			} else {
+				textFields[i].setBackground(Color.WHITE);
+			}
+			red = false;
 		}
-		return ret;
 	}
 }
