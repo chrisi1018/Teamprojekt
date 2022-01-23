@@ -45,7 +45,7 @@ public final class Messages {
 	 */
 	public static boolean yesNoQuestion(String message) {
 		int temp = JOptionPane.showOptionDialog(null, message, "Achtung", JOptionPane.YES_NO_CANCEL_OPTION,
-				JOptionPane.WARNING_MESSAGE, null, new String[] { "JA", "Nein" }, "Nein");
+				JOptionPane.WARNING_MESSAGE, null, new String[] { "Ja", "Nein" }, "Ja");
 		if (temp == JOptionPane.YES_OPTION) {
 			return true;
 		}
