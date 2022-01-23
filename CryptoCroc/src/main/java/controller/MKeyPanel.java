@@ -13,6 +13,8 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 /**
  * Definiert 'createKeyPanel'-Methode fuer monoalphabetische Verschluesselung
@@ -96,10 +98,26 @@ public class MKeyPanel extends KeyPanel {
 			keys[i].setPreferredSize(new Dimension(19, 30));
 			keys[i].setDocument(new LimitedTextfield(maxInput, i, keys));
 
+			// sorgt dafuer dass Text im Textfeld markiert wird beim Klicken
+			// benoetigt extra variable j, da i sich veraendert
+			int j = i;
+			keys[i].addFocusListener(new FocusListener() {
+				@Override
+				public void focusGained(FocusEvent e) {
+					keys[j].selectAll();
+				}
+
+				@Override
+				public void focusLost(FocusEvent e) {
+					// tue nichts
+				}
+			});
+
 			JPanel nameKeyPanel = new JPanel();
 			nameKeyPanel.setLayout(new BoxLayout(nameKeyPanel, BoxLayout.PAGE_AXIS));
 			nameKeyPanel.add(names[i]);
 			nameKeyPanel.add(keys[i]);
+			nameKeyPanel.setPreferredSize(new Dimension(25, 50));
 			nameKeyPanels[i] = nameKeyPanel;
 		}
 
