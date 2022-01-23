@@ -4,30 +4,104 @@ Java-Version: 1.8
 Betriebssystem: Windows 11
 getestet von: Julian Sturm
 
-1. Ich drücke die Buttons entschlüsseln und verschlüsseln ohne eine Eingabe zu machen:
+1. Ich drücke bei der Caesar-Verschluesselung die Buttons entschlüsseln und verschlüsseln ohne eine Eingabe 
+zu machen:
 Erwartung: Mir wird eine Fehlermeldung ausgegeben, dass im jeweiligen Textfeld kein Text vorhanden ist.
 Realität: Entspricht den Erwartungen
 
-2. Ich gebe im Klartextfeld einen Text ein und klicke auf verschlüsseln.
+2. Ich gebe bei der Caesar-Verschluesselung im Klartextfeld "Hallo" ein und klicke auf verschlüsseln.
 Erwartung: Mir wird eine Fehlermeldung ausgegeben, dass ein falscher bzw fehlender Schlüssel
 eingegeben wurde.
 Realität: Entspricht den Erwartungen
 
-3. Ich gebe im Geheimtextfeld einen Text ein und klicke auf entschlüsseln.
+3. Ich gebe bei der Caesar-Verschluesselung im Geheimtextfeld "Hallo" ein und klicke auf entschlüsseln.
 Erwartung: Mir wird eine Fehlermeldung ausgegeben, dass ein falscher bzw fehlender Schlüssel
 eingegeben wurde.
 Realität: Entspricht den Erwartungen
 
-4. Ich gebe im Klartextfeld einen Text ein und gebe einen richtigen Schlüssel ein und klicke auf verschlüsseln.
-Erwartung: Der Text wird mit dem benutzten Verfahren verschlüsselt.
+4. Ich gebe bei der Caesar-Verschluesselung im Klartextfeld "Hallo" und als Schluessel "a" ein und 
+klicke auf verschlüsseln.
+Erwartung: Der verschluesselte Text "HALLO" wird ins Geheimtextfeld gesetzt
 Realität: entspricht den Erwartungen
 
-5. Ich gebe im Geheimtextfeld einen Text ein und gebe einen richtigen Schlüssel ein und klicke auf entschlüsseln.
-Erwartung: Der Text wird mit dem benutzten Verfahren entschlüsselt.
+5. Ich gebe bei der Caesar-Verschluesselung im Geheimtextfeld "Hallo" und als Schluessel "a" ein und 
+klicke auf entschlüsseln.
+Erwartung: Der entschluesselte Text "HALLO" wird ins Klartextfeld gesetzt
 Realität: entspricht den Erwartungen
 
-6. Ich gebe in beiden Feldern einen Text ein und einen richtigen Schlüssel und Versuche diese zu ver- und
-entschlüsseln.
+6. Ich gebe bei der Caesar-Verschluesselung im Klartextfeld "Hallo", im Geheimtextfeld "Bye" und als Schluessel "a"
+ein und versuche die eingegebenen Texte zu ver- und entschlüsseln.
 Erwartung: Ich erwarte das ein Pop-Up-Fenster aufgeht und mich fragt, ob das andere Feld überschrieben
 werden soll.
-Realität: entspricht den Erwartungen, das Pop-Up-Fenster funktioniert wie erwartet.
+Realität: entspricht den Erwartungen
+
+7. Ich klicke im in 6. geoeffneten Pop-Up-Fenster beim Verschluesseln auf "Ja"
+Erwartung: Im Geheimtextfeld wird "Bye" durch "HALLO" ersetzt
+Realitaet: entspricht der Erwartung
+
+8. Ich klicke im in 6. geoeffneten Pop-Up-Fenster beim Verschluesseln auf "Nein"
+Erwartung: Das Pop-Up-Fenster verschwindet, aber sonst passiert nichts. Klar- und Geheimtext bleiben unveraendert
+Realitaet: entspricht der Erwartung
+
+9. Ich drücke bei der Monoalphabetischen Verschluesselung die Buttons entschlüsseln und verschlüsseln ohne eine 
+Eingabe zu machen:
+Erwartung: Mir wird eine Fehlermeldung ausgegeben, dass im jeweiligen Textfeld kein Text vorhanden ist.
+Realität: Entspricht den Erwartungen
+
+10. Ich gebe bei der Monoalphabetischen Verschluesselung im Klartextfeld "Hallo" ein und klicke auf verschlüsseln.
+Erwartung: Mir wird eine Fehlermeldung ausgegeben, dass ein falscher bzw fehlender Schlüssel
+eingegeben wurde.
+Realität: Entspricht den Erwartungen
+
+11. Ich gebe bei der Monoalphabetischen Verschluesselung im Geheimtextfeld "Hallo" ein und klicke auf entschlüsseln.
+Erwartung: Mir wird eine Fehlermeldung ausgegeben, dass ein falscher bzw fehlender Schlüssel
+eingegeben wurde.
+Realität: Entspricht den Erwartungen
+
+12. Ich gebe bei der Monoalphabetischen Verschluesselung im Klartextfeld "Hallo" und in die Schluesseltextfelder
+ihre jeweils darueberstehenden Buchstaben ein und klicke auf verschlüsseln.
+Erwartung: Der verschluesselte Text "HALLO" wird ins Geheimtextfeld gesetzt
+Realität: entspricht den Erwartungen
+
+13. Ich gebe bei der Monoalphabetischen Verschluesselung im Geheimtextfeld "Hallo" und in die Schluesseltextfelder
+ihre jeweils darueberstehenden Buchstaben ein und klicke auf entschlüsseln.
+Erwartung: Der entschluesselte Text "HALLO" wird ins Klartextfeld gesetzt
+Realität: entspricht den Erwartungen
+
+14. Ich gebe bei der Monoalphabetischen Verschluesselung im Klartextfeld "Hallo", im Geheimtextfeld "Bye" und in 
+die Schluesseltextfelder ihre jeweils darueberstehenden Buchstaben ein und versuche die eingegebenen Texte zu 
+ver- und entschlüsseln.
+Erwartung: Ich erwarte das ein Pop-Up-Fenster aufgeht und mich fragt, ob das andere Feld überschrieben
+werden soll.
+Realität: entspricht den Erwartungen
+
+15. Ich drücke bei der Vigenere-Verschluesselung die Buttons entschlüsseln und verschlüsseln ohne eine Eingabe 
+zu machen:
+Erwartung: Mir wird eine Fehlermeldung ausgegeben, dass im jeweiligen Textfeld kein Text vorhanden ist.
+Realität: Entspricht den Erwartungen
+
+16. Ich gebe bei der Vigenere-Verschluesselung im Klartextfeld "Hallo" ein und klicke auf verschlüsseln.
+Erwartung: Mir wird eine Fehlermeldung ausgegeben, dass ein falscher bzw fehlender Schlüssel
+eingegeben wurde.
+Realität: Entspricht den Erwartungen
+
+17. Ich gebe bei der Vigenere-Verschluesselung im Geheimtextfeld "Hallo" ein und klicke auf entschlüsseln.
+Erwartung: Mir wird eine Fehlermeldung ausgegeben, dass ein falscher bzw fehlender Schlüssel
+eingegeben wurde.
+Realität: Entspricht den Erwartungen
+
+18. Ich gebe bei der Vigenere-Verschluesselung im Klartextfeld "Hallo" und als Schluessel "Bye" ein und 
+klicke auf verschlüsseln.
+Erwartung: Der verschluesselte Text "IYPMM" wird ins Geheimtextfeld gesetzt
+Realität: entspricht den Erwartungen
+
+19. Ich gebe bei der Vigenere-Verschluesselung im Geheimtextfeld "iypmm" und als Schluessel "Bye" ein und 
+klicke auf entschlüsseln.
+Erwartung: Der entschluesselte Text "HALLO" wird ins Klartextfeld gesetzt
+Realität: entspricht den Erwartungen
+
+20. Ich gebe bei der Vigenere-Verschluesselung im Klartextfeld "Hallo", im Geheimtextfeld "Bye" und als Schluessel 
+"Bye" ein und versuche die eingegebenen Texte zu ver- und entschlüsseln.
+Erwartung: Ich erwarte das ein Pop-Up-Fenster aufgeht und mich fragt, ob das andere Feld überschrieben
+werden soll.
+Realität: entspricht den Erwartungen
