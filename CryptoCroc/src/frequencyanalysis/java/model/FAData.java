@@ -25,4 +25,45 @@ public final class FAData {
 	 */
 	private FAData() { }
 	
+	/**
+	 * Erstellt eine Hauufigkeitsanlyse der Buchstaben für einen gebenen Text, abhaengig der
+	 * laenge eines Schuesselworts
+	 * 
+	 * @param text der Text an dem die Hauefigkeitsanalyse gemacht wird
+	 * @param keyLength die Laenge des Schluesselworts
+	 * @return ein 2D-Array, erste Dimension gibt den Index des Schluesselwortes an
+	 * zweite Dimension die Haufigkeit von Buchstaben in Prozent von A - Z
+	 */
+	public static float[][] analyse(String text, int keyLength) {
+		int alphabetSize = 26;
+		int index = 0;
+		int countChars = 0;
+		int[][] count = new int[keyLength][alphabetSize];
+		float[][] per = new float[keyLength][alphabetSize];
+		//Initalisiert die Arrays
+		for (int i = 0; i < alphabetSize; i++) {
+			for (int j = 0; j < keyLength; j++) {
+				count[j][i] = 0;
+				per[j][i] = 0.0f;
+			}
+		}
+		
+		for (int i = 0; i < text.length(); i++) { //Schleife zaehlt ueber den Text
+			char temp = TextEdit.editText(text).charAt(i);
+			if (temp >= 'A' && temp <= 'Z') { //ueberprueft ob Zeichen ein Buchstabe ist
+				count[index][(temp - 'A')]++;
+				index++;
+				countChars++;
+			}
+		}
+		
+		//Rechnet die Prozente aus
+		for (int i = 0; i < alphabetSize; i++) {
+			for (int j = 0; j < keyLength; j++) {
+				per[j][i] = count[j][i] / countChars;
+			}
+		}
+		
+		return per;
+	}
 }
