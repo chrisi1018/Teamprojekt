@@ -108,6 +108,7 @@ public class MKeyPanel extends KeyPanel {
 			nameKeyPanel.setLayout(new BoxLayout(nameKeyPanel, BoxLayout.PAGE_AXIS));
 			nameKeyPanel.add(names[i]);
 			nameKeyPanel.add(keys[i]);
+			nameKeyPanel.setPreferredSize(new Dimension(25, 50));
 			nameKeyPanels[i] = nameKeyPanel;
 		}
 
