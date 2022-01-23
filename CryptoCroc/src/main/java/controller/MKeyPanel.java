@@ -17,8 +17,8 @@ import java.awt.Font;
 /**
  * Definiert 'createKeyPanel'-Methode fuer monoalphabetische Verschluesselung
  * 
- * @author zes
- * @version 1.3
+ * @author zes, Julian Sturm
+ * @version 1.4
  */
 public class MKeyPanel extends KeyPanel {
 
@@ -38,6 +38,7 @@ public class MKeyPanel extends KeyPanel {
 	public MKeyPanel(MainController controller) {
 		super(controller);
 		super.setCrypt(new MCrypt());
+		initTextFields();
 	}
 
 	/**
@@ -64,7 +65,15 @@ public class MKeyPanel extends KeyPanel {
 		}
 		return this.key;
 	}
-
+	
+	/**
+	 * Initialisiert die TextFelder
+	 */
+	private void initTextFields() {
+		for (int i = 0; i < alphabetSize; i++) {
+			keys[i] = new JTextField();
+		}
+	}
 	@Override
 	public JPanel createKeyPanel() {
 		// Alphabet in Array schreiben
@@ -81,11 +90,11 @@ public class MKeyPanel extends KeyPanel {
 		// intialisiert Eintraege von keys und setzt Textstil
 		for (int i = 0; i < alphabetSize; i++) {
 			names[i].setFont(new Font(Font.DIALOG, Font.BOLD, 15));
-			keys[i] = new JTextField();
+			//keys[i] = new JTextField();
 			keys[i].setFont(new Font(Font.DIALOG, Font.BOLD, 15));
 			keys[i].setColumns(1);
 			keys[i].setPreferredSize(new Dimension(19, 30));
-			keys[i].setDocument(new LimitedTextfield(maxInput));
+			keys[i].setDocument(new LimitedTextfield(maxInput, i, keys));
 
 			JPanel nameKeyPanel = new JPanel();
 			nameKeyPanel.setLayout(new BoxLayout(nameKeyPanel, BoxLayout.PAGE_AXIS));
