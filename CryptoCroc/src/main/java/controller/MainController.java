@@ -57,6 +57,9 @@ public class MainController {
 				key.createKeyPanel(), // Schluesselpanel
 				dropDown.createDropdown() // Dropdownmenue
 		);
+		//TODO zum Testen später Löschen
+		FAController tester = new FAController(key);
+		
 		this.key.initKey();
 		//initialisiert die Menueitems
 		this.menuBar.initExplanationItem(1, 0, new CExplanationFrame());
