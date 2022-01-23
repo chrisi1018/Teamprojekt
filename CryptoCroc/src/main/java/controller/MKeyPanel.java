@@ -92,7 +92,6 @@ public class MKeyPanel extends KeyPanel {
 		// intialisiert Eintraege von keys und setzt Textstil
 		for (int i = 0; i < alphabetSize; i++) {
 			names[i].setFont(new Font(Font.DIALOG, Font.BOLD, 15));
-			//keys[i] = new JTextField();
 			keys[i].setFont(new Font(Font.DIALOG, Font.BOLD, 15));
 			keys[i].setColumns(1);
 			keys[i].setPreferredSize(new Dimension(19, 30));
