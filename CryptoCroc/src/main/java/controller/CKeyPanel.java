@@ -11,6 +11,8 @@ import model.CCrypt;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.Component;
 
 /**
@@ -41,6 +43,19 @@ public class CKeyPanel extends KeyPanel {
 	 */
 	@Override
 	public JPanel createKeyPanel() {
+		// sorgt dafuer dass Text in key markiert wird beim Klicken
+		key.addFocusListener(new FocusListener() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				key.selectAll();
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				// tue nichts
+			}
+		});
+		
 		BorderLayout layout = new BorderLayout();
 		JLabel description = new JLabel("Schl\u00fcssel");
 		description.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
