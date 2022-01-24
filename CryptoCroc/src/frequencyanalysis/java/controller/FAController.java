@@ -5,7 +5,6 @@ import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
-import model.FAAlgo;
 import view.FAGui;
 import view.Messages;
 import model.TableData;
@@ -30,8 +29,7 @@ public class FAController {
 	private JComboBox<String> keyChar;
 	private JButton left;
 	private JButton right;
-	private FAAlgo algo;
-	private FATable table;
+	private FATable[] tables;
 	private FAMenuBar menu;
 	private TableData data;
 	private FAGui gui;
