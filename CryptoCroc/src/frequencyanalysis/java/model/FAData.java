@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Eine Hilsf-Klasse, die für unterschiedliche Sprachen die Hauufigkeitswahrscheinlichkeiten hat
+ * Eine Hilfs-Klasse, die fuer unterschiedliche Sprachen die Hauufigkeitswahrscheinlichkeiten hat
  * 
  * @author Julian
  * @version 1.0
@@ -9,9 +9,9 @@ package model;
 public final class FAData {
 	
 	/**
-	 * Gibt die Hauufigkeitsverteilung der Buchstaben der Deutschen Sprache an, mit zwei Nachkommarstellen
+	 * Gibt die Haeufigkeitsverteilung der Buchstaben der Deutschen Sprache an, mit zwei Nachkommastellen
 	 * Quelle: Wikipedia
-	 * Notiz: Die Tabelle war mit einem '?', die Prozentzahl für s wurde wie folgt berechnet:
+	 * Notiz: Die Tabelle war mit einem '?', die Prozentzahl fuer s wurde wie folgt berechnet:
 	 * per(s*) = (per(s) + 2* per(?))/(100 % + per(?)
 	 */
 	public static final float[] GERMAN = {6.51f /*A*/, 1.89f /*B*/, 3.06f /*C*/, 5.08f /*D*/,
@@ -26,7 +26,7 @@ public final class FAData {
 	private FAData() { }
 	
 	/**
-	 * Erstellt eine Hauufigkeitsanlyse der Buchstaben für einen gebenen Text, abhaengig der
+	 * Erstellt eine Haeufigkeitsanlyse der Buchstaben fuer einen gegebenen Text, abhaengig der
 	 * laenge eines Schuesselworts
 	 * 
 	 * @param text der Text an dem die Hauefigkeitsanalyse gemacht wird
