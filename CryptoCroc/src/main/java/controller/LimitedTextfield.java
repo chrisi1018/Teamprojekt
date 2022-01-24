@@ -1,6 +1,8 @@
 package controller;
 
 import view.Messages;
+
+import javax.swing.text.AbstractDocument;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
@@ -49,18 +51,27 @@ public class LimitedTextfield extends PlainDocument {
 	 * serial Nummer
 	 */
 	private static final long serialVersionUID = 6389795108727999785L;
-
+	
 	@Override
 	public void insertString(int offset, String str, AttributeSet att) throws BadLocationException {
 		if (!this.checkValidString(str)) {
 			Messages.errorMessage("Hier k\u00f6nnen nur die Buchstaben A-Z bzw a-z eingegeben werden!");
 		} else if (index != -1 && (getLength() + str.length()) <= limit) {
 			super.insertString(offset, str, att);
-			checkPermuation();
+			checkPermutation();
 		} else if ((getLength() + str.length()) <= limit) {
 			super.insertString(offset, str, att);
 		} else {
 			Messages.errorMessage("Hier kann nur ein Buchstabe eingegeben werden!");
+		}
+	}
+	
+	@Override
+	public void removeUpdate(AbstractDocument.DefaultDocumentEvent e) {
+		super.removeUpdate(e);
+		if (index != -1) {
+			checkPermutation();
+			textFields[index].setBackground(Color.WHITE);
 		}
 	}
 
@@ -89,7 +100,7 @@ public class LimitedTextfield extends PlainDocument {
 	 * @retunr gibt -1 wenn eine Permuationvorliegt ansonsten den Index des TextFeldes, indem der Buchstabe schon
 	 * steht
 	 */
-	private void checkPermuation() {
+	private void checkPermutation() {
 		for (int i = 0; i < 26; i++) {
 			boolean red = false;
 			String firstText = textFields[i].getText();
