@@ -37,33 +37,39 @@ public final class FAData {
 	public static float[][] analyse(String text, int keyLength) {
 		int alphabetSize = 26;
 		int index = 0;
-		int countChars = 0;
+		int[] countChars = new int[keyLength];
 		int[][] count = new int[keyLength][alphabetSize];
 		float[][] per = new float[keyLength][alphabetSize];
 		//Initalisiert die Arrays
-		for (int i = 0; i < alphabetSize; i++) {
-			for (int j = 0; j < keyLength; j++) {
+		for (int j = 0; j < keyLength; j++) {
+			countChars[j] = 0;
+			for (int i = 0; i < alphabetSize; i++) {
 				count[j][i] = 0;
 				per[j][i] = 0.0f;
 			}
 		}
 		
+		String editedText = TextEdit.editText(text);
 		for (int i = 0; i < text.length(); i++) { //Schleife zaehlt ueber den Text
-			char temp = TextEdit.editText(text).charAt(i);
+			char temp = editedText.charAt(i);
 			if (temp >= 'A' && temp <= 'Z') { //ueberprueft ob Zeichen ein Buchstabe ist
 				count[index][(temp - 'A')]++;
+				countChars[index]++;
 				index++;
-				countChars++;
+				if (index == keyLength) {
+					index = 0;
+				}
 			}
 		}
 		
 		//Rechnet die Prozente aus
-		for (int i = 0; i < alphabetSize; i++) {
-			for (int j = 0; j < keyLength; j++) {
-				per[j][i] = count[j][i] / countChars;
+		for (int j = 0; j < keyLength; j++) {
+			if (countChars[j] != 0) { 
+				for (int i = 0; i < alphabetSize; i++) {
+					per[j][i] = 100 * (count[j][i] / countChars[j]);
+				}
 			}
 		}
-		
 		return per;
 	}
 }
