@@ -7,6 +7,7 @@ import javax.swing.JComboBox;
 import javax.swing.JButton;
 import view.FAGui;
 import view.Messages;
+import model.FAData;
 import model.TableData;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
@@ -26,6 +27,7 @@ public class FAController {
 	private JTextField lengthTextField;
 	private JCheckBox monoCheckBox;
 	private JComboBox<String> language;
+	private float[] languageData = new float[26];//26 fuer die Groesse des Alphabets
 	private JComboBox<String> keyChar;
 	private JButton left;
 	private JButton right;
@@ -107,6 +109,7 @@ public class FAController {
 		});
 		
 		this.lengthTextField.setVisible(true);
+		
 	}
 	
 	/**
@@ -122,6 +125,7 @@ public class FAController {
 	 */
 	private void initLanguage() {
 		String[] languages = {"Deutsch"};
+		this.languageData = FAData.GERMAN;
 		this.language = new JComboBox<String>(languages);
 		this.language.setVisible(true);
 	}
