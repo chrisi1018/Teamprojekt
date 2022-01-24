@@ -34,7 +34,6 @@ public class Menu {
 	 * 
 	 * @param menus zu hinzufuegende Menuepunkte
 	 */
-	
 	public Menu(String[] menus) {
 		menuBar = new JMenuBar();
 		JMenu menu = new JMenu("Men\u00fc");
