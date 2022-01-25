@@ -177,7 +177,11 @@ public class FAController {
 		this.menu.getMenuBar().getMenu(0).getItem(0).addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//TODO muss noch hinzugefuegt werden
+				initFAAlgo();
+				initFATable();
+				initTableData();
+				gui.repaint();
+				//TODO nochmal anpassen?
 			}
 		});
 	}
