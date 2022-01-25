@@ -152,7 +152,7 @@ public class Menu {
 						// prueft, ob die Datei bereits existiert
 						if (file.exists()) {
 							boolean replace = Messages.yesNoQuestion("Es existiert dort bereits eine Datei mit "
-									+ "diesem Namen. Willst du diese Datei wirklich ersetzen?");
+									+ "dem Namen " + file.getName() + ". Willst du diese Datei wirklich ersetzen?");
 							if (replace) {
 								// schreibt den Text im ausgewaehlten Textfeld in die erzeugte Datei
 								PrintWriter writer = null;
