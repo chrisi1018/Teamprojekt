@@ -173,15 +173,14 @@ public class FAController {
 	private void initFAMenuBar() { 
 		this.menu = new FAMenuBar();
 		this.menu.initExplanationItem(0, 1, new HExplanationFrame());
-		//passt das Fenster an den neuen Text an
+		//initialisiert bei "Text neu laden" FATabel und TableData neu
+		//und passt das Fenster an neuen Text an
 		this.menu.getMenuBar().getMenu(0).getItem(0).addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				initFAAlgo();
 				initFATable();
 				initTableData();
 				gui.repaint();
-				//TODO nochmal anpassen?
 			}
 		});
 	}
