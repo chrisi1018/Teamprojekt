@@ -17,7 +17,7 @@ public final class TextEdit {
 
 	/**
 	 * Eine Methode die folgende Satzzeichen aendert: \u00e4 --> ae, \u00c4 --> Ae,
-	 * \u00f6 --> oe, \u00d6 --> Oe, \u00fc --> ue, u00dc --> Ue, \u00df --> ss.
+	 * \u00f6 --> oe, \u00d6 --> Oe, \u00fc --> ue, \u00dc --> Ue, \u00df --> ss.
 	 * 
 	 * @param c das zu ueberpruefende Satzzeichen.
 	 * @return die Ausgabe als String.

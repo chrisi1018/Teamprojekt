@@ -57,7 +57,7 @@ public class MainController {
 				key.createKeyPanel(), // Schluesselpanel
 				dropDown.createDropdown() // Dropdownmenue
 		);
-		//TODO zum Testen später Löschen
+		//TODO zum Testen spaeter Loeschen
 		FAController tester = new FAController(key);
 		
 		this.key.initKey();

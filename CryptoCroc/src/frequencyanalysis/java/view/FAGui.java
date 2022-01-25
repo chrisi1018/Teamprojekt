@@ -4,18 +4,20 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.FlowLayout;
 
+/**
+ * TODO JAVADOC
+ */
 public class FAGui {
-	
-	
+
 	private JFrame frame;
-	
+
 	/**
-	 * TODO zum testen später auf private
+	 * TODO zum testen spaeter auf private
 	 */
 	public JLabel mainLabel;
-	
+
 	/**
-	 * TODO zum Tesen späte löschen
+	 * TODO zum Testen spaeter loeschen
 	 */
 	public FAGui() {
 		this.frame = new JFrame("H\u00e4ufigkeitsanalyse");
@@ -26,9 +28,9 @@ public class FAGui {
 		this.frame.add(mainLabel);
 		this.mainLabel.setVisible(true);
 	}
+
 	/**
-	 * Dummy-Methode
-	 * TODO muss noch implementiert werden
+	 * Dummy-Methode TODO muss noch implementiert werden
 	 */
 	public void repaint() {
 		this.mainLabel.revalidate();

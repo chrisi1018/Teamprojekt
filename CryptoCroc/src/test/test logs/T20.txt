@@ -1,0 +1,25 @@
+T20 (Git:4f4da8c) :
+
+Java-Version: 1.8
+Betriebssystem: Windows 11
+getestet von: Julian Sturm
+
+1. Ich waehle die Monoalphabetische Verschluesselung aus und gebe in die Schluesselfelder fuer A, B, C jeweils ein "a" ein.
+Erwartung: Die Textfelder A, B, C verfaerben sich rot.
+Realitaet: Wie erwartet.
+
+2. Wie in 1, dann: Ich entferne das "a" in A.
+Erwartung: Das Textfeld A verfaerbt sich weiﬂ.
+Realitaet: wie Erwartet.
+
+3. Wie in 1, dann: Ich entferne das "a" in A und B.
+Erwartung: Die Textfelder A, B, C verfaerbt sich weiﬂ.
+Realitaet: Wie erwartet.
+
+4. Wie in 1, dann: Ich ueberschreibe das "a" in A mit einem "b".
+Erwartung: Das Textfeld A verfaerbt sich weiﬂ.
+Realitaet: wie Erwartet.
+
+5. Wie in 1, dann: Ich ueberschreibe das "a" in A mit einem "b" und das "a" in B mit einem "c".
+Erwartung: Die Textfelder A, B, C verfaerbt sich weiﬂ.
+Realitaet: Wie erwartet.

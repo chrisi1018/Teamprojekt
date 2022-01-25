@@ -40,7 +40,7 @@ public class FAController {
 	private FAGui gui;
 	
 	/**
-	 * Der Konstruktor für die Klasse FaControlle siehe init-Methoden für mehr info
+	 * Der Konstruktor fuer die Klasse FaControlle siehe init-Methoden fuer mehr info
 	 * 
 	 * @param key das keyPanel, entweder V, M oder C, des Main-Frames
 	 */
@@ -60,7 +60,7 @@ public class FAController {
 	}
 	
 	/**
-	 * Erstellt den Titel "Haufigkeitsanalys"
+	 * Erstellt den Titel "Haufigkeitsanalyse"
 	 * TODO wird vielleicht nicht gebraucht
 	 */
 	private void initTitle() {
@@ -94,7 +94,7 @@ public class FAController {
 						insert = false;
 					}
 				}
-				//Ueberprüeft auf eine fuehrende Null
+				//Ueberprueft auf eine fuehrende Null
 				if (offset == 0) {
 					if (str.charAt(0) == '0') {
 						leadingZero = true;
@@ -132,7 +132,7 @@ public class FAController {
 	}
 	
 	/**
-	 * Erstellt das DropDownMenue für die Auswahl des Buchstabens
+	 * Erstellt das DropDownMenue fuer die Auswahl des Buchstabens
 	 * 
 	 * @param count Anzahl der Auswahlmoeglichkeiten
 	 */
@@ -187,7 +187,7 @@ public class FAController {
 	 */
 	private void initTableData() { }
 	/**
-	 * TODO muss noch ausgearbeitet werden, rudimentärnur zum Testen
+	 * TODO muss noch ausgearbeitet werden, rudimentaer nur zum Testen
 	 */
 	private void initFAGui() {
 		this.gui = new FAGui();
