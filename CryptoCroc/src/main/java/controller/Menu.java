@@ -15,13 +15,14 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import org.apache.commons.io.FilenameUtils;
 
+import view.FAGui;
 import view.Messages;
 
 /**
  * Beschreibt Aufbau und Funktion der Menueleiste in CryptoCroc
  * 
- * @author Julian Singer
- * @version 1.4
+ * @author Julian Singer, zes
+ * @version 1.5
  */
 public class Menu {
 
@@ -264,6 +265,25 @@ public class Menu {
 	}
 
 	/**
+	 * Initialisiert ein neues Fenter für die Haeufigkeitsanalyse
+	 * 
+	 * @param barIndex  Index des Menues in der Menueleiste
+	 * @param menuIndex Index des Items im Menu
+	 * @param faGui     die zugehoerige GUI
+	 * @param key       aktuelles Panel
+	 */
+	public void initFreqAna(int barIndex, int menuIndex, KeyPanel key) {
+		menuBar.getMenu(barIndex).getItem(menuIndex).addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				FAController f = new FAController(key);
+			}
+
+		});
+
+	}
+
+	/**
 	 * Gibt die Menueleiste der aktuellen Instanz zurueck
 	 * 
 	 * @return this.menuBar Menueleiste
@@ -271,4 +291,5 @@ public class Menu {
 	public JMenuBar getJMenuBar() {
 		return this.menuBar;
 	}
+
 }
