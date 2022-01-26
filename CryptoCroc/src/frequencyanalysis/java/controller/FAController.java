@@ -4,8 +4,13 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import view.FAGui;
+import view.HExplanationFrame;
 import view.Messages;
 import model.TableData;
 import javax.swing.text.AttributeSet;
@@ -163,9 +168,22 @@ public class FAController {
 	private void initFATable() { }
 	
 	/**
-	 * Dummy Methode
+	 * Initialisiert die Menueleiste und fuegt den Menues ActionListener hinzu
 	 */
-	private void initFAMenuBar() { }
+	private void initFAMenuBar() { 
+		this.menu = new FAMenuBar();
+		this.menu.initExplanationItem(0, 1, new HExplanationFrame());
+		//initialisiert bei "Text neu laden" FATabel und TableData neu
+		//und passt das Fenster an neuen Text an
+		this.menu.getMenuBar().getMenu(0).getItem(0).addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				initFATable();
+				initTableData();
+				gui.repaint();
+			}
+		});
+	}
 	
 	/**
 	 * Dummy Methode
