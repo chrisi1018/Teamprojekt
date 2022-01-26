@@ -17,12 +17,14 @@ public class FATable {
 	private int index;
 	
 	public FATable(TableData data, int tableIndex) {
-		//TODO data.initTextFieldChar();
-		//TODO data.getTextFieldChar(tableIndex) in initTextFields();
-		initTextFields(new char[alphabetSize]);
-		initTextLabels();
+		/*TODO data.initTextFieldChar();
+		 * initTextFields(data.getTextFieldChar(tableIndex));
+		 * initTextLabels(data.getTextFieldChar(TableIndex));
+		 */
 		this.tablePanel = createTablePanel();
-		this.graphPanel = new JPanel(); //TODO new FAGraph().createGraphPanel();
+		/*TODO FAGraph graph = new FAGraph();
+		 		graph.createGraphPanel();
+	     		this.graphPanel = graph.getGraphPanel(); */
 		this.index = tableIndex;
 	}
 	
@@ -40,6 +42,7 @@ public class FATable {
 			shiftedFields[i] = this.textFields[(i + 25) % alphabetSize];
 		}
 		this.textFields = shiftedFields;
+		//TODO GraphPanel anpassen
 	}
 	
 	public void shiftLeft() {
@@ -48,6 +51,7 @@ public class FATable {
 			shiftedFields[i] = this.textFields[(i + 1) % alphabetSize];
 		}
 		this.textFields = shiftedFields;
+		//TODO GraphPanel anpassen
 	}
 	
 	public int getLetterNumber(char letter) {
@@ -59,18 +63,16 @@ public class FATable {
 	}
 	
 	private void initTextFields(char[] fieldChars) {
-		//TODO
-		
-		this.textFields = new JTextField[alphabetSize];
-		for (int i = 0; i < alphabetSize; i++) {
-			this.textFields[i].setText(String.valueOf((char) (i + (int) 'A')));
+		this.textFields = new JTextField[fieldChars.length];
+		for (int i = 0; i < fieldChars.length; i++) {
+			this.textFields[i].setText(String.valueOf(fieldChars[i]));
 		}
 	}
 	
-	private void initTextLabels() {
-		this.textLabels = new JLabel[alphabetSize];
-		for (int i = 0; i < alphabetSize; i++) {
-			this.textLabels[i] = new JLabel(String.valueOf((char) (i + (int) 'A')));
+	private void initTextLabels(char[] fieldChars) {
+		this.textLabels = new JLabel[fieldChars.length];
+		for (int i = 0; i < fieldChars.length; i++) {
+			this.textLabels[i] = new JLabel(String.valueOf(fieldChars[i]));
 		}
 	}
 
