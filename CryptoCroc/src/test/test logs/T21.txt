@@ -1,0 +1,19 @@
+T21 (Git:76accf6) :
+
+Java-Version: 1.8
+Betriebssystem: macOS Monterey
+getestet von: Zoe Sobota
+
+1. Ich klicke auf "Menue" und dann auf "Laden". Ich waehle die Option "All Files" und waehle eine .png Datei aus
+Erwartung: Es erscheint ein Pop-Up Fenster mit einer Fehlermeldung
+Realitaet: Es passiert nichts
+
+-> verbessert, sodass jetzt eine Fehlermeldung erscheint wenn eine nicht .txt Datei ausgewaehlt wird. Diese besagt, dass das Format .png nicht unterstuetzt wird
+
+2. Ich klicke auf "Menue" und dann auf "Laden". Ich waehle die Option "All Files" und waehle eine .jpg Datei aus
+Erwartung: Es erscheint ein Pop-Up Fenster mit der Fehlermeldung "Das Format .jpg wird nicht unterstuetzt"
+Realitaet: Entspricht der Erwartung
+
+3. Ich gebe den Text "asdf" im Klartextfeld ein, klicke dann auf "Menue", "Speichern" und gebe als Name "Hallo" ein und wiederhole dies.
+Erwartung: Es erscheint eine Fehlermeldung die mir sagt, dass dort bereits eine Datei mit dem Namen "Hallo" existiert
+Realitaet: Entspricht der Erwartung

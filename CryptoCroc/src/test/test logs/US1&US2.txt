@@ -22,7 +22,7 @@ Erwartung: Der Text springt bei Eingabe am Zeilenende automatisch in die naechst
 Realitaet: Der Text bleibt in der gleichen Zeile und verschwindet ins unendliche
 
 4. Ich tippe im Geheimtextfeld "Hallo, mein Name ist Max Mustermann. Ich bin 30 Jahre alt und studiere 
-Informatik am Karlsruher Institut für Technologie" ein
+Informatik am Karlsruher Institut fuer Technologie" ein
 Erwartung: Der Text springt bei Eingabe am Zeilenende automatisch in die naechste Zeile um
 Realitaet: Der Text bleibt in der gleichen Zeile und verschwindet ins unendliche
 
@@ -33,12 +33,12 @@ Realitaet: Der Text bleibt in der gleichen Zeile und verschwindet ins unendliche
 -> In Issues 8 und 9 festgehalten und verbessert
 
 5. Ich tippe 750mal "w" im Klartextfeld ein
-Erwartung: Sobald der Platz im Textfeld nicht mehr für die uebrigen "w" ausreicht, erweitert sich das Textfeld
+Erwartung: Sobald der Platz im Textfeld nicht mehr fuer die uebrigen "w" ausreicht, erweitert sich das Textfeld
 um eine weitere Zeile, fuegt dort die fehlenden "w" ein und es erscheint eine Scrollbar zum Navigieren
 Realitaet: Der Text verschwindet
 
 6. Ich tippe 750mal "w" im Geheimtextfeld ein
-Erwartung: Sobald der Platz im Textfeld nicht mehr für die uebrigen "w" ausreicht, erweitert sich das Textfeld
+Erwartung: Sobald der Platz im Textfeld nicht mehr fuer die uebrigen "w" ausreicht, erweitert sich das Textfeld
 um eine weitere Zeile, fuegt dort die fehlenden "w" ein und es erscheint eine Scrollbar zum Navigieren
 Realitaet: Der Text verschwindet
 

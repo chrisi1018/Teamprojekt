@@ -26,6 +26,7 @@ public class MainController {
 	private MainController controller = this;
 	private String[] encryptOpt = { "C\u00e4sar", "Monoalphabetisch", "Vigen\u00E8re" };
 	private String[] explanationOpt = { "C\u00e4sar", "Monoalphabetisch", "Vigen\u00E8re", "H\u00e4ufigkeitsanalyse" };
+	private String[] freqAnaOpt = { "Start"};
 	private ActionListener change = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -50,6 +51,7 @@ public class MainController {
 	public MainController() {
 		this.menuBar = new Menu(new String[] { "Speichern", "Laden" }); // definiert eine neue Menueleiste mit Menue
 		this.menuBar.addMenu("Erkl\u00e4rungen", explanationOpt); // fuegt ein neues Menue hinzu
+		this.menuBar.addMenu("H\u00e4ufigkeitsanalyse", freqAnaOpt);
 		this.dropDown = new Dropdown(encryptOpt, change);
 		this.gui = new Gui(this.menuBar.getJMenuBar(), // Menueleiste
 				plainText.createTextfieldPanel(), // Klartextpanel
@@ -57,8 +59,6 @@ public class MainController {
 				key.createKeyPanel(), // Schluesselpanel
 				dropDown.createDropdown() // Dropdownmenue
 		);
-		//TODO zum Testen spaeter Loeschen
-		FAController tester = new FAController(key);
 		
 		this.key.initKey();
 		//initialisiert die Menueitems
@@ -68,6 +68,7 @@ public class MainController {
 		this.menuBar.initExplanationItem(1, 3, new HExplanationFrame());
 		this.menuBar.initSaveItem(0, 0, this.plainText, this.cryptoText);
 		this.menuBar.initOpenItem(0, 1, plainText, cryptoText);
+		this.menuBar.initFreqAna(2, 0, key);
 	}
 	
 	/**
