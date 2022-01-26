@@ -76,6 +76,7 @@ public class MKeyPanel extends KeyPanel {
 			keys[i] = new JTextField();
 		}
 	}
+	
 	@Override
 	public JPanel createKeyPanel() {
 		// Alphabet in Array schreiben

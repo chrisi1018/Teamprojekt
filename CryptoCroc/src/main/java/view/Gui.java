@@ -51,7 +51,7 @@ public class Gui {
 		this.keyPanel.setVisible(true);
 		
 		initMainPanel(); //Plaziert die JPanels im MainPanel
-		initBorder(); //Erzeugt den aeuﬂeren Rahmen
+		initBorder(); //Erzeugt den aeusseren Rahmen
 		
 		this.frame.setResizable(false);
 		this.frame.setVisible(true);
