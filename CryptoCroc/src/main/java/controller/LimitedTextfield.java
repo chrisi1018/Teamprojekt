@@ -63,7 +63,12 @@ public class LimitedTextfield extends PlainDocument {
 		} else if ((getLength() + up.length()) <= limit) {
 			super.insertString(offset, up, att);
 		} else {
-			Messages.errorMessage("Hier kann nur ein Buchstabe eingegeben werden!");
+			if (limit == 1) {
+				Messages.errorMessage("Hier kann nur ein Buchstabe eingegeben werden!");	
+			} else {
+				Messages.errorMessage("Hier können maximal " + limit + " Buchstaben eingegeben werden!" );
+			}
+			
 		}
 	}
 
