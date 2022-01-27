@@ -9,14 +9,12 @@ import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtils;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.BarRenderer;
-import org.jfree.chart.renderer.category.CategoryItemRenderer;
-import org.jfree.data.category.CategoryDataset;
+import org.jfree.chart.renderer.category.StandardBarPainter;
 import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.statistics.HistogramDataset;
-
-import model.FAData;
+import org.jfree.data.general.DefaultKeyedValues2DDataset;
 
 /**
  * Erstellt die Grafik zur Buchstabenverteilung der Haeufigkeitsanalyse
@@ -57,17 +55,24 @@ public class FAGraph {
 	 * @throws IOException
 	 */
 	public void createGraphPanel() throws IOException {
-		DefaultCategoryDataset hg = new DefaultCategoryDataset();
+		DefaultKeyedValues2DDataset m = new DefaultKeyedValues2DDataset();
 		String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		
+
 		for (int i = 0; i < german.length; i++) {
-			hg.setValue(german[i], percentage, Character.toString(alphabet.charAt(i)));
+			m.addValue(german[i], "0", Character.toString(alphabet.charAt(i)));
 		}
-		
-		JFreeChart histogram = ChartFactory.createBarChart("Haufigkeitsverteilung", "", percentage, hg,
-				PlotOrientation.VERTICAL, false, true, false);
-		
-		ChartUtils.saveChartAsPNG(new File("ex.png"), histogram, 1000, 800);
+		for (int i = 0; i < actual.length; i++) {
+			m.addValue(actual[i], "1", Character.toString(alphabet.charAt(i)));
+		}
+		JFreeChart histogram = ChartFactory.createBarChart("Haufigkeitsverteilung", "", percentage, m,
+				PlotOrientation.VERTICAL, false, false, false);
+		CategoryPlot cplot = (CategoryPlot) histogram.getPlot();
+		cplot.setBackgroundPaint(Color.white);
+		((BarRenderer) cplot.getRenderer()).setBarPainter(new StandardBarPainter());
+		BarRenderer render = (BarRenderer) histogram.getCategoryPlot().getRenderer();
+		render.setSeriesPaint(0, new Color(74, 115, 14));
+		render.setSeriesPaint(1, new Color(242, 194, 9));
+		ChartUtils.saveChartAsPNG(new File("ex.png"), histogram, 2000, 800);
 	}
 
 	/**
