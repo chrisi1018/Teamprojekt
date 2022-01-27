@@ -19,6 +19,7 @@ import org.jfree.chart.renderer.category.StandardBarPainter;
 import org.jfree.chart.title.LegendTitle;
 import org.jfree.chart.ui.HorizontalAlignment;
 import org.jfree.chart.ui.RectangleEdge;
+import org.jfree.chart.ui.RectangleInsets;
 import org.jfree.data.general.DefaultKeyedValues2DDataset;
 
 /**
@@ -86,6 +87,8 @@ public class FAGraph {
 		// Legende soll unten links
 		legend.setPosition(RectangleEdge.BOTTOM);
 		legend.setHorizontalAlignment(HorizontalAlignment.LEFT);
+		// padding zwischen einzelnen Legendenitems
+		legend.setItemLabelPadding(new RectangleInsets(2, 2, 2, 30));
 		barChart.addLegend(legend);
 
 		// Hintergrund des plots (standard ist grau) auf weiss setzen
