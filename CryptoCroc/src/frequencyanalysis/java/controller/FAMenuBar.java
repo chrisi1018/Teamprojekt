@@ -37,8 +37,8 @@ public class FAMenuBar {
 	 * @param menuIndex Index des Items im Menue
 	 * @param newFrame zu erstellendes Fenster
 	 */
-	public void initExplanationItem(int barIndex, int menuIndex, JFrame newFrame) {
-		menuBar.getMenu(barIndex).getItem(menuIndex).addActionListener(new ActionListener() {
+	public void initExplanationItem(int barIndex, JFrame newFrame) {
+		menuBar.getMenu(barIndex).addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				newFrame.setVisible(true);
