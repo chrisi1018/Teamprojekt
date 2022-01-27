@@ -30,42 +30,43 @@ public class LimitedTextfield extends PlainDocument {
 	public LimitedTextfield(int limit) {
 		super();
 		this.limit = limit;
+		// this.setDocumentFilter(new UpperCaseDocumentFilter());
 	}
-	
+
 	/**
 	 * Konstruktor fuer ein LimitedTextfield mit einer Alphabets Permutation
 	 * 
-	 *  @param limit die maximale Anzahl an Zeichen in einem Textfeld
-	 *  @param textFields die Textfelder in den die Permutation steht
-	 *  @param index der Index des Textfeldes
+	 * @param limit      die maximale Anzahl an Zeichen in einem Textfeld
+	 * @param textFields die Textfelder in den die Permutation steht
+	 * @param index      der Index des Textfeldes
 	 */
 	public LimitedTextfield(int limit, int index, JTextField[] textFields) {
 		super();
 		this.limit = limit;
 		this.index = index;
 		this.textFields = textFields;
-		
 	}
 
 	/**
 	 * serial Nummer
 	 */
 	private static final long serialVersionUID = 6389795108727999785L;
-	
+
 	@Override
 	public void insertString(int offset, String str, AttributeSet att) throws BadLocationException {
-		if (!this.checkValidString(str)) {
+		String up = str.toUpperCase();
+		if (!this.checkValidString(up)) {
 			Messages.errorMessage("Hier k\u00f6nnen nur die Buchstaben A-Z bzw a-z eingegeben werden!");
 		} else if (index != -1 && (getLength() + str.length()) <= limit) {
-			super.insertString(offset, str, att);
+			super.insertString(offset, up, att);
 			checkPermutation();
-		} else if ((getLength() + str.length()) <= limit) {
-			super.insertString(offset, str, att);
+		} else if ((getLength() + up.length()) <= limit) {
+			super.insertString(offset, up, att);
 		} else {
 			Messages.errorMessage("Hier kann nur ein Buchstabe eingegeben werden!");
 		}
 	}
-	
+
 	@Override
 	public void removeUpdate(AbstractDocument.DefaultDocumentEvent e) {
 		super.removeUpdate(e);
@@ -92,13 +93,13 @@ public class LimitedTextfield extends PlainDocument {
 		}
 		return ok;
 	}
-	
+
 	/**
 	 * Ueberprueft ob der der eingebene String schon in einem anderen Textfeld steht
 	 * 
 	 * @param str der eingebene String
-	 * @retunr gibt -1 wenn eine Permuationvorliegt ansonsten den Index des TextFeldes, indem der Buchstabe schon
-	 * steht
+	 * @retunr gibt -1 wenn eine Permuationvorliegt ansonsten den Index des
+	 *         TextFeldes, indem der Buchstabe schon steht
 	 */
 	private void checkPermutation() {
 		for (int i = 0; i < 26; i++) {
