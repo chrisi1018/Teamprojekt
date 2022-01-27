@@ -15,13 +15,12 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import org.apache.commons.io.FilenameUtils;
 
-import view.FAGui;
 import view.Messages;
 
 /**
  * Beschreibt Aufbau und Funktion der Menueleiste in CryptoCroc
  * 
- * @author Julian Singer, zes
+ * @author Julian Singer
  * @version 1.5
  */
 public class Menu {
