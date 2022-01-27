@@ -1,19 +1,24 @@
 package controller;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.io.File;
 import java.io.IOException;
 
 import javax.swing.JPanel;
 
 import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
 import org.jfree.chart.ChartUtils;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.chart.renderer.category.StandardBarPainter;
-import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.chart.title.LegendTitle;
+import org.jfree.chart.ui.HorizontalAlignment;
+import org.jfree.chart.ui.RectangleEdge;
 import org.jfree.data.general.DefaultKeyedValues2DDataset;
 
 /**
@@ -29,6 +34,7 @@ public class FAGraph {
 	private double[] german;
 	private double[] actual;
 	private String percentage = "Prozentzahl";
+	private String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 	/**
 	 * Konstruktor fuer einen FAGraph, erstellt das GraphPanel
@@ -55,24 +61,51 @@ public class FAGraph {
 	 * @throws IOException
 	 */
 	public void createGraphPanel() throws IOException {
+		// zum Erstellen eines DataSets
 		DefaultKeyedValues2DDataset m = new DefaultKeyedValues2DDataset();
-		String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 		for (int i = 0; i < german.length; i++) {
-			m.addValue(german[i], "0", Character.toString(alphabet.charAt(i)));
+			// Wert alle nacheinander
+			// Reihenschluessel, gleiche gehoeren zur gleichen Series
+			// Zeilenschluessel, gleiche gehoeren zum gleichen Buchstaben des Alphabets
+			m.addValue(german[i], "Deutsche Verteilung", Character.toString(alphabet.charAt(i)));
+			m.addValue(actual[i], "Verteilung im Text", Character.toString(alphabet.charAt(i)));
 		}
-		for (int i = 0; i < actual.length; i++) {
-			m.addValue(actual[i], "1", Character.toString(alphabet.charAt(i)));
-		}
-		JFreeChart histogram = ChartFactory.createBarChart("Haufigkeitsverteilung", "", percentage, m,
+
+		// Bar chart eingabe parameter (Titel oben, Titel unten, Y Achse, dataset,
+		// ausrichtung der Balken, Legende erzeugen, Tooltips, URLs)
+		JFreeChart barChart = ChartFactory.createBarChart("H\u00e4ufigkeitsverteilung", "", percentage, m,
 				PlotOrientation.VERTICAL, false, false, false);
-		CategoryPlot cplot = (CategoryPlot) histogram.getPlot();
+
+		// Plot holen des Charts und manuell Legende hinzufuegen; nur so koennen
+		// Orientierung und Textstil angepasst werden
+		CategoryPlot cplot = (CategoryPlot) barChart.getPlot();
+		LegendTitle legend = new LegendTitle(cplot);
+		Font font = new Font(Font.DIALOG, Font.BOLD, 20);
+		legend.setItemFont(font);
+		// Legende soll unten links
+		legend.setPosition(RectangleEdge.BOTTOM);
+		legend.setHorizontalAlignment(HorizontalAlignment.LEFT);
+		barChart.addLegend(legend);
+
+		// Hintergrund des plots (standard ist grau) auf weiss setzen
 		cplot.setBackgroundPaint(Color.white);
+
+		// Farben der Bars entsprechend ihrem Reihenschluessel faerben
 		((BarRenderer) cplot.getRenderer()).setBarPainter(new StandardBarPainter());
-		BarRenderer render = (BarRenderer) histogram.getCategoryPlot().getRenderer();
+		BarRenderer render = (BarRenderer) barChart.getCategoryPlot().getRenderer();
+		// CryptoCroc gruen
 		render.setSeriesPaint(0, new Color(74, 115, 14));
+		// gelb/orange/gold
 		render.setSeriesPaint(1, new Color(242, 194, 9));
-		ChartUtils.saveChartAsPNG(new File("ex.png"), histogram, 2000, 800);
+		ChartUtils.saveChartAsPNG(new File("ex.png"), barChart, 2000, 800);
+
+		graphPanel = new JPanel();
+
+		// konvertieren zu ChartPanel sodass es zum graphPanel hinzugefuegt werden kann
+		ChartPanel chP = new ChartPanel(barChart);
+		graphPanel.add(chP, BorderLayout.CENTER);
+
 	}
 
 	/**
