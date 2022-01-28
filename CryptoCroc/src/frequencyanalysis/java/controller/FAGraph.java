@@ -3,15 +3,17 @@ package controller;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
-import java.io.File;
 import java.io.IOException;
 
 import javax.swing.JPanel;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
-import org.jfree.chart.ChartUtils;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.labels.CategoryItemLabelGenerator;
+import org.jfree.chart.labels.ItemLabelAnchor;
+import org.jfree.chart.labels.ItemLabelPosition;
+import org.jfree.chart.labels.StandardCategoryItemLabelGenerator;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.BarRenderer;
@@ -20,6 +22,7 @@ import org.jfree.chart.title.LegendTitle;
 import org.jfree.chart.ui.HorizontalAlignment;
 import org.jfree.chart.ui.RectangleEdge;
 import org.jfree.chart.ui.RectangleInsets;
+import org.jfree.chart.ui.TextAnchor;
 import org.jfree.data.general.DefaultKeyedValues2DDataset;
 
 /**
@@ -32,22 +35,20 @@ public class FAGraph {
 
 	private JPanel graphPanel;
 	// Buchstabenverteilungen
-	private double[] german;
+	private double[] language;
 	private double[] actual;
-	private String percentage = "Prozentzahl";
 	private String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 	/**
 	 * Konstruktor fuer einen FAGraph, erstellt das GraphPanel
 	 * 
-	 * @param fGerman deutsche Buchstabenverteilung
-	 * @param fActual eigentliche Buchstabenverteilung
-	 * @throws IOException
+	 * @param fLanguage Buchstabenverteilung einer uebergebenen Sprache
+	 * @param fActual   eigentliche Buchstabenverteilung im Text
 	 */
-	public FAGraph(float[] fGerman, float[] fActual) throws IOException {
-		this.german = new double[fGerman.length];
-		for (int i = 0; i < fGerman.length; i++) {
-			this.german[i] = Double.parseDouble(Float.toString(fGerman[i]));
+	public FAGraph(float[] fLanguage, float[] fActual) throws IOException {
+		this.language = new double[fLanguage.length];
+		for (int i = 0; i < fLanguage.length; i++) {
+			this.language[i] = Double.parseDouble(Float.toString(fLanguage[i]));
 		}
 		this.actual = new double[fActual.length];
 		for (int i = 0; i < fActual.length; i++) {
@@ -59,23 +60,23 @@ public class FAGraph {
 	/**
 	 * Erstellt das GraphPanel
 	 * 
-	 * @throws IOException
 	 */
-	public void createGraphPanel() throws IOException {
+	public void createGraphPanel() {
 		// zum Erstellen eines DataSets
 		DefaultKeyedValues2DDataset m = new DefaultKeyedValues2DDataset();
 
-		for (int i = 0; i < german.length; i++) {
+		for (int i = 0; i < language.length; i++) {
 			// Wert alle nacheinander
 			// Reihenschluessel, gleiche gehoeren zur gleichen Series
 			// Zeilenschluessel, gleiche gehoeren zum gleichen Buchstaben des Alphabets
-			m.addValue(german[i], "Deutsche Verteilung", Character.toString(alphabet.charAt(i)));
+			// TODO andere Sprachen auch ermoeglichen
+			m.addValue(language[i], "Deutsche Verteilung", Character.toString(alphabet.charAt(i)));
 			m.addValue(actual[i], "Verteilung im Text", Character.toString(alphabet.charAt(i)));
 		}
 
 		// Bar chart eingabe parameter (Titel oben, Titel unten, Y Achse, dataset,
 		// ausrichtung der Balken, Legende erzeugen, Tooltips, URLs)
-		JFreeChart barChart = ChartFactory.createBarChart("H\u00e4ufigkeitsverteilung", "", percentage, m,
+		JFreeChart barChart = ChartFactory.createBarChart("H\u00e4ufigkeitsverteilung", "", "", m,
 				PlotOrientation.VERTICAL, false, false, false);
 
 		// Plot holen des Charts und manuell Legende hinzufuegen; nur so koennen
@@ -91,17 +92,32 @@ public class FAGraph {
 		legend.setItemLabelPadding(new RectangleInsets(2, 2, 2, 30));
 		barChart.addLegend(legend);
 
-		// Hintergrund des plots (standard ist grau) auf weiss setzen
+		// Hintergrund des plots (standard ist grau) auf weiss setzen und y-Achse mit
+		// Zahlenwerten ausblenden
 		cplot.setBackgroundPaint(Color.white);
+		cplot.getRangeAxis().setVisible(false);
 
 		// Farben der Bars entsprechend ihrem Reihenschluessel faerben
 		((BarRenderer) cplot.getRenderer()).setBarPainter(new StandardBarPainter());
-		BarRenderer render = (BarRenderer) barChart.getCategoryPlot().getRenderer();
+		BarRenderer renderer = (BarRenderer) barChart.getCategoryPlot().getRenderer();
 		// CryptoCroc gruen
-		render.setSeriesPaint(0, new Color(74, 115, 14));
+		renderer.setSeriesPaint(0, new Color(74, 115, 14));
 		// gelb/orange/gold
-		render.setSeriesPaint(1, new Color(242, 194, 9));
-		ChartUtils.saveChartAsPNG(new File("ex.png"), barChart, 2000, 800);
+		renderer.setSeriesPaint(1, new Color(242, 194, 9));
+
+		// Werte der Haeufigkeitsverteilung oberhalb der Balken fuer beide Serien
+		// aktivieren
+		CategoryItemLabelGenerator generator = new StandardCategoryItemLabelGenerator();
+		renderer.setSeriesItemLabelGenerator(0, generator);
+		renderer.setSeriesItemLabelsVisible(0, true);
+		renderer.setSeriesPositiveItemLabelPosition(0,
+				new ItemLabelPosition(ItemLabelAnchor.OUTSIDE12, TextAnchor.BASELINE_CENTER));
+		renderer.setItemLabelAnchorOffset(10);
+		renderer.setSeriesItemLabelGenerator(1, generator);
+		renderer.setSeriesItemLabelsVisible(1, true);
+		renderer.setSeriesPositiveItemLabelPosition(1,
+				new ItemLabelPosition(ItemLabelAnchor.OUTSIDE12, TextAnchor.BASELINE_CENTER));
+		renderer.setItemLabelAnchorOffset(10);
 
 		graphPanel = new JPanel();
 
