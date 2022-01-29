@@ -19,6 +19,7 @@ import view.Messages;
 public abstract class KeyPanel {
 	private JButton encrypt = new JButton("verschl\u00fcsseln");
 	private JButton decrypt = new JButton("entschl\u00fcsseln");
+	private JButton freqAna = new JButton("H\u00e4ufigkeitsanalyse");
 	private Crypt crypt;
 	private MainController controller;
 
@@ -37,6 +38,7 @@ public abstract class KeyPanel {
 	public void initKey() {
 		encrypt.addActionListener(e -> this.clickButtonEncrypt());
 		decrypt.addActionListener(e -> this.clickButtonDecrypt());
+		freqAna.addActionListener(e -> this.clickButtonFreqAna());
 	}
 
 	/**
@@ -63,6 +65,7 @@ public abstract class KeyPanel {
 		JPanel panel = new JPanel(new FlowLayout()); // FlowLayout wichtig damit Button passende Groesse haben
 		panel.add(encrypt);
 		panel.add(decrypt);
+		panel.add(freqAna);
 		return panel;
 	}
 
@@ -115,8 +118,8 @@ public abstract class KeyPanel {
 			Messages.errorMessage("Zum verschl\u00fcsseln muss im Klartextfeld ein Text eingegeben werden.");
 		} else { // Wird ausgefuert nur wenn ein Klartext gegeben ist
 			if (this.crypt.checkKey(key)) {
-				if (cryptoText.isEmpty() || Messages
-						.yesNoQuestion("Darf der Geheimtext im Geheimtextfeld \u00fcberschrieben werden?")) {
+				if (cryptoText.isEmpty()
+						|| Messages.yesNoQuestion("Darf der Geheimtext im Geheimtextfeld \u00fcberschrieben werden?")) {
 					plainText = TextEdit.editText(plainText);
 					cryptoText = this.crypt.cryptAll(plainText, key); // Der verschluesselte Text wird erzeugt und
 					this.controller.setCryptoText(cryptoText); // im Geheimtextfeld ausgegeben
@@ -151,4 +154,12 @@ public abstract class KeyPanel {
 			}
 		}
 	}
+
+	/**
+	 * Oeffnet den Controller fuer die Haeufigkeitsanalyse
+	 */
+	public void clickButtonFreqAna() {
+		new FAController(this);
+	}
+
 }
