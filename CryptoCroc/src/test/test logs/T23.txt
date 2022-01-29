@@ -1,13 +1,14 @@
-T23 (Git: c85eef3):
+T23 (Git: ad384d5):
 
 Java-Version: 1.8
 Betriebssystem: macOS Monterey
 getestet von: Zoe Sobota
 
-1. Ich klicke in der Menueleiste auf die Option "Haeufigkeitsanalyse" und dann auf "Start"
+
+1. Ich klicke auf den Button "Haeufigkeitsanalyse"
 Erwartung: Es oeffnet sich ein neues Fenster mit dem Titel "Haeufigkeitsanalyse"
 Realitaet: Entspricht der Erwartung
 
-2. Ich schliesse das in 1. geoeffnete Fenster und klicke erneut in der Menueleiste auf die Option "Haeufigkeitsanalyse" und dann wieder auf "Start"
+2. Ich schliesse das in 1. geoeffnete Fenster und klicke erneut auf den Button "Haeufigkeitsanalyse"
 Erwartung: Es oeffnet sich erneut ein Fenster mit dem Titel "Haeufigkeitsanalyse"
 Realitaet: Entspricht der Erwartung
