@@ -99,12 +99,14 @@ public class FATable {
 	}
 	
 	/**
-	 * Initialisiert die 26 Textfelder und setzt in diese die Buchstaben von 'A' bis 'Z'
+	 * Initialisiert die 26 nicht-editierbaren, grauen Textfelder und setzt in diese die Buchstaben von 'A' bis 'Z'
 	 */
 	private void initTextFields() {
 		this.textFields = new JTextField[alphabetSize];
 		for (int i = 0; i < alphabetSize; i++) {
 			this.textFields[i].setText(String.valueOf((char) i + 65));
+			this.textFields[i].setEditable(false);
+			this.textFields[i].setEnabled(false);
 		}
 	}
 	
@@ -117,5 +119,4 @@ public class FATable {
 			this.textLabels[i] = new JLabel(String.valueOf((char) i + 65), JLabel.CENTER);
 		}
 	}
-
 }
