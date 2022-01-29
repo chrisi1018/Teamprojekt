@@ -6,26 +6,36 @@ import javax.swing.JTextField;
 
 import model.TableData;
 
+/**
+ * Diese Klasse modelliert die Zuordnungstabelle der Buchstaben fuer die Haeufigkeitsanalyse
+ * und ihr zugehoeriges Balkendiagramm
+ * 
+ * @author Julian Singer
+ * @version 1.0
+ */
 public class FATable {
 	
 	private final int alphabetSize = 26;
 	
+	private TableData data;
 	private JTextField[] textFields;
 	private JLabel[] textLabels;
 	private JPanel tablePanel;
-	private JPanel graphPanel;
-	private int index;
+	private FAGraph graph;
 	
-	public FATable(TableData data, int tableIndex) {
-		/*TODO data.initTextFieldChar();
-		 * initTextFields(data.getTextFieldChar(tableIndex));
-		 * initTextLabels(data.getTextFieldChar(TableIndex));
-		 */
+	/**
+	 * Konstruktor, der die Haeufigkeiten der Sprache und des Geheimtextes uebergibt
+	 * 
+	 * @param tableData Daten der Haeufigkeitsanalyse
+	 * @param language Haeufigkeit der Zeichen in spezieller Sprache
+	 */
+	public FATable(TableData tableData, float[] language) {
+		this.data = tableData;
+		//initTextFields();
+		//initTextLabels();
 		this.tablePanel = createTablePanel();
-		/*TODO FAGraph graph = new FAGraph();
-		 		graph.createGraphPanel();
-	     		this.graphPanel = graph.getGraphPanel(); */
-		this.index = tableIndex;
+		/*TODO this.graph = new FAGraph();
+		 		graph.createGraphPanel(); */
 	}
 	
 	/**
@@ -36,43 +46,75 @@ public class FATable {
 		return new JPanel();
 	}
 	
+	/**
+	 * Schiebt den Inhalt der Textfelder in ihre rechten Nachbarfelder und den Inhalt des letzten
+	 * Textfeldes in das erste Textfeld. Ausserdem verschieben sich die Balken der Geheimtextbuchstaben
+	 * ihrer neuen Zuordnung entsprechend nach rechts
+	 */
 	public void shiftRight() {
-		JTextField[] shiftedFields = new JTextField[alphabetSize];
-		for (int i = 0; i < alphabetSize; i++) {
-			shiftedFields[i] = this.textFields[(i + 25) % alphabetSize];
+		String lastChar = this.textFields[25].getText();
+		for (int i = this.textFields.length - 1; i < 0; i--) {
+			this.textFields[i].setText(this.textFields[(i + 25) % alphabetSize].getText());
+			//this.data.setTextFieldChar(this.data.getTextFieldChar(((i + 25) % alphabetSize), i);
 		}
-		this.textFields = shiftedFields;
+		this.textFields[0].setText(lastChar);
+		//this.data.setTextFieldChar(this.data.getTextFieldChar(lastChar.charAt(0), 0);
 		//TODO GraphPanel anpassen
 	}
 	
+	/**
+	 * Schiebt den Inhalt der Textfelder in ihre linken Nachbarfelder und den Inhalt des ersten
+	 * Textfeldes in das letzte Textfeld. Ausserdem verschieben sich die Balken der Geheimtextbuchstaben
+	 * ihrer neuen Zuordnung entsprechend nach links
+	 */
 	public void shiftLeft() {
-		JTextField[] shiftedFields = new JTextField[alphabetSize];
-		for (int i = 0; i < alphabetSize; i++) {
-			shiftedFields[i] = this.textFields[(i + 1) % alphabetSize];
+		String firstChar = this.textFields[0].getText();
+		for (int i = 0; i < this.textFields.length - 1; i++) {
+			this.textFields[i].setText(this.textFields[(i + 1) % alphabetSize].getText());
+			//this.data.setTextFieldChar(this.data.getTextFieldChar(((i + 1) % alphabetSize), i);
 		}
-		this.textFields = shiftedFields;
+		this.textFields[this.textFields.length - 1].setText(firstChar);
+		//this.data.setTextFieldChar(this.data.getTextFieldChar(firstChar.charAt(0), alphabetSize - 1);
 		//TODO GraphPanel anpassen
 	}
 	
-	public int getLetterNumber(char letter) {
-		return (int) letter - (int) 'A';
-	}
-	
+	/**
+	 * Setzt den vorigen/alten Character des Textfeldes an der uebergebenen Stelle in das Textfeld, in dem der
+	 * neue Character zuvor allein stand
+	 * 
+	 * @param swapIndex Index des Textfeldes, in dem der alte Character durch einen neuen ersetzt wurde
+	 */
 	public void swapChar(int swapIndex) {
-		//TODO this.textFields[swapIndex] ?
+		/*char oldChar = this.data.getTextFieldChar(swapIndex);
+		char newChar = this.textFields[swapIndex].getText().charAt(0);
+		int newIndex = 0;
+		for (int i = 0; i < this.textFields.length; i++) {
+			if (this.data.getTextFieldChar(i) == newChar) {
+				newIndex = i;
+			}
+		}
+		this.textFields[newIndex].setText(String.valueOf(oldChar));
+		this.data.setTextFieldChar(newChar, swapIndex);
+		this.data.setTextFieldChar(oldChar, newIndex); */
 	}
 	
-	private void initTextFields(char[] fieldChars) {
-		this.textFields = new JTextField[fieldChars.length];
-		for (int i = 0; i < fieldChars.length; i++) {
-			this.textFields[i].setText(String.valueOf(fieldChars[i]));
+	/**
+	 * Initialisiert die 26 Textfelder und setzt in diese die Buchstaben von 'A' bis 'Z'
+	 */
+	private void initTextFields() {
+		this.textFields = new JTextField[alphabetSize];
+		for (int i = 0; i < alphabetSize; i++) {
+			this.textFields[i].setText(String.valueOf((char) i + 65));
 		}
 	}
 	
-	private void initTextLabels(char[] fieldChars) {
-		this.textLabels = new JLabel[fieldChars.length];
-		for (int i = 0; i < fieldChars.length; i++) {
-			this.textLabels[i] = new JLabel(String.valueOf(fieldChars[i]));
+	/**
+	 * Initialisiert die 26 Labels und setzt in diese die Buchstaben von 'A' bis 'Z'
+	 */
+	private void initTextLabels() {
+		this.textLabels = new JLabel[alphabetSize];
+		for (int i = 0; i < alphabetSize; i++) {
+			this.textLabels[i] = new JLabel(String.valueOf((char) i + 65), JLabel.CENTER);
 		}
 	}
 
