@@ -1,12 +1,14 @@
 package controller;
 
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import view.FAGui;
@@ -32,7 +34,7 @@ public class FAController {
 	private JTextField lengthTextField;
 	private JCheckBox monoCheckBox;
 	private JComboBox<String> language;
-	private float[] languageData = new float[26];//26 fuer die Groesse des Alphabets
+	private float[] languageData = new float[26]; //26 fuer die Groesse des Alphabets
 	private JComboBox<String> keyChar;
 	private JButton left;
 	private JButton right;
@@ -40,6 +42,7 @@ public class FAController {
 	private FAMenuBar menu;
 	private TableData data;
 	private FAGui gui;
+	private FAGraph graph;
 	
 	/**
 	 * Der Konstruktor fuer die Klasse FaControlle siehe init-Methoden fuer mehr info
@@ -47,8 +50,17 @@ public class FAController {
 	 * @param key das keyPanel, entweder V, M oder C, des Main-Frames
 	 */
 	FAController(KeyPanel key) {
+		
 		this.key = key;
-		initFAGui();
+		
+		try {
+			graph = new FAGraph(FAData.GERMAN, FAData.GERMAN);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 		initTitle();
 		initLength();
 		initMonoCheckBox();
@@ -59,6 +71,7 @@ public class FAController {
 		initFATable();
 		initFAMenuBar();
 		initTableData();
+		initFAGui();
 	}
 	
 	/**
@@ -194,10 +207,11 @@ public class FAController {
 	 * Dummy Methode
 	 */
 	private void initTableData() { }
+	
 	/**
 	 * TODO muss noch ausgearbeitet werden, rudimentaer nur zum Testen
 	 */
 	private void initFAGui() {
-		this.gui = new FAGui();
+		this.gui = new FAGui(menu.getMenuBar(), graph.getGraphPanel(), new JPanel());
 	}
 }
