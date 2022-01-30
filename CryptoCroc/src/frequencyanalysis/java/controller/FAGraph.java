@@ -103,7 +103,7 @@ public class FAGraph {
 		// CryptoCroc gruen
 		renderer.setSeriesPaint(0, new Color(74, 115, 14));
 		// gelb/orange/gold
-		renderer.setSeriesPaint(1, new Color(242, 194, 9));
+		renderer.setSeriesPaint(1, new Color(185, 137, 0));
 
 		// Werte der Haeufigkeitsverteilung oberhalb der Balken fuer beide Serien
 		// aktivieren
