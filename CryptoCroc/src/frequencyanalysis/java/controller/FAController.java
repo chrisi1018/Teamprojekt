@@ -113,6 +113,7 @@ public class FAController {
 			}
 		});
 		
+		this.lengthTextField.setText("1");
 		this.lengthTextField.setVisible(true);
 		
 	}
