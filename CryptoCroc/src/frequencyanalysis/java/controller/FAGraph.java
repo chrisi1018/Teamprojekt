@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.geom.Rectangle2D;
 import java.io.IOException;
 
 import javax.swing.JPanel;
@@ -12,6 +13,8 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.axis.NumberAxis;
+import org.jfree.chart.axis.NumberTickUnit;
 import org.jfree.chart.labels.CategoryItemLabelGenerator;
 import org.jfree.chart.labels.ItemLabelAnchor;
 import org.jfree.chart.labels.ItemLabelPosition;
@@ -79,7 +82,7 @@ public class FAGraph {
 		// Bar chart eingabe parameter (Titel oben, Titel unten, Y Achse, dataset,
 		// ausrichtung der Balken, Legende erzeugen, Tooltips, URLs)
 		JFreeChart barChart = ChartFactory.createBarChart("", "", "", m, PlotOrientation.VERTICAL, false, false, false);
-		
+
 		// Plot holen des Charts und manuell Legende hinzufuegen; nur so koennen
 		// Orientierung und Textstil angepasst werden
 		CategoryPlot cplot = (CategoryPlot) barChart.getPlot();
@@ -126,11 +129,18 @@ public class FAGraph {
 		// abstand Werte-labels zu balken
 		renderer.setItemLabelAnchorOffset(15);
 
+		// Schritt-groesse der y-achse einstellen
+		NumberAxis rangeAxis = (NumberAxis) cplot.getRangeAxis();
+		rangeAxis.setRange(0, 20);
+		rangeAxis.setStandardTickUnits(NumberAxis.createStandardTickUnits());
+		rangeAxis.setTickUnit(new NumberTickUnit(10.0));
+
 		graphPanel = new JPanel();
 
 		// konvertieren zu ChartPanel sodass es zum graphPanel hinzugefuegt werden kann
 		ChartPanel chP = new ChartPanel(barChart);
-		chP.setPreferredSize(new Dimension(1260, 620));
+
+		chP.setPreferredSize(new Dimension(1260, 300));
 		graphPanel.add(chP, BorderLayout.CENTER);
 
 	}
