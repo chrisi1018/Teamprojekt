@@ -38,7 +38,7 @@ public class FAController {
 	private JButton right;
 	private FATable[] tables;
 	private FAMenuBar menu;
-	private TableData data;
+	private TableData[] data;
 	private FAGui gui;
 	
 	/**
@@ -189,10 +189,24 @@ public class FAController {
 		});
 	}
 	
-	/**
-	 * Dummy Methode
-	 */
-	private void initTableData() { }
+	private void initTableData() {
+		int keyLength;
+		if (this.lengthTextField.getText().isEmpty()) {
+			keyLength = 0;
+		} else {
+			keyLength = Integer.valueOf(this.lengthTextField.getText());
+		}
+		float[][] allFrequencies = FAData.analyse(this.key.getController().getCryptoText(), keyLength);
+		
+		for (int i = 0; i < keyLength; i++) {
+			float[] oneFrequencies = new float[allFrequencies[i].length];
+			for (int j = 0; j < allFrequencies[i].length; j++) {
+				oneFrequencies[j] = allFrequencies[i][j];
+			}
+			this.data[i] = new TableData(oneFrequencies);
+		}
+	}
+	
 	/**
 	 * TODO muss noch ausgearbeitet werden, rudimentaer nur zum Testen
 	 */
