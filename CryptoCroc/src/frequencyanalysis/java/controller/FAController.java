@@ -196,6 +196,7 @@ public class FAController {
 			keyLength = 0;
 		} else {
 			keyLength = Integer.valueOf(this.lengthTextField.getText());
+			this.data = new TableData[keyLength];
 		}
 		float[][] allFrequencies = FAData.analyse(this.key.getController().getCryptoText(), keyLength);
 		
