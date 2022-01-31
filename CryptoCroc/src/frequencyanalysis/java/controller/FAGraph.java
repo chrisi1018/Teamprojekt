@@ -79,7 +79,7 @@ public class FAGraph {
 		// Bar chart eingabe parameter (Titel oben, Titel unten, Y Achse, dataset,
 		// ausrichtung der Balken, Legende erzeugen, Tooltips, URLs)
 		JFreeChart barChart = ChartFactory.createBarChart("", "", "", m, PlotOrientation.VERTICAL, false, false, false);
-
+		
 		// Plot holen des Charts und manuell Legende hinzufuegen; nur so koennen
 		// Orientierung und Textstil angepasst werden
 		CategoryPlot cplot = (CategoryPlot) barChart.getPlot();
@@ -130,8 +130,7 @@ public class FAGraph {
 
 		// konvertieren zu ChartPanel sodass es zum graphPanel hinzugefuegt werden kann
 		ChartPanel chP = new ChartPanel(barChart);
-		
-		chP.setPreferredSize(new Dimension(1260, 600));
+		chP.setPreferredSize(new Dimension(1260, 620));
 		graphPanel.add(chP, BorderLayout.CENTER);
 
 	}
