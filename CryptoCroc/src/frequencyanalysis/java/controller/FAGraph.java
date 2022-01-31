@@ -78,8 +78,7 @@ public class FAGraph {
 
 		// Bar chart eingabe parameter (Titel oben, Titel unten, Y Achse, dataset,
 		// ausrichtung der Balken, Legende erzeugen, Tooltips, URLs)
-		JFreeChart barChart = ChartFactory.createBarChart("", "", "", m,
-				PlotOrientation.VERTICAL, false, false, false);
+		JFreeChart barChart = ChartFactory.createBarChart("", "", "", m, PlotOrientation.VERTICAL, false, false, false);
 
 		// Plot holen des Charts und manuell Legende hinzufuegen; nur so koennen
 		// Orientierung und Textstil angepasst werden
@@ -98,6 +97,9 @@ public class FAGraph {
 		// Zahlenwerten ausblenden
 		cplot.setBackgroundPaint(Color.white);
 		cplot.getRangeAxis().setVisible(false);
+		// Abstand zu y-achse links und rechts
+		cplot.getDomainAxis().setLowerMargin(0.01);
+		cplot.getDomainAxis().setUpperMargin(0.01);
 
 		// Farben der Bars entsprechend ihrem Reihenschluessel faerben
 		((BarRenderer) cplot.getRenderer()).setBarPainter(new StandardBarPainter());
@@ -111,22 +113,25 @@ public class FAGraph {
 		// aktivieren
 		CategoryItemLabelGenerator generator = new StandardCategoryItemLabelGenerator();
 		renderer.setSeriesItemLabelGenerator(0, generator);
+
 		renderer.setSeriesItemLabelsVisible(0, true);
 		renderer.setSeriesPositiveItemLabelPosition(0,
-				new ItemLabelPosition(ItemLabelAnchor.OUTSIDE12, TextAnchor.CENTER));
+				new ItemLabelPosition(ItemLabelAnchor.OUTSIDE12, TextAnchor.CENTER, TextAnchor.CENTER, -Math.PI / 2));
+		renderer.setSeriesItemLabelFont(0, new Font(Font.DIALOG, Font.PLAIN, 10));
 		renderer.setSeriesItemLabelGenerator(1, generator);
 		renderer.setSeriesItemLabelsVisible(1, true);
 		renderer.setSeriesPositiveItemLabelPosition(1,
-				new ItemLabelPosition(ItemLabelAnchor.OUTSIDE1, TextAnchor.CENTER));
-		// abstand Werte zu balken
-		renderer.setItemLabelAnchorOffset(10);
-		
+				new ItemLabelPosition(ItemLabelAnchor.OUTSIDE12, TextAnchor.CENTER, TextAnchor.CENTER, -Math.PI / 2));
+		renderer.setSeriesItemLabelFont(1, new Font(Font.DIALOG, Font.BOLD, 10));
+		// abstand Werte-labels zu balken
+		renderer.setItemLabelAnchorOffset(15);
 
 		graphPanel = new JPanel();
 
 		// konvertieren zu ChartPanel sodass es zum graphPanel hinzugefuegt werden kann
 		ChartPanel chP = new ChartPanel(barChart);
-		chP.setPreferredSize(new Dimension(1260, 500));
+		
+		chP.setPreferredSize(new Dimension(1260, 600));
 		graphPanel.add(chP, BorderLayout.CENTER);
 
 	}
