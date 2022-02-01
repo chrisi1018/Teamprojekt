@@ -1,5 +1,12 @@
 package model;
 
+/**
+ * Die Klasse verwaltet den Haeufigkeitsprozentsatz und die Buchstaben-Reihenfolge des Textfelds.
+ * 
+ * @author chrisi
+ * @version 1.0
+ *
+ */
 public class TableData {
 	final private int TEXTFIELD_SIZE = 26;
 	
@@ -60,15 +67,13 @@ public class TableData {
 	 * @return den sortierten Haeufigkeitsprozentsatz
 	 */
 	public float[] getForGraph() {
-		float[] sortedFrequencyPercentage = new float[TEXTFIELD_SIZE];
+		float[] sortedFrequencyPercentage = new float[this.TEXTFIELD_SIZE];
 		char letter = 'A';
 		
 		for (int i = 0; i < this.textFieldChar.length; i++) { //Geht alle Buchstaben von A-Z durch
 			for (int j = 0; j < this.textFieldChar.length; j++) { //Geht alle eintraege in dem Textfeld-Array durch
-				if (i != j && this.textFieldChar[j] == (char) (letter + i)) { //Vertauscht die Prozentzahlen falls im 
-					float cachePercentage = this.frequencyPercentage[j];	  //Textfeld-Array der Buchstabe zuvor umgeordnet wurde
-					this.frequencyPercentage[j] = this.frequencyPercentage[i];
-					this.frequencyPercentage[i] = cachePercentage;
+				if (this.textFieldChar[j] == (char) (letter + i)) { //Vertauscht die Prozentzahlen falls im 
+					sortedFrequencyPercentage[j] = this.frequencyPercentage[i];
 				}
 			}
 		}
