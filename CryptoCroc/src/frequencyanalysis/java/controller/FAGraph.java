@@ -40,24 +40,28 @@ public class FAGraph {
 
 	private JPanel graphPanel;
 	// Buchstabenverteilungen
-	private double[] language;
-	private double[] actual;
+	private double[] fLanguage;
+	private double[] fActual;
 	private String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	private String language;
 
 	/**
 	 * Konstruktor fuer einen FAGraph, erstellt das GraphPanel
 	 * 
 	 * @param fLanguage Buchstabenverteilung einer uebergebenen Sprache
 	 * @param fActual   eigentliche Buchstabenverteilung im Text
+	 * @param language  die Sprache mit der der eingegebene Text verglichen werden
+	 *                  soll
 	 */
-	public FAGraph(float[] fLanguage, float[] fActual) throws IOException {
-		this.language = new double[fLanguage.length];
+	public FAGraph(float[] fLanguage, float[] fActual, String language) throws IOException {
+		this.language = language;
+		this.fLanguage = new double[fLanguage.length];
 		for (int i = 0; i < fLanguage.length; i++) {
-			this.language[i] = Double.parseDouble(Float.toString(fLanguage[i]));
+			this.fLanguage[i] = Double.parseDouble(Float.toString(fLanguage[i]));
 		}
-		this.actual = new double[fActual.length];
+		this.fActual = new double[fActual.length];
 		for (int i = 0; i < fActual.length; i++) {
-			this.actual[i] = Double.parseDouble(Float.toString(fActual[i]));
+			this.fActual[i] = Double.parseDouble(Float.toString(fActual[i]));
 		}
 		createGraphPanel();
 	}
@@ -70,13 +74,13 @@ public class FAGraph {
 		// zum Erstellen eines DataSets
 		DefaultKeyedValues2DDataset m = new DefaultKeyedValues2DDataset();
 
-		for (int i = 0; i < language.length; i++) {
+		for (int i = 0; i < fLanguage.length; i++) {
 			// Wert alle nacheinander
 			// Reihenschluessel, gleiche gehoeren zur gleichen Series
 			// Zeilenschluessel, gleiche gehoeren zum gleichen Buchstaben des Alphabets
 			// TODO andere Sprachen auch ermoeglichen
-			m.addValue(language[i], "Deutsche Verteilung", Character.toString(alphabet.charAt(i)));
-			m.addValue(actual[i], "Verteilung im Text", Character.toString(alphabet.charAt(i)));
+			m.addValue(fLanguage[i], language + "e Verteilung", Character.toString(alphabet.charAt(i)));
+			m.addValue(fActual[i], "Verteilung im Text", Character.toString(alphabet.charAt(i)));
 		}
 
 		// Bar chart eingabe parameter (Titel oben, Titel unten, Y Achse, dataset,
