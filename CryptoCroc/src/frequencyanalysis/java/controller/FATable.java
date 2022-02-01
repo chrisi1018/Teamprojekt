@@ -20,8 +20,8 @@ public class FATable {
 	private final int alphabetSize = 26;
 	
 	private TableData data;
-	private JTextField[] textFields;
-	private JLabel[] textLabels;
+	private JTextField[] textFields = new JTextField[alphabetSize];
+	private JLabel[] textLabels = new JLabel[alphabetSize];
 	private JPanel tablePanel;
 	private FAGraph graph;
 	private float[] language;
@@ -34,6 +34,7 @@ public class FATable {
 	 */
 	public FATable(TableData tableData, float[] language) {
 		this.data = tableData;
+		this.data.initTextFieldChar();
 		initTextFields();
 		initTextLabels();
 		this.tablePanel = createTablePanel();
@@ -126,9 +127,8 @@ public class FATable {
 	 * Initialisiert die 26 nicht-editierbaren, grauen Textfelder und setzt in diese die Buchstaben von 'A' bis 'Z'
 	 */
 	private void initTextFields() {
-		this.textFields = new JTextField[alphabetSize];
 		char firstLetter = 'A';
-		for (int i = 0; i < alphabetSize; i++) {
+		for (int i = 0; i < this.textFields.length; i++) {
 			this.textFields[i].setText(String.valueOf((char) i + firstLetter));
 			this.textFields[i].setEditable(false);
 			this.textFields[i].setEnabled(false);
@@ -139,9 +139,8 @@ public class FATable {
 	 * Initialisiert die 26 Labels und setzt in diese die Buchstaben von 'A' bis 'Z'
 	 */
 	private void initTextLabels() {
-		this.textLabels = new JLabel[alphabetSize];
 		char firstLetter = 'A';
-		for (int i = 0; i < alphabetSize; i++) {
+		for (int i = 0; i < this.textLabels.length; i++) {
 			this.textLabels[i] = new JLabel(String.valueOf((char) i + firstLetter), JLabel.CENTER);
 		}
 	}
