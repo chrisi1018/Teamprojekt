@@ -105,6 +105,11 @@ public abstract class KeyPanel {
 		this.crypt = newCrypt;
 	}
 	
+	/**
+	 * Gibt die MainController Instanz zurueck
+	 * 
+	 * @return die MainController-Instanz
+	 */
 	public MainController getController() {
 		return this.controller;
 	}
