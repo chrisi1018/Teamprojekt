@@ -58,11 +58,6 @@ public class TableDataTest {
 		
 		assertEquals('A', this.test.getTextFieldChar(8));
 		assertEquals('I', this.test.getTextFieldChar(0));
-		
-		for (int i = 0; i < 26; i++) {
-			System.out.print(this.test.getTextFieldChar(i) + " ,");
-		}
-		
 		assertArrayEquals(this.expectedFrequencyPercentage, this.test.getForGraph());
 	}
 
