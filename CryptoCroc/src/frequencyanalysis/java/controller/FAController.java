@@ -177,9 +177,6 @@ public class FAController {
 	/**
 	 * Initialisiert die FATable-Instanz fuer jeden Buchstaben im Schluessel
 	 */
-	private void initFAAlgo() {
-	}
-
 	private void initFATable() {
 		int keyLength;
 		if (this.lengthTextField.getText().isEmpty()) {
