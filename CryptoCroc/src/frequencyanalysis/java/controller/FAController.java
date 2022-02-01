@@ -58,12 +58,7 @@ public class FAController {
 		initLeftRight();
 		initFAMenuBar();
 		initTableData();
-		try {
-			initFATable();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		initFATable();
 	}
 	
 	/**
@@ -169,9 +164,8 @@ public class FAController {
 	
 	/**
 	 * Initialisiert die FATable-Instanz fuer jeden Buchstaben im Schluessel
-	 * @throws IOException 
 	 */
-	private void initFATable() throws IOException {
+	private void initFATable() {
 		int keyLength;
 		if (this.lengthTextField.getText().isEmpty()) {
 			keyLength = 0;
@@ -195,12 +189,7 @@ public class FAController {
 		this.menu.getMenuBar().getMenu(0).addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try {
-					initFATable();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				initFATable();
 				initTableData();
 				gui.repaint();
 			}

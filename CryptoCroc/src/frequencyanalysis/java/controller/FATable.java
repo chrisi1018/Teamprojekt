@@ -31,14 +31,18 @@ public class FATable {
 	 * 
 	 * @param tableData Daten der Haeufigkeitsanalyse
 	 * @param language Haeufigkeit der Zeichen in spezieller Sprache
-	 * @throws IOException 
 	 */
-	public FATable(TableData tableData, float[] language) throws IOException {
+	public FATable(TableData tableData, float[] language) {
 		this.data = tableData;
 		initTextFields();
 		initTextLabels();
 		this.tablePanel = createTablePanel();
-		this.graph = new FAGraph(language, this.data.getFrequencyPercantage());
+		try {
+			this.graph = new FAGraph(language, this.data.getFrequencyPercantage());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		this.language = language;
 	}
 	
@@ -54,9 +58,8 @@ public class FATable {
 	 * Schiebt den Inhalt der Textfelder in ihre rechten Nachbarfelder und den Inhalt des letzten
 	 * Textfeldes in das erste Textfeld. Ausserdem verschieben sich die Balken der Geheimtextbuchstaben
 	 * ihrer neuen Zuordnung entsprechend nach rechts
-	 * @throws IOException 
 	 */
-	public void shiftRight() throws IOException {
+	public void shiftRight() {
 		String lastChar = this.textFields[25].getText();
 		for (int i = this.textFields.length - 1; i < 0; i--) {
 			this.textFields[i].setText(this.textFields[(i + 25) % alphabetSize].getText());
@@ -64,16 +67,20 @@ public class FATable {
 		}
 		this.textFields[0].setText(lastChar);
 		this.data.setTextFieldChar(this.data.getTextFieldChar(lastChar.charAt(0)), 0);
-		this.graph.setGraphPanel(new FAGraph(this.language, this.data.getForGraph()).getGraphPanel());
+		try {
+			this.graph.setGraphPanel(new FAGraph(this.language, this.data.getForGraph()).getGraphPanel());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	/**
 	 * Schiebt den Inhalt der Textfelder in ihre linken Nachbarfelder und den Inhalt des ersten
 	 * Textfeldes in das letzte Textfeld. Ausserdem verschieben sich die Balken der Geheimtextbuchstaben
 	 * ihrer neuen Zuordnung entsprechend nach links
-	 * @throws IOException 
 	 */
-	public void shiftLeft() throws IOException {
+	public void shiftLeft() {
 		String firstChar = this.textFields[0].getText();
 		for (int i = 0; i < this.textFields.length - 1; i++) {
 			this.textFields[i].setText(this.textFields[(i + 1) % alphabetSize].getText());
@@ -81,7 +88,12 @@ public class FATable {
 		}
 		this.textFields[this.textFields.length - 1].setText(firstChar);
 		this.data.setTextFieldChar(this.data.getTextFieldChar(firstChar.charAt(0)), alphabetSize - 1);
-		this.graph.setGraphPanel(new FAGraph(this.language, this.data.getForGraph()).getGraphPanel());
+		try {
+			this.graph.setGraphPanel(new FAGraph(this.language, this.data.getForGraph()).getGraphPanel());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	/**
@@ -89,9 +101,8 @@ public class FATable {
 	 * neue Character zuvor allein stand
 	 * 
 	 * @param swapIndex Index des Textfeldes, in dem der alte Character durch einen neuen ersetzt wurde
-	 * @throws IOException 
 	 */
-	public void swapChar(int swapIndex) throws IOException {
+	public void swapChar(int swapIndex) {
 		char oldChar = this.data.getTextFieldChar(swapIndex);
 		char newChar = this.textFields[swapIndex].getText().charAt(0);
 		int newIndex = 0;
@@ -103,7 +114,12 @@ public class FATable {
 		this.textFields[newIndex].setText(String.valueOf(oldChar));
 		this.data.setTextFieldChar(newChar, swapIndex);
 		this.data.setTextFieldChar(oldChar, newIndex);
-		this.graph.setGraphPanel(new FAGraph(this.language, this.data.getForGraph()).getGraphPanel());
+		try {
+			this.graph.setGraphPanel(new FAGraph(this.language, this.data.getForGraph()).getGraphPanel());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	/**
