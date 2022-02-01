@@ -191,4 +191,14 @@ public class FATable {
 			this.textLabels[i] = new JLabel("" + (char) (i + firstLetter), JLabel.CENTER);
 		}
 	}
+	
+	/**
+	 * Aktiviert die Textfelder und macht sie editierbar
+	 */
+	public void enableTextFields() {
+		for (int i = 0; i < this.textFields.length; i++) {
+			this.textFields[i].setEnabled(true);
+			this.textFields[i].setEditable(true);
+		}
+	}
 }
