@@ -190,6 +190,9 @@ public class FAController {
 		});
 	}
 	
+	/**
+	 * Initialisiert data[] mit den jeweiligen Haeufigkeiten
+	 */
 	private void initTableData() {
 		int keyLength;
 		if (this.lengthTextField.getText().isEmpty()) {
@@ -200,6 +203,7 @@ public class FAController {
 		}
 		float[][] allFrequencies = FAData.analyse(this.key.getController().getCryptoText(), keyLength);
 		
+		// 2D-Array wird in 1D-Array umgewandelt und im Konstruktor uebergeben
 		for (int i = 0; i < keyLength; i++) {
 			float[] oneFrequencies = new float[allFrequencies[i].length];
 			for (int j = 0; j < allFrequencies[i].length; j++) {
