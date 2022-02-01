@@ -9,28 +9,28 @@ import javax.swing.JTextField;
 import model.TableData;
 
 /**
- * Diese Klasse modelliert die Zuordnungstabelle der Buchstaben fuer die Haeufigkeitsanalyse
- * und ihr zugehoeriges Balkendiagramm
+ * Diese Klasse modelliert die Zuordnungstabelle der Buchstaben fuer die
+ * Haeufigkeitsanalyse und ihr zugehoeriges Balkendiagramm
  * 
  * @author Julian Singer
  * @version 1.0
  */
 public class FATable {
-	
+
 	private final int alphabetSize = 26;
-	
+
 	private TableData data;
 	private JTextField[] textFields = new JTextField[alphabetSize];
 	private JLabel[] textLabels = new JLabel[alphabetSize];
 	private JPanel tablePanel;
 	private FAGraph graph;
 	private float[] language;
-	
+
 	/**
 	 * Konstruktor, der die Haeufigkeiten der Sprache und des Geheimtextes uebergibt
 	 * 
 	 * @param tableData Daten der Haeufigkeitsanalyse
-	 * @param language Haeufigkeit der Zeichen in spezieller Sprache
+	 * @param language  Haeufigkeit der Zeichen in spezieller Sprache
 	 */
 	public FATable(TableData tableData, float[] language) {
 		this.data = tableData;
@@ -39,26 +39,27 @@ public class FATable {
 		initTextLabels();
 		this.tablePanel = createTablePanel();
 		try {
-			this.graph = new FAGraph(language, this.data.getFrequencyPercantage());
+			this.graph = new FAGraph(language, this.data.getFrequencyPercentage(), FAController.getCurrentLanguage());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		this.language = language;
 	}
-	
+
 	/**
 	 * Dummy
 	 */
 	public JPanel createTablePanel() {
-		//TODO
+		// TODO
 		return new JPanel();
 	}
-	
+
 	/**
-	 * Schiebt den Inhalt der Textfelder in ihre rechten Nachbarfelder und den Inhalt des letzten
-	 * Textfeldes in das erste Textfeld. Ausserdem verschieben sich die Balken der Geheimtextbuchstaben
-	 * ihrer neuen Zuordnung entsprechend nach rechts
+	 * Schiebt den Inhalt der Textfelder in ihre rechten Nachbarfelder und den
+	 * Inhalt des letzten Textfeldes in das erste Textfeld. Ausserdem verschieben
+	 * sich die Balken der Geheimtextbuchstaben ihrer neuen Zuordnung entsprechend
+	 * nach rechts
 	 */
 	public void shiftRight() {
 		String lastChar = this.textFields[25].getText();
@@ -69,17 +70,19 @@ public class FATable {
 		this.textFields[0].setText(lastChar);
 		this.data.setTextFieldChar(this.data.getTextFieldChar(lastChar.charAt(0)), 0);
 		try {
-			this.graph.setGraphPanel(new FAGraph(this.language, this.data.getForGraph()).getGraphPanel());
+			this.graph.setGraphPanel(
+					new FAGraph(this.language, this.data.getForGraph(), FAController.getCurrentLanguage())
+							.getGraphPanel());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
-	 * Schiebt den Inhalt der Textfelder in ihre linken Nachbarfelder und den Inhalt des ersten
-	 * Textfeldes in das letzte Textfeld. Ausserdem verschieben sich die Balken der Geheimtextbuchstaben
-	 * ihrer neuen Zuordnung entsprechend nach links
+	 * Schiebt den Inhalt der Textfelder in ihre linken Nachbarfelder und den Inhalt
+	 * des ersten Textfeldes in das letzte Textfeld. Ausserdem verschieben sich die
+	 * Balken der Geheimtextbuchstaben ihrer neuen Zuordnung entsprechend nach links
 	 */
 	public void shiftLeft() {
 		String firstChar = this.textFields[0].getText();
@@ -90,18 +93,21 @@ public class FATable {
 		this.textFields[this.textFields.length - 1].setText(firstChar);
 		this.data.setTextFieldChar(this.data.getTextFieldChar(firstChar.charAt(0)), alphabetSize - 1);
 		try {
-			this.graph.setGraphPanel(new FAGraph(this.language, this.data.getForGraph()).getGraphPanel());
+			this.graph.setGraphPanel(
+					new FAGraph(this.language, this.data.getForGraph(), FAController.getCurrentLanguage())
+							.getGraphPanel());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
-	 * Setzt den vorigen/alten Character des Textfeldes an der uebergebenen Stelle in das Textfeld, in dem der
-	 * neue Character zuvor allein stand
+	 * Setzt den vorigen/alten Character des Textfeldes an der uebergebenen Stelle
+	 * in das Textfeld, in dem der neue Character zuvor allein stand
 	 * 
-	 * @param swapIndex Index des Textfeldes, in dem der alte Character durch einen neuen ersetzt wurde
+	 * @param swapIndex Index des Textfeldes, in dem der alte Character durch einen
+	 *                  neuen ersetzt wurde
 	 */
 	public void swapChar(int swapIndex) {
 		char oldChar = this.data.getTextFieldChar(swapIndex);
@@ -116,25 +122,29 @@ public class FATable {
 		this.data.setTextFieldChar(newChar, swapIndex);
 		this.data.setTextFieldChar(oldChar, newIndex);
 		try {
-			this.graph.setGraphPanel(new FAGraph(this.language, this.data.getForGraph()).getGraphPanel());
+			this.graph.setGraphPanel(
+					new FAGraph(this.language, this.data.getForGraph(), FAController.getCurrentLanguage())
+							.getGraphPanel());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
-	 * Initialisiert die 26 nicht-editierbaren, grauen Textfelder und setzt in diese die Buchstaben von 'A' bis 'Z'
+	 * Initialisiert die 26 nicht-editierbaren, grauen Textfelder und setzt in diese
+	 * die Buchstaben von 'A' bis 'Z'
 	 */
 	private void initTextFields() {
 		char firstLetter = 'A';
 		for (int i = 0; i < this.textFields.length; i++) {
+			this.textFields[i] = new JTextField();
 			this.textFields[i].setText(String.valueOf((char) i + firstLetter));
 			this.textFields[i].setEditable(false);
 			this.textFields[i].setEnabled(false);
 		}
 	}
-	
+
 	/**
 	 * Initialisiert die 26 Labels und setzt in diese die Buchstaben von 'A' bis 'Z'
 	 */
