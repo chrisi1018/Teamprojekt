@@ -28,7 +28,7 @@ public class FAGui {
 	private JLabel mainLabel;
 	private JButton left;
 	private JButton right;
-	private String language;
+	private JComboBox<String> language;
 	private JComboBox<String> keyChar;
 	private JLabel lengthLabel;
 	private JTextField lengthTextField;
@@ -38,23 +38,26 @@ public class FAGui {
 	 * Konstruktor der den Frame fuer die Haeufigkeitsanalyse erstellt und das
 	 * Layout festlegt
 	 * 
-	 * @param menu       die Menue-Bar
-	 * @param graphPanel das Panel das den Graph enthaelt
-	 * @param table      das Panel das die Reihe an Buchstaben enthaelt
+	 * @param menu            die Menue-Bar
+	 * @param graphPanel      das Panel das den Graph enthaelt
+	 * @param table           das Panel das die Reihe an Buchstaben enthaelt
 	 * @param left
 	 * @param right
 	 * @param language
 	 * @param keyChar
+	 * @param lengthLabel
+	 * @param lengthTextField
+	 * @param monoCheckBox
 	 */
-	public FAGui(JMenuBar menu, JPanel graphPanel, JPanel table, JButton left, JButton right, String language,
-			JComboBox<String> keyChar) {
+	public FAGui(JMenuBar menu, JPanel graphPanel, JPanel table, JButton left, JButton right,
+			JComboBox<String> language, JComboBox<String> keyChar, JLabel lengthLabel, JTextField lengthTextField,
+			JCheckBox monoCheckBox) {
 		// erstellt den Frame
 		this.frame = new JFrame("H\u00e4ufigkeitsanalyse");
 		this.frame.setSize(1280, 800);
 		this.frame.setVisible(true);
 		this.frame.setLayout(new BorderLayout(0, 0));
 		this.mainPanel = new JPanel(new BorderLayout(4, 4));
-		this.frame.setJMenuBar(menu);
 
 		// alles sichtbar machen
 		this.mainLabel = new JLabel("H\u00e4ufigkeitsanalyse");
@@ -67,9 +70,21 @@ public class FAGui {
 		this.table = table;
 		this.table.setVisible(true);
 		this.left = left;
+		this.left.setVisible(true);
 		this.right = right;
+		this.right.setVisible(true);
 		this.language = language;
+		this.language.setVisible(true);
 		this.keyChar = keyChar;
+		this.keyChar.setVisible(true);
+		this.lengthLabel = lengthLabel;
+		this.lengthLabel.setVisible(true);
+		this.lengthTextField = lengthTextField;
+		this.lengthTextField.setVisible(true);
+		this.monoCheckBox = monoCheckBox;
+		this.monoCheckBox.setVisible(true);
+
+		this.frame.setJMenuBar(menu);
 
 		initMainPanel();
 		initBorder();
@@ -77,8 +92,31 @@ public class FAGui {
 		this.frame.setVisible(true);
 	}
 
+	/**
+	 * Panel mit TitelLabel und Schluessellaenge text + textfeld, sowie checkbox
+	 * fuer monoalphabetisch
+	 */
+	private JPanel initTopPanel() {
+		JPanel top = new JPanel();
+		top.add(mainLabel, BorderLayout.NORTH);
+		top.add(lengthLabel, BorderLayout.WEST);
+		top.add(lengthTextField, BorderLayout.CENTER);
+		top.add(monoCheckBox, BorderLayout.EAST);
+		return top;
+	}
+
+	/**
+	 * Panel mit Combobox fuer Sprache und Buchstaben
+	 */
+	private JPanel initLeftPanel() {
+		JPanel left = new JPanel();
+		left.add(language, BorderLayout.NORTH);
+		left.add(keyChar, BorderLayout.SOUTH);
+		return left;
+	}
+
 	private void initBorder() {
-		this.frame.add(this.mainPanel, BorderLayout.CENTER);
+		this.frame.add(mainPanel, BorderLayout.CENTER);
 		this.frame.add(new JPanel(), BorderLayout.NORTH);
 		this.frame.add(new JPanel(), BorderLayout.SOUTH);
 		this.frame.add(new JPanel(), BorderLayout.EAST);
@@ -86,8 +124,9 @@ public class FAGui {
 	}
 
 	private void initMainPanel() {
-		this.mainPanel.add(this.graphPanel, BorderLayout.CENTER);
-		this.mainPanel.add(mainLabel, BorderLayout.NORTH);
+		this.mainPanel.add(graphPanel, BorderLayout.CENTER);
+		this.mainPanel.add(initTopPanel(), BorderLayout.NORTH);
+		this.mainPanel.add(initLeftPanel(), BorderLayout.WEST);
 	}
 
 	/**

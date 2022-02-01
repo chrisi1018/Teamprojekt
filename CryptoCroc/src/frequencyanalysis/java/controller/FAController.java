@@ -234,7 +234,7 @@ public class FAController {
 	 * Erstellt die GUI fuer die Haeufigkeitsanalyse
 	 */
 	private void initFAGui() {
-		this.gui = new FAGui(menu.getMenuBar(), graph.getGraphPanel(), new JPanel(), left, right, getCurrentLanguage(),
-				keyChar);
+		this.gui = new FAGui(menu.getMenuBar(), graph.getGraphPanel(), new JPanel(), left, right, language, keyChar,
+				lengthLabel, lengthTextField, monoCheckBox);
 	}
 }
