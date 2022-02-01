@@ -7,6 +7,7 @@ import javax.swing.JComboBox;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import view.FAGui;
@@ -55,10 +56,14 @@ public class FAController {
 		initLanguage();
 		initKeyChar(1);
 		initLeftRight();
-		initFAAlgo();
-		initFATable();
 		initFAMenuBar();
 		initTableData();
+		try {
+			initFATable();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	/**
@@ -163,14 +168,21 @@ public class FAController {
 	}
 	
 	/**
-	 * Dummy- Methode
+	 * Initialisiert die FATable-Instanz fuer jeden Buchstaben im Schluessel
+	 * @throws IOException 
 	 */
-	private void initFAAlgo() { }
-	
-	/**
-	 * Dummy Methode
-	 */
-	private void initFATable() { }
+	private void initFATable() throws IOException {
+		int keyLength;
+		if (this.lengthTextField.getText().isEmpty()) {
+			keyLength = 0;
+		} else {
+			keyLength = Integer.valueOf(this.lengthTextField.getText());
+			this.tables = new FATable[keyLength];
+		}
+		for (int i = 0; i < keyLength; i++) {
+			this.tables[i] = new FATable(this.data[i], this.languageData);
+		}
+	}
 	
 	/**
 	 * Initialisiert die Menueleiste und fuegt den Menues ActionListener hinzu
@@ -183,7 +195,12 @@ public class FAController {
 		this.menu.getMenuBar().getMenu(0).addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				initFATable();
+				try {
+					initFATable();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				initTableData();
 				gui.repaint();
 			}
