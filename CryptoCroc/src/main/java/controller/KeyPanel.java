@@ -104,6 +104,15 @@ public abstract class KeyPanel {
 	public void setCrypt(Crypt newCrypt) {
 		this.crypt = newCrypt;
 	}
+	
+	/**
+	 * Gibt die MainController Instanz zurueck
+	 * 
+	 * @return die MainController-Instanz
+	 */
+	public MainController getController() {
+		return this.controller;
+	}
 
 	/**
 	 * Der Klartext wird verschluesselt und im Geheimtextfeld ausgegeben.

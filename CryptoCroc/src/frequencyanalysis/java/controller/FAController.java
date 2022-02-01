@@ -40,7 +40,7 @@ public class FAController {
 	private JButton right;
 	private FATable[] tables;
 	private FAMenuBar menu;
-	private TableData data;
+	private TableData[] data;
 	private FAGui gui;
 	private FAGraph graph;
 
@@ -67,11 +67,11 @@ public class FAController {
 		initLanguage();
 		initKeyChar(1);
 		initLeftRight();
-		initFAAlgo();
-		initFATable();
 		initFAMenuBar();
 		initTableData();
+		initFATable();
 		initFAGui();
+
 	}
 
 	/**
@@ -175,15 +175,22 @@ public class FAController {
 	}
 
 	/**
-	 * Dummy- Methode
+	 * Initialisiert die FATable-Instanz fuer jeden Buchstaben im Schluessel
 	 */
 	private void initFAAlgo() {
 	}
 
-	/**
-	 * Dummy Methode
-	 */
 	private void initFATable() {
+		int keyLength;
+		if (this.lengthTextField.getText().isEmpty()) {
+			keyLength = 0;
+		} else {
+			keyLength = Integer.valueOf(this.lengthTextField.getText());
+			this.tables = new FATable[keyLength];
+		}
+		for (int i = 0; i < keyLength; i++) {
+			this.tables[i] = new FATable(this.data[i], this.languageData);
+		}
 	}
 
 	/**
@@ -205,9 +212,26 @@ public class FAController {
 	}
 
 	/**
-	 * Dummy Methode
+	 * Initialisiert data[] mit den jeweiligen Haeufigkeiten
 	 */
 	private void initTableData() {
+		int keyLength;
+		if (this.lengthTextField.getText().isEmpty()) {
+			keyLength = 0;
+		} else {
+			keyLength = Integer.valueOf(this.lengthTextField.getText());
+			this.data = new TableData[keyLength];
+		}
+		float[][] allFrequencies = FAData.analyse(this.key.getController().getCryptoText(), keyLength);
+
+		// 2D-Array wird in 1D-Array umgewandelt und im Konstruktor uebergeben
+		for (int i = 0; i < keyLength; i++) {
+			float[] oneFrequencies = new float[allFrequencies[i].length];
+			for (int j = 0; j < allFrequencies[i].length; j++) {
+				oneFrequencies[j] = allFrequencies[i][j];
+			}
+			this.data[i] = new TableData(oneFrequencies);
+		}
 	}
 
 	/**

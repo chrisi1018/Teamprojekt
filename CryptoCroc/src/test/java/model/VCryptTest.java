@@ -93,6 +93,7 @@ public class VCryptTest {
 	 * Testet die Methode encryptAll und decrypt All mit einem BeispielText und
 	 * BeispeilSchluessel
 	 */
+	@Test
 	void testCryptAll() {
 		assertEquals(codeText, test.cryptAll(testText, testkey));
 		assertEquals(testText, test.decryptAll(codeText, testkey));
