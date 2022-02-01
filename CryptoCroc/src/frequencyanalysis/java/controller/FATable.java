@@ -201,4 +201,22 @@ public class FATable {
 			this.textFields[i].setEditable(true);
 		}
 	}
+	
+	/**
+	 * Getter fuer den zugehoerigen Graphen
+	 * 
+	 * @return aktueller Graph
+	 */
+	public FAGraph getGraph() {
+		return this.graph;
+	}
+	
+	/**
+	 * Getter fuer das zugehoerige TablePanel
+	 * 
+	 * @return aktuelles TablePanel
+	 */
+	public JPanel getTablePanel() {
+		return this.tablePanel;
+	}
 }
