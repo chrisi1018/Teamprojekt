@@ -29,7 +29,6 @@ import javax.swing.text.PlainDocument;
 public class FAController {
 
 	private KeyPanel key;
-	private JLabel title;
 	private JLabel lengthLabel;
 	private JTextField lengthTextField;
 	private JCheckBox monoCheckBox;
@@ -43,6 +42,9 @@ public class FAController {
 	private TableData[] data;
 	private FAGui gui;
 	private FAGraph graph;
+	// speichert die aktuelle Sprache statisch ab, sodass andere Klassen hier auch
+	// drauf zugreifen koennen
+	private static String currentLanguage;
 
 	/**
 	 * Der Konstruktor fuer die Klasse FaControlle siehe init-Methoden fuer mehr
@@ -50,18 +52,8 @@ public class FAController {
 	 * 
 	 * @param key das keyPanel, entweder V, M oder C, des Main-Frames
 	 */
-	FAController(KeyPanel key) {
-
+	public FAController(KeyPanel key) {
 		this.key = key;
-
-		try {
-			graph = new FAGraph(FAData.GERMAN, FAData.GERMAN);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		initTitle();
 		initLength();
 		initMonoCheckBox();
 		initLanguage();
@@ -70,24 +62,31 @@ public class FAController {
 		initFAMenuBar();
 		initTableData();
 		initFATable();
+		currentLanguage = language.getSelectedItem().toString();
+		try {
+			graph = new FAGraph(languageData, data[0].getFrequencyPercentage(), currentLanguage);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		initFAGui();
 
 	}
 
 	/**
-	 * Erstellt den Titel "Haufigkeitsanalyse" TODO wird vielleicht nicht gebraucht
+	 * Damit FATable Zugang hat zur aktuell ausgewaehlten Sprache
+	 * 
+	 * @return die aktuelle Sprache
 	 */
-	private void initTitle() {
-		this.title = new JLabel("H\u00e4ufigkeitsanalyse");
-		this.title.setVisible(true);
+	public static String getCurrentLanguage() {
+		return currentLanguage;
 	}
 
 	/**
-	 * Erstell das JLabel fuer die Laenge, erstell das JTextFeld fuer die Laenge, es
-	 * koennen nur Zahlen eingegebn werden.
+	 * Erstellt das JLabel fuer die Laenge, erstellt das JTextFeld fuer die Laenge,
+	 * es koennen nur Zahlen eingegebn werden.
 	 */
 	private void initLength() {
-
 		this.lengthLabel = new JLabel("Schl\u00fcssell\u00e4nge");
 		this.lengthLabel.setVisible(true);
 
@@ -139,7 +138,7 @@ public class FAController {
 	}
 
 	/**
-	 * Erstellt das DropDownMenue mit dem Man die Sprache auswaehlt
+	 * Erstellt das DropDownMenue mit dem man die Sprache auswaehlt
 	 */
 	private void initLanguage() {
 		String[] languages = { "Deutsch" };
@@ -232,9 +231,10 @@ public class FAController {
 	}
 
 	/**
-	 * TODO muss noch ausgearbeitet werden, rudimentaer nur zum Testen
+	 * Erstellt die GUI fuer die Haeufigkeitsanalyse
 	 */
 	private void initFAGui() {
-		this.gui = new FAGui(menu.getMenuBar(), graph.getGraphPanel(), new JPanel());
+		this.gui = new FAGui(menu.getMenuBar(), graph.getGraphPanel(), new JPanel(), left, right, getCurrentLanguage(),
+				keyChar);
 	}
 }
