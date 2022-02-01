@@ -95,7 +95,7 @@ public class FATable {
 			letterPanel.setLayout(new BoxLayout(letterPanel, BoxLayout.PAGE_AXIS));
 			letterPanel.add(this.textLabels[i]);
 			letterPanel.add(this.textFields[i]);
-			letterPanel.setPreferredSize(new Dimension(25, 50));
+			letterPanel.setPreferredSize(new Dimension(30, 50));
 			tablePanel.add(letterPanel);
 		}
 		return tablePanel;
@@ -175,7 +175,8 @@ public class FATable {
 	private void initTextFields() {
 		char firstLetter = 'A';
 		for (int i = 0; i < this.textFields.length; i++) {
-			this.textFields[i].setText(String.valueOf((char) i + firstLetter));
+			this.textFields[i] = new JTextField();
+			this.textFields[i].setText("" + (char) (i + firstLetter));
 			this.textFields[i].setEditable(false);
 			this.textFields[i].setEnabled(false);
 		}
@@ -187,7 +188,7 @@ public class FATable {
 	private void initTextLabels() {
 		char firstLetter = 'A';
 		for (int i = 0; i < this.textLabels.length; i++) {
-			this.textLabels[i] = new JLabel(String.valueOf((char) i + firstLetter), JLabel.CENTER);
+			this.textLabels[i] = new JLabel("" + (char) (i + firstLetter), JLabel.CENTER);
 		}
 	}
 }
