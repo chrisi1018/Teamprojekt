@@ -1,7 +1,15 @@
 package controller;
 
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.io.IOException;
 
+import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -48,11 +56,49 @@ public class FATable {
 	}
 	
 	/**
-	 * Dummy
+	 * Erzeugt das TablePanel fuer die Zuordnung der Buchstaben und gibt dieses zurueck
+	 * 
+	 * @return tablePanel Panel fuer Buchstabeneingabe
 	 */
 	public JPanel createTablePanel() {
-		//TODO
-		return new JPanel();
+		int maxInput = 1;
+		FlowLayout fLayout = new FlowLayout();
+		fLayout.setVgap(25);
+		JPanel tablePanel = new JPanel(fLayout);
+		for (int i = 0; i < alphabetSize; i++) {
+			//erstellt JPanel mit JLabel als Titel
+			JPanel title = new JPanel();
+			JLabel letter = this.textLabels[i];
+			title.setLayout(new BoxLayout(title, BoxLayout.PAGE_AXIS));
+			letter.setAlignmentX(Component.CENTER_ALIGNMENT);
+			this.textLabels[i].setFont(new Font(Font.DIALOG, Font.BOLD, 19));
+			title.add(letter, BorderLayout.SOUTH);
+			//initialisiert Eintraege der Textfelder und setzt den Textstil
+			this.textFields[i].setFont(new Font(Font.DIALOG, Font.BOLD, 15));
+			this.textFields[i].setColumns(1);
+			this.textFields[i].setPreferredSize(new Dimension(19, 30));
+			this.textFields[i].setDocument(new LimitedTextfield(maxInput, i, this.textFields));
+			//markiert beim Klicken den Text im Textfeld
+			int j = i;
+			this.textFields[i].addFocusListener(new FocusListener() {
+				@Override
+				public void focusGained(FocusEvent e) {
+					textFields[j].selectAll();
+				}
+				@Override
+				public void focusLost(FocusEvent e) {
+					// tue nichts
+				}
+			});
+			//fuegt alles in einem JPanel zusammen
+			JPanel letterPanel = new JPanel();
+			letterPanel.setLayout(new BoxLayout(letterPanel, BoxLayout.PAGE_AXIS));
+			letterPanel.add(this.textLabels[i]);
+			letterPanel.add(this.textFields[i]);
+			letterPanel.setPreferredSize(new Dimension(25, 50));
+			tablePanel.add(letterPanel);
+		}
+		return tablePanel;
 	}
 	
 	/**
@@ -69,10 +115,10 @@ public class FATable {
 		this.textFields[0].setText(lastChar);
 		this.data.setTextFieldChar(this.data.getTextFieldChar(lastChar.charAt(0)), 0);
 		try {
-			this.graph.setGraphPanel(new FAGraph(this.language, this.data.getForGraph()).getGraphPanel());
-		} catch (IOException e) {
+			this.graph = new FAGraph(this.language, this.data.getForGraph());
+		} catch (IOException e1) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e1.printStackTrace();
 		}
 	}
 	
@@ -90,10 +136,10 @@ public class FATable {
 		this.textFields[this.textFields.length - 1].setText(firstChar);
 		this.data.setTextFieldChar(this.data.getTextFieldChar(firstChar.charAt(0)), alphabetSize - 1);
 		try {
-			this.graph.setGraphPanel(new FAGraph(this.language, this.data.getForGraph()).getGraphPanel());
-		} catch (IOException e) {
+			this.graph = new FAGraph(this.language, this.data.getForGraph());
+		} catch (IOException e1) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e1.printStackTrace();
 		}
 	}
 	
@@ -116,10 +162,10 @@ public class FATable {
 		this.data.setTextFieldChar(newChar, swapIndex);
 		this.data.setTextFieldChar(oldChar, newIndex);
 		try {
-			this.graph.setGraphPanel(new FAGraph(this.language, this.data.getForGraph()).getGraphPanel());
-		} catch (IOException e) {
+			this.graph = new FAGraph(this.language, this.data.getForGraph());
+		} catch (IOException e1) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e1.printStackTrace();
 		}
 	}
 	
