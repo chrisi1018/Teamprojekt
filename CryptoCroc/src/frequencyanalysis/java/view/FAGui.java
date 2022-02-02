@@ -62,7 +62,7 @@ public class FAGui {
 			JCheckBox monoCheckBox) {
 		// erstellt den Frame
 		this.frame = new JFrame("H\u00e4ufigkeitsanalyse");
-		this.frame.setSize(1280, 800);
+		this.frame.setSize(1280, 650);
 		this.frame.setResizable(false);
 		this.frame.setVisible(true);
 		this.frame.setLayout(new GridBagLayout());
@@ -132,8 +132,11 @@ public class FAGui {
 		this.frame.add(mainPanel, c);
 
 		// padding nach unten
+		// TODO hier ist platz fuer das Feld mit dem Schluessel; eventuell muss die
+		// Groesse des frame's auf (1260, 700) umgestellt werden
 		c.ipady = 0;
 		c.gridy = 2;
+		c.ipadx = 30;
 		c.fill = GridBagConstraints.HORIZONTAL;
 		this.frame.add(new JPanel(), c);
 	}
@@ -189,23 +192,32 @@ public class FAGui {
 	 * den ComboBoxen eingefuegt
 	 */
 	private JPanel initTable() {
-		JPanel tables = new JPanel(new BorderLayout());
-		tables.add(initComboBoxPanel(), BorderLayout.WEST);
-		
-		JPanel panBut = new JPanel(new BorderLayout());
-		this.left.setPreferredSize(new Dimension(20, 20));
-		panBut.add(this.left, BorderLayout.WEST);
-		panBut.add(table[0].getTablePanel(), BorderLayout.CENTER);
-		this.right.setPreferredSize(new Dimension(20, 20));
-		panBut.add(this.right, BorderLayout.EAST);
-		
-		tables.add(panBut, BorderLayout.CENTER);
-		
-		return tables;
+
+		JPanel total = new JPanel(new BorderLayout());
+
+		JPanel tableWithButtons = new JPanel(new FlowLayout(FlowLayout.LEADING));
+		JPanel filler = new JPanel();
+		filler.setPreferredSize(new Dimension(40, 0));
+		tableWithButtons.add(filler);
+
+		left.setPreferredSize(new Dimension(30, 30));
+		tableWithButtons.add(left);
+
+		tableWithButtons.add(table[0].getTablePanel());
+
+		right.setPreferredSize(new Dimension(30, 30));
+		tableWithButtons.add(right);
+
+		total.add(initComboBoxPanel(), BorderLayout.WEST);
+		total.add(tableWithButtons, BorderLayout.CENTER);
+
+		return total;
 	}
 
+	/**
+	 * Fuellt das MainPanel mit dem Graph, sowie der Buchstabenreihe und den Buttons
+	 */
 	private void initMainPanel() {
-		//
 		this.mainPanel.add(initTable(), BorderLayout.NORTH);
 		this.mainPanel.add(graphPanel, BorderLayout.CENTER);
 	}
