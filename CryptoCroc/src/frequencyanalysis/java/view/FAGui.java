@@ -9,8 +9,16 @@ import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import controller.FATable;
+
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 
 /**
  * Erstellt den Frame und legt das Layout der Haeufigkeitsanalyse fest
@@ -22,7 +30,7 @@ public class FAGui {
 
 	private JFrame frame;
 	private JPanel graphPanel;
-	private JPanel table;
+	private FATable[] table;
 	private JMenuBar menu;
 	private JPanel mainPanel;
 	private JLabel mainLabel;
@@ -49,17 +57,18 @@ public class FAGui {
 	 * @param lengthTextField
 	 * @param monoCheckBox
 	 */
-	public FAGui(JMenuBar menu, JPanel graphPanel, JPanel table, JButton left, JButton right,
+	public FAGui(JMenuBar menu, JPanel graphPanel, FATable[] table, JButton left, JButton right,
 			JComboBox<String> language, JComboBox<String> keyChar, JLabel lengthLabel, JTextField lengthTextField,
 			JCheckBox monoCheckBox) {
 		// erstellt den Frame
 		this.frame = new JFrame("H\u00e4ufigkeitsanalyse");
 		this.frame.setSize(1280, 800);
+		this.frame.setResizable(false);
 		this.frame.setVisible(true);
-		this.frame.setLayout(new BorderLayout(0, 0));
+		this.frame.setLayout(new GridBagLayout());
 		this.mainPanel = new JPanel(new BorderLayout(4, 4));
 
-		// alles sichtbar machen
+		// alles sichtbar machen und initialisieren
 		this.mainLabel = new JLabel("H\u00e4ufigkeitsanalyse");
 		this.mainLabel.setVisible(true);
 		this.mainLabel.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
@@ -67,8 +76,6 @@ public class FAGui {
 		this.menu.setVisible(true);
 		this.graphPanel = graphPanel;
 		this.graphPanel.setVisible(true);
-		this.table = table;
-		this.table.setVisible(true);
 		this.left = left;
 		this.left.setVisible(true);
 		this.right = right;
@@ -84,56 +91,131 @@ public class FAGui {
 		this.monoCheckBox = monoCheckBox;
 		this.monoCheckBox.setVisible(true);
 
+		this.table = table;
+
+		// Menu leiste einstellen
 		this.frame.setJMenuBar(menu);
 
-		initMainPanel();
-		initBorder();
+		// Groesse der Comboboxen einheitlich machen nach der maximalen Anzahl
+		// Buchstaben fuer Vigenere
+		keyChar.setPrototypeDisplayValue("999. Buchstabe");
+		language.setPrototypeDisplayValue("999. Buchstabe");
 
+		// alles platzieren
+		initMainPanel();
+		initFrameBorders();
 		this.frame.setVisible(true);
 	}
 
 	/**
-	 * Panel mit TitelLabel und Schluessellaenge text + textfeld, sowie checkbox
-	 * fuer monoalphabetisch
+	 * Positioniert das oberste Panel das in <code>initTopPanelForFrame()</code>
+	 * erstellt wird, das mainPanel mit den Komponenten und fuegt Padding in alle
+	 * Richtungen hinzu
 	 */
-	private JPanel initTopPanel() {
+	private void initFrameBorders() {
+		GridBagConstraints c = new GridBagConstraints();
+		c.gridx = 0;
+		c.gridy = 0;
+		c.ipadx = 30;
+		this.frame.add(initTopPanelForFrame(), c);
+		// rechts davon leer
+		c.gridx = 1;
+		c.ipadx = 0;
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridwidth = 2;
+		this.frame.add(new JPanel(), c);
+
+		// mainPanel mit Graph, Buttons, ComboBoxen, usw
+		c.gridx = 0;
+		c.gridy = 1;
+		c.ipady = 40;
+		this.frame.add(mainPanel, c);
+
+		// padding nach unten
+		c.ipady = 0;
+		c.gridy = 2;
+		c.fill = GridBagConstraints.HORIZONTAL;
+		this.frame.add(new JPanel(), c);
+	}
+
+	/**
+	 * Erstellt das oberste Panel, welches aus zwei Panels besteht; toptop enthaelt
+	 * das Label mit dem Titel "Haeufigkeitsanalyse" und topbottom enthaelt das
+	 * Label mit Schluessellaenge, das Textfeld fuer Buchstabenlaenge und die
+	 * MonoCheckBox
+	 */
+	private JPanel initTopPanelForFrame() {
+		GridLayout gl = new GridLayout(1, 2);
+		// enthaelt toptop und topbottom
 		JPanel top = new JPanel();
-		top.add(mainLabel, BorderLayout.NORTH);
-		top.add(lengthLabel, BorderLayout.WEST);
-		top.add(lengthTextField, BorderLayout.CENTER);
-		top.add(monoCheckBox, BorderLayout.EAST);
+		// enthaelt das Label Haeufigkeitsanalyse
+		JPanel toptop = new JPanel(gl);
+		// enthaelt Schluessellange bis ComboBox
+		JPanel topbottom = new JPanel();
+
+		// mainLabel zu Panel hinzuefuegen
+		JPanel label = new JPanel();
+		label.add(mainLabel, BorderLayout.BEFORE_LINE_BEGINS);
+
+		toptop.add(label, BorderLayout.BEFORE_FIRST_LINE);
+		toptop.add(new JPanel(), BorderLayout.PAGE_START);
+		// Label am Rand und Schatten von Wort "Haeufigkeitsanalyse" genau gleich wie
+		// Schatten von "Schluessellaenge"
+		toptop.setPreferredSize(new Dimension(1260 / 2 - 36, 40));
+		top.add(toptop, BorderLayout.BEFORE_LINE_BEGINS);
+
+		// Komponenten hinzufuegen
+		topbottom.add(lengthLabel, BorderLayout.LINE_START);
+		topbottom.add(lengthTextField, BorderLayout.CENTER);
+		topbottom.add(monoCheckBox, BorderLayout.LINE_END);
+		top.add(topbottom, BorderLayout.PAGE_END);
+		top.setPreferredSize(new Dimension(500, 100));
 		return top;
 	}
 
 	/**
-	 * Panel mit Combobox fuer Sprache und Buchstaben
+	 * Linkes Panel mit Comboboxen fuer Sprache und Buchstaben
 	 */
-	private JPanel initLeftPanel() {
+	private JPanel initComboBoxPanel() {
 		JPanel left = new JPanel();
-		left.add(language, BorderLayout.NORTH);
-		left.add(keyChar, BorderLayout.SOUTH);
+		left.add(language, BorderLayout.PAGE_START);
+		left.add(keyChar, BorderLayout.PAGE_END);
+		left.setPreferredSize(new Dimension(150, 50));
 		return left;
 	}
 
-	private void initBorder() {
-		this.frame.add(mainPanel, BorderLayout.CENTER);
-		this.frame.add(new JPanel(), BorderLayout.NORTH);
-		this.frame.add(new JPanel(), BorderLayout.SOUTH);
-		this.frame.add(new JPanel(), BorderLayout.EAST);
-		this.frame.add(new JPanel(), BorderLayout.WEST);
+	/**
+	 * Panel mit den Buttons und der Buchstabenreihe; hier wird auch das Panel mit
+	 * den ComboBoxen eingefuegt
+	 */
+	private JPanel initTable() {
+		JPanel tables = new JPanel(new BorderLayout());
+		tables.add(initComboBoxPanel(), BorderLayout.WEST);
+		
+		JPanel panBut = new JPanel(new BorderLayout());
+		this.left.setPreferredSize(new Dimension(20, 20));
+		panBut.add(this.left, BorderLayout.WEST);
+		panBut.add(table[0].getTablePanel(), BorderLayout.CENTER);
+		this.right.setPreferredSize(new Dimension(20, 20));
+		panBut.add(this.right, BorderLayout.EAST);
+		
+		tables.add(panBut, BorderLayout.CENTER);
+		
+		return tables;
 	}
 
 	private void initMainPanel() {
+		//
+		this.mainPanel.add(initTable(), BorderLayout.NORTH);
 		this.mainPanel.add(graphPanel, BorderLayout.CENTER);
-		this.mainPanel.add(initTopPanel(), BorderLayout.NORTH);
-		this.mainPanel.add(initLeftPanel(), BorderLayout.WEST);
 	}
 
 	/**
-	 * Dummy-Methode TODO muss noch implementiert werden
+	 * Methode die den Frame repainted, muss nach Veraenderungen der Gui aufgerufen
+	 * werden
 	 */
 	public void repaint() {
-		this.mainLabel.revalidate();
-		this.mainLabel.repaint();
+		this.mainPanel.revalidate();
+		this.mainPanel.repaint();
 	}
 }
