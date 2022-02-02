@@ -1,7 +1,15 @@
 package controller;
 
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.io.IOException;
 
+import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -48,11 +56,51 @@ public class FATable {
 	}
 
 	/**
-	 * Dummy
+	 * Erzeugt das TablePanel fuer die Zuordnung der Buchstaben und gibt dieses
+	 * zurueck
+	 * 
+	 * @return tablePanel Panel fuer Buchstabeneingabe
 	 */
 	public JPanel createTablePanel() {
-		// TODO
-		return new JPanel();
+		int maxInput = 1;
+		FlowLayout fLayout = new FlowLayout();
+		fLayout.setVgap(25);
+		JPanel tablePanel = new JPanel(fLayout);
+		for (int i = 0; i < alphabetSize; i++) {
+			// erstellt JPanel mit JLabel als Titel
+			JPanel title = new JPanel();
+			JLabel letter = this.textLabels[i];
+			title.setLayout(new BoxLayout(title, BoxLayout.PAGE_AXIS));
+			letter.setAlignmentX(Component.CENTER_ALIGNMENT);
+			this.textLabels[i].setFont(new Font(Font.DIALOG, Font.BOLD, 19));
+			title.add(letter, BorderLayout.SOUTH);
+			// initialisiert Eintraege der Textfelder und setzt den Textstil
+			this.textFields[i].setFont(new Font(Font.DIALOG, Font.BOLD, 15));
+			this.textFields[i].setColumns(1);
+			this.textFields[i].setPreferredSize(new Dimension(19, 30));
+			this.textFields[i].setDocument(new LimitedTextfield(maxInput, i, this.textFields));
+			// markiert beim Klicken den Text im Textfeld
+			int j = i;
+			this.textFields[i].addFocusListener(new FocusListener() {
+				@Override
+				public void focusGained(FocusEvent e) {
+					textFields[j].selectAll();
+				}
+
+				@Override
+				public void focusLost(FocusEvent e) {
+					// tue nichts
+				}
+			});
+			// fuegt alles in einem JPanel zusammen
+			JPanel letterPanel = new JPanel();
+			letterPanel.setLayout(new BoxLayout(letterPanel, BoxLayout.PAGE_AXIS));
+			letterPanel.add(this.textLabels[i]);
+			letterPanel.add(this.textFields[i]);
+			letterPanel.setPreferredSize(new Dimension(30, 50));
+			tablePanel.add(letterPanel);
+		}
+		return tablePanel;
 	}
 
 	/**
@@ -73,9 +121,9 @@ public class FATable {
 			this.graph.setGraphPanel(
 					new FAGraph(this.language, this.data.getForGraph(), FAController.getCurrentLanguage())
 							.getGraphPanel());
-		} catch (IOException e) {
+		} catch (IOException e1) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e1.printStackTrace();
 		}
 	}
 
@@ -96,9 +144,9 @@ public class FATable {
 			this.graph.setGraphPanel(
 					new FAGraph(this.language, this.data.getForGraph(), FAController.getCurrentLanguage())
 							.getGraphPanel());
-		} catch (IOException e) {
+		} catch (IOException e1) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e1.printStackTrace();
 		}
 	}
 
@@ -125,9 +173,8 @@ public class FATable {
 			this.graph.setGraphPanel(
 					new FAGraph(this.language, this.data.getForGraph(), FAController.getCurrentLanguage())
 							.getGraphPanel());
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
 		}
 	}
 
@@ -139,7 +186,7 @@ public class FATable {
 		char firstLetter = 'A';
 		for (int i = 0; i < this.textFields.length; i++) {
 			this.textFields[i] = new JTextField();
-			this.textFields[i].setText(String.valueOf((char) i + firstLetter));
+			this.textFields[i].setText("" + (char) (i + firstLetter));
 			this.textFields[i].setEditable(false);
 			this.textFields[i].setEnabled(false);
 		}
@@ -151,7 +198,35 @@ public class FATable {
 	private void initTextLabels() {
 		char firstLetter = 'A';
 		for (int i = 0; i < this.textLabels.length; i++) {
-			this.textLabels[i] = new JLabel(String.valueOf((char) i + firstLetter), JLabel.CENTER);
+			this.textLabels[i] = new JLabel("" + (char) (i + firstLetter), JLabel.CENTER);
 		}
+	}
+
+	/**
+	 * Aktiviert die Textfelder und macht sie editierbar
+	 */
+	public void enableTextFields() {
+		for (int i = 0; i < this.textFields.length; i++) {
+			this.textFields[i].setEnabled(true);
+			this.textFields[i].setEditable(true);
+		}
+	}
+
+	/**
+	 * Getter fuer den zugehoerigen Graphen
+	 * 
+	 * @return aktueller Graph
+	 */
+	public FAGraph getGraph() {
+		return this.graph;
+	}
+
+	/**
+	 * Getter fuer das zugehoerige TablePanel
+	 * 
+	 * @return aktuelles TablePanel
+	 */
+	public JPanel getTablePanel() {
+		return this.tablePanel;
 	}
 }
