@@ -4,7 +4,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.geom.Rectangle2D;
 import java.io.IOException;
 
 import javax.swing.JPanel;
@@ -12,7 +11,6 @@ import javax.swing.JPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.axis.NumberTickUnit;
 import org.jfree.chart.labels.CategoryItemLabelGenerator;
@@ -34,7 +32,7 @@ import org.jfree.data.general.DefaultKeyedValues2DDataset;
  * Erstellt die Grafik zur Buchstabenverteilung der Haeufigkeitsanalyse
  * 
  * @author zes
- * @version 1.0
+ * @version 1.4
  */
 public class FAGraph {
 
@@ -78,7 +76,6 @@ public class FAGraph {
 			// Wert alle nacheinander
 			// Reihenschluessel, gleiche gehoeren zur gleichen Series
 			// Zeilenschluessel, gleiche gehoeren zum gleichen Buchstaben des Alphabets
-			// TODO andere Sprachen auch ermoeglichen
 			m.addValue(fLanguage[i], language + "e Verteilung", Character.toString(alphabet.charAt(i)));
 			m.addValue(fActual[i], "Verteilung im Text", Character.toString(alphabet.charAt(i)));
 		}

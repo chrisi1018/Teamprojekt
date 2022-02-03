@@ -12,7 +12,6 @@ import javax.swing.JTextField;
 import controller.FATable;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -49,13 +48,14 @@ public class FAGui {
 	 * @param menu            die Menue-Bar
 	 * @param graphPanel      das Panel das den Graph enthaelt
 	 * @param table           das Panel das die Reihe an Buchstaben enthaelt
-	 * @param left
-	 * @param right
-	 * @param language
-	 * @param keyChar
-	 * @param lengthLabel
-	 * @param lengthTextField
-	 * @param monoCheckBox
+	 * @param left            den linken button
+	 * @param right           den rechten button
+	 * @param language        eine ComboBox mit allen moeglichen Sprachen
+	 * @param keyChar         eine ComboBox mit der Anzahl der Buchstaben
+	 * @param lengthLabel     das Label fuer "Schluessellaenge"
+	 * @param lengthTextField das Textfeld fuer die Eingabe der Schluessellaenge
+	 * @param monoCheckBox    eine Checkbox fuer die monoalphabetische
+	 *                        Verschluesselung
 	 */
 	public FAGui(JMenuBar menu, JPanel graphPanel, FATable[] table, JButton left, JButton right,
 			JComboBox<String> language, JComboBox<String> keyChar, JLabel lengthLabel, JTextField lengthTextField,

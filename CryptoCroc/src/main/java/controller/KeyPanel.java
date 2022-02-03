@@ -13,7 +13,7 @@ import view.Messages;
  * Beschreibt Aufbau der Spalte fuer die Buttons und die Schluessel in
  * CryptoCroc
  * 
- * @author chrisi
+ * @author chrisi, zes
  * @version 1.1
  */
 public abstract class KeyPanel {

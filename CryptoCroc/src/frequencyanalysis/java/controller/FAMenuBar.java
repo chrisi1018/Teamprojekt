@@ -8,19 +8,21 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 
 /**
- * Beschreibt Aufbau und Funktion der Menueleiste im Fenster der Haeufigkeitsanalyse
+ * Beschreibt Aufbau und Funktion der Menueleiste im Fenster der
+ * Haeufigkeitsanalyse
  * 
  * @author Julian Singer
  * @version 1.0
  */
 public class FAMenuBar {
-	
+
 	private final String[] options = new String[] { "Text neu laden", "Erkl\u00e4rung" };
-	
+
 	private JMenuBar menuBar;
-	
+
 	/**
-	 * Konstruktor, der die im Array "options" festgelegten Menuepunkte der Menueleiste hinzufuegt
+	 * Konstruktor, der die im Array "options" festgelegten Menuepunkte der
+	 * Menueleiste hinzufuegt
 	 */
 	public FAMenuBar() {
 		this.menuBar = new JMenuBar();
@@ -29,12 +31,12 @@ public class FAMenuBar {
 			this.menuBar.add(menu);
 		}
 	}
-	
+
 	/**
-	 * Oeffnet einen uebergebenen Frame, sobald das Menueitem an uebergebener Stelle angeklickt wird
+	 * Oeffnet einen uebergebenen Frame, sobald das Menueitem an uebergebener Stelle
+	 * angeklickt wird
 	 * 
 	 * @param barIndex Index des Menues in der Menueleiste
-	 * @param menuIndex Index des Items im Menue
 	 * @param newFrame zu erstellendes Fenster
 	 */
 	public void initExplanationItem(int barIndex, JFrame newFrame) {
@@ -45,7 +47,7 @@ public class FAMenuBar {
 			}
 		});
 	}
-	
+
 	/**
 	 * Gibt die Menueleiste der aktuellen Instanz zurueck
 	 * 
@@ -54,5 +56,5 @@ public class FAMenuBar {
 	public JMenuBar getMenuBar() {
 		return this.menuBar;
 	}
-	
+
 }

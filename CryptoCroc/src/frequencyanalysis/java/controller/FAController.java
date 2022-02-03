@@ -1,7 +1,6 @@
 package controller;
 
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -23,7 +22,7 @@ import javax.swing.text.PlainDocument;
 /**
  * Die Klasse stellt den Hauptcontroller der Haufigkeitsanalyse dar
  * 
- * @author Julian Sturm
+ * @author Julian Sturm, zes
  * @version 1.0
  */
 public class FAController {
@@ -234,7 +233,7 @@ public class FAController {
 	 * Erstellt die GUI fuer die Haeufigkeitsanalyse
 	 */
 	private void initFAGui() {
-		this.gui = new FAGui(menu.getMenuBar(), graph.getGraphPanel(), tables, left, right,
-				language, keyChar, lengthLabel, lengthTextField, monoCheckBox);
+		this.gui = new FAGui(menu.getMenuBar(), graph.getGraphPanel(), tables, left, right, language, keyChar,
+				lengthLabel, lengthTextField, monoCheckBox);
 	}
 }
