@@ -208,8 +208,8 @@ public class FAGui {
 		right.setPreferredSize(new Dimension(30, 30));
 		tableWithButtons.add(right);
 
-		total.add(initComboBoxPanel(), BorderLayout.WEST);
-		total.add(tableWithButtons, BorderLayout.CENTER);
+		total.add(initComboBoxPanel(), BorderLayout.CENTER);
+		total.add(tableWithButtons, BorderLayout.EAST);
 
 		return total;
 	}
