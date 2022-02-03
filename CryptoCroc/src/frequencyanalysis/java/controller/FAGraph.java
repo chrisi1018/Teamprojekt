@@ -120,12 +120,13 @@ public class FAGraph {
 		// aktivieren
 		CategoryItemLabelGenerator generator = new StandardCategoryItemLabelGenerator();
 		renderer.setSeriesItemLabelGenerator(0, generator);
-
+		renderer.setSeriesItemLabelPaint(0, new Color(74, 115, 14));
 		renderer.setSeriesItemLabelsVisible(0, true);
 		renderer.setSeriesPositiveItemLabelPosition(0,
 				new ItemLabelPosition(ItemLabelAnchor.OUTSIDE12, TextAnchor.CENTER, TextAnchor.CENTER, -Math.PI / 2));
 		renderer.setSeriesItemLabelFont(0, new Font(Font.DIALOG, Font.PLAIN, 10));
 		renderer.setSeriesItemLabelGenerator(1, generator);
+		renderer.setSeriesItemLabelPaint(1, new Color(185, 137, 0));
 		renderer.setSeriesItemLabelsVisible(1, true);
 		renderer.setSeriesPositiveItemLabelPosition(1,
 				new ItemLabelPosition(ItemLabelAnchor.OUTSIDE12, TextAnchor.CENTER, TextAnchor.CENTER, -Math.PI / 2));
