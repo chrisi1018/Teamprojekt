@@ -95,8 +95,6 @@ public class FATable {
 					// tue nichts
 				}
 			});
-			// wegen setDocument-Aufruf nochmals initialisieren sodass text angezeigt wird
-			this.initTextFields();
 			// fuegt alles in einem JPanel zusammen
 			JPanel letterPanel = new JPanel();
 			letterPanel.setLayout(new BoxLayout(letterPanel, BoxLayout.PAGE_AXIS));
@@ -104,6 +102,13 @@ public class FATable {
 			letterPanel.add(this.textFields[i]);
 			letterPanel.setPreferredSize(new Dimension(30, 50));
 			tablePanel.add(letterPanel);
+		}
+		// wegen setDocument-Aufruf nochmals initialisieren sodass text angezeigt wird
+		char firstLetter = 'A';
+		for (int i = 0; i < this.textFields.length; i++) {
+			this.textFields[i].setText("" + (char) (i + firstLetter));
+			this.textFields[i].setEnabled(false);
+			this.textFields[i].setEditable(false);
 		}
 		return tablePanel;
 	}
