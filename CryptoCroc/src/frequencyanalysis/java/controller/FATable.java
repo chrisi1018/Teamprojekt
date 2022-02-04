@@ -26,6 +26,7 @@ import model.TableData;
 public class FATable {
 
 	private final int alphabetSize = 26;
+	private final int maxInput = 1;
 
 	private TableData data;
 	private JTextField[] textFields = new JTextField[alphabetSize];
@@ -78,6 +79,8 @@ public class FATable {
 			this.textFields[i].setFont(new Font(Font.DIALOG, Font.BOLD, 15));
 			this.textFields[i].setColumns(1);
 			this.textFields[i].setPreferredSize(new Dimension(19, 30));
+			// DIESER AUFRUF LOESCHT DEN AKTUELLEN INHALT DER TEXTFELDER (liegt am setzen
+			// des Documents):
 			this.textFields[i].setDocument(new LimitedTextfield(maxInput, i, this.textFields));
 			// markiert beim Klicken den Text im Textfeld
 			int j = i;
@@ -92,6 +95,8 @@ public class FATable {
 					// tue nichts
 				}
 			});
+			// wegen setDocument-Aufruf nochmals initialisieren sodass text angezeigt wird
+			this.initTextFields();
 			// fuegt alles in einem JPanel zusammen
 			JPanel letterPanel = new JPanel();
 			letterPanel.setLayout(new BoxLayout(letterPanel, BoxLayout.PAGE_AXIS));
@@ -187,8 +192,8 @@ public class FATable {
 		for (int i = 0; i < this.textFields.length; i++) {
 			this.textFields[i] = new JTextField();
 			this.textFields[i].setText("" + (char) (i + firstLetter));
-			this.textFields[i].setEditable(false);
 			this.textFields[i].setEnabled(false);
+			this.textFields[i].setEditable(false);
 		}
 	}
 
