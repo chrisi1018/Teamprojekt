@@ -26,7 +26,6 @@ import model.TableData;
 public class FATable {
 
 	private final int alphabetSize = 26;
-	private final int maxInput = 1;
 
 	private TableData data;
 	private JTextField[] textFields = new JTextField[alphabetSize];
@@ -46,7 +45,7 @@ public class FATable {
 		this.data.initTextFieldChar();
 		initTextFields();
 		initTextLabels();
-		this.tablePanel = createTablePanel();
+		createTablePanel();
 		try {
 			this.graph = new FAGraph(language, this.data.getFrequencyPercentage(), FAController.getCurrentLanguage());
 		} catch (IOException e) {
@@ -62,7 +61,7 @@ public class FATable {
 	 * 
 	 * @return tablePanel Panel fuer Buchstabeneingabe
 	 */
-	public JPanel createTablePanel() {
+	public void createTablePanel() {
 		int maxInput = 1;
 		FlowLayout fLayout = new FlowLayout();
 		fLayout.setVgap(25);
@@ -106,11 +105,12 @@ public class FATable {
 		// wegen setDocument-Aufruf nochmals initialisieren sodass text angezeigt wird
 		char firstLetter = 'A';
 		for (int i = 0; i < this.textFields.length; i++) {
+			this.textFields[i].setHorizontalAlignment(JTextField.CENTER);
 			this.textFields[i].setText("" + (char) (i + firstLetter));
 			this.textFields[i].setEnabled(false);
 			this.textFields[i].setEditable(false);
 		}
-		return tablePanel;
+		this.tablePanel = tablePanel;
 	}
 
 	/**
