@@ -12,7 +12,7 @@ import view.VExplanationFrame;
 /**
  * Klasse die fuer das Erzeugen der GUI-Elemente zustaendig ist
  * 
- * @author zes
+ * @author zes, Julian Singer
  * @version 1.1
  */
 public class MainController {
