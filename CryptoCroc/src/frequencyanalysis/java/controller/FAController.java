@@ -7,6 +7,8 @@ import javax.swing.event.MenuListener;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import javax.swing.JButton;
@@ -22,7 +24,7 @@ import javax.swing.text.PlainDocument;
 /**
  * Die Klasse stellt den Hauptcontroller der Haufigkeitsanalyse dar
  * 
- * @author Julian Sturm, zes
+ * @author Julian Sturm, zes, Julian Singer
  * @version 1.0
  */
 public class FAController {
@@ -147,7 +149,8 @@ public class FAController {
 	}
 
 	/**
-	 * Erstellt das DropDownMenue fuer die Auswahl des Buchstabens
+	 * Erstellt das DropDownMenue fuer die Auswahl des Buchstabens und legt die Aktion beim Klick auf
+	 * eine der moeglichen Optionen fest
 	 * 
 	 * @param count Anzahl der Auswahlmoeglichkeiten
 	 */
@@ -158,7 +161,13 @@ public class FAController {
 		}
 		this.keyChar = new JComboBox<String>(number);
 		this.keyChar.setVisible(true);
-
+		this.keyChar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int letterIndex = Integer.parseInt(keyChar.getSelectedItem().toString().substring(0, 1)) - 1;
+				gui.setTable(letterIndex);
+			}
+		});
 	}
 
 	/**
