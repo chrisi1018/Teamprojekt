@@ -23,13 +23,14 @@ import java.awt.GridLayout;
 /**
  * Erstellt den Frame und legt das Layout der Haeufigkeitsanalyse fest
  * 
- * @author zes
- * @version 1.0
+ * @author zes, Julian Singer
+ * @version 1.1
  */
 public class FAGui {
 
 	private JFrame frame;
 	private FAGraph graph;
+	private JPanel graphPanel;
 	private FATable[] table;
 	private JMenuBar menu;
 	private JPanel mainPanel;
@@ -75,6 +76,7 @@ public class FAGui {
 		this.menu = menu;
 		this.menu.setVisible(true);
 		this.graph = graph;
+		this.graphPanel = graph.getGraphPanel();
 		this.left = left;
 		this.left.setVisible(true);
 		this.right = right;
@@ -101,7 +103,7 @@ public class FAGui {
 		language.setPrototypeDisplayValue("999. Buchstabe");
 
 		// alles platzieren
-		initMainPanel();
+		initMainPanel(0);
 		initFrameBorders();
 		this.frame.setVisible(true);
 	}
@@ -189,8 +191,10 @@ public class FAGui {
 	/**
 	 * Panel mit den Buttons und der Buchstabenreihe; hier wird auch das Panel mit
 	 * den ComboBoxen eingefuegt
+	 * 
+	 * @param tableNumber Gibt an, welche Buchstabenreihe eingefuegt werden soll
 	 */
-	private JPanel initTable() {
+	private JPanel initTable(int tableNumber) {
 
 		JPanel total = new JPanel(new BorderLayout());
 
@@ -202,7 +206,7 @@ public class FAGui {
 		left.setPreferredSize(new Dimension(30, 30));
 		tableWithButtons.add(left);
 
-		tableWithButtons.add(table[0].getTablePanel());
+		tableWithButtons.add(table[tableNumber].getTablePanel());
 
 		right.setPreferredSize(new Dimension(30, 30));
 		tableWithButtons.add(right);
@@ -214,10 +218,25 @@ public class FAGui {
 	}
 
 	/**
-	 * Fuellt das MainPanel mit dem Graph, sowie der Buchstabenreihe und den Buttons
+	 * Wechselt zur Buchstabenreihe und dem zugehoerigen Graphen von der
+	 * uebergebenen Schluesselbuchstabennummer
+	 * 
+	 * @param tableNumber Buchstabennummer des Schluessels
 	 */
-	private void initMainPanel() {
-		this.mainPanel.add(initTable(), BorderLayout.NORTH);
+	public void setTable(int tableNumber) {
+		this.graphPanel = this.table[tableNumber].getGraph().getGraphPanel();
+		this.mainPanel = new JPanel(new BorderLayout(4, 4));
+		initMainPanel(tableNumber);
+		repaint();
+	}
+
+	/**
+	 * Fuellt das MainPanel mit dem Graph, sowie der Buchstabenreihe und den Buttons
+	 * 
+	 * @param tableNumber Gibt an, welche Buchstabenreihe eingefuegt werden soll
+	 */
+	private void initMainPanel(int tableNumber) {
+		this.mainPanel.add(initTable(tableNumber), BorderLayout.NORTH);
 		this.mainPanel.add(this.graph.getGraphPanel(), BorderLayout.CENTER);
 	}
 
