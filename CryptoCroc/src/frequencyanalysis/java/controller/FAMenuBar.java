@@ -50,6 +50,7 @@ public class FAMenuBar {
 			//ueberschriebene Methoden brauchen keine konkrete Implementierung
 			@Override
 			public void menuDeselected(MenuEvent e) { }
+			
 			@Override
 			public void menuCanceled(MenuEvent e) { }
 		});
