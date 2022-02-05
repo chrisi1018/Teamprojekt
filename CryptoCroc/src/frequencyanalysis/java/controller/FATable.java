@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import model.TableData;
+import view.FAGui;
 
 /**
  * Diese Klasse modelliert die Zuordnungstabelle der Buchstaben fuer die
@@ -26,6 +27,7 @@ import model.TableData;
 public class FATable {
 
 	private final int alphabetSize = 26;
+	private final int maxInput = 1;
 
 	private TableData data;
 	private JTextField[] textFields = new JTextField[alphabetSize];
@@ -33,14 +35,17 @@ public class FATable {
 	private JPanel tablePanel;
 	private FAGraph graph;
 	private float[] language;
+	private FAGui gui;
 
 	/**
 	 * Konstruktor, der die Haeufigkeiten der Sprache und des Geheimtextes uebergibt
 	 * 
 	 * @param tableData Daten der Haeufigkeitsanalyse
 	 * @param language  Haeufigkeit der Zeichen in spezieller Sprache
+	 * @param gui
 	 */
-	public FATable(TableData tableData, float[] language) {
+	public FATable(TableData tableData, float[] language, FAGui gui) {
+		this.gui = gui;
 		this.data = tableData;
 		this.data.initTextFieldChar();
 		initTextFields();
@@ -78,6 +83,8 @@ public class FATable {
 			this.textFields[i].setFont(new Font(Font.DIALOG, Font.BOLD, 15));
 			this.textFields[i].setColumns(1);
 			this.textFields[i].setPreferredSize(new Dimension(19, 30));
+			// DIESER AUFRUF LOESCHT DEN AKTUELLEN INHALT DER TEXTFELDER (liegt am setzen
+			// des Documents):
 			this.textFields[i].setDocument(new LimitedTextfield(maxInput, i, this.textFields));
 			// markiert beim Klicken den Text im Textfeld
 			int j = i;
@@ -92,6 +99,7 @@ public class FATable {
 					// tue nichts
 				}
 			});
+
 			// fuegt alles in einem JPanel zusammen
 			JPanel letterPanel = new JPanel();
 			letterPanel.setLayout(new BoxLayout(letterPanel, BoxLayout.PAGE_AXIS));
@@ -100,6 +108,15 @@ public class FATable {
 			letterPanel.setPreferredSize(new Dimension(30, 50));
 			tablePanel.add(letterPanel);
 		}
+		// wegen setDocument-Aufruf nochmals initialisieren sodass text angezeigt wird
+		char firstLetter = 'A';
+		for (int i = 0; i < this.textFields.length; i++) {
+			this.textFields[i].setText("" + (char) (i + firstLetter));
+			this.textFields[i].setEnabled(true);
+			this.textFields[i].setEditable(true);
+			this.textFields[i].getDocument().addDocumentListener(new TextChangeListener(gui, this.getGraph()));
+		}
+
 		return tablePanel;
 	}
 
@@ -187,8 +204,9 @@ public class FATable {
 		for (int i = 0; i < this.textFields.length; i++) {
 			this.textFields[i] = new JTextField();
 			this.textFields[i].setText("" + (char) (i + firstLetter));
-			this.textFields[i].setEditable(false);
-			this.textFields[i].setEnabled(false);
+			this.textFields[i].setEnabled(true);
+			this.textFields[i].setEditable(true);
+			this.textFields[i].getDocument().addDocumentListener(new TextChangeListener(gui, this.getGraph()));
 		}
 	}
 

@@ -184,7 +184,7 @@ public class FAController {
 			this.tables = new FATable[keyLength];
 		}
 		for (int i = 0; i < keyLength; i++) {
-			this.tables[i] = new FATable(this.data[i], this.languageData);
+			this.tables[i] = new FATable(this.data[i], this.languageData, this.gui);
 		}
 	}
 
@@ -233,7 +233,7 @@ public class FAController {
 	 * Erstellt die GUI fuer die Haeufigkeitsanalyse
 	 */
 	private void initFAGui() {
-		this.gui = new FAGui(menu.getMenuBar(), graph.getGraphPanel(), tables, left, right, language, keyChar,
+		this.gui = new FAGui(menu.getMenuBar(), graph, tables, left, right, language, keyChar,
 				lengthLabel, lengthTextField, monoCheckBox);
 	}
 }

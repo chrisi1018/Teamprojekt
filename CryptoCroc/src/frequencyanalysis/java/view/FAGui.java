@@ -9,6 +9,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import controller.FAGraph;
 import controller.FATable;
 
 import java.awt.BorderLayout;
@@ -28,7 +29,7 @@ import java.awt.GridLayout;
 public class FAGui {
 
 	private JFrame frame;
-	private JPanel graphPanel;
+	private FAGraph graph;
 	private FATable[] table;
 	private JMenuBar menu;
 	private JPanel mainPanel;
@@ -46,7 +47,7 @@ public class FAGui {
 	 * Layout festlegt
 	 * 
 	 * @param menu            die Menue-Bar
-	 * @param graphPanel      das Panel das den Graph enthaelt
+	 * @param graph           der aktuelle Graph
 	 * @param table           das Panel das die Reihe an Buchstaben enthaelt
 	 * @param left            den linken button
 	 * @param right           den rechten button
@@ -57,12 +58,11 @@ public class FAGui {
 	 * @param monoCheckBox    eine Checkbox fuer die monoalphabetische
 	 *                        Verschluesselung
 	 */
-	public FAGui(JMenuBar menu, JPanel graphPanel, FATable[] table, JButton left, JButton right,
-			JComboBox<String> language, JComboBox<String> keyChar, JLabel lengthLabel, JTextField lengthTextField,
-			JCheckBox monoCheckBox) {
+	public FAGui(JMenuBar menu, FAGraph graph, FATable[] table, JButton left, JButton right, JComboBox<String> language,
+			JComboBox<String> keyChar, JLabel lengthLabel, JTextField lengthTextField, JCheckBox monoCheckBox) {
 		// erstellt den Frame
 		this.frame = new JFrame("H\u00e4ufigkeitsanalyse");
-		this.frame.setSize(1280, 650);
+		this.frame.setSize(1300, 650);
 		this.frame.setResizable(false);
 		this.frame.setVisible(true);
 		this.frame.setLayout(new GridBagLayout());
@@ -74,8 +74,7 @@ public class FAGui {
 		this.mainLabel.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
 		this.menu = menu;
 		this.menu.setVisible(true);
-		this.graphPanel = graphPanel;
-		this.graphPanel.setVisible(true);
+		this.graph = graph;
 		this.left = left;
 		this.left.setVisible(true);
 		this.right = right;
@@ -219,7 +218,14 @@ public class FAGui {
 	 */
 	private void initMainPanel() {
 		this.mainPanel.add(initTable(), BorderLayout.NORTH);
-		this.mainPanel.add(graphPanel, BorderLayout.CENTER);
+		this.mainPanel.add(this.graph.getGraphPanel(), BorderLayout.CENTER);
+	}
+
+	/**
+	 * @param graph
+	 */
+	public void updateGraph(FAGraph graph) {
+		this.graph = graph;
 	}
 
 	/**
