@@ -1,18 +1,17 @@
 package controller;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.event.MenuEvent;
+import javax.swing.event.MenuListener;
 
 /**
  * Beschreibt Aufbau und Funktion der Menueleiste im Fenster der
  * Haeufigkeitsanalyse
  * 
  * @author Julian Singer
- * @version 1.0
+ * @version 1.1
  */
 public class FAMenuBar {
 
@@ -40,11 +39,20 @@ public class FAMenuBar {
 	 * @param newFrame zu erstellendes Fenster
 	 */
 	public void initExplanationItem(int barIndex, JFrame newFrame) {
-		menuBar.getMenu(barIndex).addActionListener(new ActionListener() {
+		menuBar.getMenu(barIndex).addMenuListener(new MenuListener() {
+			//Setzt das uebergebene Erklaerungsfenster in den Vordergrund und macht es sichtbar
 			@Override
-			public void actionPerformed(ActionEvent e) {
+	        public void menuSelected(MenuEvent e) {
+				newFrame.toFront();
+				newFrame.setAlwaysOnTop(true);
 				newFrame.setVisible(true);
-			}
+	        }
+			//ueberschriebene Methoden brauchen keine konkrete Implementierung
+			@Override
+			public void menuDeselected(MenuEvent e) { }
+			
+			@Override
+			public void menuCanceled(MenuEvent e) { }
 		});
 	}
 

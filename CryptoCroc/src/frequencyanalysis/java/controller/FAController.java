@@ -2,16 +2,16 @@ package controller;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.event.MenuEvent;
+import javax.swing.event.MenuListener;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import javax.swing.JButton;
 import view.FAGui;
-import view.HExplanationFrame;
+import view.FAExplanationFrame;
 import view.Messages;
 import model.FAData;
 import model.TableData;
@@ -200,16 +200,22 @@ public class FAController {
 	 */
 	private void initFAMenuBar() {
 		this.menu = new FAMenuBar();
-		this.menu.initExplanationItem(1, new HExplanationFrame());
+		this.menu.initExplanationItem(1, new FAExplanationFrame());
 		// initialisiert bei "Text neu laden" FATabel und TableData neu
 		// und passt das Fenster an neuen Text an
-		this.menu.getMenuBar().getMenu(0).addActionListener(new ActionListener() {
+		this.menu.getMenuBar().getMenu(0).addMenuListener(new MenuListener() {
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void menuSelected(MenuEvent e) {
 				initFATable();
 				initTableData();
 				gui.repaint();
 			}
+			//ueberschriebene Methoden brauchen keine konkrete Implementierung
+			@Override
+			public void menuDeselected(MenuEvent e) { }
+
+			@Override
+			public void menuCanceled(MenuEvent e) { }
 		});
 	}
 

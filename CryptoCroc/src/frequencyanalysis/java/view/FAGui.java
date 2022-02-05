@@ -62,7 +62,7 @@ public class FAGui {
 			JCheckBox monoCheckBox) {
 		// erstellt den Frame
 		this.frame = new JFrame("H\u00e4ufigkeitsanalyse");
-		this.frame.setSize(1280, 650);
+		this.frame.setSize(1300, 650);
 		this.frame.setResizable(false);
 		this.frame.setVisible(true);
 		this.frame.setLayout(new GridBagLayout());

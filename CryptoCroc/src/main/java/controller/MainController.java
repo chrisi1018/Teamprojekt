@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 import view.CExplanationFrame;
 import view.Gui;
-import view.HExplanationFrame;
+import view.FAExplanationFrame;
 import view.MExplanationFrame;
 import view.VExplanationFrame;
 
@@ -63,7 +63,7 @@ public class MainController {
 		this.menuBar.initExplanationItem(1, 0, new CExplanationFrame());
 		this.menuBar.initExplanationItem(1, 1, new MExplanationFrame());
 		this.menuBar.initExplanationItem(1, 2, new VExplanationFrame());
-		this.menuBar.initExplanationItem(1, 3, new HExplanationFrame());
+		this.menuBar.initExplanationItem(1, 3, new FAExplanationFrame());
 		this.menuBar.initSaveItem(0, 0, this.plainText, this.cryptoText);
 		this.menuBar.initOpenItem(0, 1, plainText, cryptoText);
 	}
