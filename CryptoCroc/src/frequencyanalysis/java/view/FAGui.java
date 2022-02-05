@@ -190,6 +190,8 @@ public class FAGui {
 	/**
 	 * Panel mit den Buttons und der Buchstabenreihe; hier wird auch das Panel mit
 	 * den ComboBoxen eingefuegt
+	 * 
+	 * @param tableNumber Gibt an, welche Buchstabenreihe eingefuegt werden soll
 	 */
 	private JPanel initTable(int tableNumber) {
 
@@ -215,7 +217,7 @@ public class FAGui {
 	}
 	
 	/**
-	 * Wechselt zur Buchstabenzuordnung und dem zugehoerigen Graphen von der 
+	 * Wechselt zur Buchstabenreihe und dem zugehoerigen Graphen von der 
 	 * uebergebenen Schluesselbuchstabennummer
 	 * 
 	 * @param tableNumber Buchstabennummer des Schluessels
@@ -229,6 +231,8 @@ public class FAGui {
 
 	/**
 	 * Fuellt das MainPanel mit dem Graph, sowie der Buchstabenreihe und den Buttons
+	 * 
+	 * @param tableNumber Gibt an, welche Buchstabenreihe eingefuegt werden soll
 	 */
 	private void initMainPanel(int tableNumber) {
 		this.mainPanel.add(initTable(tableNumber), BorderLayout.NORTH);
