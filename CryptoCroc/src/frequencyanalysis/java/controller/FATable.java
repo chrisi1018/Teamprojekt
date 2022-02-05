@@ -47,7 +47,8 @@ public class FATable {
 		initTextLabels();
 		createTablePanel();
 		try {
-			this.graph = new FAGraph(language, this.data.getFrequencyPercentage(), FAController.getCurrentLanguage());
+			this.graph = new FAGraph(language, this.data.getFrequencyPercentage(), FAController.getCurrentLanguage(),
+					FAController.getMax());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -59,7 +60,6 @@ public class FATable {
 	 * Erzeugt das TablePanel fuer die Zuordnung der Buchstaben und gibt dieses
 	 * zurueck
 	 * 
-	 * @return tablePanel Panel fuer Buchstabeneingabe
 	 */
 	public void createTablePanel() {
 		int maxInput = 1;
@@ -128,9 +128,8 @@ public class FATable {
 		this.textFields[0].setText(lastChar);
 		this.data.setTextFieldChar(this.data.getTextFieldChar(lastChar.charAt(0)), 0);
 		try {
-			this.graph.setGraphPanel(
-					new FAGraph(this.language, this.data.getForGraph(), FAController.getCurrentLanguage())
-							.getGraphPanel());
+			this.graph.setGraphPanel(new FAGraph(this.language, this.data.getForGraph(),
+					FAController.getCurrentLanguage(), FAController.getMax()).getGraphPanel());
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -151,9 +150,8 @@ public class FATable {
 		this.textFields[this.textFields.length - 1].setText(firstChar);
 		this.data.setTextFieldChar(this.data.getTextFieldChar(firstChar.charAt(0)), alphabetSize - 1);
 		try {
-			this.graph.setGraphPanel(
-					new FAGraph(this.language, this.data.getForGraph(), FAController.getCurrentLanguage())
-							.getGraphPanel());
+			this.graph.setGraphPanel(new FAGraph(this.language, this.data.getForGraph(),
+					FAController.getCurrentLanguage(), FAController.getMax()).getGraphPanel());
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -180,9 +178,8 @@ public class FATable {
 		this.data.setTextFieldChar(newChar, swapIndex);
 		this.data.setTextFieldChar(oldChar, newIndex);
 		try {
-			this.graph.setGraphPanel(
-					new FAGraph(this.language, this.data.getForGraph(), FAController.getCurrentLanguage())
-							.getGraphPanel());
+			this.graph.setGraphPanel(new FAGraph(this.language, this.data.getForGraph(),
+					FAController.getCurrentLanguage(), FAController.getMax()).getGraphPanel());
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
