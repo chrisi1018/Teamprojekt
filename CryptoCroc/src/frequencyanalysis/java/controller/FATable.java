@@ -203,12 +203,14 @@ public class FATable {
 	}
 
 	/**
-	 * Aktiviert die Textfelder und macht sie editierbar
+	 * Verändert die Aktivierung der Textfelder und die Editierbarkeit
+	 * 
+	 * @param enable true falls die Textfelder aktiviert werden soll, false falls sie deaktiviert werden soll
 	 */
-	public void enableTextFields() {
+	public void enableTextFields(boolean enable) {
 		for (int i = 0; i < this.textFields.length; i++) {
-			this.textFields[i].setEnabled(true);
-			this.textFields[i].setEditable(true);
+			this.textFields[i].setEnabled(enable);
+			this.textFields[i].setEditable(enable);
 		}
 	}
 

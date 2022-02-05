@@ -134,6 +134,13 @@ public class FAController {
 	private void initMonoCheckBox() {
 		this.monoCheckBox = new JCheckBox("Monoalphabetische Verschl\u00fcsselung");
 		this.monoCheckBox.setVisible(true);
+		this.monoCheckBox.addActionListener(e -> this.test());;
+	}
+	
+	private void test() {
+		for (int i = 0; i < this.tables.length; i++) {
+			this.tables[i].enableTextFields(this.monoCheckBox.isSelected());
+		}
 	}
 
 	/**
