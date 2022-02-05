@@ -22,8 +22,8 @@ import java.awt.GridLayout;
 /**
  * Erstellt den Frame und legt das Layout der Haeufigkeitsanalyse fest
  * 
- * @author zes
- * @version 1.0
+ * @author zes, Julian Singer
+ * @version 1.1
  */
 public class FAGui {
 
@@ -102,7 +102,7 @@ public class FAGui {
 		language.setPrototypeDisplayValue("999. Buchstabe");
 
 		// alles platzieren
-		initMainPanel();
+		initMainPanel(0);
 		initFrameBorders();
 		this.frame.setVisible(true);
 	}
@@ -191,7 +191,7 @@ public class FAGui {
 	 * Panel mit den Buttons und der Buchstabenreihe; hier wird auch das Panel mit
 	 * den ComboBoxen eingefuegt
 	 */
-	private JPanel initTable() {
+	private JPanel initTable(int tableNumber) {
 
 		JPanel total = new JPanel(new BorderLayout());
 
@@ -203,7 +203,7 @@ public class FAGui {
 		left.setPreferredSize(new Dimension(30, 30));
 		tableWithButtons.add(left);
 
-		tableWithButtons.add(table[0].getTablePanel());
+		tableWithButtons.add(table[tableNumber].getTablePanel());
 
 		right.setPreferredSize(new Dimension(30, 30));
 		tableWithButtons.add(right);
@@ -213,12 +213,25 @@ public class FAGui {
 
 		return total;
 	}
+	
+	/**
+	 * Wechselt zur Buchstabenzuordnung und dem zugehoerigen Graphen von der 
+	 * uebergebenen Schluesselbuchstabennummer
+	 * 
+	 * @param tableNumber Buchstabennummer des Schluessels
+	 */
+	public void setTable(int tableNumber) {
+		this.graphPanel = this.table[tableNumber].getGraph().getGraphPanel();
+		this.mainPanel = new JPanel(new BorderLayout(4, 4));
+		initMainPanel(tableNumber);
+		repaint();
+	}
 
 	/**
 	 * Fuellt das MainPanel mit dem Graph, sowie der Buchstabenreihe und den Buttons
 	 */
-	private void initMainPanel() {
-		this.mainPanel.add(initTable(), BorderLayout.NORTH);
+	private void initMainPanel(int tableNumber) {
+		this.mainPanel.add(initTable(tableNumber), BorderLayout.NORTH);
 		this.mainPanel.add(graphPanel, BorderLayout.CENTER);
 	}
 
