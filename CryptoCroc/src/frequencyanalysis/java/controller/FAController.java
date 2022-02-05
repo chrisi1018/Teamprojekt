@@ -11,7 +11,7 @@ import java.io.IOException;
 
 import javax.swing.JButton;
 import view.FAGui;
-import view.HExplanationFrame;
+import view.FAExplanationFrame;
 import view.Messages;
 import model.FAData;
 import model.TableData;
@@ -193,7 +193,7 @@ public class FAController {
 	 */
 	private void initFAMenuBar() {
 		this.menu = new FAMenuBar();
-		this.menu.initExplanationItem(1, new HExplanationFrame());
+		this.menu.initExplanationItem(1, new FAExplanationFrame());
 		// initialisiert bei "Text neu laden" FATabel und TableData neu
 		// und passt das Fenster an neuen Text an
 		this.menu.getMenuBar().getMenu(0).addActionListener(new ActionListener() {

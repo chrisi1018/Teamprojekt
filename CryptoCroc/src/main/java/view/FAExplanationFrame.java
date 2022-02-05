@@ -22,7 +22,7 @@ import javax.swing.JLabel;
  *
  */
 @SuppressWarnings("serial")
-public class HExplanationFrame extends JFrame {
+public class FAExplanationFrame extends JFrame {
 	
 	private JLabel hyperlink = new JLabel("https://kryptografie.de/kryptografie/kryptoanalyse"
 			+ "/2-3-2-brechen-von-vigenere-mittels-schluesselrekonstruktion.htm");
@@ -31,7 +31,7 @@ public class HExplanationFrame extends JFrame {
 	 * Konstruktor, der den Aufbau, Inhalt und die Funktion des Fensters definiert, 
 	 * das die Erklaerung fuer die Haeufigkeitsanalyse beinhalten soll
 	 */
-	public HExplanationFrame() {
+	public FAExplanationFrame() {
 		super();
 		setTitle("H\u00e4ufigkeitsanalyse");
 		hyperlink.setFont(new Font(Font.DIALOG, Font.PLAIN, 15));
