@@ -23,13 +23,13 @@ public class FADataTest {
 			+ " Sylvia wagt quick den Jux bei Pforzheim. Polyfon zwitschernd"
 			+ " a\u00dfen M\u00e4xchens V\u00f6gel R\u00fcben, Joghurt und Quark. \"Fix, Schwyz!\" "
 			+ "qu\u00e4kt J\u00fcrgen bl\u00f6d vom Pa\u00df. Victor jagt zw\u00f6lf Boxk\u00e4mpfer quer "
-			+ "\u00fcber den gro\\u00dfen Sylter Deich. Falsches \u00fcben von Xylophonmusik qu\u00e4lt"
+			+ "\u00fcber den gro\u00dfen Sylter Deich. Falsches \u00fcben von Xylophonmusik qu\u00e4lt"
 			+ " jeden gr\u00f6\u00dferen Zwer";
 
 	private String testTextTwo = "a\u00e4b cde fgh ijk lmn o\u00f6p qrs\u00df tu\u00fc vwx yz A\u00c4BC DEF"
 			+ " GHI JKL MNO \u00d6PQ RST U\u00dcV WXYZ !\"\u00a7 $%& /() =?* '<> #|; \u00b2\u00b3~ @`\u00b4 "
 			+ "\u00a9\u00ab\u00bb"
-			+ " \u00bcu00d7 {} a\u00e4b cde fgh ijk lmn o\u00f6p qrs\u00df tu\u00fc vwx yz A\u00c4BC DEF GHI JKL MNO"
+			+ " \u00bc\u00d7 {} a\u00e4b cde fgh ijk lmn o\u00f6p qrs\u00df tu\u00fc vwx yz A\u00c4BC DEF GHI JKL MNO"
 			+ " \u00d6PQ RST U\u00dcV WXYZ !\"\u00a7 $%& /() =?* '<> #|; \u00b2\u00b3~ @`\u00b4 \u00a9\u00ab\u00bb "
 			+ "\u00bc\u00d7 {} a\u00e4b cde"
 			+ " fgh ijk lmn o\u00f6p qrs\u00df tu\u00fc vwx yz A\u00c4BC DEF GHI JKL MNO \u00d6PQ RST U\u00dcV WXYZ"
@@ -56,8 +56,8 @@ public class FADataTest {
 	@BeforeEach
 	void initPer() {
 		for (int i = 0; i < alphabetSize; i++) {
-			perOne[0][i] = 100 * (countOne[i] / countOne[26]);
-			perTwo[0][i] = 100 * (countTwo[i] / countTwo[26]);
+			perOne[0][i] = 100 * ((float) countOne[i] / countOne[26]);
+			perTwo[0][i] = 100 * ((float) countTwo[i] / countTwo[26]);
 			perThree[0][i] = 0.0f;
 			perThree[1][i] = 0.0f;
 			perThree[2][i] = 0.0f;

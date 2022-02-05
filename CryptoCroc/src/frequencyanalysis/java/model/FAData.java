@@ -1,38 +1,39 @@
 package model;
 
 /**
- * Eine Hilfs-Klasse, die fuer unterschiedliche Sprachen die Hauufigkeitswahrscheinlichkeiten hat
+ * Eine Hilfs-Klasse, die fuer unterschiedliche Sprachen die
+ * Hauufigkeitswahrscheinlichkeiten hat
  * 
  * @author Julian
  * @version 1.0
  */
 public final class FAData {
-	
+
 	/**
-	 * Gibt die Haeufigkeitsverteilung der Buchstaben der Deutschen Sprache an, mit zwei Nachkommastellen
-	 * Quelle: Wikipedia
-	 * Notiz: Die Tabelle war mit einem '?', die Prozentzahl fuer s wurde wie folgt berechnet:
-	 * per(s*) = (per(s) + 2* per(?))/(100 % + per(?)
+	 * Gibt die Haeufigkeitsverteilung der Buchstaben der Deutschen Sprache an, mit
+	 * zwei Nachkommastellen Quelle: Wikipedia Notiz: Die Tabelle war mit einem '?',
+	 * die Prozentzahl fuer s wurde wie folgt berechnet: per(s*) = (per(s) + 2*
+	 * per(?))/(100 % + per(?)
 	 */
-	public static final float[] GERMAN = {6.51f /*A*/, 1.89f /*B*/, 3.06f /*C*/, 5.08f /*D*/,
-			17.4f /*E*/, 1.66f /*F*/, 3.01f /*G*/, 4.76f /*H*/, 7.55f /*I*/, 0.27f /*J*/,
-			1.21f /*K*/, 3.44f /*L*/, 2.53f /*M*/, 9.78f /*N*/, 2.51f /*O*/, 0.79f /*P*/,
-			0.02f /*Q*/, 7.0f /*R*/, 7.87f /*S*/, 6.15f /*T*/, 4.35f /*U*/, 0.67f /*V*/,
-			1.89f /*W*/, 0.03f /*X*/, 0.04f /*Y*/, 1.13f /*Z*/};
-	
+	public static final float[] GERMAN = { 6.51f /* A */, 1.89f /* B */, 3.06f /* C */, 5.08f /* D */, 17.4f /* E */,
+			1.66f /* F */, 3.01f /* G */, 4.76f /* H */, 7.55f /* I */, 0.27f /* J */, 1.21f /* K */, 3.44f /* L */,
+			2.53f /* M */, 9.78f /* N */, 2.51f /* O */, 0.79f /* P */, 0.02f /* Q */, 7.0f /* R */, 7.87f /* S */,
+			6.15f /* T */, 4.35f /* U */, 0.67f /* V */, 1.89f /* W */, 0.03f /* X */, 0.04f /* Y */, 1.13f /* Z */ };
+
 	/**
 	 * privater Konstruktor fur Hilfsklasse
 	 */
-	private FAData() { }
-	
+	private FAData() {
+	}
+
 	/**
-	 * Erstellt eine Haeufigkeitsanlyse der Buchstaben fuer einen gegebenen Text, abhaengig der
-	 * laenge eines Schuesselworts
+	 * Erstellt eine Haeufigkeitsanlyse der Buchstaben fuer einen gegebenen Text,
+	 * abhaengig der laenge eines Schuesselworts
 	 * 
-	 * @param text der Text an dem die Hauefigkeitsanalyse gemacht wird
+	 * @param text      der Text an dem die Hauefigkeitsanalyse gemacht wird
 	 * @param keyLength die Laenge des Schluesselworts
 	 * @return ein 2D-Array, erste Dimension gibt den Index des Schluesselwortes an
-	 * zweite Dimension die Haufigkeit von Buchstaben in Prozent von A - Z
+	 *         zweite Dimension die Haufigkeit von Buchstaben in Prozent von A - Z
 	 */
 	public static float[][] analyse(String text, int keyLength) {
 		int alphabetSize = 26;
@@ -40,7 +41,7 @@ public final class FAData {
 		int[] countChars = new int[keyLength];
 		int[][] count = new int[keyLength][alphabetSize];
 		float[][] per = new float[keyLength][alphabetSize];
-		//Initalisiert die Arrays
+		// Initalisiert die Arrays
 		for (int j = 0; j < keyLength; j++) {
 			countChars[j] = 0;
 			for (int i = 0; i < alphabetSize; i++) {
@@ -48,11 +49,12 @@ public final class FAData {
 				per[j][i] = 0.0f;
 			}
 		}
-		
+
 		String editedText = TextEdit.editText(text);
-		for (int i = 0; i < text.length(); i++) { //Schleife zaehlt ueber den Text
+		for (int i = 0; i < editedText.length(); i++) { // Schleife zaehlt ueber den Text
 			char temp = editedText.charAt(i);
-			if (temp >= 'A' && temp <= 'Z') { //ueberprueft ob Zeichen ein Buchstabe ist
+			if (temp >= 'A' && temp <= 'Z') { // ueberprueft ob Zeichen ein Buchstabe ist
+
 				count[index][(temp - 'A')]++;
 				countChars[index]++;
 				index++;
@@ -61,12 +63,11 @@ public final class FAData {
 				}
 			}
 		}
-		
-		//Rechnet die Prozente aus
+		// Rechnet die Prozente aus
 		for (int j = 0; j < keyLength; j++) {
-			if (countChars[j] != 0) { 
+			if (countChars[j] != 0) {
 				for (int i = 0; i < alphabetSize; i++) {
-					per[j][i] = 100 * (count[j][i] / countChars[j]);
+					per[j][i] = 100 * ((float) count[j][i] / countChars[j]);
 				}
 			}
 		}
