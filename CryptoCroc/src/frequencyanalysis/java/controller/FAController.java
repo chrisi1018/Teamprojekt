@@ -252,6 +252,7 @@ public class FAController {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				initTableData();
+				max = calcMax();
 				initFATable();
 				gui.setTable(tables);
 				gui.setTablePanel();
