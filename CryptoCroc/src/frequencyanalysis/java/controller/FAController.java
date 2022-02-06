@@ -24,8 +24,8 @@ import javax.swing.text.PlainDocument;
 /**
  * Die Klasse stellt den Hauptcontroller der Haufigkeitsanalyse dar
  * 
- * @author Julian Sturm, zes, Julian Singer
- * @version 1.0
+ * @author Julian Sturm, zes, Julian Singer, chrisi
+ * @version 1.1
  */
 public class FAController {
 
@@ -166,10 +166,14 @@ public class FAController {
 	private void initMonoCheckBox() {
 		this.monoCheckBox = new JCheckBox("Monoalphabetische Verschl\u00fcsselung");
 		this.monoCheckBox.setVisible(true);
-		this.monoCheckBox.addActionListener(e -> this.test());;
+		this.monoCheckBox.addActionListener(e -> this.checkCheckbox());;
 	}
 	
-	private void test() {
+	/**
+	 * Bei aktivierter Checkbox wird die Schreibsperre der Textfleder aufgehoben. Bei deaktivierter 
+	 * Checkbox wird die Schreibspeere der Textfelder gesetzt.
+	 */
+	private void checkCheckbox() {
 		for (int i = 0; i < this.tables.length; i++) {
 			this.tables[i].enableTextFields(this.monoCheckBox.isSelected());
 		}
