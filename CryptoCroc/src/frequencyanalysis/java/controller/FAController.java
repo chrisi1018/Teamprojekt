@@ -41,8 +41,10 @@ public class FAController {
 	private FATable[] tables;
 	private FAMenuBar menu;
 	private TableData[] data;
-	private FAGui gui;
 	private FAGraph graph;
+	// gui muss statisch sein, damit update des graphen auch aus FATable aufgerufen
+	// werden kann
+	private static FAGui gui;
 	// speichert die aktuelle Sprache statisch ab, sodass andere Klassen hier auch
 	// drauf zugreifen koennen
 	private static String currentLanguage;
@@ -166,12 +168,12 @@ public class FAController {
 	private void initMonoCheckBox() {
 		this.monoCheckBox = new JCheckBox("Monoalphabetische Verschl\u00fcsselung");
 		this.monoCheckBox.setVisible(true);
-		this.monoCheckBox.addActionListener(e -> this.checkCheckbox());;
+		this.monoCheckBox.addActionListener(e -> this.checkCheckbox());
 	}
-	
+
 	/**
-	 * Bei aktivierter Checkbox wird die Schreibsperre der Textfleder aufgehoben. Bei deaktivierter 
-	 * Checkbox wird die Schreibspeere der Textfelder gesetzt.
+	 * Bei aktivierter Checkbox wird die Schreibsperre der Textfleder aufgehoben.
+	 * Bei deaktivierter Checkbox wird die Schreibspeere der Textfelder gesetzt.
 	 */
 	private void checkCheckbox() {
 		for (int i = 0; i < this.tables.length; i++) {
@@ -302,10 +304,20 @@ public class FAController {
 	}
 
 	/**
+	 * Aktualisiert den Graphen der GUI; statische Methode damit diese auch aus
+	 * FATable aufgerufen werden kann ohne eine konkrete Instanz der GUI zu brauchen
+	 * 
+	 * @param graph den neuen Graphen
+	 */
+	public static void updateGraph(FAGraph graph) {
+		gui.updateGraph(graph);
+	}
+
+	/**
 	 * Erstellt die GUI fuer die Haeufigkeitsanalyse
 	 */
 	private void initFAGui() {
-		this.gui = new FAGui(menu.getMenuBar(), graph.getGraphPanel(), tables, left, right, language, keyChar,
-				lengthLabel, lengthTextField, monoCheckBox);
+		gui = new FAGui(menu.getMenuBar(), graph, tables, left, right, language, keyChar, lengthLabel, lengthTextField,
+				monoCheckBox);
 	}
 }

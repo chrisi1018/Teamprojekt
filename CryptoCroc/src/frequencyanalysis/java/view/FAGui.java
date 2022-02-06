@@ -9,6 +9,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import controller.FAGraph;
 import controller.FATable;
 
 import java.awt.BorderLayout;
@@ -28,6 +29,7 @@ import java.awt.GridLayout;
 public class FAGui {
 
 	private JFrame frame;
+	private FAGraph graph;
 	private JPanel graphPanel;
 	private JPanel tablePanel;
 	private FATable[] table;
@@ -48,7 +50,7 @@ public class FAGui {
 	 * Layout festlegt
 	 * 
 	 * @param menu            die Menue-Bar
-	 * @param graphPanel      das Panel das den Graph enthaelt
+	 * @param graph           der aktuelle Graph
 	 * @param table           das Panel das die Reihe an Buchstaben enthaelt
 	 * @param left            den linken button
 	 * @param right           den rechten button
@@ -59,9 +61,8 @@ public class FAGui {
 	 * @param monoCheckBox    eine Checkbox fuer die monoalphabetische
 	 *                        Verschluesselung
 	 */
-	public FAGui(JMenuBar menu, JPanel graphPanel, FATable[] table, JButton left, JButton right,
-			JComboBox<String> language, JComboBox<String> keyChar, JLabel lengthLabel, JTextField lengthTextField,
-			JCheckBox monoCheckBox) {
+	public FAGui(JMenuBar menu, FAGraph graph, FATable[] table, JButton left, JButton right, JComboBox<String> language,
+			JComboBox<String> keyChar, JLabel lengthLabel, JTextField lengthTextField, JCheckBox monoCheckBox) {
 		// erstellt den Frame
 		this.frame = new JFrame("H\u00e4ufigkeitsanalyse");
 		this.frame.setSize(1300, 650);
@@ -76,8 +77,8 @@ public class FAGui {
 		this.mainLabel.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
 		this.menu = menu;
 		this.menu.setVisible(true);
-		this.graphPanel = graphPanel;
-		this.graphPanel.setVisible(true);
+		this.graph = graph;
+		this.graphPanel = graph.getGraphPanel();
 		this.left = left;
 		this.left.setVisible(true);
 		this.right = right;
@@ -138,7 +139,7 @@ public class FAGui {
 
 		// padding nach unten
 		// TODO hier ist platz fuer das Feld mit dem Schluessel; eventuell muss die
-		// Groesse des frame's auf (1260, 700) umgestellt werden
+		// Groesse des frame's auf (1300, 700) umgestellt werden
 		c.ipady = 0;
 		c.gridy = 2;
 		c.ipadx = 30;
@@ -218,9 +219,9 @@ public class FAGui {
 
 		return total;
 	}
-	
+
 	/**
-	 * Wechselt zur Buchstabenreihe und dem zugehoerigen Graphen von der 
+	 * Wechselt zur Buchstabenreihe und dem zugehoerigen Graphen von der
 	 * uebergebenen Schluesselbuchstabennummer
 	 */
 	public void setTablePanel() {
@@ -231,18 +232,18 @@ public class FAGui {
 		initMainPanel();
 		repaint();
 	}
-	
+
 	/**
-	 * Setter für Table
+	 * Setter fuer Table
 	 * 
 	 * @param newTable neue FATables
 	 */
 	public void setTable(FATable[] newTable) {
 		this.table = newTable;
 	}
-	
+
 	/**
-	 * Setter für currentTable
+	 * Setter fuer currentTable
 	 * 
 	 * @param newTable neues currentTable
 	 */
@@ -253,11 +254,23 @@ public class FAGui {
 	/**
 	 * Fuellt das MainPanel mit dem Graph, sowie der Buchstabenreihe und den Buttons
 	 * 
-	 * @param tableNumber Gibt an, welche Buchstabenreihe eingefuegt werden soll
 	 */
 	private void initMainPanel() {
 		this.mainPanel.add(this.tablePanel, BorderLayout.NORTH);
-		this.mainPanel.add(graphPanel, BorderLayout.CENTER);
+		this.mainPanel.add(this.graphPanel, BorderLayout.CENTER);
+	}
+
+	/**
+	 * Aktualisiert den Frame mit einem neuen Graphen
+	 * 
+	 * @param graph der neue Graph
+	 */
+	public void updateGraph(FAGraph graph) {
+		this.mainPanel.remove(this.graph.getGraphPanel());
+		this.graph = graph;
+		this.graphPanel = graph.getGraphPanel();
+		this.mainPanel.add(this.graphPanel, BorderLayout.CENTER);
+		this.repaint();
 	}
 
 	/**
