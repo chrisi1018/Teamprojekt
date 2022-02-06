@@ -206,7 +206,8 @@ public class FAController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				int letterIndex = Integer.parseInt(keyChar.getSelectedItem().toString().substring(0, 1)) - 1;
-				gui.setTable(letterIndex);
+				gui.setCurrentTable(letterIndex);
+				gui.setTable();
 			}
 		});
 	}

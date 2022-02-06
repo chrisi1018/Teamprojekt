@@ -41,6 +41,7 @@ public class FAGui {
 	private JLabel lengthLabel;
 	private JTextField lengthTextField;
 	private JCheckBox monoCheckBox;
+	private int currentTable;
 
 	/**
 	 * Konstruktor der den Frame fuer die Haeufigkeitsanalyse erstellt und das
@@ -93,7 +94,8 @@ public class FAGui {
 		this.monoCheckBox.setVisible(true);
 
 		this.table = table;
-		this.tablePanel = initTable(0);
+		this.currentTable = 0;
+		this.tablePanel = initTable();
 		this.tablePanel.setVisible(true);
 
 		// Menu leiste einstellen
@@ -193,10 +195,8 @@ public class FAGui {
 	/**
 	 * Panel mit den Buttons und der Buchstabenreihe; hier wird auch das Panel mit
 	 * den ComboBoxen eingefuegt
-	 * 
-	 * @param tableNumber Gibt an, welche Buchstabenreihe eingefuegt werden soll
 	 */
-	private JPanel initTable(int tableNumber) {
+	private JPanel initTable() {
 
 		JPanel total = new JPanel(new BorderLayout());
 
@@ -208,7 +208,7 @@ public class FAGui {
 		left.setPreferredSize(new Dimension(30, 30));
 		tableWithButtons.add(left);
 
-		tableWithButtons.add(table[tableNumber].getTablePanel());
+		tableWithButtons.add(table[this.currentTable].getTablePanel());
 
 		right.setPreferredSize(new Dimension(30, 30));
 		tableWithButtons.add(right);
@@ -222,16 +222,23 @@ public class FAGui {
 	/**
 	 * Wechselt zur Buchstabenreihe und dem zugehoerigen Graphen von der 
 	 * uebergebenen Schluesselbuchstabennummer
-	 * 
-	 * @param tableNumber Buchstabennummer des Schluessels
 	 */
-	public void setTable(int tableNumber) {
+	public void setTable() {
 		this.mainPanel.remove(this.tablePanel);
 		this.mainPanel.remove(this.graphPanel);
-		this.tablePanel = initTable(tableNumber);
-		this.graphPanel = this.table[tableNumber].getGraph().getGraphPanel();
+		this.tablePanel = initTable();
+		this.graphPanel = this.table[this.currentTable].getGraph().getGraphPanel();
 		initMainPanel();
 		repaint();
+	}
+	
+	/**
+	 * Setter für currentTable
+	 * 
+	 * @param newTable neues currentTable
+	 */
+	public void setCurrentTable(int newTable) {
+		this.currentTable = newTable;
 	}
 
 	/**
