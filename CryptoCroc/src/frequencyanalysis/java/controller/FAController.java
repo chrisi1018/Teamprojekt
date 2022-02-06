@@ -62,10 +62,10 @@ public class FAController {
 		initKeyChar(1);
 		initLeftRight();
 		initTableData();
-		initFATable();
 		getMax();
 		currentLanguage = language.getSelectedItem().toString();
 		max = calcMax();
+		initFATable();
 		initFAMenuBar();
 		try {
 			graph = new FAGraph(languageData, data[0].getFrequencyPercentage(), currentLanguage, max);
