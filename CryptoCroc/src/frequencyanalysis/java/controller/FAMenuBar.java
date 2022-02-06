@@ -1,10 +1,11 @@
 package controller;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
-import javax.swing.event.MenuEvent;
-import javax.swing.event.MenuListener;
 
 /**
  * Beschreibt Aufbau und Funktion der Menueleiste im Fenster der
@@ -39,20 +40,30 @@ public class FAMenuBar {
 	 * @param newFrame zu erstellendes Fenster
 	 */
 	public void initExplanationItem(int barIndex, JFrame newFrame) {
-		menuBar.getMenu(barIndex).addMenuListener(new MenuListener() {
+		menuBar.getMenu(barIndex).addMouseListener(new MouseListener() {
 			//Setzt das uebergebene Erklaerungsfenster in den Vordergrund und macht es sichtbar
 			@Override
-	        public void menuSelected(MenuEvent e) {
+			public void mouseClicked(MouseEvent e) {
 				newFrame.toFront();
 				newFrame.setAlwaysOnTop(true);
 				newFrame.setVisible(true);
-	        }
-			//ueberschriebene Methoden brauchen keine konkrete Implementierung
+			}
 			@Override
-			public void menuDeselected(MenuEvent e) { }
-			
+			public void mousePressed(MouseEvent e) {
+				//tue nichts
+			}
 			@Override
-			public void menuCanceled(MenuEvent e) { }
+			public void mouseReleased(MouseEvent e) {
+				//tue nichts
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				//tue nichts
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				//tue nichts
+			}
 		});
 	}
 
