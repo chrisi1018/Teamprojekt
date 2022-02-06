@@ -249,8 +249,8 @@ public class FAController {
 		this.menu.getMenuBar().getMenu(0).addMouseListener(new MouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				initFATable();
 				initTableData();
+				initFATable();
 				gui.repaint();
 			}
 			@Override
