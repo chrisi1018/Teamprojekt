@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.Insets;
+import java.awt.Font;
 import java.io.IOException;
 
 import javax.swing.JButton;
@@ -221,14 +222,16 @@ public class FAController {
 	 * Erstellt die Buttons "left" und "right"
 	 */
 	private void initLeftRight() {
-		this.left = new JButton("<");
+		this.left = new JButton("\u00ab");
 		this.left.setMargin(new Insets(0, 0, 0, 0));
+		this.left.setFont(new Font("Arial", Font.PLAIN, 22));
 		this.left.addActionListener(e ->
 		this.tables[Integer.parseInt(this.lengthTextField.getText()) - 1].shiftLeft());
 		
 		this.left.setVisible(true);
-		this.right = new JButton(">");
+		this.right = new JButton("\u00bb");
 		this.right.setMargin(new Insets(0, 0, 0, 0));
+		this.right.setFont(new Font("Arial", Font.PLAIN, 22));
 		this.right.addActionListener(e ->
 		this.tables[Integer.parseInt(this.lengthTextField.getText()) - 1].shiftRight());
 		
