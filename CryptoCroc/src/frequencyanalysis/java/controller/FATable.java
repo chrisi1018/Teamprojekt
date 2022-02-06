@@ -154,6 +154,13 @@ public class FATable {
 				this.textFields[0].setText(Character.toString(this.data.getTextFieldChar(i)));
 			}
 		}
+		
+		// alle listener wieder aktiviern, Textfields in data werden gesetzt
+		for (int i = 0; i < textFields.length; i++) {
+			this.data.setTextFieldChar(this.textFields[i].getText().charAt(0), i);
+			this.enableListener(i);
+		}
+		
 		try {
 			this.graph = new FAGraph(this.language, this.data.getForGraph(), FAController.getCurrentLanguage(),
 					FAController.getMax());
@@ -162,11 +169,7 @@ public class FATable {
 			e1.printStackTrace();
 		}
 
-		// alle listener wieder aktiviern, Textfields in data werden gesetzt
-		for (int i = 0; i < textFields.length; i++) {
-			this.data.setTextFieldChar(this.textFields[i].getText().charAt(0), i);
-			this.enableListener(i);
-		}
+		
 		FAController.updateGraph(this.graph);
 	}
 
@@ -186,6 +189,13 @@ public class FATable {
 				this.textFields[i].setText(Character.toString(this.data.getTextFieldChar(0)));
 			}
 		}
+		
+		// alle listener wieder aktiviern, Textfields in data werden gesetzt
+		for (int i = 0; i < textFields.length; i++) {
+			this.data.setTextFieldChar(this.textFields[i].getText().charAt(0), i);
+			this.enableListener(i);
+		}
+		
 		try {
 			this.graph = new FAGraph(this.language, this.data.getForGraph(), FAController.getCurrentLanguage(),
 					FAController.getMax());
@@ -194,11 +204,6 @@ public class FATable {
 			e1.printStackTrace();
 		}
 
-		// alle listener wieder aktiviern, Textfields in data werden gesetzt
-		for (int i = 0; i < textFields.length; i++) {
-			this.data.setTextFieldChar(this.textFields[i].getText().charAt(0), i);
-			this.enableListener(i);
-		}
 		FAController.updateGraph(this.graph);
 	}
 
