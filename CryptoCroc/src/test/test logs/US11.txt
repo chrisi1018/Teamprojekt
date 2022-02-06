@@ -1,0 +1,74 @@
+US11 (Git: 07210b5):
+
+Java-Version: 1.8
+Betriebssystem: Windows 11
+getestet von: Julian Singer
+
+T9+T19:
+1. Ich tippe "abbcccdde" ins Geheimtextfeld und klicke mit der Maus auf den Button "Haeufigkeitsanalyse"
+Erwartung: Es oeffnet sich ein neues Fenster mit dem Titel "Haeufigkeitsanalyse". In diesem ist ganz 
+oben eine Menueleiste mit den Menuepunkten "Text neu laden" und "Erklaerung", darunter nochmals der Titel,
+zusammen mit einem "Schluessellaenge"-Textfeld und einer Checkbox fuer die monoalphabetischen Verschluesselung
+rechts daneben. Desweiteren befinden sich rechts zwei DropDown-Menues mit der Vorauswahl "Deutsch" und 
+"1. Buchstabe" und daneben 26 nach Alphabet sortierte Textfelder mit Label und Inhalt von A-Z mit einem
+Button links und rechts daneben. Unten befindet sich ein Balkendiagramm mit Legende, welches jedem Buchstaben
+von A bis Z seine Haeufigkeit in der deutschen Sprache mit einem gruenen Balken und seine Haeufigkeit im Text
+mit einem orangenen Balken anzeigt, wobei ueber jedem Balken noch der entsprechende Prozentwert angegeben ist.
+Dabei gilt fuer die jeweiligen Haeufigkeiten:
+Deutsche Sprache: A(6,51), B(1,89), C(3,06), D(5,08), E(17,4), F(1,66), G(3,01), H(4,76), I(7,55), J(0,27),
+K(1,21), L(3,44), M(2,53), N(9,78), O(2,51), P(0,79), Q(0,02), R(7), S(7,87), T(6,15), U(4,35), V(0,67), W(1,89),
+X(0,03), Y(0,04), Z(1,13)
+Im Text: A(11,111), B(22,222), C(33,333), D(22,222), E(11,111) und die uebrigen 0
+Realitaet: entspricht der Erwartung
+
+T10:
+2. Ich klicke ohne den Inhalt des Geheimtextfeldes oder der Buchstabentextfelder zu veraendern im Menue 
+auf "Text neu laden"
+Erwartung: Es passiert nichts
+Realitaet: entspricht der Erwartung
+
+3. Ich tippe nach 1. noch "szz" ins Geheimtextfeld und loesche das "a"
+Erwartung: Es aendern sich im Graphen die Haeufigkeiten fuer den Text: B(18,182), C(27,273), D(18,182), E(9,091)
+S(9,091), Z(18,182) und die uebrigen 0
+Realitaet: entspricht der Erwartung
+
+4. Ich klicke im Menue auf "Erklaerung"
+Erwartung: Es oeffnet sich ein neues Fenster mit dem Titel "Haeufigkeitsanalyse" und einem blauen Link darin
+Realitaet: entspricht der Erwartung
+
+5. Nach 4. klicke ich mit der Maus auf den Link
+Erwartung: Es oeffnet sich der Link in meinem Browser
+Realitaet: entspricht der Erwartung
+
+T22+T13+T15+:
+6. Ich wiederhole 1.
+Erwartung: Es erscheinen unter anderem 26 grau hinterlegte Textfelder. Die Textfelder stehen genau nebeneinander, 
+wobei von links nach rechts gesehen jedes mit einem Grossbuchstaben von A bis Z in alphabetischer Reihenfolge 
+darueber benannt wurde. In den Textfeldern selbst steht dabei auch der gleiche Grossbuchstabe wie darueber.
+Realitaet: entspricht der Erwartung
+
+7. Ich klicke nach 1. einmal auf das erste und danach doppelt auf das dritte Textfeld
+Erwartung: Es passiert nichts, die Textfelder koennen nicht ausgewaehlt und editiert werden
+Realitaet: entspricht der Erwartung
+
+8. Ich klicke auf die Checkbox "Monoalphabetische Verschluesselung"
+Erwartung: Die Textfelder und deren Inhalt sind nicht mehr grau hinterlegt
+Realitaet: entspricht der Ewartung
+
+9. Ich klicke dreimal auf die Checkbox und danach dreimal auf "Monoalphabetische Verschluesselung"
+Erwartung: Nach dem 1., 3. und 5. Klick sind die Textfelder und ihr Inhalt nicht mehr grau hinterlegt
+und nach dem 2., 4. und letzten Klick werden die Textfelder und ihr Inhalt erneut grau hinterlegt
+Realitaet: entspricht der Erwartung
+
+10. Ich klicke nach 6. einmal auf das zweite Textfeld
+Erwartung: Der Buchstabe wird markiert
+Realitaet: entspricht der Erwartung
+
+11. Ich tippe nach 10. "Y" ein
+Erwartung: Es steht jetzt "Y" im zweiten und "B" im 25. Textfeld
+Realitaet: entspricht der Erwartung
+
+12. Ich tippe nach 11. "G" ein, also ohne dass "Y" markiert ist
+Erwartung: "G" wird nicht ins Textfeld eingesetzt und es erscheint ein PopUpFenster mit dem Hinweis, dass nur
+ein Buchstabe eingegeben werden kann
+Realitaet: entspricht der Erwartung

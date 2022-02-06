@@ -211,7 +211,7 @@ public class FAGui {
 
 		left.setPreferredSize(new Dimension(30, 30));
 		tableWithButtons.add(left);
-
+		
 		tableWithButtons.add(table[this.currentTable].getTablePanel());
 
 		right.setPreferredSize(new Dimension(30, 30));

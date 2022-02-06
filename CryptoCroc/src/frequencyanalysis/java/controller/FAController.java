@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.Insets;
 import java.io.IOException;
 
 import javax.swing.JButton;
@@ -19,6 +20,7 @@ import view.FAExplanationFrame;
 import view.Messages;
 import model.FAData;
 import model.TableData;
+
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
@@ -67,10 +69,10 @@ public class FAController {
 		initKeyChar(length);
 		initLeftRight();
 		initTableData();
-		initFATable();
 		getMax();
 		currentLanguage = language.getSelectedItem().toString();
 		max = calcMax();
+		initFATable();
 		initFAMenuBar();
 		try {
 			graph = new FAGraph(languageData, data[0].getFrequencyPercentage(), currentLanguage, max);
@@ -245,8 +247,16 @@ public class FAController {
 	 */
 	private void initLeftRight() {
 		this.left = new JButton("<");
+		this.left.setMargin(new Insets(0, 0, 0, 0));
+		this.left.addActionListener(e ->
+		this.tables[Integer.parseInt(this.lengthTextField.getText()) - 1].shiftLeft());
+		
 		this.left.setVisible(true);
 		this.right = new JButton(">");
+		this.right.setMargin(new Insets(0, 0, 0, 0));
+		this.right.addActionListener(e ->
+		this.tables[Integer.parseInt(this.lengthTextField.getText()) - 1].shiftRight());
+		
 		this.right.setVisible(true);
 
 	}
@@ -279,7 +289,9 @@ public class FAController {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				initTableData();
+				max = calcMax();
 				initFATable();
+				checkCheckbox();
 				gui.setTable(tables);
 				gui.setTablePanel();
 				gui.repaint();
