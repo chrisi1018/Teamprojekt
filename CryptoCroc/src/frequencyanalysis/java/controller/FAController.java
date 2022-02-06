@@ -254,6 +254,7 @@ public class FAController {
 				initTableData();
 				max = calcMax();
 				initFATable();
+				checkCheckbox();
 				gui.setTable(tables);
 				gui.setTablePanel();
 				gui.repaint();
