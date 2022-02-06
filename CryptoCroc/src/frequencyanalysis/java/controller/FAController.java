@@ -208,6 +208,7 @@ public class FAController {
 				int letterIndex = Integer.parseInt(keyChar.getSelectedItem().toString().substring(0, 1)) - 1;
 				gui.setCurrentTable(letterIndex);
 				gui.setTablePanel();
+				gui.repaint();
 			}
 		});
 	}
