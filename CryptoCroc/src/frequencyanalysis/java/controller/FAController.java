@@ -7,6 +7,8 @@ import javax.swing.event.MenuListener;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import javax.swing.JButton;
@@ -22,7 +24,7 @@ import javax.swing.text.PlainDocument;
 /**
  * Die Klasse stellt den Hauptcontroller der Haufigkeitsanalyse dar
  * 
- * @author Julian Sturm, zes
+ * @author Julian Sturm, zes, Julian Singer
  * @version 1.0
  */
 public class FAController {
@@ -44,6 +46,7 @@ public class FAController {
 	// speichert die aktuelle Sprache statisch ab, sodass andere Klassen hier auch
 	// drauf zugreifen koennen
 	private static String currentLanguage;
+	private static int max;
 
 	/**
 	 * Der Konstruktor fuer die Klasse FaControlle siehe init-Methoden fuer mehr
@@ -61,15 +64,44 @@ public class FAController {
 		initFAMenuBar();
 		initTableData();
 		initFATable();
+		getMax();
 		currentLanguage = language.getSelectedItem().toString();
+		max = calcMax();
 		try {
-			graph = new FAGraph(languageData, data[0].getFrequencyPercentage(), currentLanguage);
+			graph = new FAGraph(languageData, data[0].getFrequencyPercentage(), currentLanguage, max);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		initFAGui();
 
+	}
+
+	/**
+	 * Berechnet die groesste vorkommende Zahl um den Graphen daran anzupassen
+	 * 
+	 * @return die groesste vorkommende Zahl
+	 */
+	private int calcMax() {
+		int max = 0;
+		for (int i = 0; i < data.length; i++) {
+			float[] freq = data[i].getFrequencyPercentage();
+			for (int j = 0; j < freq.length; j++) {
+				if (freq[j] > max) {
+					max = (int) Math.ceil(Double.parseDouble(Float.toString(freq[j])));
+				}
+			}
+		}
+		return max;
+	}
+
+	/**
+	 * Groesste Zahl der Haeufigkeitenverteilung um den Graph daran anzupassen
+	 * 
+	 * @return max
+	 */
+	public static int getMax() {
+		return max;
 	}
 
 	/**
@@ -154,7 +186,8 @@ public class FAController {
 	}
 
 	/**
-	 * Erstellt das DropDownMenue fuer die Auswahl des Buchstabens
+	 * Erstellt das DropDownMenue fuer die Auswahl des Buchstabens und legt die
+	 * Aktion beim Klick auf eine der moeglichen Optionen fest
 	 * 
 	 * @param count Anzahl der Auswahlmoeglichkeiten
 	 */
@@ -165,7 +198,13 @@ public class FAController {
 		}
 		this.keyChar = new JComboBox<String>(number);
 		this.keyChar.setVisible(true);
-
+		this.keyChar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				int letterIndex = Integer.parseInt(keyChar.getSelectedItem().toString().substring(0, 1)) - 1;
+				gui.setTable(letterIndex);
+			}
+		});
 	}
 
 	/**
@@ -210,12 +249,15 @@ public class FAController {
 				initTableData();
 				gui.repaint();
 			}
-			//ueberschriebene Methoden brauchen keine konkrete Implementierung
+
+			// ueberschriebene Methoden brauchen keine konkrete Implementierung
 			@Override
-			public void menuDeselected(MenuEvent e) { }
+			public void menuDeselected(MenuEvent e) {
+			}
 
 			@Override
-			public void menuCanceled(MenuEvent e) { }
+			public void menuCanceled(MenuEvent e) {
+			}
 		});
 	}
 

@@ -42,6 +42,7 @@ public class FAGraph {
 	private double[] fActual;
 	private String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	private String language;
+	private int max = 20;
 
 	/**
 	 * Konstruktor fuer einen FAGraph, erstellt das GraphPanel
@@ -50,8 +51,9 @@ public class FAGraph {
 	 * @param fActual   eigentliche Buchstabenverteilung im Text
 	 * @param language  die Sprache mit der der eingegebene Text verglichen werden
 	 *                  soll
+	 * @param max       die groesste vorkommende Zahl um das Panel zu skalieren
 	 */
-	public FAGraph(float[] fLanguage, float[] fActual, String language) throws IOException {
+	public FAGraph(float[] fLanguage, float[] fActual, String language, int max) throws IOException {
 		this.language = language;
 		this.fLanguage = new double[fLanguage.length];
 		for (int i = 0; i < fLanguage.length; i++) {
@@ -60,6 +62,9 @@ public class FAGraph {
 		this.fActual = new double[fActual.length];
 		for (int i = 0; i < fActual.length; i++) {
 			this.fActual[i] = Double.parseDouble(Float.toString(fActual[i]));
+		}
+		if (max > this.max) {
+			this.max = max + 15;
 		}
 		createGraphPanel();
 	}
@@ -133,7 +138,7 @@ public class FAGraph {
 
 		// Schritt-groesse der y-achse einstellen
 		NumberAxis rangeAxis = (NumberAxis) cplot.getRangeAxis();
-		rangeAxis.setRange(0, 20);
+		rangeAxis.setRange(0, max);
 		rangeAxis.setStandardTickUnits(NumberAxis.createStandardTickUnits());
 		rangeAxis.setTickUnit(new NumberTickUnit(10.0));
 
