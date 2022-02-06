@@ -250,14 +250,14 @@ public class FAController {
 		this.left.setMargin(new Insets(0, 0, 0, 0));
 		this.left.setFont(new Font("Arial", Font.PLAIN, 22));
 		this.left.addActionListener(e ->
-		this.tables[Integer.parseInt(this.lengthTextField.getText()) - 1].shiftLeft());
+		this.tables[this.keyChar.getSelectedIndex()].shiftLeft());
 		
 		this.left.setVisible(true);
 		this.right = new JButton("\u00bb");
 		this.right.setMargin(new Insets(0, 0, 0, 0));
 		this.right.setFont(new Font("Arial", Font.PLAIN, 22));
 		this.right.addActionListener(e ->
-		this.tables[Integer.parseInt(this.lengthTextField.getText()) - 1].shiftRight());
+		this.tables[this.keyChar.getSelectedIndex()].shiftRight());
 		
 		this.right.setVisible(true);
 
