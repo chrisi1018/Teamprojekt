@@ -220,8 +220,10 @@ public class FAController {
 	 */
 	private void initLeftRight() {
 		this.left = new JButton("<");
+		this.left.addActionListener(e -> this.tables[Integer.parseInt(this.lengthTextField.getText()) - 1].shiftLeft());
 		this.left.setVisible(true);
 		this.right = new JButton(">");
+		this.right.addActionListener(e -> this.tables[Integer.parseInt(this.lengthTextField.getText()) - 1].shiftRight());
 		this.right.setVisible(true);
 
 	}
