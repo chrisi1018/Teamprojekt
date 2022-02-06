@@ -281,4 +281,31 @@ public class FAGui {
 		this.mainPanel.revalidate();
 		this.mainPanel.repaint();
 	}
+
+	/**
+	 * Die neue Keychar-Combobox
+	 * 
+	 * @param keyChar
+	 */
+	public void updateKeyChar(JComboBox<String> keyChar) {
+		if (keyChar.getItemCount() > this.table.length) {
+			FATable[] newer = new FATable[keyChar.getItemCount()];
+			for (int i = 0; i < table.length; i++) {
+				newer[i] = this.table[i];
+			}
+			for (int i = table.length; i < newer.length; i++) {
+				newer[i] = this.table[0];
+			}
+			this.table = newer;
+		}
+		this.keyChar = keyChar;
+		this.keyChar.setPrototypeDisplayValue("999. Buchstabe");
+		this.mainPanel.remove(this.tablePanel);
+		this.mainPanel.remove(this.graphPanel);
+		this.tablePanel = initTable();
+		this.graphPanel = this.table[this.currentTable].getGraph().getGraphPanel();
+		initMainPanel();
+		repaint();
+
+	}
 }
