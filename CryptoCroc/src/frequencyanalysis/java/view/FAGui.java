@@ -29,6 +29,7 @@ public class FAGui {
 
 	private JFrame frame;
 	private JPanel graphPanel;
+	private JPanel tablePanel;
 	private FATable[] table;
 	private JMenuBar menu;
 	private JPanel mainPanel;
@@ -92,6 +93,8 @@ public class FAGui {
 		this.monoCheckBox.setVisible(true);
 
 		this.table = table;
+		this.tablePanel = initTable(0);
+		this.tablePanel.setVisible(true);
 
 		// Menu leiste einstellen
 		this.frame.setJMenuBar(menu);
@@ -102,7 +105,7 @@ public class FAGui {
 		language.setPrototypeDisplayValue("999. Buchstabe");
 
 		// alles platzieren
-		initMainPanel(0);
+		initMainPanel();
 		initFrameBorders();
 		this.frame.setVisible(true);
 	}
@@ -223,9 +226,11 @@ public class FAGui {
 	 * @param tableNumber Buchstabennummer des Schluessels
 	 */
 	public void setTable(int tableNumber) {
+		this.mainPanel.remove(this.tablePanel);
+		this.mainPanel.remove(this.graphPanel);
+		this.tablePanel = initTable(tableNumber);
 		this.graphPanel = this.table[tableNumber].getGraph().getGraphPanel();
-		this.mainPanel = new JPanel(new BorderLayout(4, 4));
-		initMainPanel(tableNumber);
+		initMainPanel();
 		repaint();
 	}
 
@@ -234,8 +239,8 @@ public class FAGui {
 	 * 
 	 * @param tableNumber Gibt an, welche Buchstabenreihe eingefuegt werden soll
 	 */
-	private void initMainPanel(int tableNumber) {
-		this.mainPanel.add(initTable(tableNumber), BorderLayout.NORTH);
+	private void initMainPanel() {
+		this.mainPanel.add(this.tablePanel, BorderLayout.NORTH);
 		this.mainPanel.add(graphPanel, BorderLayout.CENTER);
 	}
 
