@@ -69,7 +69,6 @@ public class FAController {
 		initKeyChar(length);
 		initLeftRight();
 		initTableData();
-		getMax();
 		currentLanguage = language.getSelectedItem().toString();
 		max = calcMax();
 		initFATable();
