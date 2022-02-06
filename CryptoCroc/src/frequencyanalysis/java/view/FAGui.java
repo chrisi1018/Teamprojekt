@@ -223,13 +223,22 @@ public class FAGui {
 	 * Wechselt zur Buchstabenreihe und dem zugehoerigen Graphen von der 
 	 * uebergebenen Schluesselbuchstabennummer
 	 */
-	public void setTable() {
+	public void setTablePanel() {
 		this.mainPanel.remove(this.tablePanel);
 		this.mainPanel.remove(this.graphPanel);
 		this.tablePanel = initTable();
 		this.graphPanel = this.table[this.currentTable].getGraph().getGraphPanel();
 		initMainPanel();
 		repaint();
+	}
+	
+	/**
+	 * Setter für Table
+	 * 
+	 * @param newTable neue FATables
+	 */
+	public void setTable(FATable[] newTable) {
+		this.table = newTable;
 	}
 	
 	/**

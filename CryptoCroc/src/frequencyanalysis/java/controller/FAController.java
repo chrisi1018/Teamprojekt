@@ -207,7 +207,7 @@ public class FAController {
 			public void actionPerformed(ActionEvent e) {
 				int letterIndex = Integer.parseInt(keyChar.getSelectedItem().toString().substring(0, 1)) - 1;
 				gui.setCurrentTable(letterIndex);
-				gui.setTable();
+				gui.setTablePanel();
 			}
 		});
 	}
@@ -235,7 +235,7 @@ public class FAController {
 			this.tables = new FATable[keyLength];
 		}
 		for (int i = 0; i < keyLength; i++) {
-			this.tables[i] = new FATable(this.data[i], this.languageData);
+			this.tables[i] = new FATable(this.data[i], this.languageData, currentLanguage, max);
 		}
 	}
 
@@ -252,6 +252,8 @@ public class FAController {
 			public void mouseClicked(MouseEvent e) {
 				initTableData();
 				initFATable();
+				gui.setTable(tables);
+				gui.setTablePanel();
 				gui.repaint();
 			}
 			@Override

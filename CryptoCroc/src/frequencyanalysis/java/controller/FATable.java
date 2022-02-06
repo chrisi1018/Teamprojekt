@@ -38,22 +38,21 @@ public class FATable {
 	 * Konstruktor, der die Haeufigkeiten der Sprache und des Geheimtextes uebergibt
 	 * 
 	 * @param tableData Daten der Haeufigkeitsanalyse
-	 * @param language  Haeufigkeit der Zeichen in spezieller Sprache
+	 * @param languageFrequency  Haeufigkeit der Zeichen in spezieller Sprache
 	 */
-	public FATable(TableData tableData, float[] language) {
+	public FATable(TableData tableData, float[] languageFrequency, String language, int max) {
 		this.data = tableData;
 		this.data.initTextFieldChar();
 		initTextFields();
 		initTextLabels();
 		createTablePanel();
 		try {
-			this.graph = new FAGraph(language, this.data.getFrequencyPercentage(), FAController.getCurrentLanguage(),
-					FAController.getMax());
+			this.graph = new FAGraph(languageFrequency, this.data.getFrequencyPercentage(), language, max);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		this.language = language;
+		this.language = languageFrequency;
 	}
 
 	/**
