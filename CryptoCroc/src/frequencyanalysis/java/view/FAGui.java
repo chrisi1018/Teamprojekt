@@ -9,8 +9,11 @@ import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import controller.FAController;
 import controller.FAGraph;
 import controller.FATable;
+import model.FAData;
+import model.TableData;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -280,5 +283,35 @@ public class FAGui {
 	public void repaint() {
 		this.mainPanel.revalidate();
 		this.mainPanel.repaint();
+	}
+
+	/**
+	 * Die neue Keychar-Combobox; gibt es mehr keyChars als eigentlich panels,
+	 * werden die restlichen FATables
+	 * 
+	 * @param keyChar
+	 */
+	public void updateKeyChar(JComboBox<String> keyChar) {
+		if (keyChar.getItemCount() > this.table.length) {
+			FATable[] newer = new FATable[keyChar.getItemCount()];
+			for (int i = 0; i < table.length; i++) {
+				newer[i] = this.table[i];
+			}
+			float[] emptyData = new float[26];
+			TableData empty = new TableData(emptyData);
+			FATable filler = new FATable(empty, FAData.GERMAN, FAController.getCurrentLanguage(), 0);
+			for (int i = table.length; i < newer.length; i++) {
+				newer[i] = filler;
+			}
+			this.table = newer;
+		}
+		this.keyChar = keyChar;
+		this.keyChar.setPrototypeDisplayValue("999. Buchstabe");
+		this.mainPanel.remove(this.tablePanel);
+		this.tablePanel = initTable();
+		this.graphPanel = this.table[this.currentTable].getGraph().getGraphPanel();
+		initMainPanel();
+		repaint();
+
 	}
 }

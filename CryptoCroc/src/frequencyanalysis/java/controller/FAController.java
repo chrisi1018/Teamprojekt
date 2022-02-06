@@ -2,6 +2,8 @@ package controller;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 
@@ -35,6 +37,7 @@ public class FAController {
 	private KeyPanel key;
 	private JLabel lengthLabel;
 	private JTextField lengthTextField;
+	private int length = 1;
 	private JCheckBox monoCheckBox;
 	private JComboBox<String> language;
 	private float[] languageData = new float[26]; // 26 fuer die Groesse des Alphabets
@@ -64,7 +67,7 @@ public class FAController {
 		initLength();
 		initMonoCheckBox();
 		initLanguage();
-		initKeyChar(1);
+		initKeyChar(length);
 		initLeftRight();
 		initTableData();
 		getMax();
@@ -153,14 +156,35 @@ public class FAController {
 
 					if (this.getLength() + str.length() <= limit) {
 						super.insertString(offset, str, att);
+						// trigger textboxlength
 					} else {
 						Messages.errorMessage("Die L\u00e4nge des Schl\u00fcssel darf 999 nicht \u00fcberschreiten!");
 					}
 				}
 			}
 		});
-
 		this.lengthTextField.setText("1");
+		this.lengthTextField.getDocument().addDocumentListener(new DocumentListener() {
+
+			@Override
+			public void insertUpdate(DocumentEvent e) {
+				int count = Integer.parseInt(lengthTextField.getText().toString());
+				initKeyChar(count);
+				gui.updateKeyChar(keyChar);
+			}
+
+			@Override
+			public void removeUpdate(DocumentEvent e) {
+				// nichts tun
+			}
+
+			@Override
+			public void changedUpdate(DocumentEvent e) {
+				// wird nicht aufgerufen
+			}
+
+		});
+
 		this.lengthTextField.setVisible(true);
 
 	}
@@ -207,6 +231,7 @@ public class FAController {
 		}
 		this.keyChar = new JComboBox<String>(number);
 		this.keyChar.setVisible(true);
+		// bei auswahl der aktuellen option
 		this.keyChar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -274,21 +299,25 @@ public class FAController {
 				gui.setTablePanel();
 				gui.repaint();
 			}
+
 			@Override
 			public void mousePressed(MouseEvent e) {
-				//tue nichts
+				// tue nichts
 			}
+
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				//tue nichts
+				// tue nichts
 			}
+
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				//tue nichts
+				// tue nichts
 			}
+
 			@Override
 			public void mouseExited(MouseEvent e) {
-				//tue nichts
+				// tue nichts
 			}
 		});
 	}
