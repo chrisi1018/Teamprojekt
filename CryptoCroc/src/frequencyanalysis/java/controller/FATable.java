@@ -19,8 +19,8 @@ import model.TableData;
  * Diese Klasse modelliert die Zuordnungstabelle der Buchstaben fuer die
  * Haeufigkeitsanalyse und ihr zugehoeriges Balkendiagramm
  * 
- * @author Julian Singer, zes
- * @version 1.0
+ * @author Julian Singer, zes, Julian Sturm
+ * @version 1.2
  */
 public class FATable {
 
@@ -144,16 +144,16 @@ public class FATable {
 	 * nach rechts
 	 */
 	public void shiftRight() {
-		String lastChar = this.textFields[25].getText();
-		for (int i = this.textFields.length - 1; i < 0; i--) {
+		for (int i = 0; i < this.textFields.length; i++) {
 			// alle listener entfernen, da diese sonst beim setzen des texts getriggert
 			// werden
 			this.disableListener(i);
-			this.textFields[i].setText(this.textFields[(i + 25) % alphabetSize].getText());
-			this.data.setTextFieldChar(this.data.getTextFieldChar((i + 25) % alphabetSize), i);
+			if (i < alphabetSize - 1) {
+				this.textFields[i + 1].setText(Character.toString(this.data.getTextFieldChar(i)));
+			} else {
+				this.textFields[0].setText(Character.toString(this.data.getTextFieldChar(i)));
+			}
 		}
-		this.textFields[0].setText(lastChar);
-		this.data.setTextFieldChar(this.data.getTextFieldChar(lastChar.charAt(0)), 0);
 		try {
 			this.graph = new FAGraph(this.language, this.data.getForGraph(), FAController.getCurrentLanguage(),
 					FAController.getMax());
@@ -162,8 +162,9 @@ public class FATable {
 			e1.printStackTrace();
 		}
 
-		// alle listener wieder aktiviern
+		// alle listener wieder aktiviern, Textfields in data werden gesetzt
 		for (int i = 0; i < textFields.length; i++) {
+			this.data.setTextFieldChar(this.textFields[i].getText().charAt(0), i);
 			this.enableListener(i);
 		}
 		FAController.updateGraph(this.graph);
@@ -175,15 +176,16 @@ public class FATable {
 	 * Balken der Geheimtextbuchstaben ihrer neuen Zuordnung entsprechend nach links
 	 */
 	public void shiftLeft() {
-		String firstChar = this.textFields[0].getText();
-		for (int i = 0; i < this.textFields.length - 1; i++) {
-			// auch hier wie bei shiftLeft alle listener deaktivieren
+		for (int i = 0; i < this.textFields.length; i++) {
+			// alle listener entfernen, da diese sonst beim setzen des texts getriggert
+			// werden
 			this.disableListener(i);
-			this.textFields[i].setText(this.textFields[(i + 1) % alphabetSize].getText());
-			this.data.setTextFieldChar(this.data.getTextFieldChar((i + 1) % alphabetSize), i);
+			if (i < alphabetSize - 1) {
+				this.textFields[i].setText(Character.toString(this.data.getTextFieldChar(i + 1)));
+			} else {
+				this.textFields[i].setText(Character.toString(this.data.getTextFieldChar(0)));
+			}
 		}
-		this.textFields[this.textFields.length - 1].setText(firstChar);
-		this.data.setTextFieldChar(this.data.getTextFieldChar(firstChar.charAt(0)), alphabetSize - 1);
 		try {
 			this.graph = new FAGraph(this.language, this.data.getForGraph(), FAController.getCurrentLanguage(),
 					FAController.getMax());
@@ -192,8 +194,9 @@ public class FATable {
 			e1.printStackTrace();
 		}
 
-		// listener wieder aktiviern
+		// alle listener wieder aktiviern, Textfields in data werden gesetzt
 		for (int i = 0; i < textFields.length; i++) {
+			this.data.setTextFieldChar(this.textFields[i].getText().charAt(0), i);
 			this.enableListener(i);
 		}
 		FAController.updateGraph(this.graph);
