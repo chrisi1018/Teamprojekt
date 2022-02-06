@@ -4,28 +4,26 @@ import javax.swing.SwingUtilities;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-import view.FAGui;
-
 /**
- * Aktualisiert den Graphen der GUI bei Veraenderung der Textfelder aus FATable
+ * Wechselt zwei Schluesselfelder miteinander aus
  * 
  * @author zes
  * @version 1.0
  */
 public class TextChangeListener implements DocumentListener {
 
-	private FATable graph;
+	private FATable table;
 	private int index;
-	private static int one = 0;
 
 	/**
-	 * JavaDoc
+	 * Konstruktor fuer einen TextChangeListener
 	 * 
-	 * @param graph
-	 * @param index
+	 * @param table die aktuelle FATable instanz, welche die Daten und den Graphen
+	 *              enthaelt
+	 * @param index den index beim dem eine aenderung stattfand
 	 */
-	public TextChangeListener(FATable graph, int index) {
-		this.graph = graph;
+	public TextChangeListener(FATable table, int index) {
+		this.table = table;
 		this.index = index;
 	}
 
@@ -35,17 +33,15 @@ public class TextChangeListener implements DocumentListener {
 		Runnable doHighlight = new Runnable() {
 			@Override
 			public void run() {
-				graph.swapChar(index);
-				one++;
+				table.swapChar(index);
 			}
 		};
 		SwingUtilities.invokeLater(doHighlight);
-		System.out.println(one);
 	}
 
 	@Override
 	public void removeUpdate(DocumentEvent e) {
-		// wenn etwas entfernt wird
+		// kein update wenn etwas entfernt wird
 	}
 
 	@Override

@@ -42,6 +42,8 @@ public class FAGraph {
 	private double[] fActual;
 	private String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	private String language;
+	// standard von 20, da groesste prozentzahl der deutschen verteilung das E mit
+	// 17% ist
 	private int max = 20;
 
 	/**
@@ -51,7 +53,7 @@ public class FAGraph {
 	 * @param fActual   eigentliche Buchstabenverteilung im Text
 	 * @param language  die Sprache mit der der eingegebene Text verglichen werden
 	 *                  soll
-	 * @param max       die groesste vorkommende Zahl um das Panel zu skalieren
+	 * @param max       die groesste vorkommende Zahl um das Panel daran anzupassen
 	 */
 	public FAGraph(float[] fLanguage, float[] fActual, String language, int max) throws IOException {
 		this.language = language;
@@ -146,7 +148,6 @@ public class FAGraph {
 
 		// konvertieren zu ChartPanel sodass es zum graphPanel hinzugefuegt werden kann
 		ChartPanel chP = new ChartPanel(barChart);
-
 		chP.setPreferredSize(new Dimension(1260, 300));
 		graphPanel.add(chP, BorderLayout.CENTER);
 

@@ -134,7 +134,7 @@ public class FAGui {
 
 		// padding nach unten
 		// TODO hier ist platz fuer das Feld mit dem Schluessel; eventuell muss die
-		// Groesse des frame's auf (1260, 700) umgestellt werden
+		// Groesse des frame's auf (1300, 700) umgestellt werden
 		c.ipady = 0;
 		c.gridy = 2;
 		c.ipadx = 30;
@@ -237,16 +237,19 @@ public class FAGui {
 	 */
 	private void initMainPanel(int tableNumber) {
 		this.mainPanel.add(initTable(tableNumber), BorderLayout.NORTH);
-		this.mainPanel.add(this.graph.getGraphPanel(), BorderLayout.CENTER);
+		this.mainPanel.add(this.graphPanel, BorderLayout.CENTER);
 	}
 
 	/**
-	 * @param graph
+	 * Aktualisiert den Frame mit einem neuen Graphen
+	 * 
+	 * @param graph der neue Graph
 	 */
 	public void updateGraph(FAGraph graph) {
 		this.mainPanel.remove(this.graph.getGraphPanel());
 		this.graph = graph;
-		this.mainPanel.add(this.graph.getGraphPanel(), BorderLayout.CENTER);
+		this.graphPanel = graph.getGraphPanel();
+		this.mainPanel.add(this.graphPanel, BorderLayout.CENTER);
 		this.repaint();
 	}
 

@@ -41,8 +41,10 @@ public class FAController {
 	private FATable[] tables;
 	private FAMenuBar menu;
 	private TableData[] data;
+	private FAGraph graph;
+	// gui muss statisch sein, damit update des graphen auch aus FATable aufgerufen
+	// werden kann
 	private static FAGui gui;
-	private static FAGraph graph;
 	// speichert die aktuelle Sprache statisch ab, sodass andere Klassen hier auch
 	// drauf zugreifen koennen
 	private static String currentLanguage;
@@ -289,12 +291,13 @@ public class FAController {
 	}
 
 	/**
-	 * aktualisiert den Graphen der GUI
+	 * Aktualisiert den Graphen der GUI; statische Methode damit diese auch aus
+	 * FATable aufgerufen werden kann ohne eine konkrete Instanz der GUI zu brauchen
 	 * 
-	 * @param fa den neuen Graphen
+	 * @param graph den neuen Graphen
 	 */
-	public static void updateGraph(FAGraph fa) {
-		gui.updateGraph(fa);
+	public static void updateGraph(FAGraph graph) {
+		gui.updateGraph(graph);
 	}
 
 	/**
