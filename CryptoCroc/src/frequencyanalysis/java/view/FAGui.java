@@ -244,7 +244,10 @@ public class FAGui {
 	 * @param graph
 	 */
 	public void updateGraph(FAGraph graph) {
+		this.mainPanel.remove(this.graph.getGraphPanel());
 		this.graph = graph;
+		this.mainPanel.add(this.graph.getGraphPanel(), BorderLayout.CENTER);
+		this.repaint();
 	}
 
 	/**

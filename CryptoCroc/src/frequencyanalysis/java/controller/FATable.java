@@ -27,7 +27,6 @@ import view.FAGui;
 public class FATable {
 
 	private final int alphabetSize = 26;
-	private final int maxInput = 1;
 
 	private TableData data;
 	private JTextField[] textFields = new JTextField[alphabetSize];
@@ -35,7 +34,7 @@ public class FATable {
 	private JPanel tablePanel;
 	private FAGraph graph;
 	private float[] language;
-	private FAGui gui;
+	private TextChangeListener[] tcl = new TextChangeListener[alphabetSize];
 
 	/**
 	 * Konstruktor, der die Haeufigkeiten der Sprache und des Geheimtextes uebergibt
@@ -44,8 +43,7 @@ public class FATable {
 	 * @param language  Haeufigkeit der Zeichen in spezieller Sprache
 	 * @param gui
 	 */
-	public FATable(TableData tableData, float[] language, FAGui gui) {
-		this.gui = gui;
+	public FATable(TableData tableData, float[] language) {
 		this.data = tableData;
 		this.data.initTextFieldChar();
 		initTextFields();
@@ -85,7 +83,7 @@ public class FATable {
 			this.textFields[i].setPreferredSize(new Dimension(19, 30));
 			// DIESER AUFRUF LOESCHT DEN AKTUELLEN INHALT DER TEXTFELDER (liegt am setzen
 			// des Documents):
-			this.textFields[i].setDocument(new LimitedTextfield(maxInput, i, this.textFields));
+			this.textFields[i].setDocument(new LimitedTextfield(maxInput));
 			// markiert beim Klicken den Text im Textfeld
 			int j = i;
 			this.textFields[i].addFocusListener(new FocusListener() {
@@ -111,11 +109,11 @@ public class FATable {
 		// wegen setDocument-Aufruf nochmals initialisieren sodass text angezeigt wird
 		char firstLetter = 'A';
 		for (int i = 0; i < this.textFields.length; i++) {
-
 			this.textFields[i].setText("" + (char) (i + firstLetter));
-			this.textFields[i].setEnabled(true);
-			this.textFields[i].setEditable(true);
-			this.textFields[i].getDocument().addDocumentListener(new TextChangeListener(gui, this.getGraph()));
+			this.textFields[i].setEnabled(false);
+			this.textFields[i].setEditable(false);
+			tcl[i] = new TextChangeListener(this, i);
+			this.textFields[i].getDocument().addDocumentListener(tcl[i]);
 		}
 		this.tablePanel = tablePanel;
 
@@ -178,10 +176,14 @@ public class FATable {
 		char newChar = this.textFields[swapIndex].getText().charAt(0);
 		int newIndex = 0;
 		for (int i = 0; i < this.textFields.length; i++) {
+
 			if (this.data.getTextFieldChar(i) == newChar) {
 				newIndex = i;
 			}
 		}
+
+		this.textFields[newIndex].getDocument().removeDocumentListener(tcl[newIndex]);
+
 		this.textFields[newIndex].setText(String.valueOf(oldChar));
 		this.data.setTextFieldChar(newChar, swapIndex);
 		this.data.setTextFieldChar(oldChar, newIndex);
@@ -191,6 +193,10 @@ public class FATable {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
+		this.textFields[newIndex].getDocument().addDocumentListener(tcl[newIndex]);
+		
+		FAController.updateGraph(this.graph);
+		System.out.println("New graph just dropped");
 	}
 
 	/**
@@ -202,11 +208,8 @@ public class FATable {
 		for (int i = 0; i < this.textFields.length; i++) {
 			this.textFields[i] = new JTextField();
 			this.textFields[i].setText("" + (char) (i + firstLetter));
-
-			this.textFields[i].setEnabled(true);
-			this.textFields[i].setEditable(true);
-			this.textFields[i].getDocument().addDocumentListener(new TextChangeListener(gui, this.getGraph()));
-
+			this.textFields[i].setEnabled(false);
+			this.textFields[i].setEditable(false);
 		}
 	}
 
@@ -221,9 +224,10 @@ public class FATable {
 	}
 
 	/**
-	 * Verändert die Aktivierung der Textfelder und die Editierbarkeit
+	 * Veraendert die Aktivierung der Textfelder und die Editierbarkeit
 	 * 
-	 * @param enable true falls die Textfelder aktiviert werden soll, false falls sie deaktiviert werden soll
+	 * @param enable true falls die Textfelder aktiviert werden soll, false falls
+	 *               sie deaktiviert werden soll
 	 */
 	public void enableTextFields(boolean enable) {
 		for (int i = 0; i < this.textFields.length; i++) {

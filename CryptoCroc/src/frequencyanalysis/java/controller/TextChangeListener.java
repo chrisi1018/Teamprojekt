@@ -1,5 +1,6 @@
 package controller;
 
+import javax.swing.SwingUtilities;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
@@ -13,37 +14,43 @@ import view.FAGui;
  */
 public class TextChangeListener implements DocumentListener {
 
-	private FAGui gui;
-	private FAGraph graph;
+	private FATable graph;
+	private int index;
+	private static int one = 0;
 
 	/**
 	 * JavaDoc
 	 * 
-	 * @param gui
 	 * @param graph
+	 * @param index
 	 */
-	public TextChangeListener(FAGui gui, FAGraph graph) {
-		this.gui = gui;
+	public TextChangeListener(FATable graph, int index) {
 		this.graph = graph;
+		this.index = index;
 	}
 
 	@Override
 	public void insertUpdate(DocumentEvent e) {
 		// fuer monoalphabetisch
-		gui.updateGraph(graph);
-		gui.repaint();
+		Runnable doHighlight = new Runnable() {
+			@Override
+			public void run() {
+				graph.swapChar(index);
+				one++;
+			}
+		};
+		SwingUtilities.invokeLater(doHighlight);
+		System.out.println(one);
 	}
 
 	@Override
 	public void removeUpdate(DocumentEvent e) {
-		// fuer monoalphabetisch
+		// wenn etwas entfernt wird
 	}
 
 	@Override
 	public void changedUpdate(DocumentEvent e) {
-		// standard
-		gui.updateGraph(graph);
-		gui.repaint();
+		// nicht gebraucht bei textfeldern
 	}
 
 }
