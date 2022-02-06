@@ -21,7 +21,7 @@ import model.TableData;
  * Haeufigkeitsanalyse und ihr zugehoeriges Balkendiagramm
  * 
  * @author Julian Singer
- * @version 1.0
+ * @version 1.1
  */
 public class FATable {
 
@@ -211,7 +211,7 @@ public class FATable {
 	/**
 	 * Verändert die Aktivierung der Textfelder und die Editierbarkeit
 	 * 
-	 * @param enable true falls die Textfelder aktiviert werden soll, false falls sie deaktiviert werden soll
+	 * @param enable true falls die Textfelder aktiviert werden sollen, false falls sie deaktiviert werden sollen
 	 */
 	public void enableTextFields(boolean enable) {
 		for (int i = 0; i < this.textFields.length; i++) {
