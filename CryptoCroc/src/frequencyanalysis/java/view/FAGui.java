@@ -230,7 +230,8 @@ public class FAGui {
 		this.mainPanel.remove(this.tablePanel);
 		this.mainPanel.remove(this.graphPanel);
 		this.tablePanel = initTable();
-		this.graphPanel = this.table[this.currentTable].getGraph().getGraphPanel();
+		this.graph = this.table[this.currentTable].getGraph();
+		this.graphPanel = this.graph.getGraphPanel();
 		initMainPanel();
 		repaint();
 	}
