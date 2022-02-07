@@ -294,20 +294,7 @@ public class FAGui {
 	 */
 	public void updateKeyChar(JComboBox<String> keyChar) {
 		// kopiere alle aktuellen FATables in die neue Combobox und fuelle den rest auf
-		if (keyChar.getItemCount() > this.table.length) {
-			FATable[] newer = new FATable[keyChar.getItemCount()];
-			for (int i = 0; i < table.length; i++) {
-				newer[i] = this.table[i];
-			}
-			float[] emptyData = new float[26];
-			TableData empty = new TableData(emptyData);
-			FATable filler = new FATable(empty, FAData.GERMAN, FAController.getCurrentLanguage(), 0);
-			for (int i = table.length; i < newer.length; i++) {
-				newer[i] = filler;
-			}
-			// setze die neuen FATables
-			this.table = newer;
-		}
+
 		// passe panel an, indem das alte entfernt und neu eingesetzt wird
 		this.keyChar = keyChar;
 		this.keyChar.setPrototypeDisplayValue("999. Buchstabe");

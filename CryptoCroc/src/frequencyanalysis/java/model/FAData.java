@@ -54,13 +54,11 @@ public final class FAData {
 		for (int i = 0; i < editedText.length(); i++) { // Schleife zaehlt ueber den Text
 			char temp = editedText.charAt(i);
 			if (temp >= 'A' && temp <= 'Z') { // ueberprueft ob Zeichen ein Buchstabe ist
-
-				count[index][(temp - 'A')]++;
-				countChars[index]++;
-				index++;
-				if (index == keyLength) {
-					index = 0;
+				for (int j = 0; j < count.length; j++) {
+					count[j][(temp - 'A')]++;
 				}
+				countChars[index]++;
+
 			}
 		}
 		// Rechnet die Prozente aus

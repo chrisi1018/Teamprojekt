@@ -170,7 +170,14 @@ public class FAController {
 			public void insertUpdate(DocumentEvent e) {
 				// neue Laenge holen und Combobox daran anpassen
 				int count = Integer.parseInt(lengthTextField.getText().toString());
+				// TODO HEEEELLLLOOOO
 				initKeyChar(count);
+				initTableData();
+				max = calcMax();
+				initFATable();
+
+				gui.setTable(tables);
+				gui.setTablePanel();
 				gui.updateKeyChar(keyChar);
 			}
 
@@ -234,7 +241,15 @@ public class FAController {
 		this.keyChar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int letterIndex = Integer.parseInt(keyChar.getSelectedItem().toString().substring(0, 1)) - 1;
+				String number = keyChar.getSelectedItem().toString();
+				String digit = "";
+				// maximaler string ist 999, dh maximale laenge muss 3 sein
+				for (int i = 0; i < 3; i++) {
+					if (number.charAt(i) != '.' && number.charAt(i) != ' ') {
+						digit = digit + number.charAt(i);
+					}
+				}
+				int letterIndex = Integer.parseInt(digit) - 1;
 				gui.setCurrentTable(letterIndex);
 				gui.setTablePanel();
 				gui.repaint();
@@ -273,6 +288,7 @@ public class FAController {
 			this.tables = new FATable[keyLength];
 		}
 		for (int i = 0; i < keyLength; i++) {
+			// TODO PROBLEMO
 			this.tables[i] = new FATable(this.data[i], this.languageData, currentLanguage, max);
 		}
 	}
@@ -331,7 +347,6 @@ public class FAController {
 			this.data = new TableData[keyLength];
 		}
 		float[][] allFrequencies = FAData.analyse(this.key.getController().getCryptoText(), keyLength);
-
 		// 2D-Array wird in 1D-Array umgewandelt und im Konstruktor uebergeben
 		for (int i = 0; i < keyLength; i++) {
 			float[] oneFrequencies = new float[allFrequencies[i].length];
@@ -340,6 +355,7 @@ public class FAController {
 			}
 			this.data[i] = new TableData(oneFrequencies);
 		}
+		
 	}
 
 	/**
