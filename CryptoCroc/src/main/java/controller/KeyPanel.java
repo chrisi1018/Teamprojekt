@@ -14,7 +14,7 @@ import view.Messages;
  * CryptoCroc
  * 
  * @author chrisi, zes
- * @version 1.1
+ * @version 1.2
  */
 public abstract class KeyPanel {
 	private JButton encrypt = new JButton("verschl\u00fcsseln");

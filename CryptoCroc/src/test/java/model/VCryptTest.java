@@ -74,7 +74,7 @@ public class VCryptTest {
 	private String testkey = "qwertzuiopasdfghjklyxcvbnm";
 
 	/**
-	 * Initilisiert die Klasse in der die Verschluesselungmethoden gespeichert sind.
+	 * Initialisiert die Klasse in der die Verschluesselungmethoden gespeichert sind.
 	 */
 	@BeforeEach
 	void init() {

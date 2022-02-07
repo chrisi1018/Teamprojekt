@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
  * Die Klasse Testet den Algorithmus der Haeufigkeitsanalyse
  * 
  * @author Julian
- * @version 1.0
+ * @version 1.1
  */
 public class FADataTest {
 

@@ -27,7 +27,7 @@ import java.awt.GridLayout;
  * Erstellt den Frame und legt das Layout der Haeufigkeitsanalyse fest
  * 
  * @author zes, Julian Singer
- * @version 1.1
+ * @version 1.2
  */
 public class FAGui {
 
@@ -201,7 +201,6 @@ public class FAGui {
 	 * den ComboBoxen eingefuegt
 	 */
 	private JPanel initTable() {
-
 		JPanel total = new JPanel(new BorderLayout());
 
 		JPanel tableWithButtons = new JPanel(new FlowLayout(FlowLayout.LEADING));
@@ -211,7 +210,7 @@ public class FAGui {
 
 		left.setPreferredSize(new Dimension(30, 30));
 		tableWithButtons.add(left);
-		
+
 		tableWithButtons.add(table[this.currentTable].getTablePanel());
 
 		right.setPreferredSize(new Dimension(30, 30));
@@ -256,7 +255,6 @@ public class FAGui {
 
 	/**
 	 * Fuellt das MainPanel mit dem Graph, sowie der Buchstabenreihe und den Buttons
-	 * 
 	 */
 	private void initMainPanel() {
 		this.mainPanel.add(this.tablePanel, BorderLayout.NORTH);
@@ -264,7 +262,8 @@ public class FAGui {
 	}
 
 	/**
-	 * Aktualisiert den Frame mit einem neuen Graphen
+	 * Aktualisiert den Frame mit einem neuen Graphen, indem erst das Panel entfernt
+	 * und dann neu eingesetzt wird
 	 * 
 	 * @param graph der neue Graph
 	 */
@@ -286,12 +285,14 @@ public class FAGui {
 	}
 
 	/**
-	 * Die neue Keychar-Combobox; gibt es mehr keyChars als eigentlich panels,
-	 * werden die restlichen FATables
+	 * Aktualisiert die Keychar-Combobox entsprechend der Laenge des eingegebenen
+	 * Schluessels; gibt es mehr keyChars als Panels werden die restlichen zu leeren
+	 * FATables
 	 * 
-	 * @param keyChar
+	 * @param keyChar die neue Combobox
 	 */
 	public void updateKeyChar(JComboBox<String> keyChar) {
+		// kopiere alle aktuellen FATables in die neue Combobox und fuelle den rest auf
 		if (keyChar.getItemCount() > this.table.length) {
 			FATable[] newer = new FATable[keyChar.getItemCount()];
 			for (int i = 0; i < table.length; i++) {
@@ -303,8 +304,10 @@ public class FAGui {
 			for (int i = table.length; i < newer.length; i++) {
 				newer[i] = filler;
 			}
+			// setze die neuen FATables
 			this.table = newer;
 		}
+		// passe panel an, indem das alte entfernt und neu eingesetzt wird
 		this.keyChar = keyChar;
 		this.keyChar.setPrototypeDisplayValue("999. Buchstabe");
 		this.mainPanel.remove(this.tablePanel);

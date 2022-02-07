@@ -207,7 +207,6 @@ public class Menu {
 						File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
 						Scanner fileScanner = null;
 						if (!file.getAbsolutePath().endsWith(".txt")) {
-
 							Messages.errorMessage("Das Format ." + FilenameUtils.getExtension(file.getName())
 									+ " wird nicht unterst\u00fctzt");
 						} else {

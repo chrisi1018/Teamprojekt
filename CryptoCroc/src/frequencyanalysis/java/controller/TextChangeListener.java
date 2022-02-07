@@ -8,7 +8,7 @@ import javax.swing.event.DocumentListener;
  * Wechselt zwei Schluesselfelder miteinander aus
  * 
  * @author zes
- * @version 1.0
+ * @version 1.5
  */
 public class TextChangeListener implements DocumentListener {
 
@@ -29,19 +29,20 @@ public class TextChangeListener implements DocumentListener {
 
 	@Override
 	public void insertUpdate(DocumentEvent e) {
-		// fuer monoalphabetisch
-		Runnable doHighlight = new Runnable() {
+		// fuer monoalphabetisch; wechselt zwei Schluesselfelder aus und deaktiviert
+		// zeitlich den Documentlistener in einem
+		Runnable swap = new Runnable() {
 			@Override
 			public void run() {
 				table.swapChar(index);
 			}
 		};
-		SwingUtilities.invokeLater(doHighlight);
+		SwingUtilities.invokeLater(swap);
 	}
 
 	@Override
 	public void removeUpdate(DocumentEvent e) {
-		// kein update wenn etwas entfernt wird
+		// kein update noetig wenn etwas entfernt wird
 	}
 
 	@Override

@@ -2,7 +2,7 @@ package model;
 
 /**
  * Eine Hilfs-Klasse, die fuer unterschiedliche Sprachen die
- * Hauufigkeitswahrscheinlichkeiten hat
+ * Haeufigkeitswahrscheinlichkeiten hat
  * 
  * @author Julian
  * @version 1.0

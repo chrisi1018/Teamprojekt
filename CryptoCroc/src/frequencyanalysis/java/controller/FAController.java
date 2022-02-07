@@ -30,7 +30,7 @@ import javax.swing.text.PlainDocument;
  * Die Klasse stellt den Hauptcontroller der Haufigkeitsanalyse dar
  * 
  * @author Julian Sturm, zes, Julian Singer, chrisi
- * @version 1.1
+ * @version 1.3
  */
 public class FAController {
 
@@ -40,6 +40,7 @@ public class FAController {
 	private int length = 1;
 	private JCheckBox monoCheckBox;
 	private JComboBox<String> language;
+	private String[] languages = { "Deutsch" };
 	private float[] languageData = new float[26]; // 26 fuer die Groesse des Alphabets
 	private JComboBox<String> keyChar;
 	private JButton left;
@@ -81,7 +82,6 @@ public class FAController {
 			e.printStackTrace();
 		}
 		initFAGui();
-
 	}
 
 	/**
@@ -163,10 +163,12 @@ public class FAController {
 			}
 		});
 		this.lengthTextField.setText("1");
+		// Documentlistener um aktualisierungen des Textfelds an Combobox mit
+		// Schluessellaenge weiterzuleiten
 		this.lengthTextField.getDocument().addDocumentListener(new DocumentListener() {
-
 			@Override
 			public void insertUpdate(DocumentEvent e) {
+				// neue Laenge holen und Combobox daran anpassen
 				int count = Integer.parseInt(lengthTextField.getText().toString());
 				initKeyChar(count);
 				gui.updateKeyChar(keyChar);
@@ -185,7 +187,6 @@ public class FAController {
 		});
 
 		this.lengthTextField.setVisible(true);
-
 	}
 
 	/**
@@ -198,7 +199,7 @@ public class FAController {
 	}
 
 	/**
-	 * Bei aktivierter Checkbox wird die Schreibsperre der Textfleder aufgehoben.
+	 * Bei aktivierter Checkbox wird die Schreibsperre der Textfelder aufgehoben.
 	 * Bei deaktivierter Checkbox wird die Schreibspeere der Textfelder gesetzt.
 	 */
 	private void checkCheckbox() {
@@ -211,7 +212,6 @@ public class FAController {
 	 * Erstellt das DropDownMenue mit dem man die Sprache auswaehlt
 	 */
 	private void initLanguage() {
-		String[] languages = { "Deutsch" };
 		this.languageData = FAData.GERMAN;
 		this.language = new JComboBox<String>(languages);
 		this.language.setVisible(true);
@@ -249,16 +249,14 @@ public class FAController {
 		this.left = new JButton("\u00ab");
 		this.left.setMargin(new Insets(0, 0, 0, 0));
 		this.left.setFont(new Font("Arial", Font.PLAIN, 22));
-		this.left.addActionListener(e ->
-		this.tables[this.keyChar.getSelectedIndex()].shiftLeft());
-		
+		this.left.addActionListener(e -> this.tables[this.keyChar.getSelectedIndex()].shiftLeft());
+
 		this.left.setVisible(true);
 		this.right = new JButton("\u00bb");
 		this.right.setMargin(new Insets(0, 0, 0, 0));
 		this.right.setFont(new Font("Arial", Font.PLAIN, 22));
-		this.right.addActionListener(e ->
-		this.tables[this.keyChar.getSelectedIndex()].shiftRight());
-		
+		this.right.addActionListener(e -> this.tables[this.keyChar.getSelectedIndex()].shiftRight());
+
 		this.right.setVisible(true);
 
 	}
@@ -346,7 +344,8 @@ public class FAController {
 
 	/**
 	 * Aktualisiert den Graphen der GUI; statische Methode damit diese auch aus
-	 * FATable aufgerufen werden kann ohne eine konkrete Instanz der GUI zu brauchen
+	 * FATable aufgerufen werden kann ohne eine konkrete Instanz der GUI oder des
+	 * FAControllers zu brauchen
 	 * 
 	 * @param graph den neuen Graphen
 	 */

@@ -32,7 +32,7 @@ import org.jfree.data.general.DefaultKeyedValues2DDataset;
  * Erstellt die Grafik zur Buchstabenverteilung der Haeufigkeitsanalyse
  * 
  * @author zes
- * @version 1.4
+ * @version 1.5
  */
 public class FAGraph {
 
@@ -73,7 +73,6 @@ public class FAGraph {
 
 	/**
 	 * Erstellt das GraphPanel
-	 * 
 	 */
 	public void createGraphPanel() {
 		// zum Erstellen eines DataSets

@@ -39,8 +39,11 @@ public class FATable {
 	/**
 	 * Konstruktor, der die Haeufigkeiten der Sprache und des Geheimtextes uebergibt
 	 * 
-	 * @param tableData Daten der Haeufigkeitsanalyse
-	 * @param languageData  Haeufigkeit der Zeichen in spezieller Sprache
+	 * @param tableData    Daten der Haeufigkeitsanalyse
+	 * @param languageData Haeufigkeit der Zeichen in spezieller Sprache
+	 * @param language     die aktuelle Sprache
+	 * @param max          der groesste Haeufigkeitsbalken; wird fuer die Erstellung
+	 *                     der Graphen gebraucht
 	 */
 	public FATable(TableData tableData, float[] languageData, String language, int max) {
 		this.data = tableData;
@@ -81,7 +84,7 @@ public class FATable {
 			this.textFields[i].setColumns(1);
 			this.textFields[i].setPreferredSize(new Dimension(19, 30));
 			// DIESER AUFRUF LOESCHT DEN AKTUELLEN INHALT DER TEXTFELDER (liegt am setzen
-			// des Documents):
+			// des Documents) :
 			this.textFields[i].setDocument(new LimitedTextfield(maxInput));
 			// markiert beim Klicken den Text im Textfeld
 			int j = i;
@@ -154,13 +157,13 @@ public class FATable {
 				this.textFields[0].setText(Character.toString(this.data.getTextFieldChar(i)));
 			}
 		}
-		
+
 		// alle listener wieder aktiviern, Textfields in data werden gesetzt
 		for (int i = 0; i < textFields.length; i++) {
 			this.data.setTextFieldChar(this.textFields[i].getText().charAt(0), i);
 			this.enableListener(i);
 		}
-		
+
 		try {
 			this.graph = new FAGraph(this.language, this.data.getForGraph(), FAController.getCurrentLanguage(),
 					FAController.getMax());
@@ -169,7 +172,6 @@ public class FATable {
 			e1.printStackTrace();
 		}
 
-		
 		FAController.updateGraph(this.graph);
 	}
 
@@ -189,13 +191,13 @@ public class FATable {
 				this.textFields[i].setText(Character.toString(this.data.getTextFieldChar(0)));
 			}
 		}
-		
+
 		// alle listener wieder aktiviern, Textfields in data werden gesetzt
 		for (int i = 0; i < textFields.length; i++) {
 			this.data.setTextFieldChar(this.textFields[i].getText().charAt(0), i);
 			this.enableListener(i);
 		}
-		
+
 		try {
 			this.graph = new FAGraph(this.language, this.data.getForGraph(), FAController.getCurrentLanguage(),
 					FAController.getMax());
