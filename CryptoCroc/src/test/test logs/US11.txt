@@ -1,4 +1,4 @@
-US11 (Git: f443e26):
+US11 (Git: 533b055):
 
 Java-Version: 1.8
 Betriebssystem: Windows 11, macOS Monterey
