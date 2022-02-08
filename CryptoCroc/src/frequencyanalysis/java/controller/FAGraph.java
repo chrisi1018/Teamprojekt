@@ -148,6 +148,9 @@ public class FAGraph {
 		// konvertieren zu ChartPanel, sodass es zum graphPanel hinzugefuegt werden kann
 		ChartPanel chP = new ChartPanel(barChart);
 		chP.setPreferredSize(new Dimension(1260, 300));
+		chP.setPopupMenu(null);
+		chP.setDomainZoomable(false);
+		chP.setRangeZoomable(false);
 		graphPanel.add(chP, BorderLayout.CENTER);
 
 	}
