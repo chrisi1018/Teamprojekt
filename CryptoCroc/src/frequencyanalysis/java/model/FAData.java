@@ -27,13 +27,15 @@ public final class FAData {
 	}
 
 	/**
-	 * Erstellt eine Haeufigkeitsanlyse der Buchstaben fuer einen gegebenen Text
-	 * in Abhaengigkeit von der Laenge eines Schuesselworts
+	 * Erstellt eine Haeufigkeitsanlyse der Buchstaben fuer einen gegebenen Text in
+	 * Abhaengigkeit von der Laenge eines Schuesselworts und rundet diesen auf eine
+	 * Nachkommastelle
 	 * 
 	 * @param text      der Text, an dem die Hauefigkeitsanalyse gemacht wird
 	 * @param keyLength die Laenge des Schluesselworts
-	 * @return ein 2D-Array, die erste Dimension gibt den Index des Schluesselwortes an
-	 *         und die zweite Dimension die Haufigkeit von Buchstaben in Prozent von A - Z
+	 * @return ein 2D-Array, die erste Dimension gibt den Index des Schluesselwortes
+	 *         an und die zweite Dimension die Haufigkeit von Buchstaben in Prozent
+	 *         von A - Z
 	 */
 	public static float[][] analyse(String text, int keyLength) {
 		int alphabetSize = 26;
@@ -65,7 +67,8 @@ public final class FAData {
 		for (int j = 0; j < keyLength; j++) {
 			if (countChars[j] != 0) {
 				for (int i = 0; i < alphabetSize; i++) {
-					per[j][i] = 100 * ((float) count[j][i] / countChars[j]);
+					float digit = 100 * ((float) count[j][i] / countChars[j]);
+					per[j][i] = Math.round(digit * 10.0f) / 10.0f;
 				}
 			}
 		}
