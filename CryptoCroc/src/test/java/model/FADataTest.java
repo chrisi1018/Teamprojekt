@@ -56,8 +56,10 @@ public class FADataTest {
 	@BeforeEach
 	void initPer() {
 		for (int i = 0; i < alphabetSize; i++) {
-			perOne[0][i] = 100 * ((float) countOne[i] / countOne[26]);
-			perTwo[0][i] = 100 * ((float) countTwo[i] / countTwo[26]);
+			float digitsOne = 100 * ((float) countOne[i] / countOne[26]);
+			perOne[0][i] = Math.round(digitsOne * 10.0f) / 10.0f;
+			float digitsTwo = 100 * ((float) countTwo[i] / countTwo[26]);
+			perTwo[0][i] = Math.round(digitsTwo * 10.0f) / 10.0f;
 			perThree[0][i] = 0.0f;
 			perThree[1][i] = 0.0f;
 			perThree[2][i] = 0.0f;
