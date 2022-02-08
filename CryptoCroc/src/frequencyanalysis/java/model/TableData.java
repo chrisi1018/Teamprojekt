@@ -75,7 +75,7 @@ public class TableData {
 
 		for (int i = 0; i < this.textFieldChar.length; i++) { // Geht alle Buchstaben von A-Z durch
 			for (int j = 0; j < this.textFieldChar.length; j++) { // Geht alle Eintraege in dem Textfeld-Array durch
-				if (this.textFieldChar[j] == (char) (letter + i)) { // Vertauscht die Prozentzahlen falls im
+				if (this.textFieldChar[j] == (char) (letter + i)) { // Vertauscht die Prozentzahlen
 					sortedFrequencyPercentage[j] = this.frequencyPercentage[i];
 				}
 			}

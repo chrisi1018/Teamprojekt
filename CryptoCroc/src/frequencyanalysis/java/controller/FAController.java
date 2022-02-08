@@ -155,7 +155,6 @@ public class FAController {
 
 					if (this.getLength() + str.length() <= limit) {
 						super.insertString(offset, str, att);
-						// trigger textboxlength
 					} else {
 						Messages.errorMessage("Die L\u00e4nge des Schl\u00fcssel darf 999 nicht \u00fcberschreiten!");
 					}
