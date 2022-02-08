@@ -18,7 +18,7 @@ Dabei gilt fuer die jeweiligen Haeufigkeiten:
 Deutsche Sprache: A(6,51), B(1,89), C(3,06), D(5,08), E(17,4), F(1,66), G(3,01), H(4,76), I(7,55), J(0,27),
 K(1,21), L(3,44), M(2,53), N(9,78), O(2,51), P(0,79), Q(0,02), R(7), S(7,87), T(6,15), U(4,35), V(0,67), W(1,89),
 X(0,03), Y(0,04), Z(1,13)
-Im Text: A(11,111), B(22,222), C(33,333), D(22,222), E(11,111) und die uebrigen 0
+Im Text: A(11,1), B(22,2), C(33,3), D(22,2), E(11,1) und die uebrigen 0
 Realitaet: entspricht der Erwartung
 
 T10:
@@ -28,8 +28,8 @@ Erwartung: Es passiert nichts
 Realitaet: entspricht der Erwartung
 
 3. Ich tippe nach 1. noch "szz" ins Geheimtextfeld, loesche das "a" und klicke auf "Text neu laden"
-Erwartung: Es aendern sich im Graphen die Haeufigkeiten fuer den Text: B(18,182), C(27,273), D(18,182), E(9,091)
-S(9,091), Z(18,182) und die uebrigen 0
+Erwartung: Es aendern sich im Graphen die Haeufigkeiten fuer den Text: B(18,2), C(27,3), D(18,2), E(9,1)
+S(9,1), Z(18,2) und die uebrigen 0
 Realitaet: entspricht der Erwartung
 
 4. Ich klicke im Menue auf "Erklaerung"
@@ -81,18 +81,23 @@ Realitaet: entspricht der Erwartung
 
 T14:
 14. Ich rufe die Haeufigkeitsanalyse auf und klicke auf das Dropdown-Menue, welches mit "1.Buchstabe" betitelt ist
-Erwartung: Es erscheint ein kleines Fenster ueber dem Dropdown-Menue in dem es nur die Option "1.Buchstabe" gibt und diese ist mit einem Haken selektiert
+Erwartung: Es erscheint ein kleines Fenster ueber dem Dropdown-Menue in dem es nur die Option "1.Buchstabe" gibt 
+und diese ist mit einem Haken selektiert
 Realitaet: Entspricht der Erwartung
 
 15. Ich rufe die Haeufigkeitsanalyse auf aendere im Textfeld neben "Schluessellaenge" die Zahl 1 zu 13
-Erwartung: Es wird jetzt im Textfeld neben "Schluessellaenge" die Zahl 13 angezeigt und im Dropdown-Menue gibt es jetzt die Optionen "1.Buchstabe", "2.Buchstabe", "3.Buchstabe", usw bis "13.Buchstabe". Diese werden mir mit einer Scrollbar angezeigt.
+Erwartung: Es wird jetzt im Textfeld neben "Schluessellaenge" die Zahl 13 angezeigt und im Dropdown-Menue gibt 
+es jetzt die Optionen "1.Buchstabe", "2.Buchstabe", "3.Buchstabe", usw bis "13.Buchstabe". Diese werden mir mit 
+einer Scrollbar angezeigt.
 Realitaet: Entspricht der Erwartung
 
 16. Ich fuehre 15. durch, aber anstatt der Zahl 13 tippe ich die Zahl 999 ein
-Erwartung: Wie in 15. aendert sich der Inhalt des Textfeldes neben "Schluessellaenge" auf 999 und gibt es jetzt 999 Optionen im entsprechenden Dropdown-Menue, die ich mir anschauen kann durch scrollen.
+Erwartung: Wie in 15. aendert sich der Inhalt des Textfeldes neben "Schluessellaenge" auf 999 und gibt es jetzt 
+999 Optionen im entsprechenden Dropdown-Menue, die ich mir anschauen kann durch scrollen.
 Realitaet: Entspricht der Erwartung
 
-17. Ich fuehre 16. durch und klicke nacheinander im zugehoerigen Dropdown-Menue auf die Optionen "999.Buchstabe", "30.Buchstabe", "573.Buchstabe".
+17. Ich fuehre 16. durch und klicke nacheinander im zugehoerigen Dropdown-Menue auf die Optionen "999.Buchstabe", 
+"30.Buchstabe", "573.Buchstabe".
 Erwartung: Das Dropdown-Menue zeigt immer die aktuell ausgewaehlte Option an
 Realitaet: Entspricht der Erwartung
 
@@ -113,16 +118,25 @@ Erwartung: Es erscheinen nur die Zahlen 129 im Textfeld
 Realitaet: Entspricht der Erwartung
 
 22. Ich fuehre 16. durch und versuche noch eine zusaetzliche 9 hinzuzufuegen
-Erwartung: Es erscheint eine Fehlermeldung, die mir sagt, dass die maximale Schluessellaenge 999 ist und das zugehoerige Dropdown-Menue geht nur bis 999
+Erwartung: Es erscheint eine Fehlermeldung, die mir sagt, dass die maximale Schluessellaenge 999 ist und das 
+zugehoerige Dropdown-Menue geht nur bis 999
 Realitaet: Entspricht der Erwartung
 
 T18:
-23. Ich tippe "iaasudfgiqwuaet80q3iuarbgbvoaieueszrss94pwafkejrdgg9piquebrkjahgd" ins Geheimtextfeld und klicke dann auf "Haeufigkeitsanalyse". Ich aktiviere die Checkbox "Monoalphabetische Verschluesselung" und schreibe ins Schluesselfeld A den Buchstaben "E".
-Erwartung: Im Schluesselfeld A steht jetzt der Buchstabe "E", im Schluesselfeld E der Buchstabe "A". Ausserdem hat sich der zum Buchstaben "A" gehoerige Haeufigkeitsbalken mit etwa 11,86% mit dem zum Buchstaben "E" gehoerigen Haeufigkeitsbalken mit etwa 8,47% im Graphen vertauscht
+23. Ich tippe "iaasudfgiqwuaet80q3iuarbgbvoaieueszrss94pwafkejrdgg9piquebrkjahgd" ins Geheimtextfeld und 
+klicke dann auf "Haeufigkeitsanalyse". Ich aktiviere die Checkbox "Monoalphabetische Verschluesselung" und 
+schreibe ins Schluesselfeld A den Buchstaben "E".
+Erwartung: Im Schluesselfeld A steht jetzt der Buchstabe "E", im Schluesselfeld E der Buchstabe "A". Ausserdem 
+hat sich der zum Buchstaben "A" gehoerige Haeufigkeitsbalken mit etwa 11,86% mit dem zum Buchstaben "E" 
+gehoerigen Haeufigkeitsbalken mit etwa 8,47% im Graphen vertauscht
 Realitaet: Entspricht der Erwartung
 
-24. Ich fuehre 23. durch und trage erst im Schluesselfeld U den Buchstaben "N" ein, und dann im Schluesselfeld Z den Buchstaben "U"
-Erwartung: Analog zu 23. wechseln erst die Buchstaben U und N ihren Platz, sowie deren zugehoerige Haeufigkeitsbalken im Graphen und dann die Buchstaben U und Z. Jetzt steht bei A der Buchstabe "E", bei E der Buchstabe "A", bei N der Buchstabe "Z", bei U der Buchstabe "N" und bei Z der Buchstabe "U". Die restlichen Buchstaben und Schluesselfelder, sowie deren Balken im Graph haben sich nicht geaendert
+24. Ich fuehre 23. durch und trage erst im Schluesselfeld U den Buchstaben "N" ein, und dann im Schluesselfeld 
+Z den Buchstaben "U"
+Erwartung: Analog zu 23. wechseln erst die Buchstaben U und N ihren Platz, sowie deren zugehoerige 
+Haeufigkeitsbalken im Graphen und dann die Buchstaben U und Z. Jetzt steht bei A der Buchstabe "E", bei E 
+der Buchstabe "A", bei N der Buchstabe "Z", bei U der Buchstabe "N" und bei Z der Buchstabe "U". Die restlichen 
+Buchstaben und Schluesselfelder, sowie deren Balken im Graph haben sich nicht geaendert
 Realitaet: Entspricht der Erwartung
 
 T16:
