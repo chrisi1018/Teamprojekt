@@ -4,7 +4,7 @@ Java-Version: 1.8
 Betriebssystem: Windows 11, macOS Monterey
 getestet von: Julian Singer, Zoe Sobota
 
-T9+T19:
+T7 & T9 & T19:
 1. Ich tippe "abbcccdde" ins Geheimtextfeld und klicke mit der Maus auf den Button "Haeufigkeitsanalyse"
 Erwartung: Es oeffnet sich ein neues Fenster mit dem Titel "Haeufigkeitsanalyse". In diesem ist ganz 
 oben eine Menueleiste mit den Menuepunkten "Text neu laden" und "Erklaerung", darunter nochmals der Titel,
@@ -40,7 +40,7 @@ Realitaet: entspricht der Erwartung
 Erwartung: Es oeffnet sich der Link in meinem Browser
 Realitaet: entspricht der Erwartung
 
-T22+T13+T15:
+T13 & T15 & T22:
 6. Ich wiederhole 1.
 Erwartung: Es erscheinen unter anderem 26 grau hinterlegte Textfelder. Die Textfelder stehen genau nebeneinander, 
 wobei von links nach rechts gesehen jedes mit einem Grossbuchstaben von A bis Z in alphabetischer Reihenfolge 
@@ -118,3 +118,70 @@ Realitaet: Entspricht der Erwartung
 23. Ich fuehre 22. durch und trage erst im Schluesselfeld U den Buchstaben "N" ein, und dann im Schluesselfeld Z den Buchstaben "U"
 Erwartung: Analog zu 22. wechseln erst die Buchstaben U und N ihren Platz, sowie deren zugehoerige Haeufigkeitsbalken im Graphen und dann die Buchstaben U und Z. Jetzt steht bei A der Buchstabe "E", bei E der Buchstabe "A", bei N der Buchstabe "Z", bei U der Buchstabe "N" und bei Z der Buchstabe "U". Die restlichen Buchstaben und Schluesselfelder, sowie deren Balken im Graph haben sich nicht geaendert
 Realitaet: Entspricht der Erwartung
+
+T16:
+Vor den folgenden 7 Tests tippe ich jeden Buchstaben von A bis Z n-mal ins Geheimtextfeld (wobei n ihrer
+jeweiligen Position im Alphabet entspricht) und klicke dann auf den Button "Haeufigkeitsanalyse", um
+danach die Balken im Graph fuer jeden Buchstaben unterscheiden zu koennen
+
+24. Ich klicke ohne aktivierte Checkbox der monoalphabetischen Verschluesselung einmal auf den Button 
+mit dem Pfeil nach links
+Erwartung: Die orangenen Balken im Graphen und die Buchstaben aller Textfelder verschieben sich in ihr linkes 
+Nachbarfeld, ausser der Balken und Buchstabe ganz links, welche sich im Graphen bzw. in den Textfeldern ganz rechts 
+positionieren
+Realitaet: entspricht der Erwartung
+
+25. Ich klicke ohne aktivierte Checkbox der monoalphabetischen Verschluesselung 26mal auf den Button 
+mit dem Pfeil nach links
+Erwartung: Die orangenen Balken im Graphen und die Buchstaben aller Textfelder verschieben sich 26mal in ihr linkes 
+Nachbarfeld, ausser der Balken und Buchstabe ganz links, welche sich im Graphen bzw. in den Textfeldern ganz rechts 
+positionieren. Zum Schluss befinden sich alle Balken im Graphen und alle Buchstaben in den Textfeldern wieder in
+ihrer urspruenglichen Position, also wie vor Durchfuehrung des Tests
+Realitaet: entspricht der Erwartung
+
+26. Ich klicke ohne aktivierte Checkbox der monoalphabetischen Verschluesselung einmal auf den Button 
+mit dem Pfeil nach rechts
+Erwartung: Die orangenen Balken im Graphen und die Buchstaben aller Textfelder verschieben sich in ihr rechtes 
+Nachbarfeld, ausser der Balken und Buchstabe ganz rechts, welche sich im Graphen bzw. in den Textfeldern ganz links
+positionieren
+Realitaet: entspricht der Erwartung
+
+27. Ich klicke ohne aktivierte Checkbox der monoalphabetischen Verschluesselung 26mal auf den Button 
+mit dem Pfeil nach rechts
+Erwartung: Die orangenen Balken im Graphen und die Buchstaben aller Textfelder verschieben sich 26mal in ihr rechtes 
+Nachbarfeld, ausser der Balken und Buchstabe ganz rechts, welche sich im Graphen bzw. in den Textfeldern ganz links 
+positionieren. Zum Schluss befinden sich alle Balken im Graphen und alle Buchstaben in den Textfeldern wieder in
+ihrer urspruenglichen Position, also wie vor Durchfuehrung des Tests
+Realitaet: entspricht der Erwartung
+
+28. Ich aktiviere die Checkbox fuer die monoalphabetische Verschluesselung, tippe "A" ins dritte Textfeld und
+wiederhole 24.
+Erwartung: siehe Erwartung bei 24.
+Realitaet: entspricht der Erwartung
+
+29. Ich aktiviere die Checkbox fuer die monoalphabetische Verschluesselung, tippe "A" ins dritte Textfeld und
+wiederhole 26.
+Erwartung: siehe Erwartung bei 26.
+Realitaet: entspricht der Erwartung
+
+30. Ich aktiviere die Checkbox fuer die monoalphabetische Verschluesselung, tippe "A" ins 26. Textfeld und klicke
+erst zweimal auf den Button nach rechts und dann einmal auf den Button nach links
+Erwartung: Alle Balken und Buchstaben wurden wie in 26. einmal nach rechts verschoben, ausser die urspruenglich 
+ersten, welche wieder in der urspruenglichen Position sind und die urspruenglich letzten, welche sich nun 
+an der zweiten Position befinden
+Realitaet: entspricht der Erwartung
+
+T17:
+31. Nach 1. klicke ich auf das Textfeld der Schluessellaenge und tippe "5" ein. Danach klicke ich einmal auf den
+Links-Button und dann auf das DropDownMenue, in dem "1. Buchstabe" steht und dann nochmal auf "2. Buchstabe" 
+in der erscheinenden Auswahl
+Erwartung: Die Buchstaben in den Textfeldern werden in ihre natuerliche, also alphabetische Reihenfolge gebracht
+und der Graph wird durch einen neuen Graph ersetzt
+Realitaet: entspricht der Erwartung
+
+32. Ich wiederhole 31. mit "2" als neue Schluessellaengeneingabe
+Erwartung: Der neue Graph besitzt fuer die orangenen Balken folgende Haeufigkeiten: B(25), C(50), D(25) und die 
+uebrigen Null
+Realitaet: alle Buchstaben besitzen Haeufigkeit Null
+
+-> in Issue 22 festgehalten
