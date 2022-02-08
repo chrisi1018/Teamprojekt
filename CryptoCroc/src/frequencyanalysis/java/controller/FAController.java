@@ -207,9 +207,11 @@ public class FAController {
 	 * Bei deaktivierter Checkbox wird die Schreibsperre der Textfelder gesetzt.
 	 */
 	private void checkCheckbox() {
+		this.lengthTextField.setText("1");
 		for (int i = 0; i < this.tables.length; i++) {
 			this.tables[i].enableTextFields(this.monoCheckBox.isSelected());
 		}
+		this.lengthTextField.setEnabled(!this.monoCheckBox.isSelected());
 	}
 
 	/**
