@@ -1,4 +1,4 @@
-US11 (Git: 533b055):
+US11 (Git: f11769e):
 
 Java-Version: 1.8
 Betriebssystem: Windows 11, macOS Monterey
@@ -65,7 +65,8 @@ Erwartung: Der Buchstabe wird markiert
 Realitaet: entspricht der Erwartung
 
 11. Ich tippe nach 10. "Y" ein
-Erwartung: Es steht jetzt "Y" im zweiten und "B" im 25. Textfeld. Ausserdem wechseln im Graph die Balken der Haeufigkeit fuer "B" und "Y" den Platz
+Erwartung: Es steht jetzt "Y" im zweiten und "B" im 25. Textfeld. Ausserdem wechseln im Graph die Balken 
+der Haeufigkeit fuer "B" und "Y" den Platz
 Realitaet: entspricht der Erwartung
 
 12. Ich tippe nach 11. "G" ein, also ohne dass "Y" markiert ist
@@ -73,50 +74,55 @@ Erwartung: "G" wird nicht ins Textfeld eingesetzt und es erscheint ein PopUpFens
 ein Buchstabe eingegeben werden kann
 Realitaet: entspricht der Erwartung
 
+13. Ich klicke nach 11. erneut auf die Checkbox fuer die monoalphabetische Verschluesselung
+Erwartung: Die Buchstaben in den Textfeldern und die orangenen Balken im Graphen werden in ihre urspruengliche
+Position gebracht, die sie nach ihrer Initialisierung hatten
+Realitaet: entspricht der Erwartung
+
 T14:
-13. Ich rufe die Haeufigkeitsanalyse auf und klicke auf das Dropdown-Menue, welches mit "1.Buchstabe" betitelt ist
+14. Ich rufe die Haeufigkeitsanalyse auf und klicke auf das Dropdown-Menue, welches mit "1.Buchstabe" betitelt ist
 Erwartung: Es erscheint ein kleines Fenster ueber dem Dropdown-Menue in dem es nur die Option "1.Buchstabe" gibt und diese ist mit einem Haken selektiert
 Realitaet: Entspricht der Erwartung
 
-14. Ich rufe die Haeufigkeitsanalyse auf aendere im Textfeld neben "Schluessellaenge" die Zahl 1 zu 13
+15. Ich rufe die Haeufigkeitsanalyse auf aendere im Textfeld neben "Schluessellaenge" die Zahl 1 zu 13
 Erwartung: Es wird jetzt im Textfeld neben "Schluessellaenge" die Zahl 13 angezeigt und im Dropdown-Menue gibt es jetzt die Optionen "1.Buchstabe", "2.Buchstabe", "3.Buchstabe", usw bis "13.Buchstabe". Diese werden mir mit einer Scrollbar angezeigt.
 Realitaet: Entspricht der Erwartung
 
-15. Ich fuehre 14. durch, aber anstatt der Zahl 13 tippe ich die Zahl 999 ein
-Erwartung: Wie in 14. aendert sich der Inhalt des Textfeldes neben "Schluessellaenge" auf 999 und gibt es jetzt 999 Optionen im entsprechenden Dropdown-Menue, die ich mir anschauen kann durch scrollen.
+16. Ich fuehre 15. durch, aber anstatt der Zahl 13 tippe ich die Zahl 999 ein
+Erwartung: Wie in 15. aendert sich der Inhalt des Textfeldes neben "Schluessellaenge" auf 999 und gibt es jetzt 999 Optionen im entsprechenden Dropdown-Menue, die ich mir anschauen kann durch scrollen.
 Realitaet: Entspricht der Erwartung
 
-16. Ich fuehre 15. durch und klicke nacheinander im zugehoerigen Dropdown-Menue auf die Optionen "999.Buchstabe", "30.Buchstabe", "573.Buchstabe".
+17. Ich fuehre 16. durch und klicke nacheinander im zugehoerigen Dropdown-Menue auf die Optionen "999.Buchstabe", "30.Buchstabe", "573.Buchstabe".
 Erwartung: Das Dropdown-Menue zeigt immer die aktuell ausgewaehlte Option an
 Realitaet: Entspricht der Erwartung
 
-17. Ich fuehre 14. durch und aendere danach die Zahl im Schluesselfeld zu 7
+18. Ich fuehre 15. durch und aendere danach die Zahl im Schluesselfeld zu 7
 Erwartung: Es gibt jetzt nur noch 7 Optionen im Dropdown-Menue
 Realitaet: Entspricht der Erwartung
 
-18. Ich fuehre 14. durch, aber anstatt die Zahl 13 einzutippen, loesche ich die da stehende Zahl 1
+19. Ich fuehre 15. durch, aber anstatt die Zahl 13 einzutippen, loesche ich die da stehende Zahl 1
 Erwartung: Es passiert nichts
 Realitaet: Entspricht der Erwartung
 
-19. Ich fuehre 14. durch und versuche hinter der Zahl 13 noch ein "a" einzutippen
+20. Ich fuehre 15. durch und versuche hinter der Zahl 13 noch ein "a" einzutippen
 Erwartung: Die 13 wird angezeigt, aber das a nicht
 Realitaet: Entspricht der Erwartung
 
-20. Ich fuehre 17. durch und versuche "asdf129j+" einzutippen
+21. Ich fuehre 18. durch und versuche "asdf129j+" einzutippen
 Erwartung: Es erscheinen nur die Zahlen 129 im Textfeld
 Realitaet: Entspricht der Erwartung
 
-21. Ich fuehre 15. durch und versuche noch eine zusaetzliche 9 hinzuzufuegen
+22. Ich fuehre 16. durch und versuche noch eine zusaetzliche 9 hinzuzufuegen
 Erwartung: Es erscheint eine Fehlermeldung, die mir sagt, dass die maximale Schluessellaenge 999 ist und das zugehoerige Dropdown-Menue geht nur bis 999
 Realitaet: Entspricht der Erwartung
 
 T18:
-22. Ich tippe "iaasudfgiqwuaet80q3iuarbgbvoaieueszrss94pwafkejrdgg9piquebrkjahgd" ins Geheimtextfeld und klicke dann auf "Haeufigkeitsanalyse". Ich aktiviere die Checkbox "Monoalphabetische Verschluesselung" und schreibe ins Schluesselfeld A den Buchstaben "E".
+23. Ich tippe "iaasudfgiqwuaet80q3iuarbgbvoaieueszrss94pwafkejrdgg9piquebrkjahgd" ins Geheimtextfeld und klicke dann auf "Haeufigkeitsanalyse". Ich aktiviere die Checkbox "Monoalphabetische Verschluesselung" und schreibe ins Schluesselfeld A den Buchstaben "E".
 Erwartung: Im Schluesselfeld A steht jetzt der Buchstabe "E", im Schluesselfeld E der Buchstabe "A". Ausserdem hat sich der zum Buchstaben "A" gehoerige Haeufigkeitsbalken mit etwa 11,86% mit dem zum Buchstaben "E" gehoerigen Haeufigkeitsbalken mit etwa 8,47% im Graphen vertauscht
 Realitaet: Entspricht der Erwartung
 
-23. Ich fuehre 22. durch und trage erst im Schluesselfeld U den Buchstaben "N" ein, und dann im Schluesselfeld Z den Buchstaben "U"
-Erwartung: Analog zu 22. wechseln erst die Buchstaben U und N ihren Platz, sowie deren zugehoerige Haeufigkeitsbalken im Graphen und dann die Buchstaben U und Z. Jetzt steht bei A der Buchstabe "E", bei E der Buchstabe "A", bei N der Buchstabe "Z", bei U der Buchstabe "N" und bei Z der Buchstabe "U". Die restlichen Buchstaben und Schluesselfelder, sowie deren Balken im Graph haben sich nicht geaendert
+24. Ich fuehre 23. durch und trage erst im Schluesselfeld U den Buchstaben "N" ein, und dann im Schluesselfeld Z den Buchstaben "U"
+Erwartung: Analog zu 23. wechseln erst die Buchstaben U und N ihren Platz, sowie deren zugehoerige Haeufigkeitsbalken im Graphen und dann die Buchstaben U und Z. Jetzt steht bei A der Buchstabe "E", bei E der Buchstabe "A", bei N der Buchstabe "Z", bei U der Buchstabe "N" und bei Z der Buchstabe "U". Die restlichen Buchstaben und Schluesselfelder, sowie deren Balken im Graph haben sich nicht geaendert
 Realitaet: Entspricht der Erwartung
 
 T16:
@@ -124,14 +130,14 @@ Vor den folgenden 7 Tests tippe ich jeden Buchstaben von A bis Z n-mal ins Gehei
 jeweiligen Position im Alphabet entspricht) und klicke dann auf den Button "Haeufigkeitsanalyse", um
 danach die Balken im Graph fuer jeden Buchstaben unterscheiden zu koennen
 
-24. Ich klicke ohne aktivierte Checkbox der monoalphabetischen Verschluesselung einmal auf den Button 
+25. Ich klicke ohne aktivierte Checkbox der monoalphabetischen Verschluesselung einmal auf den Button 
 mit dem Pfeil nach links
 Erwartung: Die orangenen Balken im Graphen und die Buchstaben aller Textfelder verschieben sich in ihr linkes 
 Nachbarfeld, ausser der Balken und Buchstabe ganz links, welche sich im Graphen bzw. in den Textfeldern ganz rechts 
 positionieren
 Realitaet: entspricht der Erwartung
 
-25. Ich klicke ohne aktivierte Checkbox der monoalphabetischen Verschluesselung 26mal auf den Button 
+26. Ich klicke ohne aktivierte Checkbox der monoalphabetischen Verschluesselung 26mal auf den Button 
 mit dem Pfeil nach links
 Erwartung: Die orangenen Balken im Graphen und die Buchstaben aller Textfelder verschieben sich 26mal in ihr linkes 
 Nachbarfeld, ausser der Balken und Buchstabe ganz links, welche sich im Graphen bzw. in den Textfeldern ganz rechts 
@@ -139,14 +145,14 @@ positionieren. Zum Schluss befinden sich alle Balken im Graphen und alle Buchsta
 ihrer urspruenglichen Position, also wie vor Durchfuehrung des Tests
 Realitaet: entspricht der Erwartung
 
-26. Ich klicke ohne aktivierte Checkbox der monoalphabetischen Verschluesselung einmal auf den Button 
+27. Ich klicke ohne aktivierte Checkbox der monoalphabetischen Verschluesselung einmal auf den Button 
 mit dem Pfeil nach rechts
 Erwartung: Die orangenen Balken im Graphen und die Buchstaben aller Textfelder verschieben sich in ihr rechtes 
 Nachbarfeld, ausser der Balken und Buchstabe ganz rechts, welche sich im Graphen bzw. in den Textfeldern ganz links
 positionieren
 Realitaet: entspricht der Erwartung
 
-27. Ich klicke ohne aktivierte Checkbox der monoalphabetischen Verschluesselung 26mal auf den Button 
+28. Ich klicke ohne aktivierte Checkbox der monoalphabetischen Verschluesselung 26mal auf den Button 
 mit dem Pfeil nach rechts
 Erwartung: Die orangenen Balken im Graphen und die Buchstaben aller Textfelder verschieben sich 26mal in ihr rechtes 
 Nachbarfeld, ausser der Balken und Buchstabe ganz rechts, welche sich im Graphen bzw. in den Textfeldern ganz links 
@@ -154,32 +160,32 @@ positionieren. Zum Schluss befinden sich alle Balken im Graphen und alle Buchsta
 ihrer urspruenglichen Position, also wie vor Durchfuehrung des Tests
 Realitaet: entspricht der Erwartung
 
-28. Ich aktiviere die Checkbox fuer die monoalphabetische Verschluesselung, tippe "A" ins dritte Textfeld und
-wiederhole 24.
-Erwartung: siehe Erwartung bei 24.
-Realitaet: entspricht der Erwartung
-
 29. Ich aktiviere die Checkbox fuer die monoalphabetische Verschluesselung, tippe "A" ins dritte Textfeld und
-wiederhole 26.
-Erwartung: siehe Erwartung bei 26.
+wiederhole 25.
+Erwartung: siehe Erwartung bei 25.
 Realitaet: entspricht der Erwartung
 
-30. Ich aktiviere die Checkbox fuer die monoalphabetische Verschluesselung, tippe "A" ins 26. Textfeld und klicke
+30. Ich aktiviere die Checkbox fuer die monoalphabetische Verschluesselung, tippe "A" ins dritte Textfeld und
+wiederhole 27.
+Erwartung: siehe Erwartung bei 27.
+Realitaet: entspricht der Erwartung
+
+31. Ich aktiviere die Checkbox fuer die monoalphabetische Verschluesselung, tippe "A" ins 26. Textfeld und klicke
 erst zweimal auf den Button nach rechts und dann einmal auf den Button nach links
-Erwartung: Alle Balken und Buchstaben wurden wie in 26. einmal nach rechts verschoben, ausser die urspruenglich 
+Erwartung: Alle Balken und Buchstaben wurden wie in 27. einmal nach rechts verschoben, ausser die urspruenglich 
 ersten, welche wieder in der urspruenglichen Position sind und die urspruenglich letzten, welche sich nun 
 an der zweiten Position befinden
 Realitaet: entspricht der Erwartung
 
 T17:
-31. Nach 1. klicke ich auf das Textfeld der Schluessellaenge und tippe "5" ein. Danach klicke ich einmal auf den
+32. Nach 1. klicke ich auf das Textfeld der Schluessellaenge und tippe "5" ein. Danach klicke ich einmal auf den
 Links-Button und dann auf das DropDownMenue, in dem "1. Buchstabe" steht und dann nochmal auf "2. Buchstabe" 
 in der erscheinenden Auswahl
 Erwartung: Die Buchstaben in den Textfeldern werden in ihre natuerliche, also alphabetische Reihenfolge gebracht
 und der Graph wird durch einen neuen Graph ersetzt
 Realitaet: entspricht der Erwartung
 
-32. Ich wiederhole 31. mit "2" als neue Schluessellaengeneingabe
+33. Ich wiederhole 32. mit "2" als neue Schluessellaengeneingabe
 Erwartung: Der neue Graph besitzt fuer die orangenen Balken folgende Haeufigkeiten: B(25), C(50), D(25) und die 
 uebrigen Null
 Realitaet: alle Buchstaben besitzen Haeufigkeit Null
