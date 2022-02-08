@@ -27,7 +27,7 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
 /**
- * Die Klasse stellt den Hauptcontroller der Haufigkeitsanalyse dar
+ * Die Klasse stellt den Hauptcontroller der Haeufigkeitsanalyse dar
  * 
  * @author Julian Sturm, zes, Julian Singer, chrisi
  * @version 1.3
@@ -241,7 +241,7 @@ public class FAController {
 			public void actionPerformed(ActionEvent e) {
 				String number = keyChar.getSelectedItem().toString();
 				String digit = "";
-				// maximaler string ist 999, d.h. maximale Laenge muss 3 sein
+				// maximaler String ist 999, d.h. maximale Laenge muss 3 sein
 				for (int i = 0; i < 3; i++) {
 					if (number.charAt(i) != '.' && number.charAt(i) != ' ') {
 						digit = digit + number.charAt(i);
