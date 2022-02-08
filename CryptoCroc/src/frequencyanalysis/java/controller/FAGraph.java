@@ -42,7 +42,7 @@ public class FAGraph {
 	private double[] fActual;
 	private String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	private String language;
-	// standard von 20, da groesste prozentzahl der deutschen verteilung das E mit
+	// Standard von 20, da groesste Prozentzahl der deutschen Verteilung das E mit
 	// 17% ist
 	private int max = 20;
 
@@ -86,28 +86,28 @@ public class FAGraph {
 			m.addValue(fActual[i], "Verteilung im Text", Character.toString(alphabet.charAt(i)));
 		}
 
-		// Bar chart eingabe parameter (Titel oben, Titel unten, Y Achse, dataset,
-		// ausrichtung der Balken, Legende erzeugen, Tooltips, URLs)
+		// Balkendiagramm mit Eingabeparametern (Titel oben, Titel unten, Y Achse, dataset,
+		// Ausrichtung der Balken, Legende erzeugen, Tooltips, URLs)
 		JFreeChart barChart = ChartFactory.createBarChart("", "", "", m, PlotOrientation.VERTICAL, false, false, false);
 
-		// Plot holen des Charts und manuell Legende hinzufuegen; nur so koennen
+		// Plot der Chart holen und manuell Legende hinzufuegen; nur so koennen
 		// Orientierung und Textstil angepasst werden
 		CategoryPlot cplot = (CategoryPlot) barChart.getPlot();
 		LegendTitle legend = new LegendTitle(cplot);
 		Font font = new Font(Font.DIALOG, Font.BOLD, 10);
 		legend.setItemFont(font);
-		// Legende soll unten links
+		// Legende wird links unten positioniert
 		legend.setPosition(RectangleEdge.BOTTOM);
 		legend.setHorizontalAlignment(HorizontalAlignment.LEFT);
-		// padding zwischen einzelnen Legendenitems
+		// Padding zwischen einzelnen Legenden-Items
 		legend.setItemLabelPadding(new RectangleInsets(2, 2, 2, 30));
 		barChart.addLegend(legend);
 
-		// Hintergrund des plots (standard ist grau) auf weiss setzen und y-Achse mit
+		// Hintergrund des Plots (Standard ist grau) auf weiss setzen und y-Achse mit
 		// Zahlenwerten ausblenden
 		cplot.setBackgroundPaint(Color.white);
 		cplot.getRangeAxis().setVisible(false);
-		// Abstand zu y-achse links und rechts
+		// Abstand zur y-Achse links und rechts
 		cplot.getDomainAxis().setLowerMargin(0.01);
 		cplot.getDomainAxis().setUpperMargin(0.01);
 
@@ -134,10 +134,10 @@ public class FAGraph {
 		renderer.setSeriesPositiveItemLabelPosition(1,
 				new ItemLabelPosition(ItemLabelAnchor.OUTSIDE12, TextAnchor.CENTER, TextAnchor.CENTER, -Math.PI / 2));
 		renderer.setSeriesItemLabelFont(1, new Font(Font.DIALOG, Font.BOLD, 10));
-		// abstand Werte-labels zu balken
+		// Abstand der Werte-Labels zu den Balken
 		renderer.setItemLabelAnchorOffset(15);
 
-		// Schritt-groesse der y-achse einstellen
+		// Schrittgroesse der y-Achse einstellen
 		NumberAxis rangeAxis = (NumberAxis) cplot.getRangeAxis();
 		rangeAxis.setRange(0, max);
 		rangeAxis.setStandardTickUnits(NumberAxis.createStandardTickUnits());
@@ -145,7 +145,7 @@ public class FAGraph {
 
 		graphPanel = new JPanel();
 
-		// konvertieren zu ChartPanel sodass es zum graphPanel hinzugefuegt werden kann
+		// konvertieren zu ChartPanel, sodass es zum graphPanel hinzugefuegt werden kann
 		ChartPanel chP = new ChartPanel(barChart);
 		chP.setPreferredSize(new Dimension(1260, 300));
 		graphPanel.add(chP, BorderLayout.CENTER);

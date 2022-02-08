@@ -41,7 +41,7 @@ public class FAMenuBar {
 	 */
 	public void initExplanationItem(int barIndex, JFrame newFrame) {
 		menuBar.getMenu(barIndex).addMouseListener(new MouseListener() {
-			//Setzt das uebergebene Erklaerungsfenster in den Vordergrund und macht es sichtbar
+			// Setzt das uebergebene Erklaerungsfenster in den Vordergrund und macht es sichtbar
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				newFrame.toFront();
@@ -50,19 +50,19 @@ public class FAMenuBar {
 			}
 			@Override
 			public void mousePressed(MouseEvent e) {
-				//tue nichts
+				// tue nichts
 			}
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				//tue nichts
+				// tue nichts
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				//tue nichts
+				// tue nichts
 			}
 			@Override
 			public void mouseExited(MouseEvent e) {
-				//tue nichts
+				// tue nichts
 			}
 		});
 	}

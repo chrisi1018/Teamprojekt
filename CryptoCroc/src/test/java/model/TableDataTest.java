@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 /**
- * Die Klasse testet die Ausgabe der Prozentwerte und das verschieben von Buchstaben in dem
+ * Die Klasse testet die Ausgabe der Prozentwerte und das Verschieben von Buchstaben in den
  * Textfeldern.
  * 
  * @author chrisi
@@ -31,7 +31,7 @@ public class TableDataTest {
 			1.89f /*W*/, 0.03f /*X*/, 0.04f /*Y*/, 1.13f /*Z*/};
 	
 	/**
-	 * Initalisiere die Test Klasse mit Prozentwerten und gebe den Textfeldern den initial Wert.
+	 * Initialisiere die Test-Klasse mit Prozentwerten und gebe den Textfeldern den Initialwert.
 	 */
 	@BeforeEach
 	void init() {
@@ -40,7 +40,7 @@ public class TableDataTest {
 	}
 	
 	/**
-	 * Loesche die Test Klasse.
+	 * Loesche die Test-Klasse.
 	 */
 	@AfterEach
 	void remove() {
@@ -48,7 +48,7 @@ public class TableDataTest {
 	}
 	
 	/**
-	 * Testet ob die Textfelder richtig veraendert werden und ob sich die Prozentwerte mit aendern,
+	 * Testet, ob die Textfelder richtig veraendert werden und ob sich die Prozentwerte mit aendern,
 	 * wenn diese fuer den Graph ausgegeben werden sollen.
 	 */
 	@Test

@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Eine Hilfs-Klasse, die fuer unterschiedliche Sprachen die
+ * Eine Hilfsklasse, die fuer unterschiedliche Sprachen die
  * Haeufigkeitswahrscheinlichkeiten hat
  * 
  * @author Julian
@@ -27,13 +27,13 @@ public final class FAData {
 	}
 
 	/**
-	 * Erstellt eine Haeufigkeitsanlyse der Buchstaben fuer einen gegebenen Text,
-	 * abhaengig der laenge eines Schuesselworts
+	 * Erstellt eine Haeufigkeitsanlyse der Buchstaben fuer einen gegebenen Text
+	 * in Abhaengigkeit von der Laenge eines Schuesselworts
 	 * 
-	 * @param text      der Text an dem die Hauefigkeitsanalyse gemacht wird
+	 * @param text      der Text, an dem die Hauefigkeitsanalyse gemacht wird
 	 * @param keyLength die Laenge des Schluesselworts
-	 * @return ein 2D-Array, erste Dimension gibt den Index des Schluesselwortes an
-	 *         zweite Dimension die Haufigkeit von Buchstaben in Prozent von A - Z
+	 * @return ein 2D-Array, die erste Dimension gibt den Index des Schluesselwortes an
+	 *         und die zweite Dimension die Haufigkeit von Buchstaben in Prozent von A - Z
 	 */
 	public static float[][] analyse(String text, int keyLength) {
 		int alphabetSize = 26;
@@ -41,7 +41,7 @@ public final class FAData {
 		int[] countChars = new int[keyLength];
 		int[][] count = new int[keyLength][alphabetSize];
 		float[][] per = new float[keyLength][alphabetSize];
-		// Initalisiert die Arrays
+		// Initialisiert die Arrays
 		for (int j = 0; j < keyLength; j++) {
 			countChars[j] = 0;
 			for (int i = 0; i < alphabetSize; i++) {
@@ -53,7 +53,7 @@ public final class FAData {
 		String editedText = TextEdit.editText(text);
 		for (int i = 0; i < editedText.length(); i++) { // Schleife zaehlt ueber den Text
 			char temp = editedText.charAt(i);
-			if (temp >= 'A' && temp <= 'Z') { // ueberprueft ob Zeichen ein Buchstabe ist
+			if (temp >= 'A' && temp <= 'Z') { // ueberprueft, ob Zeichen ein Buchstabe ist
 				for (int j = 0; j < count.length; j++) {
 					count[j][(temp - 'A')]++;
 				}

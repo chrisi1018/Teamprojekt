@@ -18,9 +18,9 @@ public class TextChangeListener implements DocumentListener {
 	/**
 	 * Konstruktor fuer einen TextChangeListener
 	 * 
-	 * @param table die aktuelle FATable instanz, welche die Daten und den Graphen
+	 * @param table die aktuelle FATable-Instanz, welche die Daten und den Graphen
 	 *              enthaelt
-	 * @param index den index beim dem eine aenderung stattfand
+	 * @param index der Index, bei dem eine Aenderung stattfand
 	 */
 	public TextChangeListener(FATable table, int index) {
 		this.table = table;
@@ -30,7 +30,7 @@ public class TextChangeListener implements DocumentListener {
 	@Override
 	public void insertUpdate(DocumentEvent e) {
 		// fuer monoalphabetisch; wechselt zwei Schluesselfelder aus und deaktiviert
-		// zeitlich den Documentlistener in einem
+		// zeitlich in einem den DocumentListener
 		Runnable swap = new Runnable() {
 			@Override
 			public void run() {
@@ -42,12 +42,12 @@ public class TextChangeListener implements DocumentListener {
 
 	@Override
 	public void removeUpdate(DocumentEvent e) {
-		// kein update noetig wenn etwas entfernt wird
+		// kein Update noetig, wenn etwas entfernt wird
 	}
 
 	@Override
 	public void changedUpdate(DocumentEvent e) {
-		// nicht gebraucht bei textfeldern
+		// nicht gebraucht bei Textfeldern
 	}
 
 }

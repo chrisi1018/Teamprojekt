@@ -32,8 +32,8 @@ public class FATable {
 	private JPanel tablePanel;
 	private FAGraph graph;
 	private float[] language;
-	// fuer alle textfelder einen Textchangelistener; noetig um diese beim
-	// vertauschen der buchstaben zu entfernen
+	// fuer alle Textfelder einen TextChangeListener; noetig, um diese beim
+	// Vertauschen der Buchstaben zu entfernen
 	private TextChangeListener[] tcl = new TextChangeListener[alphabetSize];
 
 	/**
@@ -54,7 +54,6 @@ public class FATable {
 		try {
 			this.graph = new FAGraph(languageData, this.data.getFrequencyPercentage(), language, max);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		this.language = languageData;
@@ -63,7 +62,6 @@ public class FATable {
 	/**
 	 * Erzeugt das TablePanel fuer die Zuordnung der Buchstaben und gibt dieses
 	 * zurueck
-	 * 
 	 */
 	public void createTablePanel() {
 		int maxInput = 1;
@@ -83,7 +81,7 @@ public class FATable {
 			this.textFields[i].setFont(new Font(Font.DIALOG, Font.BOLD, 15));
 			this.textFields[i].setColumns(1);
 			this.textFields[i].setPreferredSize(new Dimension(19, 30));
-			// DIESER AUFRUF LOESCHT DEN AKTUELLEN INHALT DER TEXTFELDER (liegt am setzen
+			// dieser Aufruf loescht den aktuellen Inhalt der Textfelder (liegt am Setzen
 			// des Documents) :
 			this.textFields[i].setDocument(new LimitedTextfield(maxInput));
 			// markiert beim Klicken den Text im Textfeld
@@ -109,7 +107,7 @@ public class FATable {
 			tablePanel.add(letterPanel);
 		}
 
-		// wegen setDocument-Aufruf nochmals initialisieren sodass text angezeigt wird
+		// wegen setDocument-Aufruf nochmals initialisieren, sodass der Text angezeigt wird
 		char firstLetter = 'A';
 		for (int i = 0; i < this.textFields.length; i++) {
 			this.textFields[i].setText("" + (char) (i + firstLetter));
@@ -122,19 +120,19 @@ public class FATable {
 	}
 
 	/**
-	 * Entfernt den Document listener an einer gegebenen Stelle um zu verhindern
+	 * Entfernt den DocumentListener an einer gegebenen Stelle, um zu verhindern,
 	 * dass dieser getriggert wird
 	 * 
-	 * @param loc die Stelle des Textfields an dem der Listener entfernt werden muss
+	 * @param loc die Stelle des Textfeldes, an dem der Listener entfernt werden muss
 	 */
 	private void disableListener(int loc) {
 		this.textFields[loc].getDocument().removeDocumentListener(tcl[loc]);
 	}
 
 	/**
-	 * Fuegt den Documentlistener an einer gegebenen Stelle wieder ein
+	 * Fuegt den DocumentListener an einer gegebenen Stelle wieder ein
 	 * 
-	 * @param loc die Stelle des Textfields an dem der Listener zugefuegt wird
+	 * @param loc die Stelle des Textfeldes, an dem der Listener zugefuegt wird
 	 */
 	private void enableListener(int loc) {
 		this.textFields[loc].getDocument().addDocumentListener(tcl[loc]);
@@ -148,7 +146,7 @@ public class FATable {
 	 */
 	public void shiftRight() {
 		for (int i = 0; i < this.textFields.length; i++) {
-			// alle listener entfernen, da diese sonst beim setzen des texts getriggert
+			// alle Listener werden entfernt, da diese sonst beim Setzen des Texts getriggert
 			// werden
 			this.disableListener(i);
 			if (i < alphabetSize - 1) {
@@ -158,7 +156,7 @@ public class FATable {
 			}
 		}
 
-		// alle listener wieder aktiviern, Textfields in data werden gesetzt
+		// alle Listener werden wieder aktiviert und die Textfelder in data werden gesetzt
 		for (int i = 0; i < textFields.length; i++) {
 			this.data.setTextFieldChar(this.textFields[i].getText().charAt(0), i);
 			this.enableListener(i);
@@ -168,7 +166,6 @@ public class FATable {
 			this.graph = new FAGraph(this.language, this.data.getForGraph(), FAController.getCurrentLanguage(),
 					FAController.getMax());
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
@@ -182,7 +179,7 @@ public class FATable {
 	 */
 	public void shiftLeft() {
 		for (int i = 0; i < this.textFields.length; i++) {
-			// alle listener entfernen, da diese sonst beim setzen des texts getriggert
+			// alle Listener werden entfernt, da diese sonst beim Setzen des Texts getriggert
 			// werden
 			this.disableListener(i);
 			if (i < alphabetSize - 1) {
@@ -192,7 +189,7 @@ public class FATable {
 			}
 		}
 
-		// alle listener wieder aktiviern, Textfields in data werden gesetzt
+		// alle Listener werden wieder aktiviert und die Textfelder in data werden gesetzt
 		for (int i = 0; i < textFields.length; i++) {
 			this.data.setTextFieldChar(this.textFields[i].getText().charAt(0), i);
 			this.enableListener(i);
@@ -202,7 +199,6 @@ public class FATable {
 			this.graph = new FAGraph(this.language, this.data.getForGraph(), FAController.getCurrentLanguage(),
 					FAController.getMax());
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
 
@@ -226,7 +222,7 @@ public class FATable {
 				newIndex = i;
 			}
 		}
-		// listener entfernen, sonst triggerd das aendern des texts auch den listener
+		// Listener werden entfernt, sonst triggert das Aendern des Texts auch den Listener
 		this.textFields[newIndex].getDocument().removeDocumentListener(tcl[newIndex]);
 
 		this.textFields[newIndex].setText(String.valueOf(oldChar));
@@ -239,7 +235,7 @@ public class FATable {
 			e1.printStackTrace();
 		}
 
-		// listener wieder hinzufuegen und aenderung des Graphen aufrufen
+		// Listener werden wieder hinzugefuegt und Aenderung des Graphen wird aufgerufen
 		this.textFields[newIndex].getDocument().addDocumentListener(tcl[newIndex]);
 		FAController.updateGraph(this.graph);
 	}
@@ -271,8 +267,8 @@ public class FATable {
 	/**
 	 * Veraendert die Aktivierung der Textfelder und die Editierbarkeit
 	 * 
-	 * @param enable true falls die Textfelder aktiviert werden soll, false falls
-	 *               sie deaktiviert werden soll
+	 * @param enable true, falls die Textfelder aktiviert werden sollen und false, falls
+	 *               sie deaktiviert werden sollen
 	 */
 	public void enableTextFields(boolean enable) {
 		for (int i = 0; i < this.textFields.length; i++) {

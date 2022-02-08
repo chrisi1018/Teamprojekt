@@ -2,7 +2,7 @@ package model;
 
 /**
  * Die Klasse verwaltet den Haeufigkeitsprozentsatz und die
- * Buchstaben-Reihenfolge des Textfelds.
+ * Buchstabenreihenfolge des Textfeldes.
  * 
  * @author chrisi
  * @version 1.0
@@ -15,9 +15,9 @@ public class TableData {
 	private char[] textFieldChar = new char[TEXTFIELD_SIZE];
 
 	/**
-	 * Der Konstruktor fuer die Klasse TableData, speichert die Prozentzahlen ab.
+	 * Der Konstruktor fuer die Klasse TableData speichert die Prozentzahlen ab.
 	 * 
-	 * @param frequencyPercentage die Prozentzahlen fuer die Haefigkeitsanalyse
+	 * @param frequencyPercentage die Prozentzahlen fuer die Haeufigkeitsanalyse
 	 *                            werden uebergeben.
 	 */
 	public TableData(float[] frequencyPercentage) {
@@ -54,7 +54,7 @@ public class TableData {
 	}
 
 	/**
-	 * Initalisiert das Textfeld-Array mit den Werten A-Z
+	 * Initialisiert das Textfeld-Array mit den Werten A-Z
 	 */
 	public void initTextFieldChar() {
 		char letter = 'A';
@@ -64,7 +64,7 @@ public class TableData {
 	}
 
 	/**
-	 * Gibt die Haeufigkeitsprozentsatz sortiert nach der Anordnung der Buchstaben
+	 * Gibt den Haeufigkeitsprozentsatz sortiert nach der Anordnung der Buchstaben
 	 * in den Textfeldern zurueck.
 	 * 
 	 * @return den sortierten Haeufigkeitsprozentsatz
@@ -74,7 +74,7 @@ public class TableData {
 		char letter = 'A';
 
 		for (int i = 0; i < this.textFieldChar.length; i++) { // Geht alle Buchstaben von A-Z durch
-			for (int j = 0; j < this.textFieldChar.length; j++) { // Geht alle eintraege in dem Textfeld-Array durch
+			for (int j = 0; j < this.textFieldChar.length; j++) { // Geht alle Eintraege in dem Textfeld-Array durch
 				if (this.textFieldChar[j] == (char) (letter + i)) { // Vertauscht die Prozentzahlen falls im
 					sortedFrequencyPercentage[j] = this.frequencyPercentage[i];
 				}

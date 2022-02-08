@@ -49,17 +49,17 @@ public class FAController {
 	private FAMenuBar menu;
 	private TableData[] data;
 	private FAGraph graph;
-	// gui muss statisch sein, damit update des graphen auch aus FATable aufgerufen
+	// gui muss statisch sein, damit Update des Graphen auch aus FATable aufgerufen
 	// werden kann
 	private static FAGui gui;
 	// speichert die aktuelle Sprache statisch ab, sodass andere Klassen hier auch
-	// drauf zugreifen koennen
+	// darauf zugreifen koennen
 	private static String currentLanguage;
 	private static int max;
 
 	/**
-	 * Der Konstruktor fuer die Klasse FaControlle siehe init-Methoden fuer mehr
-	 * info
+	 * Der Konstruktor fuer die Klasse FaController, siehe init-Methoden fuer mehr
+	 * Information
 	 * 
 	 * @param key das keyPanel, entweder V, M oder C, des Main-Frames
 	 */
@@ -78,14 +78,13 @@ public class FAController {
 		try {
 			graph = new FAGraph(languageData, data[0].getFrequencyPercentage(), currentLanguage, max);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		initFAGui();
 	}
 
 	/**
-	 * Berechnet die groesste vorkommende Zahl um den Graphen daran anzupassen
+	 * Berechnet die groesste vorkommende Zahl, um den Graphen daran anzupassen
 	 * 
 	 * @return die groesste vorkommende Zahl
 	 */
@@ -103,7 +102,7 @@ public class FAController {
 	}
 
 	/**
-	 * Groesste Zahl der Haeufigkeitenverteilung um den Graph daran anzupassen
+	 * Gibt die groesste Zahl der Haeufigkeitsverteilung zurueck, um den Graph daran anzupassen
 	 * 
 	 * @return max
 	 */
@@ -112,7 +111,7 @@ public class FAController {
 	}
 
 	/**
-	 * Damit FATable Zugang hat zur aktuell ausgewaehlten Sprache
+	 * Damit FATable Zugang zur aktuell ausgewaehlten Sprache hat
 	 * 
 	 * @return die aktuelle Sprache
 	 */
@@ -121,8 +120,8 @@ public class FAController {
 	}
 
 	/**
-	 * Erstellt das JLabel fuer die Laenge, erstellt das JTextFeld fuer die Laenge,
-	 * es koennen nur Zahlen eingegebn werden.
+	 * Erstellt das JLabel fuer die Laenge und das JTextField, in das nur Zahlen
+	 * eingegeben werden koennen
 	 */
 	private void initLength() {
 		this.lengthLabel = new JLabel("Schl\u00fcssell\u00e4nge");
@@ -134,18 +133,18 @@ public class FAController {
 			private static final long serialVersionUID = 6389795108727999785L;
 			private int limit = 3;
 
-			// Hier wird festgelegt das nur Zahlen eingeben werden koennen
+			// Hier wird festgelegt, dass nur Zahlen eingegeben werden koennen
 			@Override
 			public void insertString(int offset, String str, AttributeSet att) throws BadLocationException {
 				boolean insert = true;
 				boolean leadingZero = false;
-				// Ueberprueft das nur Zahlen eingegeben werden
+				// Ueberprueft, ob nur Zahlen eingegeben werden
 				for (int i = 0; i < str.length(); i++) {
 					if (str.charAt(0) < '0' || str.charAt(i) > '9') {
 						insert = false;
 					}
 				}
-				// Ueberprueft auf eine fuehrende Null
+				// Prueft auf eine fuehrende Null
 				if (offset == 0) {
 					if (str.charAt(0) == '0') {
 						leadingZero = true;
@@ -163,12 +162,12 @@ public class FAController {
 			}
 		});
 		this.lengthTextField.setText("1");
-		// Documentlistener um aktualisierungen des Textfelds an Combobox mit
-		// Schluessellaenge weiterzuleiten
+		// DocumentListener, um Aktualisierungen des Textfeldes an die ComboBox mit
+		// der Schluessellaenge weiterzuleiten
 		this.lengthTextField.getDocument().addDocumentListener(new DocumentListener() {
 			@Override
 			public void insertUpdate(DocumentEvent e) {
-				// neue Laenge holen und Combobox daran anpassen
+				// neue Laenge holen und ComboBox und GUI daran anpassen
 				int count = Integer.parseInt(lengthTextField.getText().toString());
 				// TODO HEEEELLLLOOOO
 				initKeyChar(count);
@@ -188,7 +187,7 @@ public class FAController {
 
 			@Override
 			public void changedUpdate(DocumentEvent e) {
-				// wird nicht aufgerufen
+				// nichts tun
 			}
 
 		});
@@ -197,7 +196,7 @@ public class FAController {
 	}
 
 	/**
-	 * Erstellt die CheckBox die festlegt ob die Textfelder beschreibbar sind.
+	 * Erstellt die CheckBox, die festlegt, ob die Textfelder beschreibbar sind.
 	 */
 	private void initMonoCheckBox() {
 		this.monoCheckBox = new JCheckBox("Monoalphabetische Verschl\u00fcsselung");
@@ -207,7 +206,7 @@ public class FAController {
 
 	/**
 	 * Bei aktivierter Checkbox wird die Schreibsperre der Textfelder aufgehoben.
-	 * Bei deaktivierter Checkbox wird die Schreibspeere der Textfelder gesetzt.
+	 * Bei deaktivierter Checkbox wird die Schreibsperre der Textfelder gesetzt.
 	 */
 	private void checkCheckbox() {
 		for (int i = 0; i < this.tables.length; i++) {
@@ -237,13 +236,13 @@ public class FAController {
 		}
 		this.keyChar = new JComboBox<String>(number);
 		this.keyChar.setVisible(true);
-		// bei auswahl der aktuellen option
+		// bei Auswahl der aktuellen Option
 		this.keyChar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String number = keyChar.getSelectedItem().toString();
 				String digit = "";
-				// maximaler string ist 999, dh maximale laenge muss 3 sein
+				// maximaler string ist 999, d.h. maximale Laenge muss 3 sein
 				for (int i = 0; i < 3; i++) {
 					if (number.charAt(i) != '.' && number.charAt(i) != ' ') {
 						digit = digit + number.charAt(i);

@@ -49,14 +49,14 @@ public class FAGui {
 	private int currentTable;
 
 	/**
-	 * Konstruktor der den Frame fuer die Haeufigkeitsanalyse erstellt und das
+	 * Konstruktor, der den Frame fuer die Haeufigkeitsanalyse erstellt und das
 	 * Layout festlegt
 	 * 
-	 * @param menu            die Menue-Bar
+	 * @param menu            die Menueleiste
 	 * @param graph           der aktuelle Graph
-	 * @param table           das Panel das die Reihe an Buchstaben enthaelt
-	 * @param left            den linken button
-	 * @param right           den rechten button
+	 * @param table           das Panel, das die Reihe an Buchstaben enthaelt
+	 * @param left            der Links-Button
+	 * @param right           der Rechts-Button
 	 * @param language        eine ComboBox mit allen moeglichen Sprachen
 	 * @param keyChar         eine ComboBox mit der Anzahl der Buchstaben
 	 * @param lengthLabel     das Label fuer "Schluessellaenge"
@@ -102,10 +102,10 @@ public class FAGui {
 		this.tablePanel = initTable();
 		this.tablePanel.setVisible(true);
 
-		// Menu leiste einstellen
+		// Menueleiste einstellen
 		this.frame.setJMenuBar(menu);
 
-		// Groesse der Comboboxen einheitlich machen nach der maximalen Anzahl
+		// Groesse der ComboBoxen einheitlich machen nach der maximalen Anzahl
 		// Buchstaben fuer Vigenere
 		keyChar.setPrototypeDisplayValue("999. Buchstabe");
 		language.setPrototypeDisplayValue("999. Buchstabe");
@@ -141,7 +141,7 @@ public class FAGui {
 		this.frame.add(mainPanel, c);
 
 		// padding nach unten
-		// TODO hier ist platz fuer das Feld mit dem Schluessel; eventuell muss die
+		// TODO hier ist Platz fuer das Feld mit dem Schluessel; eventuell muss die
 		// Groesse des frame's auf (1300, 700) umgestellt werden
 		c.ipady = 0;
 		c.gridy = 2;
@@ -186,7 +186,7 @@ public class FAGui {
 	}
 
 	/**
-	 * Linkes Panel mit Comboboxen fuer Sprache und Buchstaben
+	 * Initialisiert das linke Panel mit ComboBoxen fuer die Sprache und Buchstaben
 	 */
 	private JPanel initComboBoxPanel() {
 		JPanel left = new JPanel();
@@ -197,7 +197,7 @@ public class FAGui {
 	}
 
 	/**
-	 * Panel mit den Buttons und der Buchstabenreihe; hier wird auch das Panel mit
+	 * Initialisiert das Panel mit den Buttons und der Buchstabenreihe; hier wird auch das Panel mit
 	 * den ComboBoxen eingefuegt
 	 */
 	private JPanel initTable() {
@@ -223,8 +223,8 @@ public class FAGui {
 	}
 
 	/**
-	 * Wechselt zur Buchstabenreihe und dem zugehoerigen Graphen von der
-	 * uebergebenen Schluesselbuchstabennummer
+	 * Wechselt zur Buchstabenreihe und dem zugehoerigen Graphen vom
+	 * aktuellen Schluesselbuchstaben
 	 */
 	public void setTablePanel() {
 		this.mainPanel.remove(this.tablePanel);
@@ -237,7 +237,7 @@ public class FAGui {
 	}
 
 	/**
-	 * Setter fuer Table
+	 * Setter fuer table
 	 * 
 	 * @param newTable neue FATables
 	 */
@@ -277,8 +277,7 @@ public class FAGui {
 	}
 
 	/**
-	 * Methode die den Frame repainted, muss nach Veraenderungen der Gui aufgerufen
-	 * werden
+	 * Methode, die den Frame repainted (wird nach Veraenderungen der GUI aufgerufen)
 	 */
 	public void repaint() {
 		this.mainPanel.revalidate();
@@ -286,16 +285,14 @@ public class FAGui {
 	}
 
 	/**
-	 * Aktualisiert die Keychar-Combobox entsprechend der Laenge des eingegebenen
+	 * Aktualisiert die keyChar-ComboBox entsprechend der Laenge des eingegebenen
 	 * Schluessels; gibt es mehr keyChars als Panels werden die restlichen zu leeren
 	 * FATables
 	 * 
-	 * @param keyChar die neue Combobox
+	 * @param keyChar die neue ComboBox
 	 */
 	public void updateKeyChar(JComboBox<String> keyChar) {
-		// kopiere alle aktuellen FATables in die neue Combobox und fuelle den rest auf
-
-		// passe panel an, indem das alte entfernt und neu eingesetzt wird
+		// passe Panel an, indem das alte Panel entfernt und das neue Panel eingesetzt wird
 		this.keyChar = keyChar;
 		this.keyChar.setPrototypeDisplayValue("999. Buchstabe");
 		this.mainPanel.remove(this.tablePanel);

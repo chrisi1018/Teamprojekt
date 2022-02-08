@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 /**
- * Die Klasse Testet den Algorithmus der Haeufigkeitsanalyse
+ * Die Klasse testet den Algorithmus der Haeufigkeitsanalyse
  * 
  * @author Julian
  * @version 1.1
@@ -80,7 +80,7 @@ public class FADataTest {
 	}
 
 	/**
-	 * Testet ob das Array GERMAN 26 eintraege hat.
+	 * Testet, ob das Array "GERMAN" 26 Eintraege hat.
 	 */
 	@Test
 	void testGermanLength() {
@@ -88,7 +88,7 @@ public class FADataTest {
 	}
 
 	/**
-	 * Testet ob sich die Prozentzahlen in GERMAN zu ca. 100% addieren
+	 * Testet, ob sich die Prozentzahlen in "GERMAN" zu ca. 100% addieren
 	 */
 	@Test
 	void testGERMANPercent() {
@@ -101,7 +101,7 @@ public class FADataTest {
 
 	/**
 	 * Testet den Algorithmus der Haeufigkeitsanalyse im Vergleich zu einem
-	 * Online-Tool mit einer Schluessel Laenge von 1
+	 * Online-Tool mit einer Schluessellaenge von 1
 	 */
 	@Test
 	void testAnalyseOne() {
@@ -110,8 +110,8 @@ public class FADataTest {
 	}
 
 	/**
-	 * Testet den Algorythmus der Haeufigkeitsanalyse im Vergleich zu einem
-	 * Online-Tool mit einer Schluessel Laenge von 3
+	 * Testet den Algorithmus der Haeufigkeitsanalyse im Vergleich zu einem
+	 * Online-Tool mit einer Schluessellaenge von 3
 	 */
 	@Test
 	void testAnalyseThree() {
@@ -119,7 +119,7 @@ public class FADataTest {
 	}
 
 	/**
-	 * Testet den Umgang mit einem Leeren String
+	 * Testet den Umgang mit einem leeren String
 	 */
 	@Test
 	void testAnalyseArrayEmpty() {
