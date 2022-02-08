@@ -9,11 +9,8 @@ import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import controller.FAController;
 import controller.FAGraph;
 import controller.FATable;
-import model.FAData;
-import model.TableData;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -197,8 +194,8 @@ public class FAGui {
 	}
 
 	/**
-	 * Initialisiert das Panel mit den Buttons und der Buchstabenreihe; hier wird auch das Panel mit
-	 * den ComboBoxen eingefuegt
+	 * Initialisiert das Panel mit den Buttons und der Buchstabenreihe; hier wird
+	 * auch das Panel mit den ComboBoxen eingefuegt
 	 */
 	private JPanel initTable() {
 		JPanel total = new JPanel(new BorderLayout());
@@ -223,8 +220,8 @@ public class FAGui {
 	}
 
 	/**
-	 * Wechselt zur Buchstabenreihe und dem zugehoerigen Graphen vom
-	 * aktuellen Schluesselbuchstaben
+	 * Wechselt zur Buchstabenreihe und dem zugehoerigen Graphen vom aktuellen
+	 * Schluesselbuchstaben
 	 */
 	public void setTablePanel() {
 		this.mainPanel.remove(this.tablePanel);
@@ -277,7 +274,8 @@ public class FAGui {
 	}
 
 	/**
-	 * Methode, die den Frame repainted (wird nach Veraenderungen der GUI aufgerufen)
+	 * Methode, die den Frame repainted (wird nach Veraenderungen der GUI
+	 * aufgerufen)
 	 */
 	public void repaint() {
 		this.mainPanel.revalidate();
@@ -292,7 +290,8 @@ public class FAGui {
 	 * @param keyChar die neue ComboBox
 	 */
 	public void updateKeyChar(JComboBox<String> keyChar) {
-		// passe Panel an, indem das alte Panel entfernt und das neue Panel eingesetzt wird
+		// passe Panel an, indem das alte Panel entfernt und das neue Panel eingesetzt
+		// wird
 		this.keyChar = keyChar;
 		this.keyChar.setPrototypeDisplayValue("999. Buchstabe");
 		this.mainPanel.remove(this.tablePanel);
