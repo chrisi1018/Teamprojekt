@@ -45,7 +45,6 @@ public class FAMenuBar {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				newFrame.toFront();
-				newFrame.setAlwaysOnTop(true);
 				newFrame.setVisible(true);
 			}
 			@Override
