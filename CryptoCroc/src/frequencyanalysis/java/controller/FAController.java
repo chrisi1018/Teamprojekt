@@ -171,10 +171,9 @@ public class FAController {
 				// neue Laenge holen und ComboBox und GUI daran anpassen
 				int count = Integer.parseInt(lengthTextField.getText().toString());
 				initKeyChar(count);
-				updateTableData();
+				initTableData();
 				max = calcMax();
-				updateFATable();
-
+				initFATable();
 				gui.setTable(tables);
 				gui.setTablePanel();
 				gui.updateKeyChar(keyChar);
@@ -292,36 +291,6 @@ public class FAController {
 	}
 
 	/**
-	 * Aktualisiert FATable anstatt neu zu initialisieren; schneller als
-	 * <code>initFATable()</code> beim documentlistener fuer lengthTextField
-	 */
-	private void updateFATable() {
-		int keyLength = 0;
-		if (this.lengthTextField.getText().isEmpty()) {
-			keyLength = 0;
-		} else {
-			keyLength = Integer.valueOf(this.lengthTextField.getText());
-		}
-		// neue tables
-		FATable[] allTables = new FATable[keyLength];
-		if (allTables.length > this.tables.length) {
-			for (int i = 0; i < tables.length; i++) {
-				allTables[i] = null;
-				allTables[i] = this.tables[i];
-			}
-
-			for (int i = this.tables.length; i < allTables.length; i++) {
-				allTables[i] = new FATable(this.data[i], this.languageData, currentLanguage, max);
-			}
-		} else {
-			for (int i = 0; i < allTables.length; i++) {
-				allTables[i] = this.tables[i];
-			}
-		}
-		this.tables = allTables;
-	}
-
-	/**
 	 * Initialisiert die Menueleiste und fuegt den Menues ActionListener hinzu
 	 */
 	private void initFAMenuBar() {
@@ -383,43 +352,6 @@ public class FAController {
 			}
 			this.data[i] = new TableData(oneFrequencies);
 		}
-	}
-
-	/**
-	 * Aktualisiert table data anstatt neu zu initialisieren; schneller als
-	 * <code>initTableData()</code> beim documentlistener fuer lengthTextField und
-	 * behaelt Permutationen bei
-	 */
-	private void updateTableData() {
-		int keyLength;
-		if (this.lengthTextField.getText().isEmpty()) {
-			keyLength = 0;
-		} else {
-			keyLength = Integer.valueOf(this.lengthTextField.getText());
-		}
-
-		TableData[] newData = new TableData[keyLength];
-
-		if (keyLength > this.data.length) {
-			float[][] allFrequencies = FAData.analyse(this.key.getController().getCryptoText(), 1);
-
-			// 2D-Array wird in 1D-Array umgewandelt und im Konstruktor uebergeben
-			for (int i = 0; i < this.data.length; i++) {
-				newData[i] = this.data[i];
-			}
-			for (int i = this.data.length; i < newData.length; i++) {
-				float[] oneFrequencies = new float[allFrequencies[0].length];
-				for (int j = 0; j < allFrequencies[0].length; j++) {
-					oneFrequencies[j] = allFrequencies[0][j];
-				}
-				newData[i] = new TableData(oneFrequencies);
-			}
-		} else {
-			for (int i = 0; i < keyLength; i++) {
-				newData[i] = this.data[i];
-			}
-		}
-		this.data = newData;
 	}
 
 	/**

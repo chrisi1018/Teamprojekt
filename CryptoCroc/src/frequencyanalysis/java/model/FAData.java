@@ -4,8 +4,8 @@ package model;
  * Eine Hilfsklasse, die fuer unterschiedliche Sprachen die
  * Haeufigkeitswahrscheinlichkeiten hat
  * 
- * @author Julian
- * @version 1.0
+ * @author Julian, zes
+ * @version 1.1
  */
 public final class FAData {
 
@@ -55,13 +55,15 @@ public final class FAData {
 		String editedText = TextEdit.editText(text);
 		for (int i = 0; i < editedText.length(); i++) { // Schleife zaehlt ueber den Text
 			char temp = editedText.charAt(i);
-			if (temp >= 'A' && temp <= 'Z') { // ueberprueft, ob Zeichen ein Buchstabe ist
-				for (int j = 0; j < count.length; j++) {
-					count[j][(temp - 'A')]++;
-				}
+			if (temp >= 'A' && temp <= 'Z') { // ueberprueft ob Zeichen ein Buchstabe ist
+				count[index][(temp - 'A')]++;
 				countChars[index]++;
-
+				index++;
+				if (index == keyLength) {
+					index = 0;
+				}
 			}
+
 		}
 		// Rechnet die Prozente aus
 		for (int j = 0; j < keyLength; j++) {

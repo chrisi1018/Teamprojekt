@@ -207,9 +207,12 @@ public class FAGui {
 
 		left.setPreferredSize(new Dimension(30, 30));
 		tableWithButtons.add(left);
-
-		tableWithButtons.add(table[this.currentTable].getTablePanel());
-
+		if (this.currentTable >= table.length) {
+			this.setCurrentTable(table.length - 1);
+			tableWithButtons.add(table[this.currentTable].getTablePanel());
+		} else {
+			tableWithButtons.add(table[this.currentTable].getTablePanel());
+		}
 		right.setPreferredSize(new Dimension(30, 30));
 		tableWithButtons.add(right);
 
