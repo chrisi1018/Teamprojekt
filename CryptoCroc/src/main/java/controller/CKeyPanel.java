@@ -43,7 +43,7 @@ public class CKeyPanel extends KeyPanel {
 	 */
 	@Override
 	public JPanel createKeyPanel() {
-		// sorgt dafuer dass Text in key markiert wird beim Klicken
+		// sorgt dafuer, dass beim Klicken Text in key markiert wird
 		key.addFocusListener(new FocusListener() {
 			@Override
 			public void focusGained(FocusEvent e) {

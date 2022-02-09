@@ -45,38 +45,40 @@ Erwartung: Die eingegebenen Buchstaben erscheinen und verschwinden im Textfeld z
 Realitaet: entspricht der Erwartung
 
 US3 & US4:
-8. Ich versuche bei der Caesar-Verschluesselung mit eingegebenem Klartext und Schluessel auf den 
+8. Ich versuche bei der Caesar-Verschluesselung mit dem eingegebenen Klartext "hallo" und "B" als Schluessel auf den 
 Button "Verschluesseln" zu klicken
-Erwartung: Der Klartext  wird verschluesselt und im Geheimtextfeld angezeigt, d.h.
+Erwartung: Im Geheimtextfeld wird "IBMMP" angezeigt, d.h. der Button "Verschluesseln" hat einen 
+funktionierenden ActionListener
+Realitaet: entspricht der Erwartung
+
+9. Ich versuche bei der Caesar-Verschluesselung mit dem eingegebenen Geheimtext "ibmmp" und "B" als Schluessel auf den 
+Button "Entschluesseln" zu klicken
+Erwartung: Im Klartextfeld wird "HALLO" angezeigt, d.h. der Button "Entschluesseln" hat einen 
+funktionierenden ActionListener
+Realitaet: entspricht der Erwartung
+
+10. Ich versuche bei der Monoalphabetischen Verschluesselung mit dem eingegebenen Klartext "hallo" und 
+den Buchstaben B, C, D, E, ..., Y, Z, A in gegebener Reihenfolge als Schluessel auf den Button "Verschluesseln" 
+zu klicken
+Erwartung: Im Geheimtextfeld wird "IBMMP" angezeigt, d.h.
 der Button "Verschluesseln" hat einen funktionierenden ActionListener
 Realitaet: entspricht der Erwartung
 
-9. Ich versuche bei der Caesar-Verschluesselung mit eingegebenem Geheimtext und Schluessel auf den 
-Button "Entschluesseln" zu klicken
-Erwartung: Der Geheimtext  wird entschluesselt und im Klartextfeld angezeigt, d.h.
+11. Ich versuche bei der Monoalphabetischen Verschluesselung mit dem eingegebenen Geheimtext "ibmmp" und 
+den Buchstaben B, C, D, E, ..., Y, Z, A in gegebener Reihenfolge als Schluessel auf denButton "Entschluesseln" 
+zu klicken
+Erwartung: Im Klartextfeld wird "HALLO" angezeigt, d.h.
 der Button "Entschluesseln" hat einen funktionierenden ActionListener
 Realitaet: entspricht der Erwartung
 
-10. Ich versuche bei der Monoalphabetischen Verschluesselung mit eingegebenem Klartext und Schluessel auf den
-Button "Verschluesseln" zu klicken
-Erwartung: Der Klartext  wird verschluesselt und im Geheimtextfeld angezeigt, d.h.
+12. Ich versuche bei der Vigenere-Verschluesselung mit dem eingegebenen Klartext "hallo" und dem Schluessel "BBB" 
+auf den Button "Verschluesseln" zu klicken
+Erwartung: Im Geheimtextfeld wird "IBMMP" angezeigt, d.h.
 der Button "Verschluesseln" hat einen funktionierenden ActionListener
 Realitaet: entspricht der Erwartung
 
-11. Ich versuche bei der Monoalphabetischen Verschluesselung mit eingegebenem Geheimtext und Schluessel auf den
-Button "Entschluesseln" zu klicken
-Erwartung: Der Geheimtext  wird entschluesselt und im Klartextfeld angezeigt, d.h.
-der Button "Entschluesseln" hat einen funktionierenden ActionListener
-Realitaet: entspricht der Erwartung
-
-12. Ich versuche bei der Vigenere-Verschluesselung mit eingegebenem Klartext und Schluessel auf den 
-Button "Verschluesseln" zu klicken
-Erwartung: Der Klartext  wird verschluesselt und im Geheimtextfeld angezeigt, d.h.
-der Button "Verschluesseln" hat einen funktionierenden ActionListener
-Realitaet: entspricht der Erwartung
-
-13. Ich versuche bei der Vigenere-Verschluesselung mit eingegebenem Geheimtext und Schluessel auf den 
-Button "Entschluesseln" zu klicken
-Erwartung: Der Geheimtext  wird entschluesselt und im Klartextfeld angezeigt, d.h.
+13. Ich versuche bei der Vigenere-Verschluesselung mit dem eingegebenen Geheimtext "ibmmp" und dem Schluessel "BBB"
+auf den Button "Entschluesseln" zu klicken
+Erwartung: Im Klartextfeld wird "HALLO" angezeigt, d.h.
 der Button "Entschluesseln" hat einen funktionierenden ActionListener
 Realitaet: entspricht der Erwartung

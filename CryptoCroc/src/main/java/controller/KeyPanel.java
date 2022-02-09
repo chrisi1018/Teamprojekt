@@ -124,7 +124,7 @@ public abstract class KeyPanel {
 		String key = getKey();
 
 		if (plainText.isEmpty()) {
-			Messages.errorMessage("Zum verschl\u00fcsseln muss im Klartextfeld ein Text eingegeben werden.");
+			Messages.errorMessage("Zum Verschl\u00fcsseln muss im Klartextfeld ein Text eingegeben werden.");
 		} else { // Wird ausgefuert nur wenn ein Klartext gegeben ist
 			if (this.crypt.checkKey(key)) {
 				if (cryptoText.isEmpty()
@@ -149,7 +149,7 @@ public abstract class KeyPanel {
 		String key = getKey();
 
 		if (cryptoText.isEmpty()) {
-			Messages.errorMessage("Zum entschl\u00fcsseln muss im Geheimtextfeld ein Text eingegeben werden.");
+			Messages.errorMessage("Zum Entschl\u00fcsseln muss im Geheimtextfeld ein Text eingegeben werden.");
 		} else { // Wird ausgefuert nur wenn ein Geheimtext gegeben ist
 			if (this.crypt.checkKey(key)) {
 				if (plainText.isEmpty()
