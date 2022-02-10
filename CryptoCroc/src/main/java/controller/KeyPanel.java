@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 
 import javax.swing.JButton;
@@ -186,7 +187,7 @@ public abstract class KeyPanel {
 			new FAController(this);
 			faIsOpen = true;
 		} else {
-			Messages.warningMessage("Das Fenster der Haufigkeitsanalyse ist bereits offen");
+			Messages.warningMessage("Das Fenster der H\u00e4ufigkeitsanalyse ist bereits offen");
 		}
 	}
 
