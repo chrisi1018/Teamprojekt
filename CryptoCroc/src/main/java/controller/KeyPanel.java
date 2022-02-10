@@ -22,6 +22,7 @@ public abstract class KeyPanel {
 	private JButton freqAna = new JButton("H\u00e4ufigkeitsanalyse");
 	private Crypt crypt;
 	private MainController controller;
+	private static boolean faIsOpen = false;
 
 	/**
 	 * Die aktuelle MainController-Instanz wird gesichert
@@ -104,7 +105,7 @@ public abstract class KeyPanel {
 	public void setCrypt(Crypt newCrypt) {
 		this.crypt = newCrypt;
 	}
-	
+
 	/**
 	 * Gibt die MainController Instanz zurueck
 	 * 
@@ -165,10 +166,28 @@ public abstract class KeyPanel {
 	}
 
 	/**
-	 * Oeffnet den Controller fuer die Haeufigkeitsanalyse
+	 * Wechselt den Zustand von faIsOpen; benutzt um zu überprüfen ob die
+	 * Haeufigkeitsanalyse bereits geoeffnet ist
+	 */
+	public static void faSwitchOpen() {
+		if (faIsOpen) {
+			faIsOpen = false;
+		} else {
+			faIsOpen = true;
+		}
+	}
+
+	/**
+	 * Oeffnet den Controller fuer die Haeufigkeitsanalyse, falls diese nicht offen
+	 * ist und gibt eine Warnmeldung falls doch
 	 */
 	public void clickButtonFreqAna() {
-		new FAController(this);
+		if (!faIsOpen) {
+			new FAController(this);
+			faIsOpen = true;
+		} else {
+			Messages.warningMessage("Das Fenster der Haufigkeitsanalyse ist bereits offen");
+		}
 	}
 
 }

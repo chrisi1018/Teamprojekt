@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 
 import controller.FAGraph;
 import controller.FATable;
+import controller.KeyPanel;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -19,6 +20,8 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * Erstellt den Frame und legt das Layout der Haeufigkeitsanalyse fest
@@ -111,6 +114,12 @@ public class FAGui {
 		initMainPanel();
 		initFrameBorders();
 		this.frame.setVisible(true);
+
+		this.frame.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				KeyPanel.faSwitchOpen();
+			}
+		});
 	}
 
 	/**
