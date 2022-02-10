@@ -221,6 +221,26 @@ public class FAController {
 		this.languageData = FAData.GERMAN;
 		this.language = new JComboBox<String>(languages);
 		this.language.setVisible(true);
+		this.language.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (language.getSelectedItem().equals(languages[0])) {
+					currentLanguage = languages[0];
+					languageData = FAData.GERMAN;
+				} else if (language.getSelectedItem().equals(languages[1])) {
+					currentLanguage = languages[1];
+					languageData = FAData.ENGLISCH;
+				}
+				initFATable();
+				gui.setTable(tables);
+				gui.updateGraph(graph);
+				gui.setTablePanel();
+				gui.repaint();
+
+			}
+
+		});
 	}
 
 	/**

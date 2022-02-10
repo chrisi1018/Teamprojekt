@@ -90,6 +90,14 @@ public class FADataTest {
 	}
 
 	/**
+	 * Testet, ob das Array "ENGLISCH" 26 Eintraege hat.
+	 */
+	@Test
+	void testEnglischLength() {
+		assertEquals(alphabetSize, FAData.ENGLISCH.length);
+	}
+
+	/**
 	 * Testet, ob sich die Prozentzahlen in "GERMAN" zu ca. 100% addieren
 	 */
 	@Test
@@ -97,6 +105,18 @@ public class FADataTest {
 		float count = 0.0f;
 		for (int j = 0; j < alphabetSize; j++) {
 			count = count + FAData.GERMAN[j];
+		}
+		assert (99.0f < count && count < 101.0f);
+	}
+
+	/**
+	 * Testet, ob sich die Prozentzahlen in "ENGLISCH" zu ca. 100% addieren
+	 */
+	@Test
+	void testEnglischPercent() {
+		float count = 0.0f;
+		for (int j = 0; j < alphabetSize; j++) {
+			count = count + FAData.ENGLISCH[j];
 		}
 		assert (99.0f < count && count < 101.0f);
 	}

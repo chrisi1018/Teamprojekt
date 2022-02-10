@@ -25,7 +25,7 @@ public final class FAData {
 	 * zwei Nachkommastellen. Quelle: @see <a href="Englische
 	 * Buchstabenverteilung">https://en.wikipedia.org/wiki/Letter_frequency</a>
 	 */
-	public static final float[] ENGLISH = { 8.17f /* A */, 1.49f /* B */, 2.78f /* C */, 4.25f /* D */, 12.70f /* E */,
+	public static final float[] ENGLISCH = { 8.17f /* A */, 1.49f /* B */, 2.78f /* C */, 4.25f /* D */, 12.70f /* E */,
 			2.22f /* F */, 2.02f /* G */, 6.09f /* H */, 6.97f /* I */, 0.15f /* J */, 0.77f /* K */, 4.03f /* L */,
 			2.41f /* M */, 6.75f /* N */, 7.51f /* O */, 1.93f /* P */, 0.10f /* Q */, 5.99f /* R */, 6.33f /* S */,
 			9.06f /* T */, 2.76f /* U */, 0.98f /* V */, 2.36f /* W */, 0.15f /* X */, 1.97f /* Y */, 0.07f /* Z */ };
