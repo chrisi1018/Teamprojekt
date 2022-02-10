@@ -40,7 +40,7 @@ public class FAController {
 	private int length = 1;
 	private JCheckBox monoCheckBox;
 	private JComboBox<String> language;
-	private String[] languages = { "Deutsch" };
+	private String[] languages = { "Deutsch", "Englisch" };
 	private float[] languageData = new float[26]; // 26 fuer die Groesse des Alphabets
 	private JComboBox<String> keyChar;
 	private JButton left;
