@@ -17,7 +17,7 @@ Realitaet: entspricht der Erwartung
 -> In Issues 6 und 7 festgehalten und verbessert
 
 3. Ich tippe im Klartextfeld "Hallo, mein Name ist Max Mustermann. Ich bin 30 Jahre alt und studiere 
-Informatik am Karlsruher Institut für Technologie" ein
+Informatik am Karlsruher Institut fuer Technologie" ein
 Erwartung: Der Text springt bei Eingabe am Zeilenende automatisch in die naechste Zeile um
 Realitaet: Der Text bleibt in der gleichen Zeile und verschwindet ins unendliche
 
