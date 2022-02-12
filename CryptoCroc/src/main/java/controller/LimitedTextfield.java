@@ -30,7 +30,6 @@ public class LimitedTextfield extends PlainDocument {
 	public LimitedTextfield(int limit) {
 		super();
 		this.limit = limit;
-		// this.setDocumentFilter(new UpperCaseDocumentFilter());
 	}
 
 	/**

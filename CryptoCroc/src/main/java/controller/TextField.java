@@ -18,6 +18,7 @@ public class TextField {
 
 	private JTextArea text = new JTextArea(10, 10);
 	private JLabel label;
+	private WritingChangeListener wcl;
 
 	/**
 	 * Konstruktor fuer ein TextField
@@ -25,12 +26,13 @@ public class TextField {
 	 * @param name der Name bzw Titel des Textfelds
 	 */
 	public TextField(String name) {
+		wcl = new WritingChangeListener(text);
 		label = new JLabel(name);
 		text.setFont(new Font(Font.DIALOG, Font.PLAIN, 20));
 		text.setLineWrap(true);
 		// sorgt dafuer, dass ganzes Wort in die naechste Zeile wandert
 		text.setWrapStyleWord(true);
-		
+		text.getDocument().addDocumentListener(wcl);
 		label.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
 	}
 
