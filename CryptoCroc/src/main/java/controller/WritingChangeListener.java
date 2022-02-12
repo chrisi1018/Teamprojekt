@@ -12,11 +12,12 @@ import model.TextEdit;
  * beim Eintippen umwandelt und alles in Grossbuchstaben anzeigt
  * 
  * @author zes
- * @version 1.0
+ * @version 1.1
  */
 public class WritingChangeListener implements DocumentListener {
 
 	private JTextArea text;
+	private static boolean activated = false;
 
 	/**
 	 * Konstruktor fuer einen WritingChangeListener
@@ -29,15 +30,31 @@ public class WritingChangeListener implements DocumentListener {
 
 	@Override
 	public void insertUpdate(DocumentEvent e) {
-		// ruft die editText methode auf die alles in Grossbuchstaben umwandelt und die
-		// Umlaute umwandelt
-		Runnable overwrite = new Runnable() {
-			@Override
-			public void run() {
-				text.setText(TextEdit.editText(text.getText()));
+		// wenn gepastet wird ist die Laenge groesser 1
+		int changeLength = e.getLength();
+		if (changeLength == 1) {
+			Runnable overwrite = new Runnable() {
+				@Override
+				public void run() {
+					text.setText(TextEdit.editText(text.getText()));
+				}
+			};
+
+			SwingUtilities.invokeLater(overwrite);
+		} else {
+			// bei update laenger als 1 soll es nur einmal getriggert werden
+			if (!activated) {
+				Runnable overwrite = new Runnable() {
+					@Override
+					public void run() {
+						text.setText(TextEdit.editText(text.getText()));
+						activated = false;
+					}
+				};
+				SwingUtilities.invokeLater(overwrite);
+				activated = true;
 			}
-		};
-		SwingUtilities.invokeLater(overwrite);
+		}
 	}
 
 	@Override
@@ -47,7 +64,7 @@ public class WritingChangeListener implements DocumentListener {
 
 	@Override
 	public void changedUpdate(DocumentEvent e) {
-		// nicht genutzt bei Textfeldern
+		// nicht aufgerufen bei Textfeldern
 	}
 
 }
