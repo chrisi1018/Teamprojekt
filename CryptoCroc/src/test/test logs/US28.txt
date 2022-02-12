@@ -1,0 +1,33 @@
+US28 (Git:81ba424) :
+
+Java-Version: 1.8
+Betriebssystem: macOS Monterey
+getestet von: Zoe Sobota
+
+1. Ich tippe den Text "qwieuztgbfasdgkoanu" in das Geheimtextfeld ein und oeffne die Haeufigkeitsanalyse.
+Erwartung: Es wird mir die Haeufigkeit des Textes neben der deutschen Buchstabenhaeufigkeit angzeigt
+Realitaet: Entspricht der Erwartung
+
+2. Nach 1. klicke ich im Dropdown-Menue wo aktuell "Deutsch" steht.
+Erwartung: Es werden mir zwei Optionen angezeigt; entweder "Deutsch", welches mit einem kleinen Haken selektiert ist, oder "Englisch"
+Realitaet: Entspricht der Erwartung
+
+3. Nach 2. selektiere ich die Option "Englisch"
+Erwartung: Die Haeufigkeiten der gruenen Balken aendern sich in die englische Buchstabenhaeufigkeit und in der Legende wird aus "Deutsche Verteilung" "Englische Verteilung"
+Realitaet: Entspricht der Erwartung
+
+4. Nach 3. klicke ich auf zweimal auf den "<<" Button und dann einmal auf den ">>" Button. Anschließend tippe ich als Schluessellaenge 12 ein und gehe auf "7. Buchstabe"
+Erwartung: Die Verteilungen des Texts bewegen sich zweimal nach links, dann einmal nach rechts. In der Legende bleibt die ganze Zeit das Label "Englische Verteilung" angezeigt. Im Anschließend erscheinen in dem Dropdown-Menue betitelt mit "1. Buchstabe" 11 weitere Optionen. Auch beim Klicken auf 7. Buchstabe bleibt in der Legende das Label "Englische Verteilung" stehen, sowie die englische Buchstabenhaeufigkeit
+Realitaet: Entspricht der Erwartung
+
+5. Ich fuehre 1.-4. nun mit dem Text "the quick brown fox jumps over the lazy dog" durch. Danach klicke ich einmal auf "<<" und wechsele die Sprache zurueck in Deutsch
+Erwartung: Sobald die Option "Deutsch" ausgewaehlt wurde, resetted sich die Permutation. Jedoch bleiben Schluessellaenge und aktuell ausgewaehlter Buchstabe erhalten. Auch steht jetzt wieder in der Legende "Deutsche Verteilung", sowie die deutsche Buchstabenhaeufigkeit
+Realitaet: Entspricht der Erwartung
+
+6. Nach 2. aktiviere ich die monoalphabetische Verschluesselung und vertausche damit "U" und "T", sowie "E" und "G"
+Erwartung: Wie auch bei der Option "Deutsch" vertauschen sich die entsprechenden Textfelder und die zugehoerigen Graphen, es bleibt jedoch in der Legende das Label "Englische Verteilung" stehen, sowie die englische Buchstabenhaeufigkeit
+Realitaet: Entspricht der Erwartung
+
+7. Nach 6. deselektiere ich die CheckBox zur monoalphabetischen Verschluesselung
+Erwartung: Die Permutationen werden rueckgaengig gemacht, aber in der Legende bleibt das Label "Englische Verteilung" stehen, sowie die englische Buchstabenhaeufigkeit
+Realitaet: Entspricht der Erwartung
