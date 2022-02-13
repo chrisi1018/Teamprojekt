@@ -66,6 +66,13 @@ public class MainController {
 		this.menuBar.initExplanationItem(1, 3, new FAExplanationFrame());
 		this.menuBar.initSaveItem(0, 0, this.plainText, this.cryptoText);
 		this.menuBar.initOpenItem(0, 1, plainText, cryptoText);
+		
+		@SuppressWarnings("unused")
+		MousePopupMenu popupPlainText = null;
+		popupPlainText = new MousePopupMenu(this.plainText.getTextArea());
+		@SuppressWarnings("unused")
+		MousePopupMenu popupCryptoText = null;
+		popupPlainText = new MousePopupMenu(this.cryptoText.getTextArea());
 	}
 	
 	/**
