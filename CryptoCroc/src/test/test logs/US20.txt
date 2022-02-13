@@ -1,0 +1,72 @@
+US20 (Git: 250f3c3) :
+
+Java-Version: 1.8
+Betriebssystem: Windows 11
+getestet von: Julian Singer
+
+Vor den folgenden Tests 1, 6 und 11 gebe ich "Verschluesseln" ins Klartextfeld und 
+"Entschluesseln" ins Geheimtextfeld ein
+
+1. Ich gehe mit der Maus auf das Klartextfeld und mache einen Rechtsklick
+Erwartung: An der Position der Maus oeffnet sich ein PopupMenue mit den Punkten:
+"Ausschneiden", "Kopieren", "Einfuegen" und nach einem Trennstrich "Alles markieren" 
+(in dieser Reihenfolge)
+Realitaet: entspricht der Erwartung
+
+2. Ich klicke nach 1. auf "Alles markieren"
+Erwartung: Das PopupMenue verschwindet und der komplette Text "VERSCHLUESSELN" wird im Klartextfeld
+markiert
+Realitaet: entspricht der Erwartung
+
+3. Ich wiederhole nach 2. noch mal 1. und klicke auf "Kopieren"
+Erwartung: Das PopupMenue verschwindet und der Text "VERSCHLUESSELN" bleibt markiert
+Realitaet: entspricht der Erwartung
+
+4. Ich wiederhole nach 3. noch mal 1. und klicke auf "Ausschneiden"
+Erwartung: Das PopupMenue verschwindet und der Text "VERSCHLUESSELN" verschwindet 
+gleichzeitig aus dem Klartextfeld
+Realitaet: entspricht der Erwartung
+
+5. Ich wiederhole nach 4. noch mal 1. und klicke auf "Einfuegen"
+Erwartung: Das PopupMenue verschwindet und der Text "VERSCHLUESSELN" wird nun 
+im Klartextfeld angezeigt
+Realitaet: entspricht der Erwartung
+
+6. Ich gehe mit der Maus auf das Geheimtextfeld und mache einen Rechtsklick
+Erwartung: An der Position der Maus oeffnet sich ein PopupMenue mit den Punkten:
+"Ausschneiden", "Kopieren", "Einfuegen" und nach einem Trennstrich "Alles markieren" 
+(in dieser Reihenfolge)
+Realitaet: entspricht der Erwartung
+
+7. Ich klicke nach 6. auf "Alles markieren"
+Erwartung: Das PopupMenue verschwindet und der komplette Text "ENTSCHLUESSELN" wird im 
+Geheimtextfeld markiert
+Realitaet: entspricht der Erwartung
+
+8. Ich wiederhole nach 7. noch mal 6. und klicke auf "Kopieren"
+Erwartung: Das PopupMenue verschwindet und der Text "ENTSCHLUESSELN" bleibt markiert
+Realitaet: entspricht der Erwartung
+
+9. Ich wiederhole nach 8. noch mal 6. und klicke auf "Ausschneiden"
+Erwartung: Das PopupMenue verschwindet und der Text "ENTSCHLUESSELN" verschwindet 
+gleichzeitig aus dem Geheimtextfeld
+Realitaet: entspricht der Erwartung
+
+10. Ich wiederhole nach 9. noch mal 6. und klicke auf "Einfuegen"
+Erwartung: Das PopupMenue verschwindet und der Text "ENTSCHLUESSELN" wird nun 
+im Geheimtextfeld angezeigt
+Realitaet: entspricht der Erwartung
+
+11. Ich markiere manuell im Klartextfeld das Praefix "VER", mache darauf einen Rechtsklick, 
+klicke im PopupMenue auf "Kopieren", loesche dann manuell das Praefix "ENT" aus dem Geheimtextfeld, 
+mache im Geheimtextfeld noch mal einen Rechtsklick und klicke dann im PopupMenue auf "Einfuegen"
+Erwartung: Im Geheimtextfeld steht jetzt auch "VERSCHLUESSELN"
+Realitaet: entspricht der Erwartung
+
+12. Ich gebe in meinem Textbearbeitungsprogramm "Editor" den Satz 
+"Informatik ist schoen und macht Spass" (mit Umlauten) ein, kopiere diesen durch Markierung und 
+mit der Tastenkombination Strg + C, gehe dann in CryptoCroc wieder ins Geheimtextfeld, mache 
+dort einen Rechtsklick und klicke im PopupMenue dann auf "Einfuegen"
+Erwartung: Im Geheimtextfeld steht jetzt "INFORMATIK IST SCHOEN UND MACHT SPASS" 
+(genau so, ohne Umlaute)
+Realitaet: entspricht der Erwartung
