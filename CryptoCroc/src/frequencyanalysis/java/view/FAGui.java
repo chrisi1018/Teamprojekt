@@ -1,5 +1,6 @@
 package view;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
@@ -73,6 +74,10 @@ public class FAGui {
 		this.frame.setVisible(true);
 		this.frame.setLayout(new GridBagLayout());
 		this.mainPanel = new JPanel(new BorderLayout(4, 4));
+		
+		//Setze das Icon im Fenster
+		ImageIcon icon = new ImageIcon("C:\\Users\\chris\\workspace\\Teamprojekt\\CryptoCroc\\src\\main\\resources\\croc.png");
+		this.frame.setIconImage(icon.getImage());
 
 		// alles sichtbar machen und initialisieren
 		this.mainLabel = new JLabel("H\u00e4ufigkeitsanalyse");
