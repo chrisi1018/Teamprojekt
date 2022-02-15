@@ -1,9 +1,13 @@
 package controller;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Image;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import model.Crypt;
@@ -83,7 +87,22 @@ public abstract class KeyPanel {
 		panel.add(decrypt);
 		panel.add(freqAna);
 		panel.add(randomKey);
+		panel.add(this.createCroc());
 		return panel;
+	}
+	
+	/**
+	 * Erzeugt ein Label, dass das Bild des Krokodils beinhaltet, dies wird sofort
+	 * auf die passende größe skaliert.
+	 * 
+	 * @return ein JLabel mit dem Bild des Krokodils
+	 */
+	private JLabel createCroc() {
+		ImageIcon imageIcon = new ImageIcon("C:\\Users\\chris\\workspace\\Teamprojekt\\CryptoCroc\\src\\main\\resources\\croc.png");
+		Image image = imageIcon.getImage()
+				.getScaledInstance((int)(imageIcon.getIconWidth()/5.5) + 1, (int)(imageIcon.getIconHeight()/5.5),  Image.SCALE_SMOOTH);
+		JLabel croc = new JLabel(new ImageIcon(image));
+		return croc;
 	}
 
 	/**

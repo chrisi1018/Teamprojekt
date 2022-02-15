@@ -1,5 +1,6 @@
 package view;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
@@ -39,6 +40,10 @@ public class Gui {
 		this.frame.setLayout(new BorderLayout(0, 0));
 		this.mainPanel = new JPanel(new BorderLayout(4, 4));
 		this.frame.setJMenuBar(menu);
+		
+		//Setze das Icon im Fenster
+		ImageIcon icon = new ImageIcon("C:\\Users\\chris\\workspace\\Teamprojekt\\CryptoCroc\\src\\main\\resources\\croc.png");
+		this.frame.setIconImage(icon.getImage());
 		
 		//Speichert die einzelnen Gui-Elemente als Attribute ab
 		this.clearText = clearText;
@@ -83,21 +88,21 @@ public class Gui {
 	 * Die Methode initialisert das MainPanel
 	 */
 	private void initMainPanel() {
-				this.mainPanel.add(this.clearText, BorderLayout.WEST);
-				this.clearText.setPreferredSize(new Dimension(500, 740));
-				this.mainPanel.add(this.cryptoText, BorderLayout.EAST);
-				this.cryptoText.setPreferredSize(new Dimension(500, 740));
-				this.mainPanel.add(this.keyPanel, BorderLayout.CENTER);
-				this.keyPanel.setPreferredSize(new Dimension(200, 740));
+		this.mainPanel.add(this.clearText, BorderLayout.WEST);
+		this.clearText.setPreferredSize(new Dimension(500, 740));
+		this.mainPanel.add(this.cryptoText, BorderLayout.EAST);
+		this.cryptoText.setPreferredSize(new Dimension(500, 740));
+		this.mainPanel.add(this.keyPanel, BorderLayout.CENTER);
+		this.keyPanel.setPreferredSize(new Dimension(200, 740));
 
-				// zur Seite schieben des Dropdown Menue's
-				BorderLayout bSpace = new BorderLayout();
-				JPanel space = new JPanel(bSpace);
-				space.add(this.dropDown, BorderLayout.WEST);
-				space.add(new JPanel(), BorderLayout.EAST);
-				bSpace.setHgap(30);
+		// zur Seite schieben des Dropdown Menue's
+		BorderLayout bSpace = new BorderLayout();
+		JPanel space = new JPanel(bSpace);
+		space.add(this.dropDown, BorderLayout.WEST);
+		space.add(new JPanel(), BorderLayout.EAST);
+		bSpace.setHgap(30);
 
-				this.mainPanel.add(space, BorderLayout.NORTH);
+		this.mainPanel.add(space, BorderLayout.NORTH);
 	}
 	
 	/**
