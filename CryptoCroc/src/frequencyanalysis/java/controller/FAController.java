@@ -393,4 +393,11 @@ public class FAController {
 		gui = new FAGui(menu.getMenuBar(), graph, tables, left, right, language, keyChar, lengthLabel, lengthTextField,
 				monoCheckBox);
 	}
+	
+	/**
+	 * Legt den focus auf die Häufigkeitsanalyse
+	 */
+	public void focus() {
+		gui.focus();
+	}
 }

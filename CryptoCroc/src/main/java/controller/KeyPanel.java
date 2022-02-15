@@ -28,6 +28,7 @@ public abstract class KeyPanel {
 	private JButton randomKey = new JButton("Zufallsschl\u00fcssel");
 	private Crypt crypt;
 	private MainController controller;
+	private FAController fa;
 	private static boolean faIsOpen = false;
 
 	/**
@@ -98,7 +99,7 @@ public abstract class KeyPanel {
 	 * @return ein JLabel mit dem Bild des Krokodils
 	 */
 	private JLabel createCroc() {
-		ImageIcon imageIcon = new ImageIcon("C:\\Users\\chris\\workspace\\Teamprojekt\\CryptoCroc\\src\\main\\resources\\croc.png");
+		ImageIcon imageIcon = new ImageIcon(this.getClass().getResource(("croc.png")));
 		Image image = imageIcon.getImage()
 				.getScaledInstance((int)(imageIcon.getIconWidth()/5.5) + 1, (int)(imageIcon.getIconHeight()/5.5),  Image.SCALE_SMOOTH);
 		JLabel croc = new JLabel(new ImageIcon(image));
@@ -218,10 +219,10 @@ public abstract class KeyPanel {
 	 */
 	public void clickButtonFreqAna() {
 		if (!faIsOpen) {
-			new FAController(this);
+			fa = new FAController(this);
 			faIsOpen = true;
 		} else {
-			Messages.warningMessage("Das Fenster der H\u00e4ufigkeitsanalyse ist bereits offen");
+			fa.focus();
 		}
 	}
 	

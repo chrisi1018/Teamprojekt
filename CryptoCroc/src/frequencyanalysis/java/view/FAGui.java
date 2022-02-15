@@ -318,4 +318,11 @@ public class FAGui {
 		repaint();
 
 	}
+	
+	/**
+	 * Methode die den Frame fokusiert
+	 */
+	public void focus() {
+		this.frame.toFront();
+	}
 }
