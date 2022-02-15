@@ -21,6 +21,7 @@ public abstract class KeyPanel {
 	private JButton encrypt = new JButton("verschl\u00fcsseln");
 	private JButton decrypt = new JButton("entschl\u00fcsseln");
 	private JButton freqAna = new JButton("H\u00e4ufigkeitsanalyse");
+	private JButton randomKey = new JButton("Zufallsschl\u00fcssel");
 	private Crypt crypt;
 	private MainController controller;
 	private static boolean faIsOpen = false;
@@ -41,6 +42,7 @@ public abstract class KeyPanel {
 		encrypt.addActionListener(e -> this.clickButtonEncrypt());
 		decrypt.addActionListener(e -> this.clickButtonDecrypt());
 		freqAna.addActionListener(e -> this.clickButtonFreqAna());
+		randomKey.addActionListener(e -> this.clickButtonRandomKey());
 	}
 
 	/**
@@ -57,7 +59,19 @@ public abstract class KeyPanel {
 	 * @return den aktuellen Key als String
 	 */
 	public abstract String getKey();
-
+	
+	/**
+	 * Setzt einen Schluessel in die SchluesselTextfelder
+	 * 
+	 * @param key der Schluessel der in die Textfelder Gesetzt wird
+	 */
+	public abstract void setKey(String key);
+	
+	/**
+	 * Fügt in das Schluesselfeld einen zufaelligen Schluessel ein
+	 */
+	public abstract void randomKey();
+	
 	/**
 	 * Erzeugt die Buttons in einem JPanel
 	 * 
@@ -68,6 +82,7 @@ public abstract class KeyPanel {
 		panel.add(encrypt);
 		panel.add(decrypt);
 		panel.add(freqAna);
+		panel.add(randomKey);
 		return panel;
 	}
 
@@ -189,6 +204,13 @@ public abstract class KeyPanel {
 		} else {
 			Messages.warningMessage("Das Fenster der H\u00e4ufigkeitsanalyse ist bereits offen");
 		}
+	}
+	
+	/**
+	 * Ruft die Methoden auf die einen zufaelligen Schuessel erzeugen
+	 */
+	public void clickButtonRandomKey() {
+		this.randomKey();
 	}
 
 }

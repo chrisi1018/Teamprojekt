@@ -13,6 +13,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.util.Random;
 import java.awt.Component;
 
 /**
@@ -94,5 +95,32 @@ public class CKeyPanel extends KeyPanel {
 	public String getKey() {
 		return this.key.getText();
 	}
-
+	
+	/**
+	 * Setzt einen Schluessel in das TextFeld
+	 * 
+	 * @param key der Zu setztende Schluessel
+	 */
+	@Override
+	public void setKey(String key) {
+		this.key.setText(key);
+	}
+	
+	/**
+	 * Erzeugt einen zufaelligen Schluessel
+	 */
+	@Override
+	public void randomKey() {
+		int leftLimit = 65;
+		int rightLimit = 90;
+		int targetStringLength = 1;
+		Random random = new Random();
+		StringBuilder buffer = new StringBuilder(targetStringLength);
+		for (int i = 0; i < targetStringLength; i++) { //Schleife fuer Stringbuilder des Random key
+			int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
+			buffer.append((char) randomLimitedInt);
+		}
+		String keyString = buffer.toString();
+		this.setKey(keyString);
+	}
 }

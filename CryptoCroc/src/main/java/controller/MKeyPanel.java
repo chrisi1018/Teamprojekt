@@ -15,6 +15,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.util.Random;
 
 /**
  * Definiert 'createKeyPanel'-Methode fuer monoalphabetische Verschluesselung
@@ -138,6 +139,42 @@ public class MKeyPanel extends KeyPanel {
 		total.add(this.createButtonPanel());
 
 		return total;
+	}
+	
+	/**
+	 * Methode die einen Zufaelligen Schluessel erzeugt
+	 */
+	@Override
+	public void randomKey() {
+		int leftLimit = 0;
+		int rightLimit = 25;
+		String[] keyString = new String[alphabetSize];
+		for (int i = 0; i < alphabetSize; i++) {
+			keyString[i] = Character.toString((char) ('A' + i));
+		}
+		Random random = new Random();
+		for (int i = 0; i < alphabetSize; i++) { //Random Schuffel des Array keyString erzeugt eienn Random Schluessel
+			int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
+			String temp = keyString[i];
+			keyString[i] = keyString[randomLimitedInt];
+			keyString[randomLimitedInt] = temp;
+		}
+		String key = "";
+		for (int i = 0; i < alphabetSize; i++) {
+			key = key + keyString[i];
+		}
+		this.setKey(key);
+	}
+	
+	/**
+	 * Eine Methode die einen Schluessel in die Schluesselfelder Schreibt
+	 * @param key der Schluessel der in die Schluesselfelder Geschrieben wird
+	 */
+	@Override
+	public void setKey(String key) {
+		for (int i = 0; i < alphabetSize; i++) {
+			this.keys[i].setText(key.substring(i, i + 1));
+		}
 	}
 
 	/**
