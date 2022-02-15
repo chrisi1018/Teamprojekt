@@ -1,0 +1,17 @@
+US32 (a722856)
+
+Java-Version: 1.8
+Betriebssystem: Windows 11
+getestet von: Julian Sturm
+
+1. Ich klicke bei der Caesar-Versschluesselung fuenf mal den Button "Zufallsschluessel".
+Erwartung: Mir werden fuenf zufaellige Schluessel angezeigt.
+Realitaet: Wie erwartet.
+
+2. Ich klicke bei der Monoalphabetischen-Verschluesselung fuenf mal den Button "Zufallsschluessel".
+Erwartung: Mir werden fuenf zufaellige Schluessel angezeigt die eine Permuation des Alphanets darstellen.
+Realitaet: Wie erwartet.
+
+3. Ich klicke bei der Viginere-Verschluesselung fuenf mal den Button "Zufallsschluessel".
+Erwartung; Mit werden fuend zufaellige Schluessel angezeigt deren Laenge zwischen 1 und 15 liegt.
+Realitaet: Wie erwartet.
