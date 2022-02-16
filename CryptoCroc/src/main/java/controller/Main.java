@@ -19,9 +19,9 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		try {
-			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel"); //new FlatLightLaf()
+			UIManager.setLookAndFeel(new FlatLightLaf()); //Windows LookAndFeel "com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
 			new MainController();
-		} catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
+		} catch (UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
 		}
 	}

@@ -10,8 +10,8 @@ import java.awt.Dimension;
 /**
  * Erzeugt den Frame und legt dessen Layout fest.
  * 
- * @author Julian Sturm
- * @version 1.2
+ * @author Julian Sturm, chrisi
+ * @version 1.3
  */
 public class Gui {
 
