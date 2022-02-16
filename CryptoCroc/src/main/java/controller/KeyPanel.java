@@ -1,7 +1,5 @@
 package controller;
 
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Image;
 
@@ -22,10 +20,10 @@ import view.Messages;
  * @version 1.2
  */
 public abstract class KeyPanel {
-	private JButton encrypt = new JButton("verschl\u00fcsseln");
-	private JButton decrypt = new JButton("entschl\u00fcsseln");
-	private JButton freqAna = new JButton("H\u00e4ufigkeitsanalyse");
-	private JButton randomKey = new JButton("Zufallsschl\u00fcssel");
+	private JButton encrypt = new GradientButton("verschl\u00fcsseln");
+	private JButton decrypt = new GradientButton("entschl\u00fcsseln");
+	private JButton freqAna = new GradientButton("H\u00e4ufigkeitsanalyse");
+	private JButton randomKey = new GradientButton("Zufallsschl\u00fcssel");
 	private Crypt crypt;
 	private MainController controller;
 	private FAController fa;
