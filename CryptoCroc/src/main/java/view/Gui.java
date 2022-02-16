@@ -10,8 +10,8 @@ import java.awt.Dimension;
 /**
  * Erzeugt den Frame und legt dessen Layout fest.
  * 
- * @author Julian Sturm
- * @version 1.2
+ * @author Julian Sturm, chrisi
+ * @version 1.3
  */
 public class Gui {
 
@@ -42,8 +42,12 @@ public class Gui {
 		this.frame.setJMenuBar(menu);
 		
 		//Setze das Icon im Fenster
-		ImageIcon icon = new ImageIcon(this.getClass().getResource(("..\\controller\\croc.png")));
-		this.frame.setIconImage(icon.getImage());
+		String os = System.getProperty("os.name").toLowerCase();
+		if (!os.equals("mac os x")) { //Nicht Betriebssystem Appel
+			ImageIcon icon = new ImageIcon(this.getClass().getResource(("../controller/croc.png")));
+			this.frame.setIconImage(icon.getImage());
+		}
+		
 		//Speichert die einzelnen Gui-Elemente als Attribute ab
 		this.clearText = clearText;
 		this.clearText.setVisible(true);

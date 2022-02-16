@@ -1,5 +1,7 @@
 package model;
 
+import utility.Utility;
+
 /**
  * Stellt die Caesar Verschuesselung zur Verfuegung.
  * @author Julian Sturm
@@ -17,9 +19,9 @@ public class CCrypt extends Crypt {
 	public char cryptChar(char c, int key) {
 		int temp = c;
 		if (c >= 'a' && c <= 'z') {
-			temp = (((c - 'a') + key) % 26) + 'a';
+			temp = (((c - 'a') + key) % Utility.ALPHABETSIZE) + 'a';
 		} else if (c >= 'A' && c <= 'Z') {
-			temp = (((c - 'A') + key) % 26) + 'A';
+			temp = (((c - 'A') + key) % Utility.ALPHABETSIZE) + 'A';
 		}
 		return (char) temp;
 	}
@@ -32,7 +34,7 @@ public class CCrypt extends Crypt {
 	 * @return der entschluesselte Buchstabe
 	 */
 	public char decryptChar(char c, int key) {
-		return cryptChar(c, 26 - key);
+		return cryptChar(c, Utility.ALPHABETSIZE - key);
 	}
 	
 	/**

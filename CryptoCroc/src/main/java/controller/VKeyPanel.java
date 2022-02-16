@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import model.VCrypt;
+import utility.Utility;
 
 /**
  * Definiert 'createKeyPanel'-Methode fuer Vigenere und speichert sein
@@ -26,8 +27,8 @@ public class VKeyPanel extends KeyPanel {
 
 	private JTextField key = new JTextField();
 	private JLabel name = new JLabel("Schl\u00fcsselwort");
-	private int limit = 15;
 	private final int serialnumber = 3;
+
 
 	/**
 	 * Die aktuelle MainController-Instanz wird gesichert
@@ -44,7 +45,7 @@ public class VKeyPanel extends KeyPanel {
 	 */
 	@Override
 	public JPanel createKeyPanel() {
-		key.setDocument(new LimitedTextfield(limit));
+		key.setDocument(new LimitedTextfield(Utility.MAXIMUMKEYLENGTH));
 		BorderLayout layout = new BorderLayout();
 		JLabel description = new JLabel("Schl\u00fcssel");
 		description.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
@@ -83,7 +84,7 @@ public class VKeyPanel extends KeyPanel {
 	/**
 	 * Setzt einen Schluessel in das TextFeld
 	 * 
-	 * @param key der Zu setztende Schluessel
+	 * @param key der zu setzende Schluessel
 	 */
 	@Override
 	public void setKey(String key) {
@@ -96,7 +97,7 @@ public class VKeyPanel extends KeyPanel {
 	@Override
 	public void randomKey() {
 		int leftLimit = 1;
-		int rightLimit = limit;
+		int rightLimit = Utility.MAXIMUMKEYLENGTH;
 		Random random = new Random();
 		int targetStringLength = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
 		random = new Random();

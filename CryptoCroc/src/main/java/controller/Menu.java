@@ -15,13 +15,14 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import org.apache.commons.io.FilenameUtils;
 
+import utility.Utility;
 import view.Messages;
 
 /**
  * Beschreibt Aufbau und Funktion der Menueleiste in CryptoCroc
  * 
  * @author Julian Singer
- * @version 1.5
+ * @version 1.6
  */
 public class Menu {
 
@@ -85,13 +86,14 @@ public class Menu {
 	 * @return Text mit regelmaessigen Zeilenumbruechen
 	 */
 	public String createFileString(String text) {
+		final int charsUntilWrap = 45; // Anzahl Zeichen bis Zeilenumbruch
 		String newText = "";
 		String lineSeparator = System.lineSeparator();
-		if (text.length() <= 45) {
+		if (text.length() <= charsUntilWrap) {
 			return text;
 		}
-		int indexForWordWrap = text.indexOf(" ", 45);
-		int nextWrapIndex = text.indexOf(" ", indexForWordWrap + 45);
+		int indexForWordWrap = text.indexOf(" ", charsUntilWrap);
+		int nextWrapIndex = text.indexOf(" ", indexForWordWrap + charsUntilWrap);
 		if (indexForWordWrap == -1) {
 			return text;
 			// ersetzt jedes erste Leerzeichen nach 45 Zeichen durch einen Zeilenumbruch
@@ -100,7 +102,7 @@ public class Menu {
 			while (nextWrapIndex < text.length() && nextWrapIndex != -1) {
 				newText = newText + text.substring(indexForWordWrap + 1, nextWrapIndex) + lineSeparator;
 				indexForWordWrap = nextWrapIndex;
-				nextWrapIndex = text.indexOf(" ", indexForWordWrap + 45);
+				nextWrapIndex = text.indexOf(" ", indexForWordWrap + charsUntilWrap);
 			}
 			newText = newText + text.substring(indexForWordWrap + 1);
 		}
@@ -118,14 +120,13 @@ public class Menu {
 	 * @param cryptoText uebergebenes Geheimtextfeld
 	 */
 	public void initSaveItem(int barIndex, int menuIndex, TextField plainText, TextField cryptoText) {
-		final String fileType = "txt";
 		JFileChooser fileChooser = new JFileChooser();
 		// legt fest, was beim Anklicken des Menueitems passiert
 		menuBar.getMenu(barIndex).getItem(menuIndex).addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				TextField chosenTextField;
-				FileNameExtensionFilter filter = new FileNameExtensionFilter("*." + fileType, fileType);
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("*." + Utility.TXT, Utility.TXT);
 				int textNumber = Messages.query("Welchen Text willst du speichern?", options);
 				// ueberprueft, ob im PopUp-Fenster ein Textfeld gewaehlt wurde und waehlt
 				// dieses
@@ -143,10 +144,10 @@ public class Menu {
 					if (response == JFileChooser.APPROVE_OPTION) {
 						String fileName = fileChooser.getSelectedFile().getAbsolutePath();
 						File file;
-						if (fileName.endsWith("." + fileType)) {
+						if (fileName.endsWith("." + Utility.TXT)) {
 							file = new File(fileName);
 						} else {
-							file = new File(fileName + "." + fileType);
+							file = new File(fileName + "." + Utility.TXT);
 						}
 						// prueft, ob die Datei bereits existiert
 						if (file.exists()) {
@@ -197,7 +198,7 @@ public class Menu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser fileChooser = new JFileChooser();
-				FileNameExtensionFilter filter = new FileNameExtensionFilter("*.txt", "txt");
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("*." + Utility.TXT, Utility.TXT);
 				fileChooser.setFileFilter(filter);
 				int textNumber = Messages.query("In welches Textfeld willst du den Text einsetzen?", options);
 				// ueberprueft, ob im PopUp-Fenster ein Textfeld gewaehlt wurde
@@ -206,7 +207,7 @@ public class Menu {
 					if (response == JFileChooser.APPROVE_OPTION) {
 						File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
 						Scanner fileScanner = null;
-						if (!file.getAbsolutePath().endsWith(".txt")) {
+						if (!file.getAbsolutePath().endsWith("." + Utility.TXT)) {
 							Messages.errorMessage("Das Format ." + FilenameUtils.getExtension(file.getName())
 									+ " wird nicht unterst\u00fctzt");
 						} else {
