@@ -1,10 +1,8 @@
 package controller;
 
-import javax.swing.ImageIcon;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.JTextArea;
-import javax.swing.UIManager;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
