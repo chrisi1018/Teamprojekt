@@ -12,6 +12,7 @@ import com.formdev.flatlaf.FlatLightLaf;
  * @version 1.1
  */
 public class Main {
+
 	/**
 	 * main methode, die den MainController kreiert
 	 * 
@@ -19,7 +20,8 @@ public class Main {
 	 */
 	public static void main(String[] args) {
 		try {
-			UIManager.setLookAndFeel(new FlatLightLaf()); //Windows LookAndFeel "com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
+			UIManager.setLookAndFeel(new FlatLightLaf()); // Windows LookAndFeel
+															// "com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
 			new MainController();
 		} catch (UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
