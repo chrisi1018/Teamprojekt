@@ -1,10 +1,15 @@
 package controller;
 
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+
+import com.formdev.flatlaf.FlatLightLaf;
+
 /**
  * Main Klasse fuer CryptoCroc, welches MainController kreiert
  * 
- * @author zes
- * @version 1.0
+ * @author zes, chrisi
+ * @version 1.1
  */
 public class Main {
 	/**
@@ -13,7 +18,12 @@ public class Main {
 	 * @param args Eingabe String
 	 */
 	public static void main(String[] args) {
-		new MainController();
+		try {
+			UIManager.setLookAndFeel(new FlatLightLaf()); //Windows LookAndFeel "com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
+			new MainController();
+		} catch (UnsupportedLookAndFeelException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

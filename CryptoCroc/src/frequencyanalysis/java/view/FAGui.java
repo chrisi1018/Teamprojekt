@@ -27,8 +27,8 @@ import java.awt.event.WindowEvent;
 /**
  * Erstellt den Frame und legt das Layout der Haeufigkeitsanalyse fest
  * 
- * @author zes, Julian Singer
- * @version 1.2
+ * @author zes, Julian Singer, chrisi
+ * @version 1.3
  */
 public class FAGui {
 
@@ -76,8 +76,11 @@ public class FAGui {
 		this.mainPanel = new JPanel(new BorderLayout(4, 4));
 		
 		//Setze das Icon im Fenster
-		ImageIcon icon = new ImageIcon("C:\\Users\\chris\\workspace\\Teamprojekt\\CryptoCroc\\src\\main\\resources\\croc.png");
-		this.frame.setIconImage(icon.getImage());
+		String os = System.getProperty("os.name").toLowerCase();
+		if (!os.equals("osx")) { //Nicht Betriebssystem Appel
+			ImageIcon icon = new ImageIcon(this.getClass().getResource(("../controller/croc.png")));
+			this.frame.setIconImage(icon.getImage());
+		}
 
 		// alles sichtbar machen und initialisieren
 		this.mainLabel = new JLabel("H\u00e4ufigkeitsanalyse");
