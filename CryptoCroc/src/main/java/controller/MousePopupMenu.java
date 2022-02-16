@@ -1,5 +1,6 @@
 package controller;
 
+import javax.swing.ImageIcon;
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.JTextArea;
@@ -57,10 +58,13 @@ public class MousePopupMenu {
 			public void mouseReleased(MouseEvent me) {
 				final int macOSMouseClick = 3; // Standard bei Rechtsklick auf MacOS
 				// Spezialfall fuer macOS
-				if (UIManager.getSystemLookAndFeelClassName().equals("com.apple.laf.AquaLookAndFeel")) {
+				if (System.getProperty("os.name").toLowerCase().equals("mac os x")) {
 					if (me.getButton() == macOSMouseClick) {
 						menu.show(me.getComponent(), me.getX(), me.getY());
 					}
+				}
+				if (UIManager.getSystemLookAndFeelClassName().equals("com.apple.laf.AquaLookAndFeel")) {
+					
 				}
 				if (me.isPopupTrigger()) {
 					menu.show(me.getComponent(), me.getX(), me.getY());
