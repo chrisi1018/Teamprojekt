@@ -42,8 +42,12 @@ public class Gui {
 		this.frame.setJMenuBar(menu);
 		
 		//Setze das Icon im Fenster
-		ImageIcon icon = new ImageIcon(this.getClass().getResource(("..\\controller\\croc.png")));
-		this.frame.setIconImage(icon.getImage());
+		String os = System.getProperty("os.name").toLowerCase();
+		if (!os.equals("osx")) { //Nicht Betriebssystem Appel
+			ImageIcon icon = new ImageIcon(this.getClass().getResource(("..\\controller\\croc.png")));
+			this.frame.setIconImage(icon.getImage());
+		}
+		
 		//Speichert die einzelnen Gui-Elemente als Attribute ab
 		this.clearText = clearText;
 		this.clearText.setVisible(true);

@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
@@ -18,8 +19,8 @@ import javax.swing.JLabel;
  * Definiert ein neues Fenster, welches die Erlaeuterungen zur Monoalphabetischen
  * Verschluesselung beinhaltet
  * 
- * @author Julian Singer
- * @version 1.0
+ * @author Julian Singer, chrisi
+ * @version 1.1
  *
  */
 @SuppressWarnings("serial")
@@ -58,5 +59,12 @@ public class MExplanationFrame extends JFrame {
 		setSize(800, 300);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		
+		//Setze das Icon im Fenster
+		String os = System.getProperty("os.name").toLowerCase();
+		if (!os.equals("osx")) { //Nicht Betriebssystem Appel
+			ImageIcon icon = new ImageIcon(this.getClass().getResource(("..\\controller\\croc.png")));
+			this.setIconImage(icon.getImage());
+		}
 	}
 }
