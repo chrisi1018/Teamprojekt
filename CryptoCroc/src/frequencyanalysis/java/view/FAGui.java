@@ -78,7 +78,7 @@ public class FAGui {
 		//Setze das Icon im Fenster
 		String os = System.getProperty("os.name").toLowerCase();
 		if (!os.equals("osx")) { //Nicht Betriebssystem Appel
-			ImageIcon icon = new ImageIcon(this.getClass().getResource(("..\\controller\\croc.png")));
+			ImageIcon icon = new ImageIcon(this.getClass().getResource(("../controller/croc.png")));
 			this.frame.setIconImage(icon.getImage());
 		}
 
