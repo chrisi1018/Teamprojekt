@@ -1,6 +1,5 @@
 package controller;
 
-import javax.swing.Icon;
 import javax.swing.JButton;
 
 import java.awt.event.MouseEvent;
@@ -13,6 +12,12 @@ import java.awt.Graphics;
 import java.awt.GradientPaint;
 import java.awt.Point;
 
+/**
+ * Es wird ein Button mit einem Farbverlauf und gerundeten Ecken erzeugt.
+ * 
+ * @author chrisi
+ * @version 1.0
+ */
 public class GradientButton extends JButton implements MouseListener {
 
 	private Color color1;
