@@ -86,13 +86,14 @@ public class Menu {
 	 * @return Text mit regelmaessigen Zeilenumbruechen
 	 */
 	public String createFileString(String text) {
+		final int charsUntilWrap = 45; // Anzahl Zeichen bis Zeilenumbruch
 		String newText = "";
 		String lineSeparator = System.lineSeparator();
-		if (text.length() <= Utility.CHARSUNTILWRAP) {
+		if (text.length() <= charsUntilWrap) {
 			return text;
 		}
-		int indexForWordWrap = text.indexOf(Utility.SPACE, Utility.CHARSUNTILWRAP);
-		int nextWrapIndex = text.indexOf(Utility.SPACE, indexForWordWrap + Utility.CHARSUNTILWRAP);
+		int indexForWordWrap = text.indexOf(" ", charsUntilWrap);
+		int nextWrapIndex = text.indexOf(" ", indexForWordWrap + charsUntilWrap);
 		if (indexForWordWrap == -1) {
 			return text;
 			// ersetzt jedes erste Leerzeichen nach 45 Zeichen durch einen Zeilenumbruch
@@ -101,7 +102,7 @@ public class Menu {
 			while (nextWrapIndex < text.length() && nextWrapIndex != -1) {
 				newText = newText + text.substring(indexForWordWrap + 1, nextWrapIndex) + lineSeparator;
 				indexForWordWrap = nextWrapIndex;
-				nextWrapIndex = text.indexOf(Utility.SPACE, indexForWordWrap + Utility.CHARSUNTILWRAP);
+				nextWrapIndex = text.indexOf(" ", indexForWordWrap + charsUntilWrap);
 			}
 			newText = newText + text.substring(indexForWordWrap + 1);
 		}
@@ -220,7 +221,7 @@ public class Menu {
 										text = text + fileScanner.nextLine();
 									}
 									while (fileScanner.hasNextLine()) {
-										text = text + Utility.SPACE + fileScanner.nextLine();
+										text = text + " " + fileScanner.nextLine();
 									}
 									// setzt den Text in das ausgewaehlte Textfeld, falls es leer ist oder
 									// ueberschrieben werden soll

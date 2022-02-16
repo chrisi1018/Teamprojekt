@@ -1,14 +1,20 @@
 package utility;
 
+/**
+ * Hilfsklasse, die alle benutzten Konstanten zur Verfuegung stellt
+ * 
+ * @author Julian Singer
+ * @version 1.0
+ *
+ */
 public class Utility {
 	
-	public final static int ALPHABETSIZE = 26;
-	public final static int CHARSUNTILWRAP = 45;
-	public final static int MACOSMOUSECLICK = 3; //Standard bei Rechtsklick auf MacOS
-	public final static int MAXIMUMKEYLENGTH = 15;
-	public final static int KEYLENGTHDIGITS = 3;
+	public static final int ALPHABETSIZE = 26;     // Groesse des Alphabets
+	public static final int MAXIMUMKEYLENGTH = 15; // maximale Schluessellaenge
+	public static final int KEYLENGTHDIGITS = 3;   // Schluessellaenge kann maximal dreistellig sein
 	
-	public final static String TXT = "txt";
-	public final static String SPACE = " ";
+	public static final char FIRSTLETTER = 'A';    // erster Buchstabe des Alphabets
+	
+	public static final String TXT = "txt";        // Dateityp zum Speichern und Laden
 	
 }

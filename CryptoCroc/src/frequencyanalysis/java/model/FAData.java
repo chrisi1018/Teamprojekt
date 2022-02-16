@@ -1,5 +1,7 @@
 package model;
 
+import utility.Utility;
+
 /**
  * Eine Hilfsklasse, die fuer unterschiedliche Sprachen die
  * Haeufigkeitswahrscheinlichkeiten hat
@@ -49,15 +51,14 @@ public final class FAData {
 	 *         von A - Z
 	 */
 	public static float[][] analyse(String text, int keyLength) {
-		int alphabetSize = 26;
 		int index = 0;
 		int[] countChars = new int[keyLength];
-		int[][] count = new int[keyLength][alphabetSize];
-		float[][] per = new float[keyLength][alphabetSize];
+		int[][] count = new int[keyLength][Utility.ALPHABETSIZE];
+		float[][] per = new float[keyLength][Utility.ALPHABETSIZE];
 		// Initialisiert die Arrays
 		for (int j = 0; j < keyLength; j++) {
 			countChars[j] = 0;
-			for (int i = 0; i < alphabetSize; i++) {
+			for (int i = 0; i < Utility.ALPHABETSIZE; i++) {
 				count[j][i] = 0;
 				per[j][i] = 0.0f;
 			}
@@ -79,7 +80,7 @@ public final class FAData {
 		// Rechnet die Prozente aus
 		for (int j = 0; j < keyLength; j++) {
 			if (countChars[j] != 0) {
-				for (int i = 0; i < alphabetSize; i++) {
+				for (int i = 0; i < Utility.ALPHABETSIZE; i++) {
 					float digit = 100 * ((float) count[j][i] / countChars[j]);
 					per[j][i] = Math.round(digit * 10.0f) / 10.0f;
 				}
