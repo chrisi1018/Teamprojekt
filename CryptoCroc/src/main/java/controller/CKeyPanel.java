@@ -28,6 +28,7 @@ public class CKeyPanel extends KeyPanel {
 
 	private JTextField key = new JTextField();
 	private JLabel name = new JLabel("A");
+	private final int serialnumber = 1;
 
 	/**
 	 * Konstruktor, der der neuen Instanz die Caesar-Verschluesselung zuordnet
@@ -122,5 +123,17 @@ public class CKeyPanel extends KeyPanel {
 		}
 		String keyString = buffer.toString();
 		this.setKey(keyString);
+	}
+	
+	/**
+	 * Die Methode gibt die Seriennumer des KeyPanels zurück
+	 * CKeypanel = 1
+	 * MKeypanel = 2
+	 * VKeypanel = 3
+	 * 
+	 * @param return 1;
+	 */
+	public int getSerialnumber() {
+		return this.serialnumber;
 	}
 }

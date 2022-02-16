@@ -31,6 +31,7 @@ public class MKeyPanel extends KeyPanel {
 	private JLabel[] names = new JLabel[alphabetSize];
 	private JPanel[] nameKeyPanels = new JPanel[alphabetSize];
 	private int maxInput = 1;
+	private final int serialnumber = 2;
 
 	/**
 	 * Konstruktor, der der neuen Instanz eine monoalphabetische Verschluesselung
@@ -186,5 +187,17 @@ public class MKeyPanel extends KeyPanel {
 			char c = (char) val;
 			this.names[i] = new JLabel(Character.toString(c), JLabel.CENTER);
 		}
+	}
+	
+	/**
+	 * Die Methode gibt die Seriennumer des KeyPanels zurück
+	 * CKeypanel = 1
+	 * MKeypanel = 2
+	 * VKeypanel = 3
+	 * 
+	 * @param return 2;
+	 */
+	public int getSerialnumber() {
+		return this.serialnumber;
 	}
 }

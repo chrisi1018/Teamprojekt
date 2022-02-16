@@ -30,7 +30,6 @@ public abstract class KeyPanel {
 	private MainController controller;
 	private FAController fa;
 	private static boolean faIsOpen = false;
-
 	/**
 	 * Die aktuelle MainController-Instanz wird gesichert
 	 * 
@@ -232,5 +231,15 @@ public abstract class KeyPanel {
 	public void clickButtonRandomKey() {
 		this.randomKey();
 	}
+	
+	/**
+	 * Die Methode gibt die Seriennumer des KeyPanels zurück
+	 * 
+	 * @return :
+	 * CKeypanel = 1
+	 * MKeypanel = 2
+	 * VKeypanel = 3
+	 */
+	public abstract int getSerialnumber();
 
 }

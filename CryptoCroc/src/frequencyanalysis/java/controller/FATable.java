@@ -35,6 +35,7 @@ public class FATable {
 	// fuer alle Textfelder einen TextChangeListener; noetig, um diese beim
 	// Vertauschen der Buchstaben zu entfernen
 	private TextChangeListener[] tcl = new TextChangeListener[alphabetSize];
+	private FABottom bottom;
 
 	/**
 	 * Konstruktor, der die Haeufigkeiten der Sprache und des Geheimtextes uebergibt
@@ -125,7 +126,7 @@ public class FATable {
 	 * 
 	 * @param loc die Stelle des Textfeldes, an dem der Listener entfernt werden muss
 	 */
-	private void disableListener(int loc) {
+	public void disableListener(int loc) {
 		this.textFields[loc].getDocument().removeDocumentListener(tcl[loc]);
 	}
 
@@ -134,7 +135,7 @@ public class FATable {
 	 * 
 	 * @param loc die Stelle des Textfeldes, an dem der Listener zugefuegt wird
 	 */
-	private void enableListener(int loc) {
+	public void enableListener(int loc) {
 		this.textFields[loc].getDocument().addDocumentListener(tcl[loc]);
 	}
 
@@ -168,7 +169,8 @@ public class FATable {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-
+		
+		bottom.updateCryptoText();
 		FAController.updateGraph(this.graph);
 	}
 
@@ -201,7 +203,8 @@ public class FATable {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-
+		
+		bottom.updateCryptoText();
 		FAController.updateGraph(this.graph);
 	}
 
@@ -237,6 +240,7 @@ public class FATable {
 
 		// Listener werden wieder hinzugefuegt und Aenderung des Graphen wird aufgerufen
 		this.textFields[newIndex].getDocument().addDocumentListener(tcl[newIndex]);
+		bottom.updateCryptoText();
 		FAController.updateGraph(this.graph);
 	}
 
@@ -293,5 +297,33 @@ public class FATable {
 	 */
 	public JPanel getTablePanel() {
 		return this.tablePanel;
+	}
+	
+	/**
+	 * Getter fuer textFields
+	 * 
+	 * @return gibt die TextFelder zurück
+	 */
+	public JTextField[] getTextFields() {
+		return this.textFields;
+	}
+	
+	/**
+	 * Setter Methode fuer die textFields updated auch FAData
+	 * @param textFields die TextFelder
+	 */
+	public void setTextFields(JTextField[] textFields) {
+		this.textFields = textFields;
+		for (int i = 0; i < this.textFields.length; i++) {
+			this.data.setTextFieldChar(this.textFields[i].getText().charAt(0), i);
+		}
+	}
+	
+	/**
+	 * Setter Methode fuer bottom
+	 * @param bottom Ein Object FABottom
+	 */
+	public void setBottom(FABottom bottom) {
+		this.bottom = bottom;
 	}
 }

@@ -21,6 +21,9 @@ import view.FAExplanationFrame;
 import view.Messages;
 import model.FAData;
 import model.TableData;
+import model.VCrypt;
+import model.CCrypt;
+import model.MCrypt;
 
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
@@ -56,6 +59,7 @@ public class FAController {
 	// darauf zugreifen koennen
 	private static String currentLanguage;
 	private static int max;
+	private FABottom bottom;
 
 	/**
 	 * Der Konstruktor fuer die Klasse FaController, siehe init-Methoden fuer mehr
@@ -75,6 +79,7 @@ public class FAController {
 		max = calcMax();
 		initFATable();
 		initFAMenuBar();
+		initFABottom();
 		try {
 			graph = new FAGraph(languageData, data[0].getFrequencyPercentage(), currentLanguage, max);
 		} catch (IOException e) {
@@ -161,7 +166,7 @@ public class FAController {
 				}
 			}
 		});
-		this.lengthTextField.setText("1");
+		this.lengthTextField.setText(Integer.toString(length));
 		// DocumentListener, um Aktualisierungen des Textfeldes an die ComboBox mit
 		// der Schluessellaenge weiterzuleiten
 		this.lengthTextField.getDocument().addDocumentListener(new DocumentListener() {
@@ -173,9 +178,20 @@ public class FAController {
 				initTableData();
 				max = calcMax();
 				initFATable();
-				gui.setTable(tables);
-				gui.setTablePanel();
-				gui.updateKeyChar(keyChar);
+				bottom.updateKeyText(tables);
+				if (count > 1) {
+					bottom.setCrypt(new VCrypt());
+				} else if (monoCheckBox.isSelected()) {
+					bottom.setCrypt(new MCrypt());
+				} else {
+					bottom.setCrypt(new CCrypt());
+				}
+				if (gui != null) {
+					gui.setTable(tables);
+					gui.setTablePanel();
+					gui.updateKeyChar(keyChar);
+					//TODO Update der Schlüsselfelder
+				}
 			}
 
 			@Override
@@ -207,6 +223,7 @@ public class FAController {
 	 * Bei deaktivierter Checkbox wird die Schreibsperre der Textfelder gesetzt.
 	 */
 	private void checkCheckbox() {
+		this.bottom.switchMono();
 		this.lengthTextField.setText("1");
 		for (int i = 0; i < this.tables.length; i++) {
 			this.tables[i].enableTextFields(this.monoCheckBox.isSelected());
@@ -392,6 +409,34 @@ public class FAController {
 	private void initFAGui() {
 		gui = new FAGui(menu.getMenuBar(), graph, tables, left, right, language, keyChar, lengthLabel, lengthTextField,
 				monoCheckBox);
+	}
+	
+	/**
+	 * Initialisiert FABottom
+	 */
+	private void initFABottom() {
+		this.bottom = new FABottom(this.key, this.tables);
+		switch(this.key.getSerialnumber()) {
+		case 1:
+			this.lengthTextField.setText(Integer.toString(length));
+			break;
+		case 2:
+			this.monoCheckBox.setSelected(true);
+			checkCheckbox();
+			break;
+		case 3:
+			String temp = this.key.getKey();
+			if (!temp.isEmpty()) {
+				this.lengthTextField.setText(Integer.toString(temp.length()));
+			}
+			break;
+		default:
+			this.lengthTextField.setText(Integer.toString(length));
+			break;
+		}
+		for (int i = 0; i < this.tables.length; i++) {
+			this.tables[i].setBottom(this.bottom);
+		}
 	}
 	
 	/**
