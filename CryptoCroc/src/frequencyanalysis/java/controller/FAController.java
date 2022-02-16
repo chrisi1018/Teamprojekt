@@ -25,7 +25,7 @@ import model.VCrypt;
 import model.CCrypt;
 import model.MCrypt;
 import utility.Utility;
-
+import javax.swing.JPanel;
 
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
@@ -405,7 +405,7 @@ public class FAController {
 	 */
 	private void initFAGui() {
 		gui = new FAGui(menu.getMenuBar(), graph, tables, left, right, language, keyChar, lengthLabel, lengthTextField,
-				monoCheckBox);
+				monoCheckBox, bottom.createBottomPanel());
 	}
 	
 	/**
