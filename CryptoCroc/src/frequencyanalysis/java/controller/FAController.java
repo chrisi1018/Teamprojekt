@@ -21,6 +21,7 @@ import view.FAExplanationFrame;
 import view.Messages;
 import model.FAData;
 import model.TableData;
+import utility.Utility;
 
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
@@ -41,7 +42,7 @@ public class FAController {
 	private JCheckBox monoCheckBox;
 	private JComboBox<String> language;
 	private String[] languages = { "Deutsch", "Englisch" };
-	private float[] languageData = new float[26]; // 26 fuer die Groesse des Alphabets
+	private float[] languageData = new float[Utility.ALPHABETSIZE];
 	private JComboBox<String> keyChar;
 	private JButton left;
 	private JButton right;
@@ -132,7 +133,6 @@ public class FAController {
 		this.lengthTextField.setDocument(new PlainDocument() {
 
 			private static final long serialVersionUID = 6389795108727999785L;
-			private int limit = 3;
 
 			// Hier wird festgelegt, dass nur Zahlen eingegeben werden koennen
 			@Override
@@ -153,7 +153,7 @@ public class FAController {
 				}
 				if (insert && !leadingZero) {
 
-					if (this.getLength() + str.length() <= limit) {
+					if (this.getLength() + str.length() <= Utility.KEYLENGTHDIGITS) {
 						super.insertString(offset, str, att);
 					} else {
 						Messages.errorMessage("Die L\u00e4nge des Schl\u00fcssel darf 999 nicht \u00fcberschreiten!");
@@ -263,7 +263,7 @@ public class FAController {
 				String number = keyChar.getSelectedItem().toString();
 				String digit = "";
 				// maximaler String ist 999, d.h. maximale Laenge muss 3 sein
-				for (int i = 0; i < 3; i++) {
+				for (int i = 0; i < Utility.KEYLENGTHDIGITS; i++) {
 					if (number.charAt(i) != '.' && number.charAt(i) != ' ') {
 						digit = digit + number.charAt(i);
 					}

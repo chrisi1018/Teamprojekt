@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import model.TableData;
+import utility.Utility;
 
 /**
  * Diese Klasse modelliert die Zuordnungstabelle der Buchstaben fuer die
@@ -23,18 +24,16 @@ import model.TableData;
  * @version 1.2
  */
 public class FATable {
-
-	private final int alphabetSize = 26;
-
+	
 	private TableData data;
-	private JTextField[] textFields = new JTextField[alphabetSize];
-	private JLabel[] textLabels = new JLabel[alphabetSize];
+	private JTextField[] textFields = new JTextField[Utility.ALPHABETSIZE];
+	private JLabel[] textLabels = new JLabel[Utility.ALPHABETSIZE];
 	private JPanel tablePanel;
 	private FAGraph graph;
 	private float[] language;
 	// fuer alle Textfelder einen TextChangeListener; noetig, um diese beim
 	// Vertauschen der Buchstaben zu entfernen
-	private TextChangeListener[] tcl = new TextChangeListener[alphabetSize];
+	private TextChangeListener[] tcl = new TextChangeListener[Utility.ALPHABETSIZE];
 
 	/**
 	 * Konstruktor, der die Haeufigkeiten der Sprache und des Geheimtextes uebergibt
@@ -68,7 +67,7 @@ public class FATable {
 		FlowLayout fLayout = new FlowLayout();
 		fLayout.setVgap(25);
 		JPanel tablePanel = new JPanel(fLayout);
-		for (int i = 0; i < alphabetSize; i++) {
+		for (int i = 0; i < Utility.ALPHABETSIZE; i++) {
 			// erstellt JPanel mit JLabel als Titel
 			JPanel title = new JPanel();
 			JLabel letter = this.textLabels[i];
@@ -149,7 +148,7 @@ public class FATable {
 			// alle Listener werden entfernt, da diese sonst beim Setzen des Texts getriggert
 			// werden
 			this.disableListener(i);
-			if (i < alphabetSize - 1) {
+			if (i < Utility.ALPHABETSIZE - 1) {
 				this.textFields[i + 1].setText(Character.toString(this.data.getTextFieldChar(i)));
 			} else {
 				this.textFields[0].setText(Character.toString(this.data.getTextFieldChar(i)));
@@ -182,7 +181,7 @@ public class FATable {
 			// alle Listener werden entfernt, da diese sonst beim Setzen des Texts getriggert
 			// werden
 			this.disableListener(i);
-			if (i < alphabetSize - 1) {
+			if (i < Utility.ALPHABETSIZE - 1) {
 				this.textFields[i].setText(Character.toString(this.data.getTextFieldChar(i + 1)));
 			} else {
 				this.textFields[i].setText(Character.toString(this.data.getTextFieldChar(0)));

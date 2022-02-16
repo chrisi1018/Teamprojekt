@@ -5,6 +5,8 @@ import javax.swing.JPopupMenu;
 import javax.swing.JTextArea;
 import javax.swing.UIManager;
 
+import utility.Utility;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -13,8 +15,6 @@ import java.awt.event.MouseEvent;
 public class MousePopupMenu {
 	private JPopupMenu menu = new JPopupMenu();
 	private JMenuItem entry = null;
-	// standardwert bei rechtsklick auf macos
-	private final int macOSMouseClick = 3;
 
 	public MousePopupMenu(JTextArea textArea) {
 		ActionListener al = new ActionListener() {
@@ -36,9 +36,9 @@ public class MousePopupMenu {
 		textArea.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent me) {
-				// spezialfall fuer macOS
+				// Spezialfall fuer macOS
 				if (UIManager.getSystemLookAndFeelClassName().equals("com.apple.laf.AquaLookAndFeel")) {
-					if (me.getButton() == macOSMouseClick) {
+					if (me.getButton() == Utility.MACOSMOUSECLICK) {
 						menu.show(me.getComponent(), me.getX(), me.getY());
 					}
 				}

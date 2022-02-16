@@ -1,5 +1,7 @@
 package model;
 
+import utility.Utility;
+
 /**
  * Fuer eine monoalphabetische Verschluesselung
  * 
@@ -16,7 +18,7 @@ public class MCrypt extends Crypt {
 	 */
 	@Override
 	public boolean checkKey(String keyString) {
-		if (keyString.length() != 26) {
+		if (keyString.length() != Utility.ALPHABETSIZE) {
 			return false;
 		}
 
