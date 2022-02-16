@@ -111,9 +111,11 @@ public class FAGraph {
 		cplot.getDomainAxis().setLowerMargin(0.01);
 		cplot.getDomainAxis().setUpperMargin(0.01);
 
-		// Farben der Bars entsprechend ihrem Reihenschluessel faerben
+		// Farben der Bars entsprechend ihrem Reihenschluessel faerben und den Abstand
+		// zusammengehoerender Bars festlegen
 		((BarRenderer) cplot.getRenderer()).setBarPainter(new StandardBarPainter());
 		BarRenderer renderer = (BarRenderer) barChart.getCategoryPlot().getRenderer();
+		renderer.setItemMargin(0.0);
 		// CryptoCroc gruen
 		renderer.setSeriesPaint(0, new Color(74, 115, 14));
 		// gelb/orange/gold
