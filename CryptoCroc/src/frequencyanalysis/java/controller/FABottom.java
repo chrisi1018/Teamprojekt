@@ -94,6 +94,8 @@ public class FABottom {
 		this.frame.remove(bottomPanel);
 		createMainPanel();
 		this.frame.add(bottomPanel);
+		this.bottomPanel.setVisible(true);
+		this.frame.revalidate();
 		this.frame.repaint();
 	}
 	
