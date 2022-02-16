@@ -63,9 +63,6 @@ public class MousePopupMenu {
 						menu.show(me.getComponent(), me.getX(), me.getY());
 					}
 				}
-				if (UIManager.getSystemLookAndFeelClassName().equals("com.apple.laf.AquaLookAndFeel")) {
-					
-				}
 				if (me.isPopupTrigger()) {
 					menu.show(me.getComponent(), me.getX(), me.getY());
 				}
