@@ -1,7 +1,5 @@
 package controller;
 
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Image;
 
@@ -22,10 +20,10 @@ import view.Messages;
  * @version 1.2
  */
 public abstract class KeyPanel {
-	private JButton encrypt = new JButton("verschl\u00fcsseln");
-	private JButton decrypt = new JButton("entschl\u00fcsseln");
-	private JButton freqAna = new JButton("H\u00e4ufigkeitsanalyse");
-	private JButton randomKey = new JButton("Zufallsschl\u00fcssel");
+	private JButton encrypt = new GradientButton("verschl\u00fcsseln");
+	private JButton decrypt = new GradientButton("entschl\u00fcsseln");
+	private JButton freqAna = new GradientButton("H\u00e4ufigkeitsanalyse");
+	private JButton randomKey = new GradientButton("Zufallsschl\u00fcssel");
 	private Crypt crypt;
 	private MainController controller;
 	private FAController fa;
@@ -73,7 +71,7 @@ public abstract class KeyPanel {
 	public abstract void setKey(String key);
 	
 	/**
-	 * Fügt in das Schluesselfeld einen zufaelligen Schluessel ein
+	 * Fuegt in das Schluesselfeld einen zufaelligen Schluessel ein
 	 */
 	public abstract void randomKey();
 	
@@ -94,14 +92,15 @@ public abstract class KeyPanel {
 	
 	/**
 	 * Erzeugt ein Label, dass das Bild des Krokodils beinhaltet, dies wird sofort
-	 * auf die passende größe skaliert.
+	 * auf die passende groesse skaliert.
 	 * 
 	 * @return ein JLabel mit dem Bild des Krokodils
 	 */
 	private JLabel createCroc() {
 		ImageIcon imageIcon = new ImageIcon(this.getClass().getResource(("croc.png")));
 		Image image = imageIcon.getImage()
-				.getScaledInstance((int)(imageIcon.getIconWidth()/5.5) + 1, (int)(imageIcon.getIconHeight()/5.5),  Image.SCALE_SMOOTH);
+				.getScaledInstance((int) (imageIcon.getIconWidth() / 5.5) + 1, (int) (imageIcon.getIconHeight() / 5.5),
+						Image.SCALE_SMOOTH);
 		JLabel croc = new JLabel(new ImageIcon(image));
 		return croc;
 	}
@@ -202,7 +201,7 @@ public abstract class KeyPanel {
 	}
 
 	/**
-	 * Wechselt den Zustand von faIsOpen; benutzt um zu Ã¼berprÃ¼fen ob die
+	 * Wechselt den Zustand von faIsOpen; benutzt um zu ueberpruefen ob die
 	 * Haeufigkeitsanalyse bereits geoeffnet ist
 	 */
 	public static void faSwitchOpen() {

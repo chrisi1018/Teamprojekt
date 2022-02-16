@@ -280,19 +280,15 @@ public class FAController {
 	 * Erstellt die Buttons "left" und "right"
 	 */
 	private void initLeftRight() {
-		this.left = new JButton("\u00ab");
-		this.left.setMargin(new Insets(0, 0, 0, 0));
-		this.left.setFont(new Font("Arial", Font.PLAIN, 22));
+		this.left = new GradientButton("\u00ab");
+		this.left.setMargin(new Insets(1, 10, 1, 10));
+		this.left.setFont(new Font("Arial", Font.PLAIN, 14));
 		this.left.addActionListener(e -> this.tables[this.keyChar.getSelectedIndex()].shiftLeft());
-
-		this.left.setVisible(true);
-		this.right = new JButton("\u00bb");
-		this.right.setMargin(new Insets(0, 0, 0, 0));
-		this.right.setFont(new Font("Arial", Font.PLAIN, 22));
+		
+		this.right = new GradientButton("\u00bb");
+		this.right.setMargin(new Insets(1, 10, 1, 10));
+		this.right.setFont(new Font("Arial", Font.PLAIN, 14));
 		this.right.addActionListener(e -> this.tables[this.keyChar.getSelectedIndex()].shiftRight());
-
-		this.right.setVisible(true);
-
 	}
 
 	/**
