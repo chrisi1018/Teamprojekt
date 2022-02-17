@@ -179,14 +179,14 @@ public class FAController {
 				initTableData();
 				max = calcMax();
 				initFATable();
-				bottom.updateKeyText(tables);
-				if (count > 1) {
-					bottom.setCrypt(new VCrypt());
-				} else if (monoCheckBox.isSelected()) {
+				if (bottom.getMono()) {
 					bottom.setCrypt(new MCrypt());
+				} else if (count > 1) {
+					bottom.setCrypt(new VCrypt());
 				} else {
 					bottom.setCrypt(new CCrypt());
 				}
+				bottom.updateKeyText(tables);
 				if (gui != null) {
 					gui.setTable(tables);
 					gui.setTablePanel();
@@ -434,6 +434,7 @@ public class FAController {
 		for (int i = 0; i < this.tables.length; i++) {
 			this.tables[i].setBottom(this.bottom);
 		}
+		this.bottom.updateKeyText(tables);
 	}
 	
 	/**

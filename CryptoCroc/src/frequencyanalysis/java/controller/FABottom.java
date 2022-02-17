@@ -21,6 +21,7 @@ public class FABottom {
 	private JTextField[] keyText = new JTextField[Utility.MAXIMUMKEYLENGTH];
 	private JLabel cryptoText;
 	private String keyString = "";
+	private String monoString = "";
 	private Crypt crypt;
 	private boolean mono;
 	private String cryptString;
@@ -39,8 +40,17 @@ public class FABottom {
 			this.keyText[i] = new JTextField();
 			this.keyText[i].setDocument(new LimitedTextfield(1));
 		}
+		this.keyString = this.key.getKey();
+		if (this.keyString.length() == Utility.ALPHABETSIZE) {
+			this.monoString = this.keyString;
+			this.keyString = "";
+		} else {
+			for (int i = 0; i < Utility.ALPHABETSIZE; i++) {
+				this.monoString = this.monoString + Character.toString((char) ('A' + i));
+			}
+		}
 		initCryptoText();
-		//TODO initKeyText();
+		initKeyText();
 	}
 	
 	/**
@@ -62,55 +72,14 @@ public class FABottom {
 		bottomPanel.setVisible(true);
 		return bottomPanel;
 	}
+	
 	private void initKeyText() {
-		if (!key.getKey().isEmpty()) {
-			this.keyString = key.getKey();
-		}
-		if (this.mono) {
-			JTextField[] temp = this.tables[0].getTextFields();
-			if (this.keyString.length() == Utility.ALPHABETSIZE) {
-				for (int i = 0; i < temp.length; i++) {
-					this.tables[0].disableListener(i);
-					temp[i].setText(this.keyString.substring(i, i + 1));
-					this.tables[0].enableListener(i);
-				}
-			}
-			this.tables[0].setTextFields(temp);
-			for (int i = 0; i < this.keyText.length; i++) {
-				this.keyText[i].setVisible(false);
-			}
-		} else {
-			if (this.keyString.length() == Utility.ALPHABETSIZE) {
-				this.keyString = "";
-			}
-			for (int i = 0; i < this.tables.length; i++) {
-				char keyChar;
-				if (i < keyString.length()) {
-					keyChar = this.keyString.charAt(i);
-				} else {
-					keyChar = 'A';
-				}
-				this.keyText[i].setText(Character.toString(keyChar));
-				JTextField[] temp = this.tables[i].getTextFields();
-				for (int j = 0; j < temp.length; j++) {
-					this.tables[i].disableListener(j);
-					temp[j].setText(Character.toString(keyChar));
-					if (keyChar < 'Z') {
-						keyChar = (char) (keyChar + 1);
-					} else {
-						keyChar = 'A';
-					}
-					this.tables[i].enableListener(j);
-				}
-				this.tables[i].setTextFields(temp);
-				this.keyText[i].setVisible(true);
-			}
-			for (int i = this.tables.length; i < this.keyText.length; i++) {
-				this.keyText[i].setVisible(false);
-			}
+		for (int i = 0; i < this.keyText.length; i++) {
+			this.keyText[i] = new JTextField();
+			this.keyText[i].setDocument(new LimitedTextfield(1));
+			this.keyText[i].setText("A");
 		}
 	}
-	
 	/**
 	 * Initalisiert das Label KryptoText
 	 */
@@ -120,6 +89,7 @@ public class FABottom {
 		this.cryptoText.setText("<html><p align=\"justify\" style=\"width:370px\">"
 		+ this.cryptString
 		+ "</p></html>");
+		
 	}
 	
 	/**
@@ -132,7 +102,39 @@ public class FABottom {
 		for (int i = 0; i < this.tables.length; i++) {
 			this.tables[i].setBottom(this);
 		}
-		initKeyText();
+		if (this.mono) {
+			JTextField[] temp = this.tables[0].getTextFields();
+			for (int i = 0; i < temp.length; i++) {
+				temp[i].setText(this.monoString.substring(i, i + 1));
+			}
+			for (int i = 0; i < this.keyText.length; i++) {
+				this.keyText[i].setVisible(false);
+			}
+			this.tables[0].setTextFields(temp);
+		} else {
+			for (int i = 0; i < this.tables.length; i++) {
+				JTextField[] temp = this.tables[i].getTextFields();
+				char keyChar;
+				if (i < this.keyString.length()) {
+					keyChar = this.keyString.charAt(i);
+				} else {
+					keyChar = 'A';
+				}
+				for (int j = 0; j < temp.length; j++) {
+					temp[j].setText(Character.toString(keyChar));
+					if (keyChar == 'Z') {
+						keyChar = 'A';
+					} else {
+						keyChar = (char) (keyChar + 1);
+					}
+				}
+				this.keyText[i].setVisible(true);
+				this.tables[i].setTextFields(temp);
+			}
+			for (int i = this.tables.length; i < this.keyText.length; i++) {
+				this.keyText[i].setVisible(false);
+			}
+		}
 		updateCryptoText();
 	}
 	
@@ -157,13 +159,14 @@ public class FABottom {
 	 * Updated den Aktuellen keyString
 	 */
 	private void updateKeyString() {
-		this.keyString = "";
 		if (this.mono) {
+			this.monoString = "";
 			JTextField[] temp = tables[0].getTextFields();
 			for (int i = 0; i < temp.length; i++) {
-				this.keyString = this.keyString + temp[i].getText();
+				this.monoString = this.monoString + temp[i].getText();
 			}
 		} else {
+			this.keyString = "";
 			for (int i = 0; i < tables.length; i++) {
 				this.keyString = this.keyString + this.tables[i].getTextFields()[0].getText();
 			}
@@ -175,6 +178,14 @@ public class FABottom {
 	 */
 	public void setCrypt(Crypt crypt) {
 		this.crypt = crypt;
+	}
+	
+	/**
+	 * Getter-Methode für mono
+	 * @return der boolean Wert von mono
+	 */
+	public boolean getMono() {
+		return mono;
 	}
 	
 	/**
