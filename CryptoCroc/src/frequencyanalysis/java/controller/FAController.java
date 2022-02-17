@@ -152,11 +152,10 @@ public class FAController {
 					}
 				}
 				if (insert && !leadingZero) {
-
-					if (this.getLength() + str.length() <= Utility.KEYLENGTHDIGITS) {
+					if (this.getLength() + str.length() <= Utility.KEYLENGTHDIGITS && isLessThanSixteen(offset, str)) {
 						super.insertString(offset, str, att);
 					} else {
-						Messages.errorMessage("Die L\u00e4nge des Schl\u00fcssel darf 999 nicht \u00fcberschreiten!");
+						Messages.errorMessage("Die L\u00e4nge des Schl\u00fcssel darf 15 nicht \u00fcberschreiten!");
 					}
 				}
 			}
@@ -369,6 +368,33 @@ public class FAController {
 			}
 			this.data[i] = new TableData(oneFrequencies);
 		}
+	}
+	
+	/**
+	 * Hilfsmethode, die prueft, ob die durch die eingegebenen Parameter neu entstehende Schluessellaenge
+	 * maximal 15 betraegt
+	 * 
+	 * @param offset Position, an der die neuen Zahlen eingefuegt werden
+	 * @param str neue eingegebene Zahlen
+	 * @return Ob die neue Schluessellaenge valide ist
+	 * @throws BadLocationException Ungueltige Position
+	 */
+	private boolean isLessThanSixteen(int offset, String str) throws BadLocationException {
+		String newLength = "1";
+		switch (offset) {
+		case 0:
+			newLength = str + this.lengthTextField.getText();
+			break;
+		case 1:
+			if (this.length >= 1) {
+				newLength = this.lengthTextField.getText(0, 1) + str 
+						+ this.lengthTextField.getText(1, this.length - 1);
+			} else {
+				newLength = str;
+			}
+			break;
+		}
+		return (Integer.parseInt(newLength) < 16);
 	}
 
 	/**

@@ -11,7 +11,7 @@ public class Utility {
 	
 	public static final int ALPHABETSIZE = 26;     // Groesse des Alphabets
 	public static final int MAXIMUMKEYLENGTH = 15; // maximale Schluessellaenge
-	public static final int KEYLENGTHDIGITS = 3;   // Schluessellaenge kann maximal dreistellig sein
+	public static final int KEYLENGTHDIGITS = 2;   // Schluessellaenge kann maximal dreistellig sein
 	
 	public static final char FIRSTLETTER = 'A';    // erster Buchstabe des Alphabets
 	
