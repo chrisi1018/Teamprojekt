@@ -340,6 +340,7 @@ public class FAController {
 				max = calcMax();
 				initFATable();
 				checkCheckbox();
+				initFABottom();
 				gui.setTable(tables);
 				gui.setTablePanel();
 				gui.repaint();
