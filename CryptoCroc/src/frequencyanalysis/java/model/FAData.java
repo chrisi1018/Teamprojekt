@@ -53,12 +53,12 @@ public final class FAData {
 	public static float[][] analyse(String text, int keyLength) {
 		int index = 0;
 		int[] countChars = new int[keyLength];
-		int[][] count = new int[keyLength][Utility.ALPHABETSIZE];
-		float[][] per = new float[keyLength][Utility.ALPHABETSIZE];
+		int[][] count = new int[keyLength][Utility.ALPHABET_SIZE];
+		float[][] per = new float[keyLength][Utility.ALPHABET_SIZE];
 		// Initialisiert die Arrays
 		for (int j = 0; j < keyLength; j++) {
 			countChars[j] = 0;
-			for (int i = 0; i < Utility.ALPHABETSIZE; i++) {
+			for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
 				count[j][i] = 0;
 				per[j][i] = 0.0f;
 			}
@@ -80,7 +80,7 @@ public final class FAData {
 		// Rechnet die Prozente aus
 		for (int j = 0; j < keyLength; j++) {
 			if (countChars[j] != 0) {
-				for (int i = 0; i < Utility.ALPHABETSIZE; i++) {
+				for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
 					float digit = 100 * ((float) count[j][i] / countChars[j]);
 					per[j][i] = Math.round(digit * 10.0f) / 10.0f;
 				}

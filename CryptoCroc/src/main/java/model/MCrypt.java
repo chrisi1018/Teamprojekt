@@ -18,7 +18,7 @@ public class MCrypt extends Crypt {
 	 */
 	@Override
 	public boolean checkKey(String keyString) {
-		if (keyString.length() != Utility.ALPHABETSIZE) {
+		if (keyString.length() != Utility.ALPHABET_SIZE) {
 			return false;
 		}
 

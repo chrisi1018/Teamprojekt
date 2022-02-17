@@ -28,10 +28,10 @@ import java.util.Random;
 public class MKeyPanel extends KeyPanel {
 
 	private String key = this.keyAsString();
-	private JTextField[] keys = new JTextField[Utility.ALPHABETSIZE];
-	private JLabel[] names = new JLabel[Utility.ALPHABETSIZE];
-	private JPanel[] nameKeyPanels = new JPanel[Utility.ALPHABETSIZE];
-	private int maxInput = 1;
+	private JTextField[] keys = new JTextField[Utility.ALPHABET_SIZE];
+	private JLabel[] names = new JLabel[Utility.ALPHABET_SIZE];
+	private JPanel[] nameKeyPanels = new JPanel[Utility.ALPHABET_SIZE];
+	private int maxInput = Utility.KEY_LENGTH_FOR_SINGLE_SHIFT;
 
 	/**
 	 * Konstruktor, der der neuen Instanz eine monoalphabetische Verschluesselung
@@ -74,7 +74,7 @@ public class MKeyPanel extends KeyPanel {
 	 * Initialisiert die TextFelder
 	 */
 	private void initTextFields() {
-		for (int i = 0; i < Utility.ALPHABETSIZE; i++) {
+		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
 			keys[i] = new JTextField();
 		}
 	}
@@ -93,7 +93,7 @@ public class MKeyPanel extends KeyPanel {
 		title.add(description, BorderLayout.SOUTH);
 
 		// intialisiert Eintraege von keys und setzt Textstil
-		for (int i = 0; i < Utility.ALPHABETSIZE; i++) {
+		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
 			names[i].setFont(new Font(Font.DIALOG, Font.BOLD, 15));
 			keys[i].setFont(new Font(Font.DIALOG, Font.BOLD, 15));
 			keys[i].setColumns(1);
@@ -127,7 +127,7 @@ public class MKeyPanel extends KeyPanel {
 		FlowLayout fLayout = new FlowLayout();
 		fLayout.setVgap(25);
 		JPanel inputPanel = new JPanel(fLayout);
-		for (int i = 0; i < Utility.ALPHABETSIZE; i++) {
+		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
 			inputPanel.add(nameKeyPanels[i]);
 		}
 
@@ -149,19 +149,19 @@ public class MKeyPanel extends KeyPanel {
 	public void randomKey() {
 		int leftLimit = 0;
 		int rightLimit = 25;
-		String[] keyString = new String[Utility.ALPHABETSIZE];
-		for (int i = 0; i < Utility.ALPHABETSIZE; i++) {
+		String[] keyString = new String[Utility.ALPHABET_SIZE];
+		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
 			keyString[i] = Character.toString((char) ('A' + i));
 		}
 		Random random = new Random();
-		for (int i = 0; i < Utility.ALPHABETSIZE; i++) { //Random Schuffel des Array keyString erzeugt eienn Random Schluessel
+		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) { //Random Schuffel des Array keyString erzeugt eienn Random Schluessel
 			int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
 			String temp = keyString[i];
 			keyString[i] = keyString[randomLimitedInt];
 			keyString[randomLimitedInt] = temp;
 		}
 		String key = "";
-		for (int i = 0; i < Utility.ALPHABETSIZE; i++) {
+		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
 			key = key + keyString[i];
 		}
 		this.setKey(key);
@@ -173,7 +173,7 @@ public class MKeyPanel extends KeyPanel {
 	 */
 	@Override
 	public void setKey(String key) {
-		for (int i = 0; i < Utility.ALPHABETSIZE; i++) {
+		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
 			this.keys[i].setText(key.substring(i, i + 1));
 		}
 	}
@@ -182,7 +182,7 @@ public class MKeyPanel extends KeyPanel {
 	 * Methode zum Initialisieren der Namen der Textfelder (Alphabet)
 	 */
 	private void initNames() {
-		for (int i = 0; i < Utility.ALPHABETSIZE; i++) {
+		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
 			int val = 65 + i;
 			char c = (char) val;
 			this.names[i] = new JLabel(Character.toString(c), JLabel.CENTER);

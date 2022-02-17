@@ -12,8 +12,8 @@ import utility.Utility;
  */
 public class TableData {
 
-	private float[] frequencyPercentage = new float[Utility.ALPHABETSIZE];
-	private char[] textFieldChar = new char[Utility.ALPHABETSIZE];
+	private float[] frequencyPercentage = new float[Utility.ALPHABET_SIZE];
+	private char[] textFieldChar = new char[Utility.ALPHABET_SIZE];
 
 	/**
 	 * Der Konstruktor fuer die Klasse TableData speichert die Prozentzahlen ab.
@@ -58,8 +58,8 @@ public class TableData {
 	 * Initialisiert das Textfeld-Array mit den Werten A-Z
 	 */
 	public void initTextFieldChar() {
-		for (int i = 0; i < Utility.ALPHABETSIZE; i++) {
-			this.textFieldChar[i] = (char) (Utility.FIRSTLETTER + i);
+		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
+			this.textFieldChar[i] = (char) (Utility.FIRST_LETTER + i);
 		}
 	}
 
@@ -70,11 +70,11 @@ public class TableData {
 	 * @return den sortierten Haeufigkeitsprozentsatz
 	 */
 	public float[] getForGraph() {
-		float[] sortedFrequencyPercentage = new float[Utility.ALPHABETSIZE];
+		float[] sortedFrequencyPercentage = new float[Utility.ALPHABET_SIZE];
 
 		for (int i = 0; i < this.textFieldChar.length; i++) { // Geht alle Buchstaben von A-Z durch
 			for (int j = 0; j < this.textFieldChar.length; j++) { // Geht alle Eintraege in dem Textfeld-Array durch
-				if (this.textFieldChar[j] == (char) (Utility.FIRSTLETTER + i)) { // Vertauscht die Prozentzahlen
+				if (this.textFieldChar[j] == (char) (Utility.FIRST_LETTER + i)) { // Vertauscht die Prozentzahlen
 					sortedFrequencyPercentage[j] = this.frequencyPercentage[i];
 				}
 			}

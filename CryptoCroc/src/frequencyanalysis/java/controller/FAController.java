@@ -42,7 +42,7 @@ public class FAController {
 	private JCheckBox monoCheckBox;
 	private JComboBox<String> language;
 	private String[] languages = { "Deutsch", "Englisch" };
-	private float[] languageData = new float[Utility.ALPHABETSIZE];
+	private float[] languageData = new float[Utility.ALPHABET_SIZE];
 	private JComboBox<String> keyChar;
 	private JButton left;
 	private JButton right;
@@ -50,6 +50,9 @@ public class FAController {
 	private FAMenuBar menu;
 	private TableData[] data;
 	private FAGraph graph;
+	// speichert die zweite Ziffer der Schluessellaenge, um bei einem Wechsel einer Zahl zwischen 
+	// 11 und 15 zu einer Zahl zwischen 16 und 19 zu ihrer vorherigen im validen Bereich zurueckzukehren
+	private String previousSecondNumber;
 	// gui muss statisch sein, damit Update des Graphen auch aus FATable aufgerufen
 	// werden kann
 	private static FAGui gui;
@@ -152,9 +155,14 @@ public class FAController {
 					}
 				}
 				if (insert && !leadingZero) {
-					if (this.getLength() + str.length() <= Utility.KEYLENGTHDIGITS && isLessThanSixteen(offset, str)) {
+					if (this.getLength() + str.length() <= Utility.KEY_LENGTH_DIGITS && isLessThanSixteen(offset, str)) {
 						super.insertString(offset, str, att);
+						previousSecondNumber = lengthTextField.getText(1, 1).trim();
 					} else {
+						if (this.getLength() + str.length() == Utility.KEY_LENGTH_DIGITS 
+								&& lengthTextField.getText(0, 1).equals("1")) {
+							super.insertString(1, previousSecondNumber, att);
+						}
 						Messages.errorMessage("Die L\u00e4nge des Schl\u00fcssel darf 15 nicht \u00fcberschreiten!");
 					}
 				}
@@ -261,8 +269,8 @@ public class FAController {
 			public void actionPerformed(ActionEvent e) {
 				String number = keyChar.getSelectedItem().toString();
 				String digit = "";
-				// maximaler String ist 999, d.h. maximale Laenge muss 3 sein
-				for (int i = 0; i < Utility.KEYLENGTHDIGITS; i++) {
+				// maximaler String ist 15, d.h. maximale Laenge muss 2 sein
+				for (int i = 0; i < Utility.KEY_LENGTH_DIGITS; i++) {
 					if (number.charAt(i) != '.' && number.charAt(i) != ' ') {
 						digit = digit + number.charAt(i);
 					}

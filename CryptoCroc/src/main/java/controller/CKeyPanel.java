@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import model.CCrypt;
+import utility.Utility;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -64,7 +65,7 @@ public class CKeyPanel extends KeyPanel {
 		key.setFont(new Font(Font.DIALOG, Font.BOLD, 15));
 
 		// LimitedTextfield bei dem nur ein Character eingegeben darf
-		key.setDocument(new LimitedTextfield(1));
+		key.setDocument(new LimitedTextfield(Utility.KEY_LENGTH_FOR_SINGLE_SHIFT));
 
 		// definiert ein Panel fuer die Schluesseleingabe
 		JPanel textPanel = new JPanel();

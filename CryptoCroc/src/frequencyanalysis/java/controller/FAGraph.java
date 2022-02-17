@@ -28,6 +28,8 @@ import org.jfree.chart.ui.RectangleInsets;
 import org.jfree.chart.ui.TextAnchor;
 import org.jfree.data.general.DefaultKeyedValues2DDataset;
 
+import utility.Utility;
+
 /**
  * Erstellt die Grafik zur Buchstabenverteilung der Haeufigkeitsanalyse
  * 
@@ -117,9 +119,9 @@ public class FAGraph {
 		BarRenderer renderer = (BarRenderer) barChart.getCategoryPlot().getRenderer();
 		renderer.setItemMargin(0.0);
 		// CryptoCroc gruen
-		renderer.setSeriesPaint(0, new Color(74, 115, 14));
+		renderer.setSeriesPaint(0, Utility.FA_GREEN);
 		// gelb/orange/gold
-		renderer.setSeriesPaint(1, new Color(185, 137, 0));
+		renderer.setSeriesPaint(1, Utility.FA_ORANGE);
 
 		// Werte der Haeufigkeitsverteilung oberhalb der Balken fuer beide Serien
 		// aktivieren

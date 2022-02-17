@@ -15,7 +15,6 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import org.apache.commons.io.FilenameUtils;
 
-import utility.Utility;
 import view.Messages;
 
 /**
@@ -27,6 +26,7 @@ import view.Messages;
 public class Menu {
 
 	private final String[] options = new String[] { "Klartext", "Geheimtext" };
+	private final String txtType = "txt"; // Dateityp zum Speichern und Laden
 
 	private JMenuBar menuBar;
 
@@ -126,7 +126,7 @@ public class Menu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				TextField chosenTextField;
-				FileNameExtensionFilter filter = new FileNameExtensionFilter("*." + Utility.TXT, Utility.TXT);
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("*." + txtType, txtType);
 				int textNumber = Messages.query("Welchen Text willst du speichern?", options);
 				// ueberprueft, ob im PopUp-Fenster ein Textfeld gewaehlt wurde und waehlt
 				// dieses
@@ -144,10 +144,10 @@ public class Menu {
 					if (response == JFileChooser.APPROVE_OPTION) {
 						String fileName = fileChooser.getSelectedFile().getAbsolutePath();
 						File file;
-						if (fileName.endsWith("." + Utility.TXT)) {
+						if (fileName.endsWith("." + txtType)) {
 							file = new File(fileName);
 						} else {
-							file = new File(fileName + "." + Utility.TXT);
+							file = new File(fileName + "." + txtType);
 						}
 						// prueft, ob die Datei bereits existiert
 						if (file.exists()) {
@@ -198,7 +198,7 @@ public class Menu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser fileChooser = new JFileChooser();
-				FileNameExtensionFilter filter = new FileNameExtensionFilter("*." + Utility.TXT, Utility.TXT);
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("*." + txtType, txtType);
 				fileChooser.setFileFilter(filter);
 				int textNumber = Messages.query("In welches Textfeld willst du den Text einsetzen?", options);
 				// ueberprueft, ob im PopUp-Fenster ein Textfeld gewaehlt wurde
@@ -207,7 +207,7 @@ public class Menu {
 					if (response == JFileChooser.APPROVE_OPTION) {
 						File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
 						Scanner fileScanner = null;
-						if (!file.getAbsolutePath().endsWith("." + Utility.TXT)) {
+						if (!file.getAbsolutePath().endsWith("." + txtType)) {
 							Messages.errorMessage("Das Format ." + FilenameUtils.getExtension(file.getName())
 									+ " wird nicht unterst\u00fctzt");
 						} else {

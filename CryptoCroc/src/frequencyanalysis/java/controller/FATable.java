@@ -26,14 +26,14 @@ import utility.Utility;
 public class FATable {
 	
 	private TableData data;
-	private JTextField[] textFields = new JTextField[Utility.ALPHABETSIZE];
-	private JLabel[] textLabels = new JLabel[Utility.ALPHABETSIZE];
+	private JTextField[] textFields = new JTextField[Utility.ALPHABET_SIZE];
+	private JLabel[] textLabels = new JLabel[Utility.ALPHABET_SIZE];
 	private JPanel tablePanel;
 	private FAGraph graph;
 	private float[] language;
 	// fuer alle Textfelder einen TextChangeListener; noetig, um diese beim
 	// Vertauschen der Buchstaben zu entfernen
-	private TextChangeListener[] tcl = new TextChangeListener[Utility.ALPHABETSIZE];
+	private TextChangeListener[] tcl = new TextChangeListener[Utility.ALPHABET_SIZE];
 
 	/**
 	 * Konstruktor, der die Haeufigkeiten der Sprache und des Geheimtextes uebergibt
@@ -67,7 +67,7 @@ public class FATable {
 		FlowLayout fLayout = new FlowLayout();
 		fLayout.setVgap(25);
 		JPanel tablePanel = new JPanel(fLayout);
-		for (int i = 0; i < Utility.ALPHABETSIZE; i++) {
+		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
 			// erstellt JPanel mit JLabel als Titel
 			JPanel title = new JPanel();
 			JLabel letter = this.textLabels[i];
@@ -148,7 +148,7 @@ public class FATable {
 			// alle Listener werden entfernt, da diese sonst beim Setzen des Texts getriggert
 			// werden
 			this.disableListener(i);
-			if (i < Utility.ALPHABETSIZE - 1) {
+			if (i < Utility.ALPHABET_SIZE - 1) {
 				this.textFields[i + 1].setText(Character.toString(this.data.getTextFieldChar(i)));
 			} else {
 				this.textFields[0].setText(Character.toString(this.data.getTextFieldChar(i)));
@@ -181,7 +181,7 @@ public class FATable {
 			// alle Listener werden entfernt, da diese sonst beim Setzen des Texts getriggert
 			// werden
 			this.disableListener(i);
-			if (i < Utility.ALPHABETSIZE - 1) {
+			if (i < Utility.ALPHABET_SIZE - 1) {
 				this.textFields[i].setText(Character.toString(this.data.getTextFieldChar(i + 1)));
 			} else {
 				this.textFields[i].setText(Character.toString(this.data.getTextFieldChar(0)));

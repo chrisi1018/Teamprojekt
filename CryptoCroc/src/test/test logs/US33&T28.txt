@@ -1,7 +1,7 @@
 US33 & T28 (Git: b7681a0) :
 
 Java-Version: 1.8
-Betriebssystem: Windows 10 Pro, Windows 11
+Betriebssystem: Windows 11
 getestet von: Christina Blach, Julian Singer
 
 T28:

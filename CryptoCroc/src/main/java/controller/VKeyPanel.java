@@ -43,7 +43,7 @@ public class VKeyPanel extends KeyPanel {
 	 */
 	@Override
 	public JPanel createKeyPanel() {
-		key.setDocument(new LimitedTextfield(Utility.MAXIMUMKEYLENGTH));
+		key.setDocument(new LimitedTextfield(Utility.MAXIMUM_KEY_LENGTH));
 		BorderLayout layout = new BorderLayout();
 		JLabel description = new JLabel("Schl\u00fcssel");
 		description.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
@@ -95,7 +95,7 @@ public class VKeyPanel extends KeyPanel {
 	@Override
 	public void randomKey() {
 		int leftLimit = 1;
-		int rightLimit = Utility.MAXIMUMKEYLENGTH;
+		int rightLimit = Utility.MAXIMUM_KEY_LENGTH;
 		Random random = new Random();
 		int targetStringLength = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
 		random = new Random();
