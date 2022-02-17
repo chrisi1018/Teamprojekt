@@ -1,0 +1,11 @@
+US33 & T28 (Git: b7681a0) :
+
+Java-Version: 1.8
+Betriebssystem: Windows 10 Pro, Windows 11
+getestet von: Christina Blach, Julian Singer
+
+T28:
+1. Ich tippe "abcdefghijklmnopqrstvwxyz" ins Geheimtextfeld und klicke auf den Button "Haeufigkeitsanalyse"
+Erwartung: Zwischen den gruenen Balken der deutschen Verteilung und ihrem jeweils zugehoerigen orangenen Balken ist nun
+kein Abstand mehr, um deren Zuordnung leichter zu erkennen
+Realitaet: entspricht der Erwartung
