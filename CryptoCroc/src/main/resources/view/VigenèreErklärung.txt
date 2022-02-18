@@ -10,4 +10,4 @@ Den Vigenère-Schlüssel erhält man indem du deine Cäsar-Schlüssel aneinander
 
 Wie sicher ist die Vigenère-Verschlüsselung?
 Die Sicherheit hängt ab von der Länge des Vigenère-Schlüssels. Desto länger dieser ist, desto sicherer wird deine Nachricht.
-Auch die Vigenère-Verschlüsselung kann man mit einer Häufigkeitsanalyse knacken; dies ist nur deutlich schwerer als bei der monoalphabetischen oder der Cäsar-Verschlüsselung.
+Auch die Vigenère-Verschlüsselung kann man mit einer Häufigkeitsanalyse knacken; dies ist nur deutlich schwerer als bei der monoalphabetischen oder der Cäsar-Verschlüsselung. 
