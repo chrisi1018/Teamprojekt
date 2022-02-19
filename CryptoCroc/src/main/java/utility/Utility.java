@@ -1,6 +1,7 @@
 package utility;
 
 import java.awt.Color;
+import java.awt.Font;
 
 /**
  * Hilfsklasse, die alle benutzten Konstanten zur Verfuegung stellt
@@ -18,7 +19,11 @@ public class Utility {
 	
 	public static final char FIRST_LETTER = 'A';    // erster Buchstabe des Alphabets
 	
-	public static final Color FA_GREEN = new Color(74, 115, 14); // gruene Farbe fuer den Graph
-	public static final Color FA_ORANGE = new Color(185, 137, 0); // orangene Farbe fuer den Graph
+	public static final Color DARK_GREEN = new Color(74, 115, 14); // gruene Farbe fuer Graph und Farbverlauf
+	public static final Color ORANGE = new Color(185, 137, 0); // orangene Farbe fuer Graph, Menue und Buttons
+	public static final Color LIGHT_GREEN = new Color(191, 205, 169); // hellgruene Farbe fuer den Farbverlauf
+	public static final Color WHITE = new Color(255, 255, 255); // weisse Farbe fuer die Texte bei Farbverlauf
+	
+	public static final Font FONT = new Font("Arial", Font.BOLD, 12); // Standard-Schriftzug fuer Menue und Buttons
 	
 }

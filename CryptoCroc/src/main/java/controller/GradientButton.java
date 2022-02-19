@@ -2,6 +2,8 @@ package controller;
 
 import javax.swing.JButton;
 
+import utility.Utility;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.Color;
@@ -48,10 +50,10 @@ public class GradientButton extends JButton implements MouseListener {
 	 */
 	public GradientButton() {
 		super();
-		super.setForeground(WHITE);
-		super.setFont(FONT);
+		super.setForeground(Utility.WHITE);
+		super.setFont(Utility.FONT);
 		this.color1 = DARK_GREEN;
-		this.color2 = LIGHT_GREEN;
+		this.color2 = Utility.LIGHT_GREEN;
 		this.borderColor = DARK_GREEN;
 		addMouseListener(this);
 	}
@@ -63,10 +65,10 @@ public class GradientButton extends JButton implements MouseListener {
 	 */
 	public GradientButton(String text) {
 		super(text);
-		super.setForeground(WHITE);
-		super.setFont(FONT);
+		super.setForeground(Utility.WHITE);
+		super.setFont(Utility.FONT);
 		this.color1 = DARK_GREEN;
-		this.color2 = LIGHT_GREEN;
+		this.color2 = Utility.LIGHT_GREEN;
 		this.borderColor = DARK_GREEN;
 		addMouseListener(this);
 	}
@@ -98,7 +100,7 @@ public class GradientButton extends JButton implements MouseListener {
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		this.borderColor = ORANGE;
+		this.borderColor = Utility.ORANGE;
 	}
 
 	@Override

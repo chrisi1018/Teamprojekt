@@ -28,7 +28,7 @@ public class Menu {
 	private final String[] options = new String[] { "Klartext", "Geheimtext" };
 	private final String txtType = "txt"; // Dateityp zum Speichern und Laden
 
-	private JMenuBar menuBar;
+	private GradientMenuBar menuBar;
 
 	/**
 	 * Konstruktor, der Menuepunkte entgegennimmt und diese der Menueleiste
@@ -37,7 +37,7 @@ public class Menu {
 	 * @param menus zu hinzufuegende Menuepunkte
 	 */
 	public Menu(String[] menus) {
-		menuBar = new JMenuBar();
+		menuBar = new GradientMenuBar();
 		JMenu menu = new JMenu("Men\u00fc");
 		menuBar.add(menu);
 		for (int i = 0; i < menus.length; i++) {

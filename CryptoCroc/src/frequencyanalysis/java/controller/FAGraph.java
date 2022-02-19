@@ -119,9 +119,9 @@ public class FAGraph {
 		BarRenderer renderer = (BarRenderer) barChart.getCategoryPlot().getRenderer();
 		renderer.setItemMargin(0.0);
 		// CryptoCroc gruen
-		renderer.setSeriesPaint(0, Utility.FA_GREEN);
+		renderer.setSeriesPaint(0, Utility.DARK_GREEN);
 		// gelb/orange/gold
-		renderer.setSeriesPaint(1, Utility.FA_ORANGE);
+		renderer.setSeriesPaint(1, Utility.ORANGE);
 
 		// Werte der Haeufigkeitsverteilung oberhalb der Balken fuer beide Serien
 		// aktivieren
