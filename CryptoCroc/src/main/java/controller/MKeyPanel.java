@@ -102,7 +102,6 @@ public class MKeyPanel extends KeyPanel {
 			keys[i].setBorder(Utility.TEXTFIELD_BORDER);
 			keys[i].setHorizontalAlignment(JTextField.CENTER);
 			//keys[i].setColumns(1);
-			//keys[i].setPreferredSize(new Dimension(19, 30));
 			keys[i].setDocument(new LimitedTextfield(maxInput, i, keys));
 
 			// sorgt dafuer dass Text im Textfeld markiert wird beim Klicken
@@ -112,11 +111,12 @@ public class MKeyPanel extends KeyPanel {
 				@Override
 				public void focusGained(FocusEvent e) {
 					keys[j].selectAll();
+					keys[j].setBorder(Utility.FOCUS_TEXTFIELD_BORDER);
 				}
 
 				@Override
 				public void focusLost(FocusEvent e) {
-					// tue nichts
+					keys[j].setBorder(Utility.TEXTFIELD_BORDER);
 				}
 			});
 
