@@ -1,0 +1,29 @@
+T27 (Git: c4e0d82) :
+
+Java-Version: 1.8
+Betriebssystem: Windows 11
+getestet von: Julian Singer
+
+Vor den folgenden Tests tippe ich "abababababababcb" in das Geheimtextfeld und klicke dann auf den 
+Button "Haeufigkeitsanalyse"
+
+1. Ich versuche "21" in das Schluessellaengentextfeld einzutippen
+Erwartung: Nach Eingabe von "1" erscheint ein Warnungsfenster mit der Meldung "Die Laenge des Schluessels darf 15 
+nicht ueberschreiten!", im Textfeld bleibt nur "2" stehen und der Graph zeigt nun die Haeufigkeiten A(0) und B(100)
+Realitaet: entspricht der Erwartung
+
+2. Ich versuche "15" in das Schluessellaengentextfeld einzutippen
+Erwartung: Es steht "15" im Schluessellaengentextfeld und der Graph zeigt die Haeufigkeiten A(0), B(0) und C(100)
+Realitaet: entspricht der Erwartung
+
+3. Ich versuche "16" in das Schluessellaengentextfeld einzutippen
+Erwartung: Nach Eingabe von "6" erscheint ein Warnungsfenster mit der Meldung "Die Laenge des Schluessels darf 15 
+nicht ueberschreiten!", im Textfeld bleibt nur "1" stehen und der Graph zeigt nun die Haeufigkeiten A(43,8), B(50)
+und C(6,3)
+Realitaet: entspricht der Erwartung
+
+4. Ich versuche "142" in das Schluessellaengentextfeld einzutippen
+Erwartung: Nach Eingabe von "2" erscheint ein Warnungsfenster mit der Meldung "Die Laenge des Schluessels darf 15 
+nicht ueberschreiten!", im Textfeld bleibt nur "14" stehen und der Graph zeigt nun die Haeufigkeiten A(0), B(100)
+und C(0)
+Realitaet: entspricht der Erwartung

@@ -9,3 +9,35 @@ T28:
 Erwartung: Zwischen den gruenen Balken der deutschen Verteilung und ihrem jeweils zugehoerigen orangenen Balken ist nun
 kein Abstand mehr, um deren Zuordnung leichter zu erkennen
 Realitaet: entspricht der Erwartung
+
+T38:
+2. Ich starte die Software
+Erwartung: Die Menueleiste hat im Hintergrund einen vertikalen Farbverlauf von hell- zu dunkelgruen und die
+Menues sind in dicker, weisser Druckschrift geschrieben
+Realitaet: entspricht der Erwartung
+
+3. Ich gehe mit der Maus fuer 5 Sekunden auf das Menue "Menue" und gehe dann wieder weg
+Erwartung: Waehrend sich die Maus auf dem Menue befindet, hat dieses einen dunkelgruenen Hintergrund und sobald
+die Maus wieder weggeht, erhaelt es wieder seinen urspruenglichen Farbverlauf
+Realitaet: entspricht der Erwartung
+
+4. Ich gehe mit der Maus auf das Menue "Erklaerungen", dann von dort direkt auf das Menue "Menue" und danach von
+dort wieder direkt auf das Menue "Erklaerungen"
+Erwartung: Erst hat "Erklaerungen" einen dunkelgruenen Hintergrund, beim Wechsel zu "Menue" erhaelt dieses einen
+dunkelgruenen Hintergrund und "Erklaerungen wieder seinen urspruenglichen und beim letzten Wechsel bekommt "Menue" 
+wieder seinen urspruenglichen und "Erklaerungen" erneut den dunkelgruenen Hintergrund
+
+5. Ich klicke mit der Maus auf das Menue "Erklaerungen" und zeige dann im Untermenue mit der Maus auf "Vigenere"
+Erwartung: Sowohl das Menue "Erklaerungen" als auch das Untermenue "Vigenere" haben einen dunkelgruenen Hintergrund,
+waehrend die anderen Untermenues ihre urspruengliche Hintergrundfarbe behalten
+Realitaet: entspricht der Erwartung
+
+6. Ich klicke auf den Button "Haeufigkeitsanalyse"
+Erwartung: Die Menueleiste hat im Hintergrund einen vertikalen Farbverlauf von hell- zu dunkelgruen und die
+Menues sind in dicker, weisser Druckschrift geschrieben
+Realitaet: entspricht der Erwartung
+
+7. Ich gehe nach 6. mit der Maus fuer 5 Sekunden auf das Menue "Erklaerung" und gehe dann wieder weg
+Erwartung: Waehrend sich die Maus auf dem Menue befindet, hat dieses einen dunkelgruenen Hintergrund und sobald
+die Maus wieder weggeht, erhaelt es wieder seinen urspruenglichen Farbverlauf
+Realitaet: entspricht der Erwartung
