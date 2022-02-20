@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+import javax.swing.Box;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -263,6 +264,14 @@ public class Menu {
 				}
 			}
 		});
+	}
+	
+	/**
+	 * Fuellt die rechte Seite des Menues, um diese später 
+	 * auch einfaerben zu koennen
+	 */
+	public void fillRightSide() {
+		menuBar.add(Box.createHorizontalGlue());
 	}
 
 	/**

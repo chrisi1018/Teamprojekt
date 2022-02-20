@@ -50,6 +50,7 @@ public class MainController {
 	public MainController() {
 		this.menuBar = new Menu(new String[] { "Speichern", "Laden" }); // definiert eine neue Menueleiste mit Menue
 		this.menuBar.addMenu("Erkl\u00e4rungen", explanationOpt); // fuegt ein neues Menue hinzu
+		this.menuBar.fillRightSide();
 		this.dropDown = new Dropdown(encryptOpt, change);
 		this.gui = new Gui(this.menuBar.getJMenuBar(), // Menueleiste
 				plainText.createTextfieldPanel(), // Klartextpanel
