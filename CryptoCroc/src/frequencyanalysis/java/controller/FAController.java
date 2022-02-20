@@ -163,7 +163,7 @@ public class FAController {
 								&& lengthTextField.getText(0, 1).equals("1")) {
 							super.insertString(1, previousSecondNumber, att);
 						}
-						Messages.errorMessage("Die L\u00e4nge des Schl\u00fcssel darf 15 nicht \u00fcberschreiten!");
+						Messages.errorMessage("Die L\u00e4nge des Schl\u00fcssels darf 15 nicht \u00fcberschreiten!");
 					}
 				}
 			}
