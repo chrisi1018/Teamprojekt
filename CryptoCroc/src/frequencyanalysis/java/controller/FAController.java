@@ -454,7 +454,7 @@ public class FAController {
 	 * Initialisiert FABottom
 	 */
 	private void initFABottom() {
-		this.bottom = new FABottom(this.key, this.tables);
+		this.bottom = new FABottom(this.key, this.tables, this);
 		switch(this.key.getSerialnumber()) {
 		case 1:
 			this.lengthTextField.setText(Integer.toString(length));
@@ -484,5 +484,12 @@ public class FAController {
 	 */
 	public void focus() {
 		gui.focus();
+	}
+	
+	/**
+	 * Schlieﬂt den Frame der H‰ufigkeitsanalyse
+	 */
+	public void disposeFrame() {
+		gui.disposeFrame();
 	}
 }

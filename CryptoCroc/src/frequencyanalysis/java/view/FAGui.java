@@ -332,4 +332,13 @@ public class FAGui {
 	public void focus() {
 		this.frame.toFront();
 	}
+	
+	/**
+	 * Methode die den Frame Schlieﬂt
+	 */
+	public void disposeFrame() {
+		if (this.frame != null) {
+			this.frame.dispose();
+		}
+	}
 }

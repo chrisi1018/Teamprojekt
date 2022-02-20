@@ -4,6 +4,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
+
 import model.Crypt;
 import utility.Utility;
 import java.awt.Dimension;
@@ -25,17 +26,22 @@ public class FABottom {
 	private Crypt crypt;
 	private boolean mono;
 	private String cryptString;
+	private GradientButton button;
+	private FAController faController;
 	
 	/**
 	 * Konstruktor von FABottom
 	 * @param key Das KeyPanel des Hauptfeldes
 	 * @param tables gibt die FATable weiter
 	 */
-	FABottom(KeyPanel key, FATable[] tables) {
+	FABottom(KeyPanel key, FATable[] tables, FAController faController) {
 		this.key = key;
+		this.faController = faController;
 		this.tables = tables;
 		this.mono = false;
 		this.crypt = this.key.getCrypt();
+		this.button = new GradientButton("Schl\u00fcssel \u00fcbernehmen");
+		this.button.addActionListener(e -> buttonClick());
 		for (int i = 0; i < this.keyText.length; i++) {
 			this.keyText[i] = new JTextField();
 			this.keyText[i].setDocument(new LimitedTextfield(1));
@@ -51,6 +57,7 @@ public class FABottom {
 		}
 		initCryptoText();
 		initKeyText();
+		
 	}
 	
 	/**
@@ -60,14 +67,16 @@ public class FABottom {
 	 */
 	public JPanel createBottomPanel() {
 		JPanel bottomPanel = new JPanel();
+		JScrollPane scroll = new JScrollPane(this.cryptoText, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		this.cryptoText.setVisible(true);
+		scroll.setPreferredSize(new Dimension(500, 70));
+		bottomPanel.add(scroll);
 		for (int i = 0; i < this.keyText.length; i++) {
 			bottomPanel.add(this.keyText[i]);
 		}
-		JScrollPane scroll = new JScrollPane(this.cryptoText, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		scroll.setPreferredSize(new Dimension(500, 70));
-		bottomPanel.add(scroll);
-		this.cryptoText.setVisible(true);
+		bottomPanel.add(button);
+		this.button.setVisible(true);
 		bottomPanel.setVisible(true);
 		bottomPanel.setVisible(true);
 		return bottomPanel;
@@ -147,14 +156,14 @@ public class FABottom {
 				+ this.crypt.decryptAll(cryptString, keyString)
 				+ "</p></html>");
 	}
-	
+
 	/**
 	 * Wechselt ob die Monoalphabetische Verschlüsselung verwendet wird.
 	 */
 	public void switchMono() {
 		this.mono = !this.mono;
 	}
-	
+
 	/**
 	 * Updated den Aktuellen keyString
 	 */
@@ -193,5 +202,29 @@ public class FABottom {
 	 */
 	public Crypt getCrypt() {
 		return this.crypt;
+	}
+	
+	private void buttonClick() {
+		MainController controller = this.key.getController();
+		int index = 0;
+		if (this.mono) {
+			index = 2;
+		} else {
+			if (this.keyString.length() == 1) {
+				index = 1;
+			} else {
+				if (this.keyString.length() > 1) {
+					index = 3;
+				}
+			}
+		}
+		this.key = controller.setKeyPanel(index);
+		if (this.mono) {
+			this.key.setKey(monoString);
+		} else {
+			this.key.setKey(keyString);
+		}
+		this.faController.disposeFrame();
+		
 	}
 }
