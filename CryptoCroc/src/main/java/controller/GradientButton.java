@@ -2,11 +2,11 @@ package controller;
 
 import javax.swing.JButton;
 
+import utility.Utility;
+
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.Color;
-import java.awt.Font;
-
 import java.awt.Graphics2D;
 import java.awt.Graphics;
 import java.awt.GradientPaint;
@@ -26,17 +26,6 @@ public class GradientButton extends JButton implements MouseListener {
 
 	private int mouseAction = 0;
 	private Graphics2D g2 = null;
-
-	/** Die dunkel gruene CryptoCroc Farbe */
-	public static final Color DARK_GREEN = new Color(75, 115, 14);
-	/** Die orangene CryptoCroc Farbe */
-	public static final Color ORANGE = new Color(185, 137, 0);
-	/** Hell gruener Verlauf */
-	public static final Color LIGHT_GREEN = new Color(191, 205, 169);
-	/** Die Farbe weiss fuer den Text */
-	public static final Color WHITE = new Color(255, 255, 255);
-	/** standard Schriftzug fuer die Buttons */
-	public static final Font FONT = new Font("Arial", Font.BOLD, 12);
 	
 	/**
 	 * serial UID
@@ -48,11 +37,11 @@ public class GradientButton extends JButton implements MouseListener {
 	 */
 	public GradientButton() {
 		super();
-		super.setForeground(WHITE);
-		super.setFont(FONT);
-		this.color1 = DARK_GREEN;
-		this.color2 = LIGHT_GREEN;
-		this.borderColor = DARK_GREEN;
+		super.setForeground(Utility.WHITE);
+		super.setFont(Utility.FONT);
+		this.color1 = Utility.DARK_GREEN;
+		this.color2 = Utility.LIGHT_GREEN;
+		this.borderColor = Utility.DARK_GREEN;
 		addMouseListener(this);
 	}
 
@@ -63,11 +52,11 @@ public class GradientButton extends JButton implements MouseListener {
 	 */
 	public GradientButton(String text) {
 		super(text);
-		super.setForeground(WHITE);
-		super.setFont(FONT);
-		this.color1 = DARK_GREEN;
-		this.color2 = LIGHT_GREEN;
-		this.borderColor = DARK_GREEN;
+		super.setForeground(Utility.WHITE);
+		super.setFont(Utility.FONT);
+		this.color1 = Utility.DARK_GREEN;
+		this.color2 = Utility.LIGHT_GREEN;
+		this.borderColor = Utility.DARK_GREEN;
 		addMouseListener(this);
 	}
 
@@ -98,12 +87,12 @@ public class GradientButton extends JButton implements MouseListener {
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		this.borderColor = ORANGE;
+		this.borderColor = Utility.ORANGE;
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		this.borderColor = DARK_GREEN;
+		this.borderColor = Utility.DARK_GREEN;
 		this.mouseAction = 0;
 	}
 

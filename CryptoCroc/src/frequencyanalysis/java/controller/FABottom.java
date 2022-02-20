@@ -18,7 +18,7 @@ public class FABottom {
 	
 	private KeyPanel key;
 	private FATable[] tables;
-	private JTextField[] keyText = new JTextField[Utility.MAXIMUMKEYLENGTH];
+	private JTextField[] keyText = new JTextField[Utility.MAXIMUM_KEY_LENGTH];
 	private JLabel cryptoText;
 	private String keyString = "";
 	private String monoString = "";
@@ -41,11 +41,11 @@ public class FABottom {
 			this.keyText[i].setDocument(new LimitedTextfield(1));
 		}
 		this.keyString = this.key.getKey();
-		if (this.keyString.length() == Utility.ALPHABETSIZE) {
+		if (this.keyString.length() == Utility.ALPHABET_SIZE) {
 			this.monoString = this.keyString;
 			this.keyString = "";
 		} else {
-			for (int i = 0; i < Utility.ALPHABETSIZE; i++) {
+			for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
 				this.monoString = this.monoString + Character.toString((char) ('A' + i));
 			}
 		}

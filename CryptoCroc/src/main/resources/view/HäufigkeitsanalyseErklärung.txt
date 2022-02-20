@@ -1,0 +1,7 @@
+So funktioniert die Häufigkeitsanalyse:
+Es werden die Vorkommen jedes Buchstaben zusammengezählt und in Prozent angegeben. Die Häufigkeiten im Text kann man dann vergleichen mit der eigentlichen Häufigkeit von Buchstaben einer Sprache. Wenn zum Beispiel in einem verschlüsselten, deutschen Text der Buchstabe X am öftesten vorkommt mit einer Häufigkeit von 17%, so lässt sich erahnen dass X dem Buchstaben E entspricht, da dies der häufigste Buchstabe der deutschen Sprache ist und eine Häufigkeit von 17,4% hat.
+
+Bei der Vigenère-Verschlüsselung ist das Ganze etwas komplizierter, da der Schlüssel beliebige Länge haben kann. Hier ist es am sinnvollsten erst die Länge des Schlüssels zu erraten, indem man sucht nach sich wiederholende Buchstabenkombinationen und dann den Abstand zwischen ihnen misst.
+
+// sich wiederholende Buchstabenkombi fett/unterstrichen markieren
+Zum Beispiel in der verschlüsselten, deutschen Nachricht ECLFILRSJ TPXQ ECFILG GIMULJV ECFILR taucht die Buchstabenkombination ECL drei Mal auf. Der Abstand vom ersten E bis zum zweiten, sowie vom zweiten E bis zum dritten beträgt 13, also lässt sich vermuten dass der Schlüssel die Länge 13 haben muss. Jetzt kann man für jeden Buchstaben des Schlüssels eine Häufigkeitsanalyse machen und diese vergleichen mit der Häufigkeit einer Sprache.

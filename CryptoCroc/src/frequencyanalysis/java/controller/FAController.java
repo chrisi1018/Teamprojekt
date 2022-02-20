@@ -35,7 +35,7 @@ import javax.swing.text.PlainDocument;
  * Die Klasse stellt den Hauptcontroller der Haeufigkeitsanalyse dar
  * 
  * @author Julian Sturm, zes, Julian Singer, chrisi
- * @version 1.3
+ * @version 1.4
  */
 public class FAController {
 
@@ -46,7 +46,7 @@ public class FAController {
 	private JCheckBox monoCheckBox;
 	private JComboBox<String> language;
 	private String[] languages = { "Deutsch", "Englisch" };
-	private float[] languageData = new float[Utility.ALPHABETSIZE];
+	private float[] languageData = new float[Utility.ALPHABET_SIZE];
 	private JComboBox<String> keyChar;
 	private JButton left;
 	private JButton right;
@@ -54,6 +54,9 @@ public class FAController {
 	private FAMenuBar menu;
 	private TableData[] data;
 	private FAGraph graph;
+	// speichert die zweite Ziffer der Schluessellaenge, um bei einem Wechsel einer Zahl zwischen 
+	// 11 und 15 zu einer Zahl zwischen 16 und 19 zu ihrer vorherigen im validen Bereich zurueckzukehren
+	private String previousSecondNumber;
 	// gui muss statisch sein, damit Update des Graphen auch aus FATable aufgerufen
 	// werden kann
 	private static FAGui gui;
@@ -133,9 +136,13 @@ public class FAController {
 	 */
 	private void initLength() {
 		this.lengthLabel = new JLabel("Schl\u00fcssell\u00e4nge");
-		this.lengthLabel.setVisible(true);
+		this.lengthLabel.setFont(Utility.LABEL_FONT);
+		this.lengthLabel.setForeground(Utility.DARK_GREEN);
+		//this.lengthLabel.setVisible(true);
 
 		this.lengthTextField = new JTextField(10);
+		this.lengthTextField.setFont(Utility.TEXT_FONT);
+		this.lengthTextField.setBorder(Utility.TEXTFIELD_BORDER);
 		this.lengthTextField.setDocument(new PlainDocument() {
 
 			private static final long serialVersionUID = 6389795108727999785L;
@@ -158,11 +165,15 @@ public class FAController {
 					}
 				}
 				if (insert && !leadingZero) {
-
-					if (this.getLength() + str.length() <= Utility.KEYLENGTHDIGITS) {
+					if (this.getLength() + str.length() <= Utility.KEY_LENGTH_DIGITS && isLessThanSixteen(offset, str)) {
 						super.insertString(offset, str, att);
+						previousSecondNumber = lengthTextField.getText(1, 1).trim();
 					} else {
-						Messages.errorMessage("Die L\u00e4nge des Schl\u00fcssel darf 999 nicht \u00fcberschreiten!");
+						if (this.getLength() + str.length() == Utility.KEY_LENGTH_DIGITS 
+								&& lengthTextField.getText(0, 1).equals("1")) {
+							super.insertString(1, previousSecondNumber, att);
+						}
+						Messages.errorMessage("Die L\u00e4nge des Schl\u00fcssels darf 15 nicht \u00fcberschreiten!");
 					}
 				}
 			}
@@ -207,7 +218,7 @@ public class FAController {
 
 		});
 
-		this.lengthTextField.setVisible(true);
+		//this.lengthTextField.setVisible(true);
 	}
 
 	/**
@@ -215,7 +226,9 @@ public class FAController {
 	 */
 	private void initMonoCheckBox() {
 		this.monoCheckBox = new JCheckBox("Monoalphabetische Verschl\u00fcsselung");
-		this.monoCheckBox.setVisible(true);
+		this.monoCheckBox.setFont(Utility.LABEL_FONT);
+		this.monoCheckBox.setForeground(Utility.DARK_GREEN);
+		//this.monoCheckBox.setVisible(true);
 		this.monoCheckBox.addActionListener(e -> this.checkCheckbox());
 	}
 
@@ -280,8 +293,8 @@ public class FAController {
 			public void actionPerformed(ActionEvent e) {
 				String number = keyChar.getSelectedItem().toString();
 				String digit = "";
-				// maximaler String ist 999, d.h. maximale Laenge muss 3 sein
-				for (int i = 0; i < Utility.KEYLENGTHDIGITS; i++) {
+				// maximaler String ist 15, d.h. maximale Laenge muss 2 sein
+				for (int i = 0; i < Utility.KEY_LENGTH_DIGITS; i++) {
 					if (number.charAt(i) != '.' && number.charAt(i) != ' ') {
 						digit = digit + number.charAt(i);
 					}
@@ -331,6 +344,7 @@ public class FAController {
 	private void initFAMenuBar() {
 		this.menu = new FAMenuBar();
 		this.menu.initExplanationItem(1, new FAExplanationFrame());
+		this.menu.fillRightSide();
 		// initialisiert bei "Text neu laden" FATabel und TableData neu
 		// und passt das Fenster an neuen Text an
 		this.menu.getMenuBar().getMenu(0).addMouseListener(new MouseListener() {
@@ -388,6 +402,33 @@ public class FAController {
 			}
 			this.data[i] = new TableData(oneFrequencies);
 		}
+	}
+	
+	/**
+	 * Hilfsmethode, die prueft, ob die durch die eingegebenen Parameter neu entstehende Schluessellaenge
+	 * maximal 15 betraegt
+	 * 
+	 * @param offset Position, an der die neuen Zahlen eingefuegt werden
+	 * @param str neue eingegebene Zahlen
+	 * @return Ob die neue Schluessellaenge valide ist
+	 * @throws BadLocationException Ungueltige Position
+	 */
+	private boolean isLessThanSixteen(int offset, String str) throws BadLocationException {
+		String newLength = "1";
+		switch (offset) {
+		case 0:
+			newLength = str + this.lengthTextField.getText();
+			break;
+		case 1:
+			if (this.length >= 1) {
+				newLength = this.lengthTextField.getText(0, 1) + str 
+						+ this.lengthTextField.getText(1, this.length - 1);
+			} else {
+				newLength = str;
+			}
+			break;
+		}
+		return (Integer.parseInt(newLength) < 16);
 	}
 
 	/**

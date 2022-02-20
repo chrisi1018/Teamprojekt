@@ -19,9 +19,9 @@ public class CCrypt extends Crypt {
 	public char cryptChar(char c, int key) {
 		int temp = c;
 		if (c >= 'a' && c <= 'z') {
-			temp = (((c - 'a') + key) % Utility.ALPHABETSIZE) + 'a';
+			temp = (((c - 'a') + key) % Utility.ALPHABET_SIZE) + 'a';
 		} else if (c >= 'A' && c <= 'Z') {
-			temp = (((c - 'A') + key) % Utility.ALPHABETSIZE) + 'A';
+			temp = (((c - 'A') + key) % Utility.ALPHABET_SIZE) + 'A';
 		}
 		return (char) temp;
 	}
@@ -34,7 +34,7 @@ public class CCrypt extends Crypt {
 	 * @return der entschluesselte Buchstabe
 	 */
 	public char decryptChar(char c, int key) {
-		return cryptChar(c, Utility.ALPHABETSIZE - key);
+		return cryptChar(c, Utility.ALPHABET_SIZE - key);
 	}
 	
 	/**

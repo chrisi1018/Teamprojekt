@@ -9,6 +9,7 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.io.IOException;
 
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -26,15 +27,17 @@ import utility.Utility;
 public class FATable {
 	
 	private TableData data;
-	private JTextField[] textFields = new JTextField[Utility.ALPHABETSIZE];
-	private JLabel[] textLabels = new JLabel[Utility.ALPHABETSIZE];
+	private JTextField[] textFields = new JTextField[Utility.ALPHABET_SIZE];
+	private JLabel[] textLabels = new JLabel[Utility.ALPHABET_SIZE];
 	private JPanel tablePanel;
 	private FAGraph graph;
 	private float[] language;
 	// fuer alle Textfelder einen TextChangeListener; noetig, um diese beim
 	// Vertauschen der Buchstaben zu entfernen
+
 	private FABottom bottom;
-	private TextChangeListener[] tcl = new TextChangeListener[Utility.ALPHABETSIZE];
+	private TextChangeListener[] tcl = new TextChangeListener[Utility.ALPHABET_SIZE];
+
 
 
 	/**
@@ -69,19 +72,21 @@ public class FATable {
 		FlowLayout fLayout = new FlowLayout();
 		fLayout.setVgap(25);
 		JPanel tablePanel = new JPanel(fLayout);
-		for (int i = 0; i < Utility.ALPHABETSIZE; i++) {
+		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
 			// erstellt JPanel mit JLabel als Titel
 			JPanel title = new JPanel();
 			JLabel letter = this.textLabels[i];
 			title.setLayout(new BoxLayout(title, BoxLayout.PAGE_AXIS));
 			letter.setAlignmentX(Component.CENTER_ALIGNMENT);
-			this.textLabels[i].setFont(new Font(Font.DIALOG, Font.BOLD, 19));
+			this.textLabels[i].setFont(Utility.LABEL_FONT);
+			this.textLabels[i].setForeground(Utility.DARK_GREEN);
 			title.add(letter, BorderLayout.SOUTH);
 
 			// initialisiert Eintraege der Textfelder und setzt den Textstil
-			this.textFields[i].setFont(new Font(Font.DIALOG, Font.BOLD, 15));
-			this.textFields[i].setColumns(1);
-			this.textFields[i].setPreferredSize(new Dimension(19, 30));
+			this.textFields[i].setFont(Utility.TEXT_FONT);
+			this.textFields[i].setBorder(Utility.TEXTFIELD_BORDER);
+			this.textFields[i].setHorizontalAlignment(JTextField.CENTER);
+			//this.textFields[i].setColumns(1);
 			// dieser Aufruf loescht den aktuellen Inhalt der Textfelder (liegt am Setzen
 			// des Documents) :
 			this.textFields[i].setDocument(new LimitedTextfield(maxInput));
@@ -91,11 +96,12 @@ public class FATable {
 				@Override
 				public void focusGained(FocusEvent e) {
 					textFields[j].selectAll();
+					textFields[j].setBorder(Utility.FOCUS_TEXTFIELD_BORDER);
 				}
 
 				@Override
 				public void focusLost(FocusEvent e) {
-					// tue nichts
+					textFields[j].setBorder(Utility.TEXTFIELD_BORDER);
 				}
 			});
 
@@ -150,7 +156,7 @@ public class FATable {
 			// alle Listener werden entfernt, da diese sonst beim Setzen des Texts getriggert
 			// werden
 			this.disableListener(i);
-			if (i < Utility.ALPHABETSIZE - 1) {
+			if (i < Utility.ALPHABET_SIZE - 1) {
 				this.textFields[i + 1].setText(Character.toString(this.data.getTextFieldChar(i)));
 			} else {
 				this.textFields[0].setText(Character.toString(this.data.getTextFieldChar(i)));
@@ -184,7 +190,7 @@ public class FATable {
 			// alle Listener werden entfernt, da diese sonst beim Setzen des Texts getriggert
 			// werden
 			this.disableListener(i);
-			if (i < Utility.ALPHABETSIZE - 1) {
+			if (i < Utility.ALPHABET_SIZE - 1) {
 				this.textFields[i].setText(Character.toString(this.data.getTextFieldChar(i + 1)));
 			} else {
 				this.textFields[i].setText(Character.toString(this.data.getTextFieldChar(0)));

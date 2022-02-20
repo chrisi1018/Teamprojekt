@@ -6,6 +6,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+
+import javax.swing.Box;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -13,9 +15,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
 import org.apache.commons.io.FilenameUtils;
 
-import utility.Utility;
 import view.Messages;
 
 /**
@@ -27,8 +29,9 @@ import view.Messages;
 public class Menu {
 
 	private final String[] options = new String[] { "Klartext", "Geheimtext" };
+	private final String txtType = "txt"; // Dateityp zum Speichern und Laden
 
-	private JMenuBar menuBar;
+	private GradientMenuBar menuBar;
 
 	/**
 	 * Konstruktor, der Menuepunkte entgegennimmt und diese der Menueleiste
@@ -37,7 +40,7 @@ public class Menu {
 	 * @param menus zu hinzufuegende Menuepunkte
 	 */
 	public Menu(String[] menus) {
-		menuBar = new JMenuBar();
+		menuBar = new GradientMenuBar();
 		JMenu menu = new JMenu("Men\u00fc");
 		menuBar.add(menu);
 		for (int i = 0; i < menus.length; i++) {
@@ -126,7 +129,7 @@ public class Menu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				TextField chosenTextField;
-				FileNameExtensionFilter filter = new FileNameExtensionFilter("*." + Utility.TXT, Utility.TXT);
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("*." + txtType, txtType);
 				int textNumber = Messages.query("Welchen Text willst du speichern?", options);
 				// ueberprueft, ob im PopUp-Fenster ein Textfeld gewaehlt wurde und waehlt
 				// dieses
@@ -144,10 +147,10 @@ public class Menu {
 					if (response == JFileChooser.APPROVE_OPTION) {
 						String fileName = fileChooser.getSelectedFile().getAbsolutePath();
 						File file;
-						if (fileName.endsWith("." + Utility.TXT)) {
+						if (fileName.endsWith("." + txtType)) {
 							file = new File(fileName);
 						} else {
-							file = new File(fileName + "." + Utility.TXT);
+							file = new File(fileName + "." + txtType);
 						}
 						// prueft, ob die Datei bereits existiert
 						if (file.exists()) {
@@ -198,7 +201,7 @@ public class Menu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser fileChooser = new JFileChooser();
-				FileNameExtensionFilter filter = new FileNameExtensionFilter("*." + Utility.TXT, Utility.TXT);
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("*." + txtType, txtType);
 				fileChooser.setFileFilter(filter);
 				int textNumber = Messages.query("In welches Textfeld willst du den Text einsetzen?", options);
 				// ueberprueft, ob im PopUp-Fenster ein Textfeld gewaehlt wurde
@@ -207,7 +210,7 @@ public class Menu {
 					if (response == JFileChooser.APPROVE_OPTION) {
 						File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
 						Scanner fileScanner = null;
-						if (!file.getAbsolutePath().endsWith("." + Utility.TXT)) {
+						if (!file.getAbsolutePath().endsWith("." + txtType)) {
 							Messages.errorMessage("Das Format ." + FilenameUtils.getExtension(file.getName())
 									+ " wird nicht unterst\u00fctzt");
 						} else {
@@ -261,6 +264,14 @@ public class Menu {
 				}
 			}
 		});
+	}
+	
+	/**
+	 * Fuellt die rechte Seite des Menues, um diese später 
+	 * auch einfaerben zu koennen
+	 */
+	public void fillRightSide() {
+		menuBar.add(Box.createHorizontalGlue());
 	}
 
 	/**
