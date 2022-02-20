@@ -1,10 +1,12 @@
 package controller;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.UIManager;
 import javax.swing.plaf.ColorUIResource;
+import javax.swing.plaf.FontUIResource;
 
 import utility.Utility;
 
@@ -53,8 +55,13 @@ public class MainController {
 	 * 
 	 */
 	public MainController() {
+		// definiert Farben und Schriftstil in der Menueleiste
+		UIManager.put("Menu.font", new Font("Arial", Font.BOLD, 14));
+		UIManager.put("MenuItem.font", new FontUIResource(new Font("Arial", Font.BOLD, 12)));
+		UIManager.put("MenuItem.selectionBackground", new ColorUIResource(Utility.DARK_GREEN));
 		UIManager.put("MenuBar.hoverBackground", new ColorUIResource(Utility.DARK_GREEN));
 		UIManager.put("Menu.selectionBackground", new ColorUIResource(Utility.DARK_GREEN));
+		
 		this.menuBar = new Menu(new String[] { "Speichern", "Laden" }); // definiert eine neue Menueleiste mit Menue
 		this.menuBar.addMenu("Erkl\u00e4rungen", explanationOpt); // fuegt ein neues Menue hinzu
 		this.menuBar.fillRightSide();
