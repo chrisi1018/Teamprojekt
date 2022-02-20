@@ -19,8 +19,8 @@ import utility.Utility;
  * Definiert 'createKeyPanel'-Methode fuer Vigenere und speichert sein
  * Schluesseltextfeld
  * 
- * @author Julian Singer
- * @version 1.0
+ * @author Julian Singer, chrisi
+ * @version 1.1
  *
  */
 public class VKeyPanel extends KeyPanel {
@@ -46,9 +46,12 @@ public class VKeyPanel extends KeyPanel {
 		key.setDocument(new LimitedTextfield(Utility.MAXIMUM_KEY_LENGTH));
 		BorderLayout layout = new BorderLayout();
 		JLabel description = new JLabel("Schl\u00fcssel");
-		description.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
-		name.setFont(new Font(Font.DIALOG, Font.BOLD, 15));
-		key.setFont(new Font(Font.DIALOG, Font.BOLD, 15));
+		description.setFont(Utility.HEADLINE_LABEL_FONT);
+		description.setForeground(Utility.DARK_GREEN);
+		name.setFont(Utility.LABEL_FONT);
+		name.setForeground(Utility.DARK_GREEN);
+		key.setFont(Utility.TEXT_FONT);
+		key.setBorder(Utility.TEXTFIELD_BORDER);
 
 		// definiert ein Panel fuer die Schluesseleingabe
 		JPanel textPanel = new JPanel();

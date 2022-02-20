@@ -1,18 +1,19 @@
 package controller;
 
 import java.awt.BorderLayout;
-import java.awt.Font;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import utility.Utility;
+
 /**
  * Beschreibt ein TextField in CryptoCroc
  * 
- * @author zes
- * @version 1.1
+ * @author zes, chrisi
+ * @version 1.2
  */
 public class TextField {
 
@@ -28,12 +29,14 @@ public class TextField {
 	public TextField(String name) {
 		wcl = new WritingChangeListener(text);
 		label = new JLabel(name);
-		text.setFont(new Font(Font.DIALOG, Font.PLAIN, 20));
+		text.setFont(Utility.TEXT_FONT);
+		text.setBorder(Utility.TEXTFIELD_BORDER);
 		text.setLineWrap(true);
 		// sorgt dafuer, dass ganzes Wort in die naechste Zeile wandert
 		text.setWrapStyleWord(true);
 		text.getDocument().addDocumentListener(wcl);
-		label.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
+		label.setFont(Utility.HEADLINE_LABEL_FONT);
+		label.setForeground(Utility.DARK_GREEN);
 	}
 
 	/**
@@ -54,7 +57,7 @@ public class TextField {
 		panel.add(scroll);
 		
 		// vertikale Luecke zwischen Elementen im Panel
-		bLayout.setVgap(10);
+		bLayout.setVgap(0);
 		return panel;
 	}
 	

@@ -31,7 +31,7 @@ import javax.swing.text.PlainDocument;
  * Die Klasse stellt den Hauptcontroller der Haeufigkeitsanalyse dar
  * 
  * @author Julian Sturm, zes, Julian Singer, chrisi
- * @version 1.3
+ * @version 1.4
  */
 public class FAController {
 
@@ -130,9 +130,13 @@ public class FAController {
 	 */
 	private void initLength() {
 		this.lengthLabel = new JLabel("Schl\u00fcssell\u00e4nge");
-		this.lengthLabel.setVisible(true);
+		this.lengthLabel.setFont(Utility.LABEL_FONT);
+		this.lengthLabel.setForeground(Utility.DARK_GREEN);
+		//this.lengthLabel.setVisible(true);
 
 		this.lengthTextField = new JTextField(10);
+		this.lengthTextField.setFont(Utility.TEXT_FONT);
+		this.lengthTextField.setBorder(Utility.TEXTFIELD_BORDER);
 		this.lengthTextField.setDocument(new PlainDocument() {
 
 			private static final long serialVersionUID = 6389795108727999785L;
@@ -197,7 +201,7 @@ public class FAController {
 
 		});
 
-		this.lengthTextField.setVisible(true);
+		//this.lengthTextField.setVisible(true);
 	}
 
 	/**
@@ -205,7 +209,9 @@ public class FAController {
 	 */
 	private void initMonoCheckBox() {
 		this.monoCheckBox = new JCheckBox("Monoalphabetische Verschl\u00fcsselung");
-		this.monoCheckBox.setVisible(true);
+		this.monoCheckBox.setFont(Utility.LABEL_FONT);
+		this.monoCheckBox.setForeground(Utility.DARK_GREEN);
+		//this.monoCheckBox.setVisible(true);
 		this.monoCheckBox.addActionListener(e -> this.checkCheckbox());
 	}
 
