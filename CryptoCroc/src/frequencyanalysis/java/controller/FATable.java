@@ -9,6 +9,7 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.io.IOException;
 
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -73,13 +74,15 @@ public class FATable {
 			JLabel letter = this.textLabels[i];
 			title.setLayout(new BoxLayout(title, BoxLayout.PAGE_AXIS));
 			letter.setAlignmentX(Component.CENTER_ALIGNMENT);
-			this.textLabels[i].setFont(new Font(Font.DIALOG, Font.BOLD, 19));
+			this.textLabels[i].setFont(Utility.LABEL_FONT);
+			this.textLabels[i].setForeground(Utility.DARK_GREEN);
 			title.add(letter, BorderLayout.SOUTH);
 
 			// initialisiert Eintraege der Textfelder und setzt den Textstil
-			this.textFields[i].setFont(new Font(Font.DIALOG, Font.BOLD, 15));
-			this.textFields[i].setColumns(1);
-			this.textFields[i].setPreferredSize(new Dimension(19, 30));
+			this.textFields[i].setFont(Utility.TEXT_FONT);
+			this.textFields[i].setBorder(Utility.TEXTFIELD_BORDER);
+			this.textFields[i].setHorizontalAlignment(JTextField.CENTER);
+			//this.textFields[i].setColumns(1);
 			// dieser Aufruf loescht den aktuellen Inhalt der Textfelder (liegt am Setzen
 			// des Documents) :
 			this.textFields[i].setDocument(new LimitedTextfield(maxInput));
@@ -89,11 +92,12 @@ public class FATable {
 				@Override
 				public void focusGained(FocusEvent e) {
 					textFields[j].selectAll();
+					textFields[j].setBorder(Utility.FOCUS_TEXTFIELD_BORDER);
 				}
 
 				@Override
 				public void focusLost(FocusEvent e) {
-					// tue nichts
+					textFields[j].setBorder(Utility.TEXTFIELD_BORDER);
 				}
 			});
 

@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import controller.FAGraph;
 import controller.FATable;
 import controller.KeyPanel;
+import utility.Utility;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -85,7 +86,8 @@ public class FAGui {
 		// alles sichtbar machen und initialisieren
 		this.mainLabel = new JLabel("H\u00e4ufigkeitsanalyse");
 		this.mainLabel.setVisible(true);
-		this.mainLabel.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
+		this.mainLabel.setFont(Utility.HEADLINE_LABEL_FONT);
+		this.mainLabel.setForeground(Utility.DARK_GREEN);
 		this.menu = menu;
 		this.menu.setVisible(true);
 		this.graph = graph;

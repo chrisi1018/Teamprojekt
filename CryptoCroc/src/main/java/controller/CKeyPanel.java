@@ -21,8 +21,8 @@ import java.awt.Component;
  * Definiert 'createKeyPanel'-Methode fuer Caesar und speichert sein
  * Schluesseltextfeld
  * 
- * @author Julian Singer
- * @version 1.0
+ * @author Julian Singer, chrisi
+ * @version 1.1
  *
  */
 public class CKeyPanel extends KeyPanel {
@@ -60,9 +60,13 @@ public class CKeyPanel extends KeyPanel {
 		
 		BorderLayout layout = new BorderLayout();
 		JLabel description = new JLabel("Schl\u00fcssel");
-		description.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
-		name.setFont(new Font(Font.DIALOG, Font.BOLD, 15));
-		key.setFont(new Font(Font.DIALOG, Font.BOLD, 15));
+		description.setFont(Utility.HEADLINE_LABEL_FONT);
+		description.setForeground(Utility.DARK_GREEN);
+		name.setFont(Utility.LABEL_FONT);
+		name.setForeground(Utility.DARK_GREEN);
+		key.setFont(Utility.TEXT_FONT);
+		key.setBorder(Utility.TEXTFIELD_BORDER);
+		key.setHorizontalAlignment(JTextField.CENTER);
 
 		// LimitedTextfield bei dem nur ein Character eingegeben darf
 		key.setDocument(new LimitedTextfield(Utility.KEY_LENGTH_FOR_SINGLE_SHIFT));
@@ -77,9 +81,8 @@ public class CKeyPanel extends KeyPanel {
 		name.setAlignmentX(Component.CENTER_ALIGNMENT);
 		textPanel.add(Box.createRigidArea(new Dimension(0, 5)));
 		textPanel.add(key);
-		key.setHorizontalAlignment(JTextField.CENTER);
-		key.setMaximumSize(new Dimension(19, 30));
-		key.setAlignmentX(Component.CENTER_ALIGNMENT);
+		
+		//key.setMaximumSize(new Dimension(19, 30));
 
 		// fuegt das Text- und Buttonpanel zu einem Panel zusammen
 		JPanel keyPanel = new JPanel(layout);
