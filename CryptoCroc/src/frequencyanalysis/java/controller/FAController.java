@@ -320,6 +320,7 @@ public class FAController {
 	private void initFAMenuBar() {
 		this.menu = new FAMenuBar();
 		this.menu.initExplanationItem(1, new FAExplanationFrame());
+		this.menu.fillRightSide();
 		// initialisiert bei "Text neu laden" FATabel und TableData neu
 		// und passt das Fenster an neuen Text an
 		this.menu.getMenuBar().getMenu(0).addMouseListener(new MouseListener() {

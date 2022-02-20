@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -42,6 +43,7 @@ public class Menu {
 	public Menu(String[] menus) {
 		menuBar = new GradientMenuBar();
 		JMenu menu = new JMenu("Men\u00fc");
+		menu.setFont(new Font("Arial", Font.BOLD, 14));
 		menuBar.add(menu);
 		for (int i = 0; i < menus.length; i++) {
 			JMenuItem item = new JMenuItem(menus[i]);
@@ -57,6 +59,7 @@ public class Menu {
 	 */
 	public void addMenu(String name, String[] menus) {
 		JMenu newMenu = new JMenu(name);
+		newMenu.setFont(new Font("Arial", Font.BOLD, 14));
 		menuBar.add(newMenu);
 		for (int i = 0; i < menus.length; i++) {
 			JMenuItem item = new JMenuItem(menus[i]);

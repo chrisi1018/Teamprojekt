@@ -1,8 +1,10 @@
 package controller;
 
+import java.awt.Font;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.Box;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -18,16 +20,17 @@ public class FAMenuBar {
 
 	private final String[] options = new String[] { "Text neu laden", "Erkl\u00e4rung" };
 
-	private JMenuBar menuBar;
+	private GradientMenuBar menuBar;
 
 	/**
 	 * Konstruktor, der die im Array "options" festgelegten Menuepunkte der
 	 * Menueleiste hinzufuegt
 	 */
 	public FAMenuBar() {
-		this.menuBar = new JMenuBar();
+		this.menuBar = new GradientMenuBar();
 		for (int i = 0; i < options.length; i++) {
 			JMenu menu = new JMenu(options[i]);
+			menu.setFont(new Font("Arial", Font.BOLD, 14));
 			this.menuBar.add(menu);
 		}
 	}
@@ -64,6 +67,14 @@ public class FAMenuBar {
 				// tue nichts
 			}
 		});
+	}
+	
+	/**
+	 * Fuellt die rechte Seite des Menues, um diese später 
+	 * auch einfaerben zu koennen
+	 */
+	public void fillRightSide() {
+		menuBar.add(Box.createHorizontalGlue());
 	}
 
 	/**
