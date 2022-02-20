@@ -24,6 +24,7 @@ public class Utility {
 	public static final Color LIGHT_GREEN = new Color(191, 205, 169); // hellgruene Farbe fuer den Farbverlauf
 	public static final Color WHITE = new Color(255, 255, 255); // weisse Farbe fuer die Texte bei Farbverlauf
 	
-	public static final Font FONT = new Font("Arial", Font.BOLD, 12); // Standard-Schriftzug fuer Menue und Buttons
+	public static final Font FONT = new Font("Arial", Font.BOLD, 12); // Standard-Schriftzug fuer die Buttons
+	public static final Font MENU_FONT = new Font("Arial", Font.BOLD, 14); // Standard-Schriftzug fuer das Menue
 	
 }

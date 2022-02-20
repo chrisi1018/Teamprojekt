@@ -56,8 +56,8 @@ public class MainController {
 	 */
 	public MainController() {
 		// definiert Farben und Schriftstil in der Menueleiste
-		UIManager.put("Menu.font", new Font("Arial", Font.BOLD, 14));
-		UIManager.put("MenuItem.font", new FontUIResource(new Font("Arial", Font.BOLD, 12)));
+		UIManager.put("Menu.font", new FontUIResource(Utility.MENU_FONT));
+		UIManager.put("MenuItem.font", new FontUIResource(Utility.FONT));
 		UIManager.put("MenuItem.selectionBackground", new ColorUIResource(Utility.DARK_GREEN));
 		UIManager.put("MenuBar.hoverBackground", new ColorUIResource(Utility.DARK_GREEN));
 		UIManager.put("Menu.selectionBackground", new ColorUIResource(Utility.DARK_GREEN));
