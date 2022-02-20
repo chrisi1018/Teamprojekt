@@ -6,8 +6,11 @@ import java.awt.event.MouseListener;
 
 import javax.swing.Box;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+
+import utility.Utility;
 
 /**
  * Beschreibt Aufbau und Funktion der Menueleiste im Fenster der
@@ -74,6 +77,11 @@ public class FAMenuBar {
 	 * auch einfaerben zu koennen
 	 */
 	public void fillRightSide() {
+		JLabel title = new JLabel("H\u00e4ufigkeitsanalyse");
+		title.setFont(Utility.HEADLINE_LABEL_FONT);
+		title.setForeground(Utility.WHITE);
+		menuBar.add(Box.createHorizontalStrut(300)); // zur mittigen Platzierung des Labels
+		menuBar.add(title);
 		menuBar.add(Box.createHorizontalGlue());
 	}
 

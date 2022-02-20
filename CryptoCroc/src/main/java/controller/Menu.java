@@ -10,6 +10,7 @@ import java.util.Scanner;
 import javax.swing.Box;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -18,6 +19,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import org.apache.commons.io.FilenameUtils;
 
+import utility.Utility;
 import view.Messages;
 
 /**
@@ -271,6 +273,11 @@ public class Menu {
 	 * auch einfaerben zu koennen
 	 */
 	public void fillRightSide() {
+		JLabel title = new JLabel("CryptCroc");
+		title.setFont(Utility.HEADLINE_LABEL_FONT);
+		title.setForeground(Utility.WHITE);
+		menuBar.add(Box.createHorizontalStrut(395)); // zur mittigen Platzierung des Labels
+		menuBar.add(title);
 		menuBar.add(Box.createHorizontalGlue());
 	}
 
