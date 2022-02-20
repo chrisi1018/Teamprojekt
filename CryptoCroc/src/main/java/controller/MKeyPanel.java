@@ -22,8 +22,8 @@ import java.util.Random;
 /**
  * Definiert 'createKeyPanel'-Methode fuer monoalphabetische Verschluesselung
  * 
- * @author zes, Julian Sturm
- * @version 1.4
+ * @author zes, Julian Sturm, chrisi
+ * @version 1.5
  */
 public class MKeyPanel extends KeyPanel {
 
@@ -89,15 +89,20 @@ public class MKeyPanel extends KeyPanel {
 		JLabel description = new JLabel("Schl\u00fcssel");
 		title.setLayout(new BoxLayout(title, BoxLayout.PAGE_AXIS));
 		description.setAlignmentX(Component.CENTER_ALIGNMENT);
-		description.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
+		description.setFont(Utility.HEADLINE_LABEL_FONT);
+		description.setForeground(Utility.DARK_GREEN);
 		title.add(description, BorderLayout.SOUTH);
 
 		// intialisiert Eintraege von keys und setzt Textstil
 		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
-			names[i].setFont(new Font(Font.DIALOG, Font.BOLD, 15));
-			keys[i].setFont(new Font(Font.DIALOG, Font.BOLD, 15));
-			keys[i].setColumns(1);
-			keys[i].setPreferredSize(new Dimension(19, 30));
+			names[i].setFont(Utility.LABEL_FONT);
+			names[i].setForeground(Utility.DARK_GREEN);
+			names[i].setAlignmentX(Component.CENTER_ALIGNMENT);
+			keys[i].setFont(Utility.TEXT_FONT);
+			keys[i].setBorder(Utility.TEXTFIELD_BORDER);
+			keys[i].setHorizontalAlignment(JTextField.CENTER);
+			//keys[i].setColumns(1);
+			//keys[i].setPreferredSize(new Dimension(19, 30));
 			keys[i].setDocument(new LimitedTextfield(maxInput, i, keys));
 
 			// sorgt dafuer dass Text im Textfeld markiert wird beim Klicken
