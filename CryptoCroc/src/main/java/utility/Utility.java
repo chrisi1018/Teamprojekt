@@ -34,6 +34,8 @@ public class Utility {
 	public static final Font LABEL_FONT = new Font("Arial", Font.BOLD, 14); // Standard-Schriftzug fuer Labels
 	
 	// Standard-Umrandung fuer die Textfelder
-	public static final Border TEXTFIELD_BORDER = BorderFactory.createMatteBorder(1,1,1,1,Utility.DARK_GREEN);
+	public static final Border TEXTFIELD_BORDER = BorderFactory.createMatteBorder(1, 1, 1, 1, Utility.DARK_GREEN);
+	// Umrandung ausgewaeltes Textfeld
+	public static final Border FOCUS_TEXTFIELD_BORDER = BorderFactory.createMatteBorder(1, 1, 1, 1, Utility.ORANGE);
 	
 }

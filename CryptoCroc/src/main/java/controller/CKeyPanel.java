@@ -21,8 +21,8 @@ import java.awt.Component;
  * Definiert 'createKeyPanel'-Methode fuer Caesar und speichert sein
  * Schluesseltextfeld
  * 
- * @author Julian Singer
- * @version 1.0
+ * @author Julian Singer, chrisi
+ * @version 1.1
  *
  */
 public class CKeyPanel extends KeyPanel {
