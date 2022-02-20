@@ -9,3 +9,12 @@ T28:
 Erwartung: Zwischen den gruenen Balken der deutschen Verteilung und ihrem jeweils zugehoerigen orangenen Balken ist nun
 kein Abstand mehr, um deren Zuordnung leichter zu erkennen
 Realitaet: entspricht der Erwartung
+
+T35:
+2. Ich oeffne die Software und klicke mich durch alle Verschluesselung-Verfahren durch.
+Erwartung: Unter dem Button Zufallsschluessel befindet sich, bei jeder Verschluesselung, eine Zeichnung eines Krokodils.
+Realitaet: entspricht der Erwartung
+
+3. Ich oeffne die Software, anschliessend jede existierende Erklaerung und die Haeufigkeitsanaylse.
+Erwartung: Das Fenster-Icon in jedem geoeffneten Fenster ist das gezeichnete Krokodil.
+Realitaet: entspricht der Erwartung
