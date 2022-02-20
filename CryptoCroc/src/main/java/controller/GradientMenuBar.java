@@ -10,6 +10,13 @@ import javax.swing.JMenuBar;
 
 import utility.Utility;
 
+/**
+ * Klasse, die den Farbverlauf fuer die Menueleiste realisiert
+ * 
+ * @author Julian Singer
+ * @version 1.1
+ *
+ */
 public class GradientMenuBar extends JMenuBar {
 	
 	private static final long serialVersionUID = -2852521973904866625L;
@@ -19,6 +26,9 @@ public class GradientMenuBar extends JMenuBar {
 
 	private Graphics2D g2 = null;
 	
+	/**
+	 * Konstruktor, der die Farben fuer Farbverlauf und Schrift festlegt
+	 */
 	public GradientMenuBar() {
 		super();
 		super.setForeground(Utility.WHITE);
