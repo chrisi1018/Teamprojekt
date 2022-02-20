@@ -3,6 +3,11 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.UIManager;
+import javax.swing.plaf.ColorUIResource;
+
+import utility.Utility;
+
 import view.CExplanationFrame;
 import view.Gui;
 import view.FAExplanationFrame;
@@ -48,6 +53,8 @@ public class MainController {
 	 * 
 	 */
 	public MainController() {
+		UIManager.put("MenuBar.hoverBackground", new ColorUIResource(Utility.DARK_GREEN));
+		UIManager.put("Menu.selectionBackground", new ColorUIResource(Utility.DARK_GREEN));
 		this.menuBar = new Menu(new String[] { "Speichern", "Laden" }); // definiert eine neue Menueleiste mit Menue
 		this.menuBar.addMenu("Erkl\u00e4rungen", explanationOpt); // fuegt ein neues Menue hinzu
 		this.menuBar.fillRightSide();
