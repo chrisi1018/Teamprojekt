@@ -60,7 +60,7 @@ public class MainController {
 		UIManager.put("MenuItem.selectionBackground", new ColorUIResource(Utility.DARK_GREEN));
 		UIManager.put("MenuBar.hoverBackground", new ColorUIResource(Utility.DARK_GREEN));
 		UIManager.put("Menu.selectionBackground", new ColorUIResource(Utility.DARK_GREEN));
-		
+
 		this.menuBar = new Menu(new String[] { "Speichern", "Laden" }); // definiert eine neue Menueleiste mit Menue
 		this.menuBar.addMenu("Erkl\u00e4rungen", explanationOpt); // fuegt ein neues Menue hinzu
 		this.menuBar.fillRightSide();

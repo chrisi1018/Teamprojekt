@@ -68,7 +68,7 @@ public class MKeyPanel extends KeyPanel {
 		}
 		return this.key;
 	}
-	
+
 	/**
 	 * Initialisiert die TextFelder
 	 */
@@ -77,7 +77,7 @@ public class MKeyPanel extends KeyPanel {
 			keys[i] = new JTextField();
 		}
 	}
-	
+
 	@Override
 	public JPanel createKeyPanel() {
 		// Alphabet in Array schreiben
@@ -100,7 +100,7 @@ public class MKeyPanel extends KeyPanel {
 			keys[i].setFont(Utility.TEXT_FONT);
 			keys[i].setBorder(Utility.TEXTFIELD_BORDER);
 			keys[i].setHorizontalAlignment(JTextField.CENTER);
-			//keys[i].setColumns(1);
+			// keys[i].setColumns(1);
 			keys[i].setDocument(new LimitedTextfield(maxInput, i, keys));
 
 			// sorgt dafuer dass Text im Textfeld markiert wird beim Klicken
@@ -145,7 +145,7 @@ public class MKeyPanel extends KeyPanel {
 
 		return total;
 	}
-	
+
 	/**
 	 * Methode die einen Zufaelligen Schluessel erzeugt
 	 */
@@ -158,7 +158,8 @@ public class MKeyPanel extends KeyPanel {
 			keyString[i] = Character.toString((char) ('A' + i));
 		}
 		Random random = new Random();
-		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) { //Random Schuffel des Array keyString erzeugt eienn Random Schluessel
+		// Random Shuffel des Array keyString erzeugt eienn Random Schluessel
+		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
 			int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
 			String temp = keyString[i];
 			keyString[i] = keyString[randomLimitedInt];
@@ -170,9 +171,10 @@ public class MKeyPanel extends KeyPanel {
 		}
 		this.setKey(key);
 	}
-	
+
 	/**
 	 * Eine Methode die einen Schluessel in die Schluesselfelder Schreibt
+	 * 
 	 * @param key der Schluessel der in die Schluesselfelder Geschrieben wird
 	 */
 	@Override
