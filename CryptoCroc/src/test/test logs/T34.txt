@@ -1,0 +1,37 @@
+T34 (Git:ffc6c9e) :
+
+Java-Version: 1.8
+Betriebssystem: macOS Monterey
+getestet von: Zoe Sobota
+
+1. Ich oeffne das Programm und klicke vier Mal auf "Verschluesseln" ohne Text eingegeben zu haben
+Erwartung: Es erscheint drei Mal eine Fehlermeldung, die besagt dass Text im Klartextfeld eingegeben werden soll und die mit "Ok" weggeklickt werden muss, beim 4. Mal jedoch nicht mehr
+Realitaet: Entspricht der Erwartung
+
+2. Nach 1. klicke ich noch 7 Mal auf "Verschluesseln"
+Erwartung: Es erscheint keine Fehlermeldung
+Realitaet: Entspricht der Erwartung
+
+3. Ich wechsele ich in die Monoalphabetische Verschluesselung und klicke vier Mal auf "Verschluesseln", anschliessend wechsele ich in die Vigenere Verschluesselung und klicke auch hier vier Mal auf "Verschluesseln"
+Erwartung: Er erscheint bei beiden Verschluesselungen drei Mal eine Fehlermeldung, die besagt dass Text im Klartextfeld eingegeben werden soll und die mit "Ok" weggeklickt werden muss, beim 4. Mal jedoch nicht mehr
+Realitaet: Entspricht der Erwartung
+
+4. Ich gebe vier Mal den Schluessel "+" in der Caesar Verschluesselung ein
+Erwartung: Das "+" wird nie angezeigt und es erscheint drei Mal eine Fehlermeldung, die besagt dass nur die Buchstaben A-Z und a-z eingegeben werden koennen und die mit "Ok" weggeklickt werden muss, beim 4.Mal jedoch nicht mehr
+Realitaet: Entspricht der Erwartung
+
+5. Ich versuche vier Mal den Schluessel "AV" in der Caesar Verschluesselung einzugeben
+Erwartung: Es wird immer nur ein A angezeigt und es erscheint drei Mal eine Fehlermeldung, die besagt dass nur ein Buchstabe eingegeben werden kann und die mit "Ok" weggeklickt werden muss, beim 4. Mal jedoch nicht mehr
+Realitaet: Entspricht der Erwartung
+
+6. Ich wechsle nach 5. in die Monoalphabetische Verschluesselung und versuche dort bei A den Schluessel "BC" einzugeben
+Erwartung: Nur das "B" wird angezeigt und es erscheint keine Fehlermeldung
+Realitaet: Entspricht der Erwartung
+
+7. Ich versuche acht Mal in der Vigenere Verschluesselung den Schluessel "ASDFPOASDKFPASDPQ" einzugeben
+Erwartung: Es erscheint drei Mal eine Fehlermeldung, die besagt dass maximal 15 Buchstaben eingegeben werden koennen und die mit "Ok" weggeklickt werden muss, aber ab dem 4. Mal nicht mehr
+Realitaet: Entspricht der Erwartung
+
+8. Ich wechsle nach 7. in die Caesar Verschluesselung und dann zurueck in die Vigenere Verschluesselung und versuche den Schluessel "ASLDKFNALSDKJNFL" einzugeben
+Erwartung: Es erscheint wieder eine Fehlermeldung, die besagt dass maximal 15 Buchstaben eingegeben werden koennen
+Realitaet: Entspricht der Erwartung
