@@ -1,4 +1,4 @@
-T34 (Git:ffc6c9e) :
+T34 (Git:5a81f14) :
 
 Java-Version: 1.8
 Betriebssystem: macOS Monterey
@@ -35,3 +35,6 @@ Realitaet: Entspricht der Erwartung
 8. Ich wechsle nach 7. in die Caesar Verschluesselung und dann zurueck in die Vigenere Verschluesselung und versuche den Schluessel "ASLDKFNALSDKJNFL" einzugeben
 Erwartung: Es erscheint wieder eine Fehlermeldung, die besagt dass maximal 15 Buchstaben eingegeben werden koennen
 Realitaet: Entspricht der Erwartung
+
+9. Ich oeffne die Haeufigkeitsanalyse und versuche sieben Mal als Schluessellaenge 17 einzugeben
+Erwartung: Es erscheint drei Mal eine Fehlermeldung, die besagt dass die Laenge des Schluessels 15 nicht ueberschreiten darf und die mit "Ok" weggeklickt werden muss, aber ab 4. Mal nicht mehr
