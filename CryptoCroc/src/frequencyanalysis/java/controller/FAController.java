@@ -50,8 +50,10 @@ public class FAController {
 	private FAMenuBar menu;
 	private TableData[] data;
 	private FAGraph graph;
-	// speichert die zweite Ziffer der Schluessellaenge, um bei einem Wechsel einer Zahl zwischen 
-	// 11 und 15 zu einer Zahl zwischen 16 und 19 zu ihrer vorherigen im validen Bereich zurueckzukehren
+	// speichert die zweite Ziffer der Schluessellaenge, um bei einem Wechsel einer
+	// Zahl zwischen
+	// 11 und 15 zu einer Zahl zwischen 16 und 19 zu ihrer vorherigen im validen
+	// Bereich zurueckzukehren
 	private String previousSecondNumber;
 	// gui muss statisch sein, damit Update des Graphen auch aus FATable aufgerufen
 	// werden kann
@@ -60,6 +62,7 @@ public class FAController {
 	// darauf zugreifen koennen
 	private static String currentLanguage;
 	private static int max;
+	private int invalidLengthError = 0;
 
 	/**
 	 * Der Konstruktor fuer die Klasse FaController, siehe init-Methoden fuer mehr
@@ -132,7 +135,7 @@ public class FAController {
 		this.lengthLabel = new JLabel("Schl\u00fcssell\u00e4nge");
 		this.lengthLabel.setFont(Utility.LABEL_FONT);
 		this.lengthLabel.setForeground(Utility.DARK_GREEN);
-		//this.lengthLabel.setVisible(true);
+		// this.lengthLabel.setVisible(true);
 
 		this.lengthTextField = new JTextField(10);
 		this.lengthTextField.setFont(Utility.TEXT_FONT);
@@ -159,15 +162,20 @@ public class FAController {
 					}
 				}
 				if (insert && !leadingZero) {
-					if (this.getLength() + str.length() <= Utility.KEY_LENGTH_DIGITS && isLessThanSixteen(offset, str)) {
+					if (this.getLength() + str.length() <= Utility.KEY_LENGTH_DIGITS
+							&& isLessThanSixteen(offset, str)) {
 						super.insertString(offset, str, att);
 						previousSecondNumber = lengthTextField.getText(1, 1).trim();
 					} else {
-						if (this.getLength() + str.length() == Utility.KEY_LENGTH_DIGITS 
+						if (this.getLength() + str.length() == Utility.KEY_LENGTH_DIGITS
 								&& lengthTextField.getText(0, 1).equals("1")) {
 							super.insertString(1, previousSecondNumber, att);
 						}
-						Messages.errorMessage("Die L\u00e4nge des Schl\u00fcssels darf 15 nicht \u00fcberschreiten!");
+						if (invalidLengthError < Utility.MAX_ERROR_MESSAGES) {
+							Messages.errorMessage("Die L\u00e4nge des Schl\u00fcssels darf "
+									+ Utility.MAXIMUM_KEY_LENGTH + " nicht \u00fcberschreiten!");
+							invalidLengthError++;
+						}
 					}
 				}
 			}
@@ -201,7 +209,7 @@ public class FAController {
 
 		});
 
-		//this.lengthTextField.setVisible(true);
+		// this.lengthTextField.setVisible(true);
 	}
 
 	/**
@@ -211,7 +219,7 @@ public class FAController {
 		this.monoCheckBox = new JCheckBox("Monoalphabetische Verschl\u00fcsselung");
 		this.monoCheckBox.setFont(Utility.LABEL_FONT);
 		this.monoCheckBox.setForeground(Utility.DARK_GREEN);
-		//this.monoCheckBox.setVisible(true);
+		// this.monoCheckBox.setVisible(true);
 		this.monoCheckBox.addActionListener(e -> this.checkCheckbox());
 	}
 
@@ -297,7 +305,7 @@ public class FAController {
 		this.left.setMargin(new Insets(1, 10, 1, 10));
 		this.left.setFont(new Font("Arial", Font.PLAIN, 14));
 		this.left.addActionListener(e -> this.tables[this.keyChar.getSelectedIndex()].shiftLeft());
-		
+
 		this.right = new GradientButton("\u00bb");
 		this.right.setMargin(new Insets(1, 10, 1, 10));
 		this.right.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -384,13 +392,13 @@ public class FAController {
 			this.data[i] = new TableData(oneFrequencies);
 		}
 	}
-	
+
 	/**
-	 * Hilfsmethode, die prueft, ob die durch die eingegebenen Parameter neu entstehende Schluessellaenge
-	 * maximal 15 betraegt
+	 * Hilfsmethode, die prueft, ob die durch die eingegebenen Parameter neu
+	 * entstehende Schluessellaenge maximal 15 betraegt
 	 * 
 	 * @param offset Position, an der die neuen Zahlen eingefuegt werden
-	 * @param str neue eingegebene Zahlen
+	 * @param str    neue eingegebene Zahlen
 	 * @return Ob die neue Schluessellaenge valide ist
 	 * @throws BadLocationException Ungueltige Position
 	 */
@@ -402,12 +410,13 @@ public class FAController {
 			break;
 		case 1:
 			if (this.length >= 1) {
-				newLength = this.lengthTextField.getText(0, 1) + str 
-						+ this.lengthTextField.getText(1, this.length - 1);
+				newLength = this.lengthTextField.getText(0, 1) + str + this.lengthTextField.getText(1, this.length - 1);
 			} else {
 				newLength = str;
 			}
 			break;
+		// Checkstyle braucht default option
+		default:
 		}
 		return (Integer.parseInt(newLength) < 16);
 	}
@@ -430,9 +439,9 @@ public class FAController {
 		gui = new FAGui(menu.getMenuBar(), graph, tables, left, right, language, keyChar, lengthLabel, lengthTextField,
 				monoCheckBox);
 	}
-	
+
 	/**
-	 * Legt den focus auf die Häufigkeitsanalyse
+	 * Legt den focus auf die Hï¿½ufigkeitsanalyse
 	 */
 	public void focus() {
 		gui.focus();
