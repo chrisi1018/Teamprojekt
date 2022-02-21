@@ -4,10 +4,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
+import javax.swing.JComponent;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.awt.FlowLayout;
 
 import model.Crypt;
 import utility.Utility;
-import java.awt.Dimension;
+
 
 /**
  * Die Klasse erzeugt den unteren Teil der Haufigkeitsanalyse, und dient als Schnittstelle zum Hauptprogramm
@@ -67,15 +72,51 @@ public class FABottom {
 	 */
 	public JPanel createBottomPanel() {
 		JPanel bottomPanel = new JPanel();
+		bottomPanel.setLayout(new BorderLayout());
+		//Erzeugt den Linken Teil des Unteren Panels mit dem GeheimText
+		JPanel leftPanel = new JPanel(new BorderLayout());
+		JLabel crypto = new JLabel("   Geheimtext");
+		crypto.setFont(Utility.LABEL_FONT);
+		crypto.setForeground(Utility.DARK_GREEN);
+		crypto.setVisible(true);
 		JScrollPane scroll = new JScrollPane(this.cryptoText, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		this.cryptoText.setVisible(true);
-		scroll.setPreferredSize(new Dimension(500, 70));
-		bottomPanel.add(scroll);
+		scroll.setPreferredSize(new Dimension(500, 60));
+		scroll.setBorder(Utility.TEXTFIELD_BORDER);
+		leftPanel.add(crypto, BorderLayout.NORTH);
+		leftPanel.add(scroll, BorderLayout.CENTER);
+		leftPanel.add(new JPanel(), BorderLayout.WEST);
+		bottomPanel.add(leftPanel, BorderLayout.WEST);
+		
+		//Erzeugt den mittleren Teil des unteren Panels mit den KeyText feldern
+		JPanel middlePanel = new JPanel(new GridLayout(2, 1, 0, 0));
+		JLabel key = new JLabel("    Schl\u00fcssel");
+		key.setFont(Utility.HEADLINE_LABEL_FONT);
+		key.setForeground(Utility.DARK_GREEN);
+		key.setVisible(true);
+		JLabel keyText = new JLabel("     Gebe hier deinen Schl\u00fcssel ein:");
+		keyText.setFont(Utility.LABEL_FONT);
+		keyText.setForeground(Utility.DARK_GREEN);
+		keyText.setVisible(true);
+		JPanel textPanel = new JPanel(new GridLayout(2, 1));
+		textPanel.add(key);
+		textPanel.add(keyText);
+		middlePanel.add(textPanel);
+		JPanel keyPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
+		keyPanel.add(new JPanel());
 		for (int i = 0; i < this.keyText.length; i++) {
-			bottomPanel.add(this.keyText[i]);
+			keyPanel.add(this.keyText[i]);
 		}
-		bottomPanel.add(button);
+		middlePanel.add(keyPanel);
+		bottomPanel.add(middlePanel, BorderLayout.CENTER);
+		//ERzeugt den Rechten Teil des Unteren Panels den Button
+		JPanel rightPanel = new JPanel(new GridLayout(2, 1));
+		JPanel buttonPanel = new JPanel();
+		buttonPanel.add(button);
+		rightPanel.add(new JPanel());
+		rightPanel.add(buttonPanel);
+		bottomPanel.add(rightPanel, BorderLayout.EAST);
 		this.button.setVisible(true);
 		bottomPanel.setVisible(true);
 		bottomPanel.setVisible(true);
@@ -86,6 +127,11 @@ public class FABottom {
 		for (int i = 0; i < this.keyText.length; i++) {
 			this.keyText[i] = new JTextField();
 			this.keyText[i].setDocument(new LimitedTextfield(1));
+			this.keyText[i].setBorder(Utility.TEXTFIELD_BORDER);
+			this.keyText[i].setForeground(Utility.DARK_GREEN);
+			this.keyText[i].setFont(Utility.TEXT_FONT);
+			this.keyText[i].setHorizontalAlignment(JTextField.CENTER);
+			this.keyText[i].setPreferredSize(new Dimension(30, 30));
 			this.keyText[i].setText("A");
 		}
 	}
@@ -94,6 +140,7 @@ public class FABottom {
 	 */
 	private void initCryptoText() {
 		this.cryptoText = new JLabel();
+		this.cryptoText.setFont(Utility.TEXT_FONT);
 		this.cryptString = key.getController().getCryptoText();
 		this.cryptoText.setText("<html><p align=\"justify\" style=\"width:370px\">"
 		+ this.cryptString
@@ -222,8 +269,14 @@ public class FABottom {
 		if (this.mono) {
 			this.key.setKey(monoString);
 		} else {
+			int length = keyString.length();
+			this.keyString = "";
+			for (int i = 0; i < length; i++) {
+				this.keyString = this.keyString + this.keyText[i].getText();
+			}
 			this.key.setKey(keyString);
 		}
+		KeyPanel.faSwitchOpen();
 		this.faController.disposeFrame();
 		
 	}

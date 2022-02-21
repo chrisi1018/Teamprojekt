@@ -18,7 +18,6 @@ import utility.Utility;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -71,7 +70,7 @@ public class FAGui {
 			JComboBox<String> keyChar, JLabel lengthLabel, JTextField lengthTextField, JCheckBox monoCheckBox, JPanel bottom) {
 		// erstellt den Frame
 		this.frame = new JFrame("H\u00e4ufigkeitsanalyse");
-		this.frame.setSize(1300, 700);
+		this.frame.setSize(1300, 710);
 		this.frame.setResizable(false);
 		this.frame.setVisible(true);
 		this.frame.setLayout(new GridBagLayout());

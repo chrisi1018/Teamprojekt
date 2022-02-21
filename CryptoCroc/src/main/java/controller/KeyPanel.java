@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import model.Crypt;
 import model.TextEdit;
+import utility.Utility;
 import view.Messages;
 
 /**
@@ -28,6 +29,11 @@ public abstract class KeyPanel {
 	private MainController controller;
 	private FAController fa;
 	private static boolean faIsOpen = false;
+
+	// zaehlen wie viele Fehlermeldungen es vom jeweiligen Typ schon gab
+	private int wrongKeyError = 0;
+	private int emptyTextError = 0;
+
 	/**
 	 * Die aktuelle MainController-Instanz wird gesichert
 	 * 
@@ -61,19 +67,19 @@ public abstract class KeyPanel {
 	 * @return den aktuellen Key als String
 	 */
 	public abstract String getKey();
-	
+
 	/**
 	 * Setzt einen Schluessel in die SchluesselTextfelder
 	 * 
 	 * @param key der Schluessel der in die Textfelder Gesetzt wird
 	 */
 	public abstract void setKey(String key);
-	
+
 	/**
 	 * Fuegt in das Schluesselfeld einen zufaelligen Schluessel ein
 	 */
 	public abstract void randomKey();
-	
+
 	/**
 	 * Erzeugt die Buttons in einem JPanel
 	 * 
@@ -88,7 +94,7 @@ public abstract class KeyPanel {
 		panel.add(this.createCroc());
 		return panel;
 	}
-	
+
 	/**
 	 * Erzeugt ein Label, dass das Bild des Krokodils beinhaltet, dies wird sofort
 	 * auf die passende groesse skaliert.
@@ -97,9 +103,8 @@ public abstract class KeyPanel {
 	 */
 	private JLabel createCroc() {
 		ImageIcon imageIcon = new ImageIcon(this.getClass().getResource(("croc.png")));
-		Image image = imageIcon.getImage()
-				.getScaledInstance((int) (imageIcon.getIconWidth() / 5.5) + 1, (int) (imageIcon.getIconHeight() / 5.5),
-						Image.SCALE_SMOOTH);
+		Image image = imageIcon.getImage().getScaledInstance((int) (imageIcon.getIconWidth() / 5.5) + 1,
+				(int) (imageIcon.getIconHeight() / 5.5), Image.SCALE_SMOOTH);
 		JLabel croc = new JLabel(new ImageIcon(image));
 		return croc;
 	}
@@ -159,7 +164,10 @@ public abstract class KeyPanel {
 		String key = getKey();
 
 		if (plainText.isEmpty()) {
-			Messages.errorMessage("Zum Verschl\u00fcsseln muss im Klartextfeld ein Text eingegeben werden.");
+			if (emptyTextError < Utility.MAX_ERROR_MESSAGES) {
+				Messages.errorMessage("Zum Verschl\u00fcsseln muss im Klartextfeld ein Text eingegeben werden.");
+				emptyTextError++;
+			}
 		} else { // Wird ausgefuert nur wenn ein Klartext gegeben ist
 			if (this.crypt.checkKey(key)) {
 				if (cryptoText.isEmpty()
@@ -169,7 +177,10 @@ public abstract class KeyPanel {
 					this.controller.setCryptoText(cryptoText); // im Geheimtextfeld ausgegeben
 				}
 			} else {
-				Messages.errorMessage("Der eingegebene Schl\u00fcssel ist nicht korrekt.");
+				if (wrongKeyError < Utility.MAX_ERROR_MESSAGES) {
+					Messages.errorMessage("Der eingegebene Schl\u00fcssel ist nicht korrekt.");
+					wrongKeyError++;
+				}
 			}
 		}
 	}
@@ -184,7 +195,10 @@ public abstract class KeyPanel {
 		String key = getKey();
 
 		if (cryptoText.isEmpty()) {
-			Messages.errorMessage("Zum Entschl\u00fcsseln muss im Geheimtextfeld ein Text eingegeben werden.");
+			if (emptyTextError < Utility.MAX_ERROR_MESSAGES) {
+				Messages.errorMessage("Zum Entschl\u00fcsseln muss im Geheimtextfeld ein Text eingegeben werden.");
+				emptyTextError++;
+			}
 		} else { // Wird ausgefuert nur wenn ein Geheimtext gegeben ist
 			if (this.crypt.checkKey(key)) {
 				if (plainText.isEmpty()
@@ -194,7 +208,10 @@ public abstract class KeyPanel {
 					this.controller.setPlainText(plainText); // im Klartextfeld ausgegeben
 				}
 			} else {
-				Messages.errorMessage("Der eingegebene Schl\u00fcssel ist nicht korrekt.");
+				if (wrongKeyError < Utility.MAX_ERROR_MESSAGES) {
+					Messages.errorMessage("Der eingegebene Schl\u00fcssel ist nicht korrekt.");
+					wrongKeyError++;
+				}
 			}
 		}
 	}
@@ -223,7 +240,7 @@ public abstract class KeyPanel {
 			fa.focus();
 		}
 	}
-	
+
 	/**
 	 * Ruft die Methoden auf die einen zufaelligen Schuessel erzeugen
 	 */
