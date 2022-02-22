@@ -1,8 +1,10 @@
 package controller;
 
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import com.apple.eawt.Application;
 import com.formdev.flatlaf.FlatLightLaf;
 
 /**
@@ -22,6 +24,9 @@ public class Main {
 		// falls Mac benutze die mac menu bar
 		if (System.getProperty("os.name").toLowerCase().equals("mac os x")) {
 			System.setProperty("apple.laf.useScreenMenuBar", "true");
+			System.setProperty("apple.awt.application.name", "CryptoCroc");
+			Application app = Application.getApplication();
+			app.setDockIconImage(new ImageIcon(Main.class.getResource(("../controller/croc.png"))).getImage());
 		}
 		
 		try {

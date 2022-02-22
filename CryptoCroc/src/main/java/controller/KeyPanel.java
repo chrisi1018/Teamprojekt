@@ -233,6 +233,9 @@ public abstract class KeyPanel {
 	 */
 	public void clickButtonFreqAna() {
 		if (!faIsOpen) {
+			if (System.getProperty("os.name").toLowerCase().equals("mac os x")) {
+				System.setProperty("apple.laf.useScreenMenuBar", "false");
+			}
 			fa = new FAController(this);
 			faIsOpen = true;
 		} else {
