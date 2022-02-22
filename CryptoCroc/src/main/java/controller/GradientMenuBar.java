@@ -53,8 +53,8 @@ public class GradientMenuBar extends JMenuBar {
 		g2 = (Graphics2D) scratchGraphics;
 
 		g2.setPaint(new GradientPaint(new Point(0, 0), this.color2, new Point(0, getHeight()), this.color1));
-		g2.fillRect(0, 0, getWidth(), getHeight());
-		g2.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
+		g2.fillRoundRect(0, 0, getWidth(), getHeight(), 20, 20);
+		g2.drawRoundRect(0, 0, getWidth() - 1, getHeight() - 1, 19, 19);
 		try {
 			ui.update(g2, this);
 		} finally {
