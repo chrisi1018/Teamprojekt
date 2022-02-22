@@ -70,7 +70,7 @@ public class FAGui {
 			JComboBox<String> keyChar, JLabel lengthLabel, JTextField lengthTextField, JCheckBox monoCheckBox, JPanel bottom) {
 		// erstellt den Frame
 		this.frame = new JFrame("H\u00e4ufigkeitsanalyse");
-		this.frame.setSize(1300, 710);
+		this.frame.setSize(1300, 720);
 		this.frame.setResizable(false);
 		this.frame.setVisible(true);
 		this.frame.setLayout(new GridBagLayout());
@@ -159,8 +159,6 @@ public class FAGui {
 		this.frame.add(mainPanel, c);
 
 		// padding nach unten
-		// TODO hier ist Platz fuer das Feld mit dem Schluessel; eventuell muss die
-		// Groesse des frame's auf (1300, 700) umgestellt werden
 		c.ipady = 0;
 		c.gridy = 2;
 		c.ipadx = 30;
@@ -333,7 +331,7 @@ public class FAGui {
 	}
 	
 	/**
-	 * Methode die den Frame Schließt
+	 * Methode die den Frame Schlieï¿½t
 	 */
 	public void disposeFrame() {
 		if (this.frame != null) {
