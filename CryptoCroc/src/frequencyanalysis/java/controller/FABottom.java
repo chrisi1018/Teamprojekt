@@ -38,6 +38,7 @@ public class FABottom {
 	 * Konstruktor von FABottom
 	 * @param key Das KeyPanel des Hauptfeldes
 	 * @param tables gibt die FATable weiter
+	 * @param faController der FAController der Haeuffigkeitsanalyse um den Frame zu schließen
 	 */
 	FABottom(KeyPanel key, FATable[] tables, FAController faController) {
 		this.key = key;
@@ -73,6 +74,7 @@ public class FABottom {
 	public JPanel createBottomPanel() {
 		JPanel bottomPanel = new JPanel();
 		bottomPanel.setLayout(new BorderLayout());
+		
 		//Erzeugt den Linken Teil des Unteren Panels mit dem GeheimText
 		JPanel leftPanel = new JPanel(new BorderLayout());
 		JLabel crypto = new JLabel("   Geheimtext");
@@ -110,6 +112,7 @@ public class FABottom {
 		}
 		middlePanel.add(keyPanel);
 		bottomPanel.add(middlePanel, BorderLayout.CENTER);
+		
 		//ERzeugt den Rechten Teil des Unteren Panels den Button
 		JPanel rightPanel = new JPanel(new GridLayout(2, 1));
 		JPanel buttonPanel = new JPanel();
@@ -123,6 +126,9 @@ public class FABottom {
 		return bottomPanel;
 	}
 	
+	/**
+	 * Initialisert die Textfelder für die Schuesseleingabe
+	 */
 	private void initKeyText() {
 		for (int i = 0; i < this.keyText.length; i++) {
 			this.keyText[i] = new JTextField();
@@ -135,6 +141,7 @@ public class FABottom {
 			this.keyText[i].setText("A");
 		}
 	}
+	
 	/**
 	 * Initalisiert das Label KryptoText
 	 */
@@ -142,6 +149,7 @@ public class FABottom {
 		this.cryptoText = new JLabel();
 		this.cryptoText.setFont(Utility.TEXT_FONT);
 		this.cryptString = key.getController().getCryptoText();
+		//HTML ist notwendig damit das Label Zeilenumbrueche hat
 		this.cryptoText.setText("<html><p align=\"justify\" style=\"width:370px\">"
 		+ this.cryptString
 		+ "</p></html>");
@@ -149,7 +157,9 @@ public class FABottom {
 	}
 	
 	/**
-	 * Setzt die FATabels passend
+	 * Updated die Textfelder in denen der Schluessel eingeben werden kann abhaengig von der 
+	 * Schluessellaenge
+	 * 
 	 * 
 	 * @param tables die FATabels
 	 */
@@ -158,7 +168,7 @@ public class FABottom {
 		for (int i = 0; i < this.tables.length; i++) {
 			this.tables[i].setBottom(this);
 		}
-		if (this.mono) {
+		if (this.mono) { //Macht die Schluesselfelder unsichtbar
 			JTextField[] temp = this.tables[0].getTextFields();
 			for (int i = 0; i < temp.length; i++) {
 				temp[i].setText(this.monoString.substring(i, i + 1));
@@ -167,7 +177,7 @@ public class FABottom {
 				this.keyText[i].setVisible(false);
 			}
 			this.tables[0].setTextFields(temp);
-		} else {
+		} else { // Macht die Passende Anzahl der Schluesselfelder sichtbar
 			for (int i = 0; i < this.tables.length; i++) {
 				JTextField[] temp = this.tables[i].getTextFields();
 				char keyChar;
@@ -212,7 +222,7 @@ public class FABottom {
 	}
 
 	/**
-	 * Updated den Aktuellen keyString
+	 * Updated den keyString und monoString
 	 */
 	private void updateKeyString() {
 		if (this.mono) {
@@ -231,6 +241,8 @@ public class FABottom {
 	
 	/**
 	 * Setter-Methode für Crypt
+	 * 
+	 * @param crypt die Verschluesselung die verwendet wird
 	 */
 	public void setCrypt(Crypt crypt) {
 		this.crypt = crypt;
@@ -245,12 +257,10 @@ public class FABottom {
 	}
 	
 	/**
-	 * Getter-Methide für Crypt
+	 * Die Methode die ausgefuehrt wird wenn der Button "Schluessel uebernehmen"
+	 * angeklickt wird, der Schluessel wird im Hauptfenster ins Schluesseltextfeld
+	 * geschrieben und schließt den Frame
 	 */
-	public Crypt getCrypt() {
-		return this.crypt;
-	}
-	
 	private void buttonClick() {
 		MainController controller = this.key.getController();
 		int index = 0;
