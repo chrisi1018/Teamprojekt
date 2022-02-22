@@ -19,6 +19,11 @@ public class Main {
 	 * @param args Eingabe String
 	 */
 	public static void main(String[] args) {
+		// falls Mac benutze die mac menu bar
+		if (System.getProperty("os.name").toLowerCase().equals("mac os x")) {
+			System.setProperty("apple.laf.useScreenMenuBar", "true");
+		}
+		
 		try {
 			UIManager.setLookAndFeel(new FlatLightLaf()); // Windows LookAndFeel
 															// "com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
