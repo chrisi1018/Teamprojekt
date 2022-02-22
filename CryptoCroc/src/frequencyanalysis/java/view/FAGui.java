@@ -48,6 +48,7 @@ public class FAGui {
 	private JTextField lengthTextField;
 	private JCheckBox monoCheckBox;
 	private int currentTable;
+	private JPanel bottom;
 
 	/**
 	 * Konstruktor, der den Frame fuer die Haeufigkeitsanalyse erstellt und das
@@ -66,10 +67,10 @@ public class FAGui {
 	 *                        Verschluesselung
 	 */
 	public FAGui(JMenuBar menu, FAGraph graph, FATable[] table, JButton left, JButton right, JComboBox<String> language,
-			JComboBox<String> keyChar, JLabel lengthLabel, JTextField lengthTextField, JCheckBox monoCheckBox) {
+			JComboBox<String> keyChar, JLabel lengthLabel, JTextField lengthTextField, JCheckBox monoCheckBox, JPanel bottom) {
 		// erstellt den Frame
 		this.frame = new JFrame("H\u00e4ufigkeitsanalyse");
-		this.frame.setSize(1300, 650);
+		this.frame.setSize(1300, 710);
 		this.frame.setResizable(false);
 		this.frame.setVisible(true);
 		this.frame.setLayout(new GridBagLayout());
@@ -105,6 +106,8 @@ public class FAGui {
 		this.lengthTextField.setVisible(true);
 		this.monoCheckBox = monoCheckBox;
 		this.monoCheckBox.setVisible(true);
+		this.bottom = bottom;
+		this.bottom.setVisible(true);
 
 		this.table = table;
 		this.currentTable = 0;
@@ -276,6 +279,7 @@ public class FAGui {
 	private void initMainPanel() {
 		this.mainPanel.add(this.tablePanel, BorderLayout.NORTH);
 		this.mainPanel.add(this.graphPanel, BorderLayout.CENTER);
+		this.mainPanel.add(this.bottom, BorderLayout.SOUTH);
 	}
 
 	/**
@@ -326,5 +330,14 @@ public class FAGui {
 	 */
 	public void focus() {
 		this.frame.toFront();
+	}
+	
+	/**
+	 * Methode die den Frame Schlieﬂt
+	 */
+	public void disposeFrame() {
+		if (this.frame != null) {
+			this.frame.dispose();
+		}
 	}
 }

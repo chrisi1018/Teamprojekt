@@ -8,8 +8,8 @@ import java.awt.event.ActionListener;
 /**
  * Beschreibt ein Dropdown Menue fuer die Verschluesselungen
  * 
- * @author zes
- * @version 1.0
+ * @author zes, Julian Sturm
+ * @version 1.1
  */
 public class Dropdown {
 
@@ -49,5 +49,14 @@ public class Dropdown {
 	 */
 	protected String status() {
 		return dropDown.getSelectedItem().toString();
+	}
+	
+	/**
+	 * Gibt den aktuellen Index zurück
+	 * 
+	 * @return der Integer der dem aktuellen Index entspricht
+	 */
+	protected int index() {
+		return dropDown.getSelectedIndex();
 	}
 }

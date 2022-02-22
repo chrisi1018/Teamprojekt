@@ -18,8 +18,8 @@ import view.VExplanationFrame;
 /**
  * Klasse die fuer das Erzeugen der GUI-Elemente zustaendig ist
  * 
- * @author zes, Julian Singer
- * @version 1.3
+ * @author zes, Julian Singer, Julian Sturm
+ * @version 1.4
  */
 public class MainController {
 
@@ -35,17 +35,8 @@ public class MainController {
 	private ActionListener change = new ActionListener() {
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			String opt = dropDown.status();
-			if (opt.equals(encryptOpt[0])) {
-				key = new CKeyPanel(controller);
-			} else if (opt.equals(encryptOpt[1])) {
-				key = new MKeyPanel(controller);
-			} else if (opt.equals(encryptOpt[2])) {
-				key = new VKeyPanel(controller);
-			}
-			gui.setKeyPanel(key.createKeyPanel());
-			//Wichtig: da ansonsten die Buttons nicht mehr funktionieren
-			key.initKey();
+			int opt = dropDown.index() + 1;
+			setKeyPanel(opt);
 		}
 	};
 
@@ -123,5 +114,30 @@ public class MainController {
 	 */
 	public void setCryptoText(String text) {
 		this.cryptoText.setText(text);
+	}
+	
+	/**
+	 * Methode die das Key Panel austauscht
+	 * 
+	 * @param index die SerienNummer des keypanels
+	 * @return das Erzeugte KeyPanel
+	 */
+	public KeyPanel setKeyPanel(int index) {
+		switch (index) {
+		case 1:
+			this.key = new CKeyPanel(controller);
+			break;
+		case 2:
+			this.key = new MKeyPanel(controller);
+			break;
+		case 3:
+			this.key = new VKeyPanel(controller);
+		default:
+			this.key = new VKeyPanel(controller);
+		}
+		this.gui.setKeyPanel(this.key.createKeyPanel());
+		//Wichtig: da ansonsten die Buttons nicht mehr funktionieren
+		key.initKey();
+		return this.key;
 	}
 }

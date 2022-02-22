@@ -26,6 +26,8 @@ public class VKeyPanel extends KeyPanel {
 
 	private JTextField key = new JTextField();
 	private JLabel name = new JLabel("Schl\u00fcsselwort");
+	private final int serialnumber = 3;
+
 
 	/**
 	 * Die aktuelle MainController-Instanz wird gesichert
@@ -110,6 +112,18 @@ public class VKeyPanel extends KeyPanel {
 		}
 		String keyString = buffer.toString();
 		this.setKey(keyString);
+	}
+	
+	/**
+	 * Die Methode gibt die Seriennumer des KeyPanels zurück
+	 * CKeypanel = 1
+	 * MKeypanel = 2
+	 * VKeypanel = 3
+	 * 
+	 * @param return 3;
+	 */
+	public int getSerialnumber() {
+		return this.serialnumber;
 	}
 
 }

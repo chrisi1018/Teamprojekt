@@ -27,6 +27,8 @@ import java.util.Random;
 public class MKeyPanel extends KeyPanel {
 
 	private String key = this.keyAsString();
+
+	private final int serialnumber = 2;
 	private JTextField[] keys = new JTextField[Utility.ALPHABET_SIZE];
 	private JLabel[] names = new JLabel[Utility.ALPHABET_SIZE];
 	private JPanel[] nameKeyPanels = new JPanel[Utility.ALPHABET_SIZE];
@@ -193,5 +195,17 @@ public class MKeyPanel extends KeyPanel {
 			char c = (char) val;
 			this.names[i] = new JLabel(Character.toString(c), JLabel.CENTER);
 		}
+	}
+	
+	/**
+	 * Die Methode gibt die Seriennumer des KeyPanels zurück
+	 * CKeypanel = 1
+	 * MKeypanel = 2
+	 * VKeypanel = 3
+	 * 
+	 * @param return 2;
+	 */
+	public int getSerialnumber() {
+		return this.serialnumber;
 	}
 }
