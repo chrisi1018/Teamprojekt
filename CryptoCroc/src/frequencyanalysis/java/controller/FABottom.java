@@ -4,7 +4,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
-import javax.swing.JComponent;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -38,7 +37,7 @@ public class FABottom {
 	 * Konstruktor von FABottom
 	 * @param key Das KeyPanel des Hauptfeldes
 	 * @param tables gibt die FATable weiter
-	 * @param faController der FAController der Haeuffigkeitsanalyse um den Frame zu schließen
+	 * @param faController der FAController der Haeufigkeitsanalyse um den Frame zu schliessen
 	 */
 	FABottom(KeyPanel key, FATable[] tables, FAController faController) {
 		this.key = key;
@@ -67,7 +66,7 @@ public class FABottom {
 	}
 	
 	/**
-	 * Erzeugt das Panel für den Unteren Teil der Häufigkeitsanalyse
+	 * Erzeugt das Panel fuer den Unteren Teil der Haeufigkeitsanalyse
 	 * 
 	 * @return das erzeugte Panel
 	 */
@@ -127,7 +126,7 @@ public class FABottom {
 	}
 	
 	/**
-	 * Initialisert die Textfelder für die Schuesseleingabe
+	 * Initialisert die Textfelder fuer die Schuesseleingabe
 	 */
 	private void initKeyText() {
 		for (int i = 0; i < this.keyText.length; i++) {
@@ -205,7 +204,7 @@ public class FABottom {
 	}
 	
 	/**
-	 * Aktualisiert das Label anhand des Schlüssels
+	 * Aktualisiert das Label anhand des Schluessels
 	 */
 	public void updateCryptoText() {
 		updateKeyString();
@@ -215,7 +214,7 @@ public class FABottom {
 	}
 
 	/**
-	 * Wechselt ob die Monoalphabetische Verschlüsselung verwendet wird.
+	 * Wechselt ob die Monoalphabetische Verschluesselung verwendet wird.
 	 */
 	public void switchMono() {
 		this.mono = !this.mono;
@@ -240,7 +239,7 @@ public class FABottom {
 	}
 	
 	/**
-	 * Setter-Methode für Crypt
+	 * Setter-Methode fuer Crypt
 	 * 
 	 * @param crypt die Verschluesselung die verwendet wird
 	 */
@@ -249,7 +248,7 @@ public class FABottom {
 	}
 	
 	/**
-	 * Getter-Methode für mono
+	 * Getter-Methode fuer mono
 	 * @return der boolean Wert von mono
 	 */
 	public boolean getMono() {
@@ -259,7 +258,7 @@ public class FABottom {
 	/**
 	 * Die Methode die ausgefuehrt wird wenn der Button "Schluessel uebernehmen"
 	 * angeklickt wird, der Schluessel wird im Hauptfenster ins Schluesseltextfeld
-	 * geschrieben und schließt den Frame
+	 * geschrieben und schlieï¿½t den Frame
 	 */
 	private void buttonClick() {
 		MainController controller = this.key.getController();

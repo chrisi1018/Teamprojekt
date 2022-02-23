@@ -252,7 +252,7 @@ public abstract class KeyPanel {
 	}
 	
 	/**
-	 * Die Methode gibt die Seriennumer des KeyPanels zurück
+	 * Die Methode gibt die Seriennumer des KeyPanels zurueck
 	 * 
 	 * @return :
 	 * CKeypanel = 1

@@ -25,7 +25,6 @@ import model.VCrypt;
 import model.CCrypt;
 import model.MCrypt;
 import utility.Utility;
-import javax.swing.JPanel;
 
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
@@ -211,7 +210,7 @@ public class FAController {
 					gui.setTable(tables);
 					gui.setTablePanel();
 					gui.updateKeyChar(keyChar);
-					//TODO Update der Schlüsselfelder
+					//TODO Update der Schluesselfelder
 				}
 			}
 
@@ -490,14 +489,14 @@ public class FAController {
 	}
 
 	/**
-	 * Legt den focus auf die Hï¿½ufigkeitsanalyse
+	 * Legt den focus auf die Haeufigkeitsanalyse
 	 */
 	public void focus() {
 		gui.focus();
 	}
 	
 	/**
-	 * Schließt den Frame der Häufigkeitsanalyse
+	 * Schliesst den Frame der Haeufigkeitsanalyse
 	 */
 	public void disposeFrame() {
 		gui.disposeFrame();

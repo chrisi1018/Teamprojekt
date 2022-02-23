@@ -52,7 +52,7 @@ public class Dropdown {
 	}
 	
 	/**
-	 * Gibt den aktuellen Index zurück
+	 * Gibt den aktuellen Index zurueck
 	 * 
 	 * @return der Integer der dem aktuellen Index entspricht
 	 */

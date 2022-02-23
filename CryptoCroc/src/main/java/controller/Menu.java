@@ -269,7 +269,7 @@ public class Menu {
 	}
 	
 	/**
-	 * Fuellt die rechte Seite des Menues, um diese später 
+	 * Fuellt die rechte Seite des Menues, um diese spaeter 
 	 * auch einfaerben zu koennen
 	 */
 	public void fillRightSide() {
