@@ -52,7 +52,7 @@ public final class Utility {
 	public static final Border FOCUS_TEXTFIELD_BORDER = BorderFactory.createMatteBorder(1, 1, 1, 1, Utility.ORANGE);
 
 	/** Maximale Anzahl wie oft Fehlermeldungen angezeigt werden */
-	public static final int MAX_ERROR_MESSAGES = 3;
+	public static final int MAX_ERROR_MESSAGES = 4;
 
 	// privater Konstruktor
 	private Utility() {

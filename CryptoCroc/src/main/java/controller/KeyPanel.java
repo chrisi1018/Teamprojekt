@@ -31,8 +31,8 @@ public abstract class KeyPanel {
 	private static boolean faIsOpen = false;
 
 	// zaehlen wie viele Fehlermeldungen es vom jeweiligen Typ schon gab
-	private int wrongKeyError = 0;
-	private int emptyTextError = 0;
+	private int wrongKeyError = 1;
+	private int emptyTextError = 1;
 
 	/**
 	 * Die aktuelle MainController-Instanz wird gesichert
@@ -164,10 +164,10 @@ public abstract class KeyPanel {
 		String key = getKey();
 
 		if (plainText.isEmpty()) {
-			if (emptyTextError < Utility.MAX_ERROR_MESSAGES) {
+			if (emptyTextError % Utility.MAX_ERROR_MESSAGES == 1) {
 				Messages.errorMessage("Zum Verschl\u00fcsseln muss im Klartextfeld ein Text eingegeben werden.");
-				emptyTextError++;
 			}
+			emptyTextError++;
 		} else { // Wird ausgefuert nur wenn ein Klartext gegeben ist
 			if (this.crypt.checkKey(key)) {
 				if (cryptoText.isEmpty()
@@ -177,10 +177,10 @@ public abstract class KeyPanel {
 					this.controller.setCryptoText(cryptoText); // im Geheimtextfeld ausgegeben
 				}
 			} else {
-				if (wrongKeyError < Utility.MAX_ERROR_MESSAGES) {
+				if (wrongKeyError % Utility.MAX_ERROR_MESSAGES == 1) {
 					Messages.errorMessage("Der eingegebene Schl\u00fcssel ist nicht korrekt.");
-					wrongKeyError++;
 				}
+				wrongKeyError++;
 			}
 		}
 	}
@@ -195,10 +195,10 @@ public abstract class KeyPanel {
 		String key = getKey();
 
 		if (cryptoText.isEmpty()) {
-			if (emptyTextError < Utility.MAX_ERROR_MESSAGES) {
+			if (emptyTextError % Utility.MAX_ERROR_MESSAGES == 1) {
 				Messages.errorMessage("Zum Entschl\u00fcsseln muss im Geheimtextfeld ein Text eingegeben werden.");
-				emptyTextError++;
 			}
+			emptyTextError++;
 		} else { // Wird ausgefuert nur wenn ein Geheimtext gegeben ist
 			if (this.crypt.checkKey(key)) {
 				if (plainText.isEmpty()
@@ -208,10 +208,10 @@ public abstract class KeyPanel {
 					this.controller.setPlainText(plainText); // im Klartextfeld ausgegeben
 				}
 			} else {
-				if (wrongKeyError < Utility.MAX_ERROR_MESSAGES) {
+				if (wrongKeyError % Utility.MAX_ERROR_MESSAGES == 1) {
 					Messages.errorMessage("Der eingegebene Schl\u00fcssel ist nicht korrekt.");
-					wrongKeyError++;
 				}
+				wrongKeyError++;
 			}
 		}
 	}
@@ -250,14 +250,11 @@ public abstract class KeyPanel {
 	public void clickButtonRandomKey() {
 		this.randomKey();
 	}
-	
+
 	/**
 	 * Die Methode gibt die Seriennumer des KeyPanels zurueck
 	 * 
-	 * @return :
-	 * CKeypanel = 1
-	 * MKeypanel = 2
-	 * VKeypanel = 3
+	 * @return : CKeypanel = 1 MKeypanel = 2 VKeypanel = 3
 	 */
 	public abstract int getSerialnumber();
 
