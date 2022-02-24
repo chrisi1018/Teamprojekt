@@ -36,15 +36,15 @@ public final class Utility {
 	public static final Color WHITE = new Color(255, 255, 255);
 
 	/** Standard-Schriftzug fuer die Buttons */
-	public static final Font FONT = new Font("Arial", Font.BOLD, 12);
+	public static final Font FONT = new Font("Arial", Font.BOLD, 14);
 	/** Standard-Schriftzug fuer das Menue */
 	public static final Font MENU_FONT = new Font("Arial", Font.BOLD, 14);
 	/** Standard-Schriftzug fuer Text in Textfeld */
-	public static final Font TEXT_FONT = new Font("Arial", Font.PLAIN, 12);
+	public static final Font TEXT_FONT = new Font("Arial", Font.PLAIN, 14);
 	/** Standard-Schriftzug fuer Ueberschriften Labels */
-	public static final Font HEADLINE_LABEL_FONT = new Font("Arial", Font.BOLD, 18);
+	public static final Font HEADLINE_LABEL_FONT = new Font("Arial", Font.BOLD, 20);
 	/** Standard-Schriftzug fuer Labels */
-	public static final Font LABEL_FONT = new Font("Arial", Font.BOLD, 14);
+	public static final Font LABEL_FONT = new Font("Arial", Font.BOLD, 16);
 
 	/** Standard-Umrandung fuer die Textfelder */
 	public static final Border TEXTFIELD_BORDER = BorderFactory.createMatteBorder(1, 1, 1, 1, Utility.DARK_GREEN);
