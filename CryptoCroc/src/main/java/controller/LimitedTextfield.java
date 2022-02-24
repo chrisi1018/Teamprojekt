@@ -6,6 +6,9 @@ import javax.swing.text.AbstractDocument;
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
+
+import utility.Utility;
+
 import javax.swing.JTextField;
 import java.awt.Color;
 
@@ -21,6 +24,9 @@ public class LimitedTextfield extends PlainDocument {
 	private int limit;
 	private int index = -1;
 	private JTextField[] textFields;
+	private static int illegalKeyError = 0;
+	private static int moreThanOneKeyError = 0;
+	private int tooManyKeysError = 0;
 
 	/**
 	 * Konstruktor fuer ein LimitedTextfield
@@ -55,7 +61,10 @@ public class LimitedTextfield extends PlainDocument {
 	public void insertString(int offset, String str, AttributeSet att) throws BadLocationException {
 		String up = str.toUpperCase();
 		if (!this.checkValidString(up)) {
-			Messages.errorMessage("Hier k\u00f6nnen nur die Buchstaben A-Z bzw a-z eingegeben werden!");
+			if (illegalKeyError < Utility.MAX_ERROR_MESSAGES) {
+				Messages.errorMessage("Hier k\u00f6nnen nur die Buchstaben A-Z bzw a-z eingegeben werden!");
+				illegalKeyError++;
+			}
 		} else if (index != -1 && (getLength() + str.length()) <= limit) {
 			super.insertString(offset, up, att);
 			checkPermutation();
@@ -63,11 +72,17 @@ public class LimitedTextfield extends PlainDocument {
 			super.insertString(offset, up, att);
 		} else {
 			if (limit == 1) {
-				Messages.errorMessage("Hier kann nur ein Buchstabe eingegeben werden!");	
+				if (moreThanOneKeyError < Utility.MAX_ERROR_MESSAGES) {
+					Messages.errorMessage("Hier kann nur ein Buchstabe eingegeben werden!");
+					moreThanOneKeyError++;
+				}
 			} else {
-				Messages.errorMessage("Hier k\u00f6nnen maximal " + limit + " Buchstaben eingegeben werden!");
+				if (tooManyKeysError < Utility.MAX_ERROR_MESSAGES) {
+					Messages.errorMessage("Hier k\u00f6nnen maximal " + limit + " Buchstaben eingegeben werden!");
+					tooManyKeysError++;
+				}
 			}
-			
+
 		}
 	}
 

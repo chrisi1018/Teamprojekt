@@ -26,6 +26,7 @@ public class VKeyPanel extends KeyPanel {
 
 	private JTextField key = new JTextField();
 	private JLabel name = new JLabel("Schl\u00fcsselwort");
+	private final int serialnumber = 3;
 
 	/**
 	 * Die aktuelle MainController-Instanz wird gesichert
@@ -80,7 +81,7 @@ public class VKeyPanel extends KeyPanel {
 	public String getKey() {
 		return this.key.getText();
 	}
-	
+
 	/**
 	 * Setzt einen Schluessel in das TextFeld
 	 * 
@@ -90,7 +91,7 @@ public class VKeyPanel extends KeyPanel {
 	public void setKey(String key) {
 		this.key.setText(key);
 	}
-	
+
 	/**
 	 * Die Methode erzeugt einen zufaelligen Schluessel
 	 */
@@ -104,12 +105,22 @@ public class VKeyPanel extends KeyPanel {
 		leftLimit = 65;
 		rightLimit = 90;
 		StringBuilder buffer = new StringBuilder(targetStringLength);
-		for (int i = 0; i < targetStringLength; i++) { //Schleife fuer Stringbuilder des Random key
+		for (int i = 0; i < targetStringLength; i++) { // Schleife fuer Stringbuilder des Random key
 			int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
 			buffer.append((char) randomLimitedInt);
 		}
 		String keyString = buffer.toString();
 		this.setKey(keyString);
+	}
+
+	/**
+	 * Die Methode gibt die Seriennumer des KeyPanels zurueck CKeypanel = 1
+	 * MKeypanel = 2 VKeypanel = 3
+	 * 
+	 * @return 3;
+	 */
+	public int getSerialnumber() {
+		return this.serialnumber;
 	}
 
 }
