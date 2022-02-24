@@ -31,6 +31,7 @@ public class FAMenuBar {
 	 */
 	public FAMenuBar() {
 		this.menuBar = new GradientMenuBar();
+		this.menuBar.add(Box.createHorizontalStrut(10)); // Abstand zum abgerundeten Rand
 		for (int i = 0; i < options.length; i++) {
 			JMenu menu = new JMenu(options[i]);
 			menu.setFont(new Font("Arial", Font.BOLD, 14));
@@ -80,7 +81,7 @@ public class FAMenuBar {
 		JLabel title = new JLabel("H\u00e4ufigkeitsanalyse");
 		title.setFont(Utility.HEADLINE_LABEL_FONT);
 		title.setForeground(Utility.WHITE);
-		menuBar.add(Box.createHorizontalStrut(300)); // zur mittigen Platzierung des Labels
+		menuBar.add(Box.createHorizontalStrut(290)); // zur mittigen Platzierung des Labels
 		menuBar.add(title);
 		menuBar.add(Box.createHorizontalGlue());
 	}

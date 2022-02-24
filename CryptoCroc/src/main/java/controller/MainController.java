@@ -74,12 +74,12 @@ public class MainController {
 		
 		this.key.initKey();
 		//initialisiert die Menueitems
-		this.menuBar.initExplanationItem(1, 0, new CExplanationFrame());
-		this.menuBar.initExplanationItem(1, 1, new MExplanationFrame());
-		this.menuBar.initExplanationItem(1, 2, new VExplanationFrame());
-		this.menuBar.initExplanationItem(1, 3, new FAExplanationFrame());
-		this.menuBar.initSaveItem(0, 0, this.plainText, this.cryptoText);
-		this.menuBar.initOpenItem(0, 1, plainText, cryptoText);
+		this.menuBar.initExplanationItem(2, 0, new CExplanationFrame());
+		this.menuBar.initExplanationItem(2, 1, new MExplanationFrame());
+		this.menuBar.initExplanationItem(2, 2, new VExplanationFrame());
+		this.menuBar.initExplanationItem(2, 3, new FAExplanationFrame());
+		this.menuBar.initSaveItem(1, 0, this.plainText, this.cryptoText);
+		this.menuBar.initOpenItem(1, 1, plainText, cryptoText);
 		
 		@SuppressWarnings("unused")
 		MousePopupMenu popupPlainText = null;

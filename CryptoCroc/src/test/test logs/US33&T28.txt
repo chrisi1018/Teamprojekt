@@ -21,8 +21,8 @@ Realitaet: entspricht der Erwartung
 
 T38:
 4. Ich starte die Software
-Erwartung: Die Menueleiste hat im Hintergrund einen vertikalen Farbverlauf von hell- zu dunkelgruen und die
-Menues sind in dicker, weisser Druckschrift geschrieben
+Erwartung: Die Menueleiste hat im Hintergrund einen vertikalen Farbverlauf von hell- zu dunkelgruen, die Ecken 
+der Menueleiste sind abgerundet und die Menues sind in dicker, weisser Druckschrift geschrieben
 Realitaet: entspricht der Erwartung
 
 5. Ich gehe mit der Maus fuer 5 Sekunden auf das Menue "Menue" und gehe dann wieder weg
@@ -42,8 +42,8 @@ waehrend die anderen Untermenues ihre urspruengliche Hintergrundfarbe behalten
 Realitaet: entspricht der Erwartung
 
 8. Ich klicke auf den Button "Haeufigkeitsanalyse"
-Erwartung: Die Menueleiste hat im Hintergrund einen vertikalen Farbverlauf von hell- zu dunkelgruen und die
-Menues sind in dicker, weisser Druckschrift geschrieben
+Erwartung: Im neuen Fenster hat die Menueleiste im Hintergrund einen vertikalen Farbverlauf von hell- zu dunkelgruen,
+die Ecken der Menueleiste sind abgerundet und die Menues sind in dicker, weisser Druckschrift geschrieben
 Realitaet: entspricht der Erwartung
 
 9. Ich gehe nach 8. mit der Maus fuer 5 Sekunden auf das Menue "Erklaerung" und gehe dann wieder weg
