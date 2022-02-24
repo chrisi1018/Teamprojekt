@@ -1,8 +1,8 @@
 US33 & T28 (Git: b7681a0) :
 
 Java-Version: 1.8
-Betriebssystem: Windows 11
-getestet von: Christina Blach, Julian Singer
+Betriebssystem: Windows 11, macOS Monterey
+getestet von: Christina Blach, Julian Singer, Zoe Sobota
 
 T28:
 1. Ich tippe "abcdefghijklmnopqrstvwxyz" ins Geheimtextfeld und klicke danach auf den Button "Haeufigkeitsanalyse"
@@ -17,36 +17,54 @@ Realitaet: entspricht der Erwartung
 
 3. Ich oeffne die Software, anschliessend jede existierende Erklaerung und die Haeufigkeitsanaylse.
 Erwartung: Das Fenster-Icon in jedem geoeffneten Fenster ist das gezeichnete Krokodil.
-Realitaet: entspricht der Erwartung
+Realitaet: entspricht der Erwartung (auf Windows)
 
-T38:
+T38 (fuer Windows):
 4. Ich starte die Software
 Erwartung: Die Menueleiste hat im Hintergrund einen vertikalen Farbverlauf von hell- zu dunkelgruen, die Ecken 
 der Menueleiste sind abgerundet und die Menues sind in dicker, weisser Druckschrift geschrieben
-Realitaet: entspricht der Erwartung
+Realitaet: entspricht der Erwartung (auf Windows)
 
 5. Ich gehe mit der Maus fuer 5 Sekunden auf das Menue "Menue" und gehe dann wieder weg
 Erwartung: Waehrend sich die Maus auf dem Menue befindet, hat dieses einen dunkelgruenen Hintergrund und sobald
 die Maus wieder weggeht, erhaelt es wieder seinen urspruenglichen Farbverlauf
-Realitaet: entspricht der Erwartung
+Realitaet: entspricht der Erwartung (auf Windows)
 
 6. Ich gehe mit der Maus auf das Menue "Erklaerungen", dann von dort direkt auf das Menue "Menue" und danach von
 dort wieder direkt auf das Menue "Erklaerungen"
 Erwartung: Erst hat "Erklaerungen" einen dunkelgruenen Hintergrund, beim Wechsel zu "Menue" erhaelt dieses einen
 dunkelgruenen Hintergrund und "Erklaerungen wieder seinen urspruenglichen und beim letzten Wechsel bekommt "Menue" 
 wieder seinen urspruenglichen und "Erklaerungen" erneut den dunkelgruenen Hintergrund
+Realitaet: Entspricht der Erwartung (auf Windows)
 
 7. Ich klicke mit der Maus auf das Menue "Erklaerungen" und zeige dann im Untermenue mit der Maus auf "Vigenere"
 Erwartung: Sowohl das Menue "Erklaerungen" als auch das Untermenue "Vigenere" haben einen dunkelgruenen Hintergrund,
 waehrend die anderen Untermenues ihre urspruengliche Hintergrundfarbe behalten
-Realitaet: entspricht der Erwartung
+Realitaet: entspricht der Erwartung (auf Windows)
 
 8. Ich klicke auf den Button "Haeufigkeitsanalyse"
 Erwartung: Im neuen Fenster hat die Menueleiste im Hintergrund einen vertikalen Farbverlauf von hell- zu dunkelgruen,
 die Ecken der Menueleiste sind abgerundet und die Menues sind in dicker, weisser Druckschrift geschrieben
-Realitaet: entspricht der Erwartung
+Realitaet: entspricht der Erwartung (auf Windows)
 
 9. Ich gehe nach 8. mit der Maus fuer 5 Sekunden auf das Menue "Erklaerung" und gehe dann wieder weg
 Erwartung: Waehrend sich die Maus auf dem Menue befindet, hat dieses einen dunkelgruenen Hintergrund und sobald
 die Maus wieder weggeht, erhaelt es wieder seinen urspruenglichen Farbverlauf
-Realitaet: entspricht der Erwartung
+Realitaet: entspricht der Erwartung (auf Windows)
+
+T41 (fuer Mac):
+10. Ich starte das Programm
+Erwartung: Die Menueleiste des Hauptprogramms wird in der Standardleiste fuer Mac angezeigt und der Titel des Programms ist "CryptoCroc"
+Realitaet: Entspricht der Erwartung (auf Mac)
+
+11. Ich gehe auf die Option "Erklaerungen" und klicke nacheinander auf alle Optionen
+Erwartung: Es oeffnen sich nacheinander 4 separate Fenster mit einer Erklaerung. Ist eines dieser Fenster fokussiert, so wird mir in der Menueleiste nur der Titel "CryptoCroc" angezeigt
+Realitaet: Entspricht der Erwartung (auf Mac)
+
+12. Ich oeffne die Haeufigkeitsanalyse
+Erwartung: Ist das neue Fenster fokussiert, so wird in der Menueleiste nur der Titel "CryptoCroc" angezeigt. Das Fenster hat jedoch selbst eine eigene Menueleiste, die dunkelgruen gefaerbt ist. Die Optionen im Menu sind in dicker, weisser Druckschrift geschrieben
+Realitaet: Entspricht der Erwartung (auf Mac)
+
+13. Ich gehe nach 12. mit der Maus fuer 5 Sekunden auf das Menue "Erklaerungen" und gehe dann wieder weg
+Erwartung: Waehrend sich die Maus auf der Menue Option befindet, hat diese einen hellgruenen Hintergrund und sobald die Maus wieder weggeht, geht auch der hellgruene Hintergrund weg
+Realitaet: Entspricht der Erwartung (auf Mac)
