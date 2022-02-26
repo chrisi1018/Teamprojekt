@@ -259,7 +259,16 @@ public class FAController {
 	private void initLanguage() {
 		this.languageData = FAData.GERMAN;
 		this.language = new JComboBox<String>(languages);
-		this.language.setBorder(new LineBorder(Utility.DARK_GREEN));
+		this.language.setBorder(new LineBorder(Utility.DARK_GREEN) {
+			
+			private static final long serialVersionUID = 1L;
+
+			@Override
+		    public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, 
+		    	    int width, int height) {
+		    	        g.drawRoundRect(x, y, width-1, height-1, 7, 7);
+		    	    }
+		});
 		this.language.setVisible(true);
 		this.language.addActionListener(new ActionListener() {
 
@@ -295,7 +304,16 @@ public class FAController {
 			number[i] = (i + 1) + ". Buchstabe";
 		}
 		this.keyChar = new JComboBox<String>(number);
-		this.keyChar.setBorder(new LineBorder(Utility.DARK_GREEN));
+		this.keyChar.setBorder(new LineBorder(Utility.DARK_GREEN) {
+			
+			private static final long serialVersionUID = 1L;
+
+			@Override
+		    public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, 
+		    	    int width, int height) {
+		    	        g.drawRoundRect(x, y, width-1, height-1, 7, 7);
+		    	    }
+		});
 		this.keyChar.setVisible(true);
 		// bei Auswahl der aktuellen Option
 		this.keyChar.addActionListener(new ActionListener() {

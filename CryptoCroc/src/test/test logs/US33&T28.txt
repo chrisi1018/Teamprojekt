@@ -71,7 +71,8 @@ Realitaet: Entspricht der Erwartung (auf Mac)
 
 T33:
 14. Ich wiederhole 4.
-Erwartung: Schrift, Rand und Pfeil des DropDownMenues sind dunkelgruen
+Erwartung: Schrift, Rand und Pfeil des DropDownMenues sind dunkelgruen und die Ecken des DropDownMenues 
+sind abgerundet
 Realitaet: entspricht der Erwartung
 
 15. Ich klicke mit der Maus einmal auf das DropDownMenue
@@ -87,6 +88,7 @@ Realitaet: entspricht der Erwartung
 
 17. Ich klicke auf den Button "Haeufigkeitsanalyse"
 Erwartung: Schrift, Rand und Pfeil der DropDownMenues fuer die Sprache und den Schluesselbuchstaben sind dunkelgruen
+und die Ecken beider DropDownMenues sind abgerundet
 Realitaet: entspricht der Erwartung
 
 18. Ich klicke mit der Maus einmal auf das DropDownMenue der Sprache
