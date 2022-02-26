@@ -94,6 +94,7 @@ public class MainController {
 		UIManager.put("ComboBox.font", new FontUIResource(Utility.FONT));
 		UIManager.put("ComboBox.selectionBackground", new ColorUIResource(Utility.DARK_GREEN));
 		UIManager.put("ComboBox.buttonArrowColor", new ColorUIResource(Utility.DARK_GREEN));
+		UIManager.put("ComboBox.buttonHoverArrowColor", new ColorUIResource(Utility.DARK_GREEN));
 		UIManager.put("ComboBox.padding", new InsetsUIResource(5, 5, 5, 5));
 	}
 

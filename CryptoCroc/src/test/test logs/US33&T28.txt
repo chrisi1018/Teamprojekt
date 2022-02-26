@@ -50,3 +50,45 @@ Realitaet: entspricht der Erwartung
 Erwartung: Waehrend sich die Maus auf dem Menue befindet, hat dieses einen dunkelgruenen Hintergrund und sobald
 die Maus wieder weggeht, erhaelt es wieder seinen urspruenglichen Farbverlauf
 Realitaet: entspricht der Erwartung
+
+T33:
+10. Ich wiederhole 4.
+Erwartung: Schrift, Rand und Pfeil des DropDownMenues sind dunkelgruen
+Realitaet: entspricht der Erwartung
+
+11. Ich klicke mit der Maus einmal auf das DropDownMenue
+Erwartung: Der Pfeil im DropDownMenue wird beim Klicken kurz hellgruen und es oeffnet sich eine Auswahl an Optionen,
+welche ebenfalls in dunkelgruener Schrift angezeigt werden
+Realitaet: entspricht der Erwartung
+
+12. Ich gehe nach 11. mit der Maus einmal ueber jede Option im DropDownMenue
+Erwartung: Solange sich die Maus auf einer Option befindet, erhaelt diese einen dunkelgruenen Hintergrund und die
+Schrift der Option wird weiss, waehrend alle nicht ausgewaehlten Optionen einen weissen Hintergrund und eine
+dunkelgruene Schrift besitzen
+Realitaet: entspricht der Erwartung
+
+13. Ich klicke auf den Button "Haeufigkeitsanalyse"
+Erwartung: Schrift, Rand und Pfeil der DropDownMenues fuer die Sprache und den Schluesselbuchstaben sind dunkelgruen
+Realitaet: entspricht der Erwartung
+
+14. Ich klicke mit der Maus einmal auf das DropDownMenue der Sprache
+Erwartung: Der Pfeil im DropDownMenue wird beim Klicken kurz hellgruen und es oeffnet sich eine Auswahl an Optionen,
+welche ebenfalls in dunkelgruener Schrift angezeigt werden
+Realitaet: entspricht der Erwartung
+
+15. Ich gehe nach 14. mit der Maus einmal ueber jede Option im DropDownMenue
+Erwartung: Solange sich die Maus auf einer Option befindet, erhaelt diese einen dunkelgruenen Hintergrund und die
+Schrift der Option wird weiss, waehrend alle nicht ausgewaehlten Optionen einen weissen Hintergrund und eine
+dunkelgruene Schrift besitzen
+Realitaet: entspricht der Erwartung
+
+16. Ich klicke mit der Maus einmal auf das DropDownMenue des Schluesselbuchstabens
+Erwartung: Der Pfeil im DropDownMenue wird beim Klicken kurz hellgruen und es oeffnet sich eine Auswahl an Optionen,
+welche ebenfalls in dunkelgruener Schrift angezeigt werden
+Realitaet: entspricht der Erwartung
+
+17. Ich gehe nach 16. mit der Maus einmal ueber jede Option im DropDownMenue
+Erwartung: Solange sich die Maus auf einer Option befindet, erhaelt diese einen dunkelgruenen Hintergrund und die
+Schrift der Option wird weiss, waehrend alle nicht ausgewaehlten Optionen einen weissen Hintergrund und eine
+dunkelgruene Schrift besitzen
+Realitaet: entspricht der Erwartung
