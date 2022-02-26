@@ -266,7 +266,7 @@ public class FAController {
 			@Override
 		    public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, 
 		    	    int width, int height) {
-		    	        g.drawRoundRect(x, y, width-1, height-1, 7, 7);
+		    	        g.drawRoundRect(x, y, width - 1, height - 1, 7, 7);
 		    	    }
 		});
 		this.language.setVisible(true);
@@ -311,7 +311,7 @@ public class FAController {
 			@Override
 		    public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, 
 		    	    int width, int height) {
-		    	        g.drawRoundRect(x, y, width-1, height-1, 7, 7);
+		    	        g.drawRoundRect(x, y, width - 1, height - 1, 7, 7);
 		    	    }
 		});
 		this.keyChar.setVisible(true);
