@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.UIManager;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.FontUIResource;
+import javax.swing.plaf.InsetsUIResource;
 
 import utility.Utility;
 
@@ -75,11 +76,12 @@ public class MainController {
 	}
 
 	/**
-	 * Definiert Farben und Schriftstil in der Menuleiste
+	 * Definiert Farben und Schriftstil in der Menueleiste und im DropdownMenue
 	 */
 	private void setUI() {
 		UIManager.put("Menu.font", new FontUIResource(Utility.MENU_FONT));
 		UIManager.put("MenuItem.font", new FontUIResource(Utility.FONT));
+		UIManager.put("MenuItem.foreground", new ColorUIResource(Utility.DARK_GREEN));
 		UIManager.put("MenuItem.selectionBackground", new ColorUIResource(Utility.DARK_GREEN));
 		if (System.getProperty("os.name").toLowerCase().equals("mac os x")) {
 			UIManager.put("MenuBar.hoverBackground", new ColorUIResource(Utility.LIGHT_GREEN));
@@ -88,7 +90,11 @@ public class MainController {
 			UIManager.put("MenuBar.hoverBackground", new ColorUIResource(Utility.DARK_GREEN));
 			UIManager.put("Menu.selectionBackground", new ColorUIResource(Utility.DARK_GREEN));
 		}
-
+		UIManager.put("ComboBox.foreground", new ColorUIResource(Utility.DARK_GREEN));
+		UIManager.put("ComboBox.font", new FontUIResource(Utility.FONT));
+		UIManager.put("ComboBox.selectionBackground", new ColorUIResource(Utility.DARK_GREEN));
+		UIManager.put("ComboBox.buttonArrowColor", new ColorUIResource(Utility.DARK_GREEN));
+		UIManager.put("ComboBox.padding", new InsetsUIResource(5, 5, 5, 5));
 	}
 
 	/**

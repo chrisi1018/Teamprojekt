@@ -2,6 +2,7 @@ package controller;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.JCheckBox;
@@ -259,6 +260,7 @@ public class FAController {
 	private void initLanguage() {
 		this.languageData = FAData.GERMAN;
 		this.language = new JComboBox<String>(languages);
+		this.language.setBorder(new LineBorder(Utility.DARK_GREEN));
 		this.language.setVisible(true);
 		this.language.addActionListener(new ActionListener() {
 
@@ -294,6 +296,7 @@ public class FAController {
 			number[i] = (i + 1) + ". Buchstabe";
 		}
 		this.keyChar = new JComboBox<String>(number);
+		this.keyChar.setBorder(new LineBorder(Utility.DARK_GREEN));
 		this.keyChar.setVisible(true);
 		// bei Auswahl der aktuellen Option
 		this.keyChar.addActionListener(new ActionListener() {

@@ -1,8 +1,13 @@
 package controller;
 
 import java.awt.BorderLayout;
+
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
+
+import utility.Utility;
+
 import java.awt.event.ActionListener;
 
 /**
@@ -24,6 +29,7 @@ public class Dropdown {
 	 */
 	public Dropdown(String[] options, ActionListener change) {
 		dropDown.setEditable(false);
+		dropDown.setBorder(new LineBorder(Utility.DARK_GREEN));
 		this.options = options;
 		for (int i = 0; i < this.options.length; i++) {
 			dropDown.addItem(options[i]);
