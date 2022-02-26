@@ -67,8 +67,7 @@ public class FAController {
 	private static String currentLanguage;
 	private static int max;
 	private FABottom bottom;
-	private int invalidLengthError = 0;
-
+	private int invalidLengthError = 1;
 
 	/**
 	 * Der Konstruktor fuer die Klasse FaController, siehe init-Methoden fuer mehr
@@ -178,11 +177,11 @@ public class FAController {
 								&& lengthTextField.getText(0, 1).equals("1")) {
 							super.insertString(1, previousSecondNumber, att);
 						}
-						if (invalidLengthError < Utility.MAX_ERROR_MESSAGES) {
+						if (invalidLengthError % Utility.MAX_ERROR_MESSAGES == 1) {
 							Messages.errorMessage("Die L\u00e4nge des Schl\u00fcssels darf "
 									+ Utility.MAXIMUM_KEY_LENGTH + " nicht \u00fcberschreiten!");
-							invalidLengthError++;
 						}
+						invalidLengthError++;
 					}
 				}
 			}
@@ -211,7 +210,7 @@ public class FAController {
 					gui.setTable(tables);
 					gui.setTablePanel();
 					gui.updateKeyChar(keyChar);
-					//TODO Update der Schluesselfelder
+					// TODO Update der Schluesselfelder
 				}
 			}
 
@@ -461,13 +460,13 @@ public class FAController {
 		gui = new FAGui(menu.getMenuBar(), graph, tables, left, right, language, keyChar, lengthLabel, lengthTextField,
 				monoCheckBox, bottom.createBottomPanel());
 	}
-	
+
 	/**
 	 * Initialisiert FABottom
 	 */
 	private void initFABottom() {
 		this.bottom = new FABottom(this.key, this.tables, this);
-		switch(this.key.getSerialnumber()) {
+		switch (this.key.getSerialnumber()) {
 		case 1:
 			this.lengthTextField.setText(Integer.toString(length));
 			break;
@@ -497,7 +496,7 @@ public class FAController {
 	public void focus() {
 		gui.focus();
 	}
-	
+
 	/**
 	 * Schliesst den Frame der Haeufigkeitsanalyse
 	 */

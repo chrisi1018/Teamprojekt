@@ -70,7 +70,7 @@ public class FAGui {
 			JComboBox<String> keyChar, JLabel lengthLabel, JTextField lengthTextField, JCheckBox monoCheckBox, JPanel bottom) {
 		// erstellt den Frame
 		this.frame = new JFrame("H\u00e4ufigkeitsanalyse");
-		this.frame.setSize(1300, 720);
+		this.frame.setSize(1300, 730);
 		this.frame.setResizable(false);
 		this.frame.setVisible(true);
 		this.frame.setLayout(new GridBagLayout());
@@ -189,7 +189,7 @@ public class FAGui {
 		toptop.add(new JPanel(), BorderLayout.PAGE_START);
 		// Label am Rand und Schatten von Wort "Haeufigkeitsanalyse" genau gleich wie
 		// Schatten von "Schluessellaenge"
-		toptop.setPreferredSize(new Dimension(1260 / 2 - 36, 40));
+		toptop.setPreferredSize(new Dimension(1260 / 2, 40));
 		top.add(toptop, BorderLayout.BEFORE_LINE_BEGINS);
 
 		// Komponenten hinzufuegen
@@ -197,7 +197,7 @@ public class FAGui {
 		topbottom.add(lengthTextField, BorderLayout.CENTER);
 		topbottom.add(monoCheckBox, BorderLayout.LINE_END);
 		top.add(topbottom, BorderLayout.PAGE_END);
-		top.setPreferredSize(new Dimension(500, 100));
+		top.setPreferredSize(new Dimension(600, 100));
 		return top;
 	}
 
