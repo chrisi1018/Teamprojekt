@@ -67,9 +67,9 @@ public class VKeyPanel extends KeyPanel {
 		textPanel.add(key);
 		key.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-		//Setzt die Breite und die Hoehe des Textfelds
+		// Setzt die Breite und die Hoehe des Textfelds
 		key.setMaximumSize(new Dimension(Utility.WIDTH_TEXTFIELD, Utility.HEIGHT_TEXTFIELD));
-		//Wird benoetigt um die Hoehe zu setzen
+		// Wird benoetigt um die Hoehe zu setzen
 		key.setPreferredSize(new Dimension(Utility.WIDTH_TEXTFIELD, Utility.HEIGHT_TEXTFIELD));
 		
 		// fuegt das Text- und Buttonpanel zu einem Panel zusammen

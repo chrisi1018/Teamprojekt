@@ -85,24 +85,19 @@ public class MKeyPanel extends KeyPanel {
 		// Alphabet in Array schreiben
 		this.initNames();
 
-		// erstellt Panel mit JLabel als titel
-		JPanel title = new JPanel();
+		BorderLayout layout = new BorderLayout();
 		JLabel description = new JLabel("Schl\u00fcssel");
-		title.setLayout(new BoxLayout(title, BoxLayout.PAGE_AXIS));
-		description.setAlignmentX(Component.CENTER_ALIGNMENT);
 		description.setFont(Utility.HEADLINE_LABEL_FONT);
 		description.setForeground(Utility.DARK_GREEN);
-		title.add(description, BorderLayout.SOUTH);
 
 		// intialisiert Eintraege von keys und setzt Textstil
 		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
 			names[i].setFont(Utility.LABEL_FONT);
 			names[i].setForeground(Utility.DARK_GREEN);
-			names[i].setAlignmentX(Component.CENTER_ALIGNMENT);
 			keys[i].setFont(Utility.TEXT_FONT);
 			keys[i].setBorder(Utility.TEXTFIELD_BORDER);
 			keys[i].setHorizontalAlignment(JTextField.CENTER);
-			// keys[i].setColumns(1);
+
 			keys[i].setDocument(new LimitedTextfield(maxInput, i, keys));
 
 			// sorgt dafuer dass Text im Textfeld markiert wird beim Klicken
@@ -124,26 +119,36 @@ public class MKeyPanel extends KeyPanel {
 			JPanel nameKeyPanel = new JPanel();
 			nameKeyPanel.setLayout(new BoxLayout(nameKeyPanel, BoxLayout.PAGE_AXIS));
 			nameKeyPanel.add(names[i]);
+			names[i].setAlignmentX(Component.CENTER_ALIGNMENT);
 			nameKeyPanel.add(keys[i]);
-			nameKeyPanel.setPreferredSize(new Dimension(25, 50));
+			keys[i].setAlignmentX(Component.CENTER_ALIGNMENT);
+			// Setzt die Breite und die Hoehe des Textfelds
+			keys[i].setMaximumSize(new Dimension(Utility.WIDTH_TEXTFIELD_ONE_LETTER, Utility.HEIGHT_TEXTFIELD));
+			// Wird benoetigt um die Hoehe zu setzen
+			keys[i].setPreferredSize(new Dimension(Utility.WIDTH_TEXTFIELD_ONE_LETTER, Utility.HEIGHT_TEXTFIELD));
 			nameKeyPanels[i] = nameKeyPanel;
 		}
 
 		// fuer die Buchstaben und Textfelder
 		FlowLayout fLayout = new FlowLayout();
-		fLayout.setVgap(25);
 		JPanel inputPanel = new JPanel(fLayout);
 		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
 			inputPanel.add(nameKeyPanels[i]);
 		}
-
+		inputPanel.setPreferredSize(new Dimension(0, 130));
+		
+		JPanel textPanel = new JPanel();
+		textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.PAGE_AXIS));
+		textPanel.add(description);
+		description.setAlignmentX(Component.CENTER_ALIGNMENT);
+		textPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+		textPanel.add(inputPanel);
+		
 		// alles zusammenfuegen und Buttons dazu machen
-		JPanel total = new JPanel();
-		total.setLayout(new BoxLayout(total, BoxLayout.PAGE_AXIS));
-		total.add(title);
-		title.add(Box.createRigidArea(new Dimension(0, 20)));
-		total.add(inputPanel);
-		total.add(this.createButtonPanel());
+		JPanel total = new JPanel(layout);
+		total.add(textPanel, BorderLayout.PAGE_START);
+		textPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+		total.add(this.createButtonPanel(), BorderLayout.CENTER);
 
 		return total;
 	}
