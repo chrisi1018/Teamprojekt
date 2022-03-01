@@ -13,6 +13,8 @@ import javax.swing.JTextField;
 import controller.FAGraph;
 import controller.FATable;
 import controller.KeyPanel;
+import controller.MoveMouseListener;
+
 import utility.Utility;
 
 import java.awt.BorderLayout;
@@ -75,12 +77,17 @@ public class FAGui {
 		this.frame.setVisible(true);
 		this.frame.setLayout(new GridBagLayout());
 		this.mainPanel = new JPanel(new BorderLayout(4, 4));
+		this.menu = menu; // muss hier initialisiert werden, 
+					      // damit der MoveMouseListener hinzugefuegt werden kann
 		
-		//Setze das Icon im Fenster
+		//Setze das Icon im Fenster und den MouseListener fuer die MenueLeiste
 		String os = System.getProperty("os.name").toLowerCase();
-		if (!os.equals("mac os x")) { //Nicht Betriebssystem Appel
+		if (!os.equals("mac os x")) { //Nicht Betriebssystem Apple
 			ImageIcon icon = new ImageIcon(this.getClass().getResource(("../controller/croc.png")));
 			this.frame.setIconImage(icon.getImage());
+			MoveMouseListener listener = new MoveMouseListener(this.frame);
+			this.menu.addMouseListener(listener);
+			this.menu.addMouseMotionListener(listener);
 		}
 
 		// alles sichtbar machen und initialisieren

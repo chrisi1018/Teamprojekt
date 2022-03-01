@@ -4,6 +4,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
+
+import controller.MoveMouseListener;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
@@ -41,11 +44,14 @@ public class Gui {
 		this.mainPanel = new JPanel(new BorderLayout(4, 4));
 		this.frame.setJMenuBar(menu);
 		
-		//Setze das Icon im Fenster
+		//Setze das Icon im Fenster und den MouseListener fuer die MenueLeiste
 		String os = System.getProperty("os.name").toLowerCase();
-		if (!os.equals("mac os x")) { //Nicht Betriebssystem Appel
+		if (!os.equals("mac os x")) { //Nicht Betriebssystem Apple
 			ImageIcon icon = new ImageIcon(this.getClass().getResource(("../controller/croc.png")));
 			this.frame.setIconImage(icon.getImage());
+			MoveMouseListener listener = new MoveMouseListener(this.frame);
+			this.frame.getJMenuBar().addMouseListener(listener);
+			this.frame.getJMenuBar().addMouseMotionListener(listener);
 		}
 		
 		//Speichert die einzelnen Gui-Elemente als Attribute ab
