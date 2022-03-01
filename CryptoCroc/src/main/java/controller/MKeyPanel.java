@@ -22,7 +22,7 @@ import java.util.Random;
  * Definiert 'createKeyPanel'-Methode fuer monoalphabetische Verschluesselung
  * 
  * @author zes, Julian Sturm, chrisi
- * @version 1.5
+ * @version 1.6
  */
 public class MKeyPanel extends KeyPanel {
 

@@ -21,7 +21,7 @@ import java.awt.Component;
  * Schluesseltextfeld
  * 
  * @author Julian Singer, chrisi
- * @version 1.1
+ * @version 1.2
  *
  */
 public class CKeyPanel extends KeyPanel {
@@ -79,14 +79,18 @@ public class CKeyPanel extends KeyPanel {
 		textPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		textPanel.add(name);
 		name.setAlignmentX(Component.CENTER_ALIGNMENT);
-		textPanel.add(Box.createRigidArea(new Dimension(0, 5)));
 		textPanel.add(key);
+		key.setAlignmentX(Component.CENTER_ALIGNMENT);
 		
-		//key.setMaximumSize(new Dimension(19, 30));
+		//Setzt die Breite und die Hoehe des Textfelds
+		key.setMaximumSize(new Dimension(Utility.WIDTH_TEXTFIELD_ONE_LETTER, Utility.HEIGHT_TEXTFIELD));
+		//Wird benoetigt um die Hoehe zu setzen
+		key.setPreferredSize(new Dimension(Utility.WIDTH_TEXTFIELD_ONE_LETTER, Utility.HEIGHT_TEXTFIELD));
 
 		// fuegt das Text- und Buttonpanel zu einem Panel zusammen
 		JPanel keyPanel = new JPanel(layout);
 		keyPanel.add(textPanel, BorderLayout.PAGE_START);
+		textPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		keyPanel.add(this.createButtonPanel(), BorderLayout.CENTER);
 
 		return keyPanel;
@@ -126,6 +130,8 @@ public class CKeyPanel extends KeyPanel {
 		}
 		String keyString = buffer.toString();
 		this.setKey(keyString);
+		
+		System.out.println("Height: " + key.getHeight() + ", Width: " + key.getWidth());
 	}
 	
 	/**

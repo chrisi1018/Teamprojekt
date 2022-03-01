@@ -1,8 +1,12 @@
 package controller;
 
+import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Image;
-
+import java.awt.BorderLayout;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -86,12 +90,25 @@ public abstract class KeyPanel {
 	 * @return ein JPanel mit die Buttons "verschluesseln" und "entschluesseln"
 	 */
 	protected JPanel createButtonPanel() {
-		JPanel panel = new JPanel(new FlowLayout()); // FlowLayout wichtig damit Button passende Groesse haben
-		panel.add(encrypt);
-		panel.add(decrypt);
-		panel.add(freqAna);
-		panel.add(randomKey);
-		panel.add(this.createCroc());
+		JPanel panel = new JPanel(new BorderLayout()); // FlowLayout wichtig damit Button passende Groesse haben
+		//panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+		
+		JPanel buttonsPanel = new JPanel();
+		buttonsPanel.setLayout(new BoxLayout(buttonsPanel, BoxLayout.PAGE_AXIS));
+		encrypt.setAlignmentX(Component.CENTER_ALIGNMENT);
+		buttonsPanel.add(encrypt);
+		//panel.add(encrypt, BorderLayout.PAGE_START);
+		buttonsPanel.add(Box.createRigidArea(new Dimension(0, 5)));
+		buttonsPanel.add(decrypt);
+		panel.add(buttonsPanel, BorderLayout.PAGE_START);
+		//panel.add(decrypt, BorderLayout.PAGE_START);
+		//panel.add(Box.createRigidArea(new Dimension(0, 5)));
+		//panel.add(freqAna, BorderLayout.PAGE_START);
+		//panel.add(Box.createRigidArea(new Dimension(0, 5)));
+		//panel.add(randomKey, BorderLayout.PAGE_START);
+		//panel.add(Box.createRigidArea(new Dimension(0, 5)));
+		panel.add(this.createCroc(), BorderLayout.PAGE_END);
+		panel.setBackground(Utility.DARK_GREEN);
 		return panel;
 	}
 
