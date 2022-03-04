@@ -2,6 +2,7 @@ package controller;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.border.LineBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.JCheckBox;
@@ -25,7 +26,6 @@ import model.VCrypt;
 import model.CCrypt;
 import model.MCrypt;
 import utility.Utility;
-import javax.swing.JPanel;
 
 import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
@@ -67,8 +67,7 @@ public class FAController {
 	private static String currentLanguage;
 	private static int max;
 	private FABottom bottom;
-	private int invalidLengthError = 0;
-
+	private int invalidLengthError = 1;
 
 	/**
 	 * Der Konstruktor fuer die Klasse FaController, siehe init-Methoden fuer mehr
@@ -178,11 +177,11 @@ public class FAController {
 								&& lengthTextField.getText(0, 1).equals("1")) {
 							super.insertString(1, previousSecondNumber, att);
 						}
-						if (invalidLengthError < Utility.MAX_ERROR_MESSAGES) {
+						if (invalidLengthError % Utility.MAX_ERROR_MESSAGES == 1) {
 							Messages.errorMessage("Die L\u00e4nge des Schl\u00fcssels darf "
 									+ Utility.MAXIMUM_KEY_LENGTH + " nicht \u00fcberschreiten!");
-							invalidLengthError++;
 						}
+						invalidLengthError++;
 					}
 				}
 			}
@@ -211,7 +210,7 @@ public class FAController {
 					gui.setTable(tables);
 					gui.setTablePanel();
 					gui.updateKeyChar(keyChar);
-					//TODO Update der Schlüsselfelder
+					// TODO Update der Schluesselfelder
 				}
 			}
 
@@ -260,6 +259,16 @@ public class FAController {
 	private void initLanguage() {
 		this.languageData = FAData.GERMAN;
 		this.language = new JComboBox<String>(languages);
+		this.language.setBorder(new LineBorder(Utility.DARK_GREEN) {
+			
+			private static final long serialVersionUID = 1L;
+
+			@Override
+		    public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, 
+		    	    int width, int height) {
+		    	        g.drawRoundRect(x, y, width - 1, height - 1, 7, 7);
+		    	    }
+		});
 		this.language.setVisible(true);
 		this.language.addActionListener(new ActionListener() {
 
@@ -295,6 +304,16 @@ public class FAController {
 			number[i] = (i + 1) + ". Buchstabe";
 		}
 		this.keyChar = new JComboBox<String>(number);
+		this.keyChar.setBorder(new LineBorder(Utility.DARK_GREEN) {
+			
+			private static final long serialVersionUID = 1L;
+
+			@Override
+		    public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, 
+		    	    int width, int height) {
+		    	        g.drawRoundRect(x, y, width - 1, height - 1, 7, 7);
+		    	    }
+		});
 		this.keyChar.setVisible(true);
 		// bei Auswahl der aktuellen Option
 		this.keyChar.addActionListener(new ActionListener() {
@@ -352,11 +371,11 @@ public class FAController {
 	 */
 	private void initFAMenuBar() {
 		this.menu = new FAMenuBar();
-		this.menu.initExplanationItem(1, new FAExplanationFrame());
+		this.menu.initExplanationItem(2, new FAExplanationFrame());
 		this.menu.fillRightSide();
 		// initialisiert bei "Text neu laden" FATabel und TableData neu
 		// und passt das Fenster an neuen Text an
-		this.menu.getMenuBar().getMenu(0).addMouseListener(new MouseListener() {
+		this.menu.getMenuBar().getMenu(1).addMouseListener(new MouseListener() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				initTableData();
@@ -459,13 +478,13 @@ public class FAController {
 		gui = new FAGui(menu.getMenuBar(), graph, tables, left, right, language, keyChar, lengthLabel, lengthTextField,
 				monoCheckBox, bottom.createBottomPanel());
 	}
-	
+
 	/**
 	 * Initialisiert FABottom
 	 */
 	private void initFABottom() {
 		this.bottom = new FABottom(this.key, this.tables, this);
-		switch(this.key.getSerialnumber()) {
+		switch (this.key.getSerialnumber()) {
 		case 1:
 			this.lengthTextField.setText(Integer.toString(length));
 			break;
@@ -490,14 +509,14 @@ public class FAController {
 	}
 
 	/**
-	 * Legt den focus auf die Hï¿½ufigkeitsanalyse
+	 * Legt den focus auf die Haeufigkeitsanalyse
 	 */
 	public void focus() {
 		gui.focus();
 	}
-	
+
 	/**
-	 * Schließt den Frame der Häufigkeitsanalyse
+	 * Schliesst den Frame der Haeufigkeitsanalyse
 	 */
 	public void disposeFrame() {
 		gui.disposeFrame();

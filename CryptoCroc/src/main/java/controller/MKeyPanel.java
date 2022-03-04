@@ -196,14 +196,12 @@ public class MKeyPanel extends KeyPanel {
 			this.names[i] = new JLabel(Character.toString(c), JLabel.CENTER);
 		}
 	}
-	
+
 	/**
-	 * Die Methode gibt die Seriennumer des KeyPanels zurück
-	 * CKeypanel = 1
-	 * MKeypanel = 2
-	 * VKeypanel = 3
+	 * Die Methode gibt die Seriennumer des KeyPanels zurueck CKeypanel = 1 MKeypanel
+	 * = 2 VKeypanel = 3
 	 * 
-	 * @param return 2;
+	 * @return 2;
 	 */
 	public int getSerialnumber() {
 		return this.serialnumber;

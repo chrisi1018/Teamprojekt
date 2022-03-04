@@ -129,12 +129,12 @@ public class CKeyPanel extends KeyPanel {
 	}
 	
 	/**
-	 * Die Methode gibt die Seriennumer des KeyPanels zurück
+	 * Die Methode gibt die Seriennumer des KeyPanels zurueck
 	 * CKeypanel = 1
 	 * MKeypanel = 2
 	 * VKeypanel = 3
 	 * 
-	 * @param return 1;
+	 * @return 1;
 	 */
 	public int getSerialnumber() {
 		return this.serialnumber;

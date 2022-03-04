@@ -43,6 +43,7 @@ public class Menu {
 	 */
 	public Menu(String[] menus) {
 		menuBar = new GradientMenuBar();
+		menuBar.add(Box.createHorizontalStrut(10)); // Abstand zum abgerundeten Rand
 		JMenu menu = new JMenu("Men\u00fc");
 		menuBar.add(menu);
 		for (int i = 0; i < menus.length; i++) {
@@ -269,14 +270,14 @@ public class Menu {
 	}
 	
 	/**
-	 * Fuellt die rechte Seite des Menues, um diese später 
+	 * Fuellt die rechte Seite des Menues, um diese spaeter 
 	 * auch einfaerben zu koennen
 	 */
 	public void fillRightSide() {
 		JLabel title = new JLabel("CryptCroc");
 		title.setFont(Utility.HEADLINE_LABEL_FONT);
 		title.setForeground(Utility.WHITE);
-		menuBar.add(Box.createHorizontalStrut(395)); // zur mittigen Platzierung des Labels
+		menuBar.add(Box.createHorizontalStrut(385)); // zur mittigen Platzierung des Labels
 		menuBar.add(title);
 		menuBar.add(Box.createHorizontalGlue());
 	}

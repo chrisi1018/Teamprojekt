@@ -306,7 +306,7 @@ public class FATable {
 	/**
 	 * Getter fuer textFields
 	 * 
-	 * @return gibt die TextFelder zurück
+	 * @return gibt die TextFelder zurueck
 	 */
 	public JTextField[] getTextFields() {
 		return this.textFields;

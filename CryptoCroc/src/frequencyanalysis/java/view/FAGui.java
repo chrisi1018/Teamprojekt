@@ -13,6 +13,8 @@ import javax.swing.JTextField;
 import controller.FAGraph;
 import controller.FATable;
 import controller.KeyPanel;
+import controller.MoveMouseListener;
+
 import utility.Utility;
 
 import java.awt.BorderLayout;
@@ -70,17 +72,22 @@ public class FAGui {
 			JComboBox<String> keyChar, JLabel lengthLabel, JTextField lengthTextField, JCheckBox monoCheckBox, JPanel bottom) {
 		// erstellt den Frame
 		this.frame = new JFrame("H\u00e4ufigkeitsanalyse");
-		this.frame.setSize(1300, 710);
+		this.frame.setSize(1300, 730);
 		this.frame.setResizable(false);
 		this.frame.setVisible(true);
 		this.frame.setLayout(new GridBagLayout());
 		this.mainPanel = new JPanel(new BorderLayout(4, 4));
+		this.menu = menu; // muss hier initialisiert werden, 
+					      // damit der MoveMouseListener hinzugefuegt werden kann
 		
-		//Setze das Icon im Fenster
+		//Setze das Icon im Fenster und den MouseListener fuer die MenueLeiste
 		String os = System.getProperty("os.name").toLowerCase();
-		if (!os.equals("mac os x")) { //Nicht Betriebssystem Appel
-			ImageIcon icon = new ImageIcon(this.getClass().getResource(("../controller/croc.png")));
+		if (!os.equals("mac os x")) { //Nicht Betriebssystem Apple
+			ImageIcon icon = new ImageIcon(this.getClass().getResource(("/controller/croc.png")));
 			this.frame.setIconImage(icon.getImage());
+			MoveMouseListener listener = new MoveMouseListener(this.frame);
+			this.menu.addMouseListener(listener);
+			this.menu.addMouseMotionListener(listener);
 		}
 
 		// alles sichtbar machen und initialisieren
@@ -159,8 +166,6 @@ public class FAGui {
 		this.frame.add(mainPanel, c);
 
 		// padding nach unten
-		// TODO hier ist Platz fuer das Feld mit dem Schluessel; eventuell muss die
-		// Groesse des frame's auf (1300, 700) umgestellt werden
 		c.ipady = 0;
 		c.gridy = 2;
 		c.ipadx = 30;
@@ -191,7 +196,7 @@ public class FAGui {
 		toptop.add(new JPanel(), BorderLayout.PAGE_START);
 		// Label am Rand und Schatten von Wort "Haeufigkeitsanalyse" genau gleich wie
 		// Schatten von "Schluessellaenge"
-		toptop.setPreferredSize(new Dimension(1260 / 2 - 36, 40));
+		toptop.setPreferredSize(new Dimension(1260 / 2, 40));
 		top.add(toptop, BorderLayout.BEFORE_LINE_BEGINS);
 
 		// Komponenten hinzufuegen
@@ -199,7 +204,7 @@ public class FAGui {
 		topbottom.add(lengthTextField, BorderLayout.CENTER);
 		topbottom.add(monoCheckBox, BorderLayout.LINE_END);
 		top.add(topbottom, BorderLayout.PAGE_END);
-		top.setPreferredSize(new Dimension(500, 100));
+		top.setPreferredSize(new Dimension(600, 100));
 		return top;
 	}
 
@@ -333,7 +338,7 @@ public class FAGui {
 	}
 	
 	/**
-	 * Methode die den Frame Schließt
+	 * Methode die den Frame Schlieï¿½t
 	 */
 	public void disposeFrame() {
 		if (this.frame != null) {

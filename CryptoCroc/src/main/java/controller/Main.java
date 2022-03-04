@@ -2,7 +2,6 @@ package controller;
 
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
-
 import com.formdev.flatlaf.FlatLightLaf;
 
 /**
@@ -22,6 +21,7 @@ public class Main {
 		// falls Mac benutze die mac menu bar
 		if (System.getProperty("os.name").toLowerCase().equals("mac os x")) {
 			System.setProperty("apple.laf.useScreenMenuBar", "true");
+			System.setProperty("apple.awt.application.name", "CryptoCroc");
 		}
 		
 		try {
