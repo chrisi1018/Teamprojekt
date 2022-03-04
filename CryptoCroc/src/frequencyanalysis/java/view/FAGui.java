@@ -83,7 +83,7 @@ public class FAGui {
 		//Setze das Icon im Fenster und den MouseListener fuer die MenueLeiste
 		String os = System.getProperty("os.name").toLowerCase();
 		if (!os.equals("mac os x")) { //Nicht Betriebssystem Apple
-			ImageIcon icon = new ImageIcon(this.getClass().getResource(("../controller/croc.png")));
+			ImageIcon icon = new ImageIcon(this.getClass().getResource(("/controller/croc.png")));
 			this.frame.setIconImage(icon.getImage());
 			MoveMouseListener listener = new MoveMouseListener(this.frame);
 			this.menu.addMouseListener(listener);
