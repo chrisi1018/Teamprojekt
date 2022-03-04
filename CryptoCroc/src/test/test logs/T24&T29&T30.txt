@@ -1,0 +1,50 @@
+(Git: 8e8ab0d)
+
+Java-Version: 1.8
+Betriebssystem: Windows 11
+getestet von: Julian Sturm
+
+1: Normaler Start der Haeufigkeitsanalyse
+1.1 Ich drücke im Hauptfenster auf den Button Haeufigkeitsanalyse, ohne eingabe eines Schluessels in das Schluesselfeld,
+	mit ausgewaehlter Verschluesselung Caesar.
+Erwartungen: Das Fenster der Haeufigkeitsanalyse oeffnet sich, die Schluessellaenge ist 1, die Monocheckbox
+	ist ungescheckt, die Buchstaben in den Schluesselfeldern sind in korrekte Reihenfolge und beginnen mit A.
+	Im unteren Teil wird ein Feld fuer die Eingabe des Schluessels angezeigt.
+Realitaet: Entspricht den Erwartungen.
+1.2 Ich drücke im Hauptfenster auf den Button Haeufigkeitsanalyse, ohne eingabe eines Schluessels in das Schluesselfeld,
+	mit ausgewaehlter Verschluesselung Monoalphabetisch.
+Erwartungen: Das Fenster der Haeufigkeitsanalyse oeffnet sich, die Schluessellaenge ist 1, die Monocheckbox
+	ist gescheckt, die Buchstaben in den Schluesselfeldern sind in korrekte Reihenfolge und beginnen mit A.
+	Im untern Teil wird kein Feld fuer die Eingabe des Schluessels angezeigt.
+Realitaet: Entspricht den Erwartungen.
+1.3 Ich drücke im Hauptfenster auf den Button Haeufigkeitsanalyse, ohne eingabe eines Schluessels in das Schluesselfeld,
+	mit ausgewaehlter Verschluesselung Viginere.
+Erwartungen: Wie in 1.1
+Realitaet: Entspricht den Erwartungen.
+
+2: Start mit Vorhandendem Schluessel:
+2.1 Ich drücke im Hauptfenster auf den Button Haeufigkeitsanalyse, mit einem Zufaelligen Schluessel X,
+	mit ausgewaehlter Verschluesselung Caesar.
+Erwartungen: Das Fenster der Haeufigkeitsanalyse oeffnet sich, die Schluessellaenge ist 1, die Monocheckbox
+	ist ungescheckt, die Buchstaben in den Schluesselfeldern sind in korrekte Reihenfolge und beginnen mit X.
+	Im unteren Teil wird ein Feld fuer die Eingabe des Schluessels angezeigt.
+Realitaet: Entspricht den Erwartungen.
+2.2 Ich drücke im Hauptfenster auf den Button Haeufigkeitsanalyse, mit einem zufällig erstelten Schluessel X,
+	mit ausgewaehlter Verschluesselung Monoalphabetisch.
+Erwartungen: Das Fenster der Haeufigkeitsanalyse oeffnet sich, die Schluessellaenge ist 1, die Monocheckbox
+	ist gescheckt, die Buchstaben in den Schluesselfeldern und sind in der Reihenfolge von X.
+	Im untern Teil wird kein Feld fuer die Eingabe des Schluessels angezeigt.
+Realitaet: Entspricht den Erwartungen.
+2.3.1 Ich drücke im Hauptfenster auf den Button Haeufigkeitsanalyse, mit einem zufällig erstelten Schluessel X,
+	mit ausgewaehlter Verschluesselung Viginere.
+Erwartungen: Das Fenster der Haeufigkeitsanalyse oeffnet sich, die Schluessellaenge entspricht der Laenge von X,
+	die MonoCHeckbox ist ungecheckt, die Schluesellfelder sind geordnet und beginnen mit dem ersten Buchstaben von X,
+	Im unteren Teil werden der Schluessellaenge entsrpechend viele Felder fuer die EIngabe des Schluessels angezeigt.
+Realitaet: Entspricht den Erwartungen.
+2.3.2 Wie in 2.3.1 Ich wechsele, mit der JComboBox auf den naechsten Buchstaben, bis zum letzten der Angezeigt wird.
+Erwartungen: Die Schluesselfelder werden in korrekter Reihenfolge angezeigt und Beginnen mit dem n-ten Buchstaben
+	von X, wenn n = Index der JCombobox + 1 ist.
+Realitaet: Entspricht den Erwartungen.
+
+3: Start mit Vorhandem Schluessel und Text:
+3.1 
