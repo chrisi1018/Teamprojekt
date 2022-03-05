@@ -60,8 +60,8 @@ public class VExplanationFrame extends JFrame {
 		
 		//Setze das Icon im Fenster
 		String os = System.getProperty("os.name").toLowerCase();
-		if (!os.equals("mac os x")) { //Nicht Betriebssystem Appel
-			ImageIcon icon = new ImageIcon(this.getClass().getResource(("../controller/croc.png")));
+		if (!os.equals("mac os x")) { //Nicht Betriebssystem Apple
+			ImageIcon icon = new ImageIcon(this.getClass().getResource(("/controller/croc.png")));
 			this.setIconImage(icon.getImage());
 		}
 	}
