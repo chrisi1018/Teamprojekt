@@ -76,7 +76,7 @@ public class MainController {
 	}
 
 	/**
-	 * Definiert Farben und Schriftstil in der Menueleiste und im DropdownMenue
+	 * Definiert Farben und Schriftstil in der Menueleiste, im DropdownMenue und der CheckBox
 	 */
 	private void setUI() {
 		UIManager.put("Menu.font", new FontUIResource(Utility.MENU_FONT));
@@ -96,6 +96,12 @@ public class MainController {
 		UIManager.put("ComboBox.buttonArrowColor", new ColorUIResource(Utility.DARK_GREEN));
 		UIManager.put("ComboBox.buttonHoverArrowColor", new ColorUIResource(Utility.DARK_GREEN));
 		UIManager.put("ComboBox.padding", new InsetsUIResource(5, 5, 5, 5));
+		UIManager.put("CheckBox.icon.focusedBackground", new ColorUIResource(Utility.WHITE));
+		UIManager.put("CheckBox.icon.hoverBackground", new ColorUIResource(Utility.WHITE));
+		UIManager.put("CheckBox.icon.hoverBorderColor", new ColorUIResource(Utility.DARK_GREEN));
+		UIManager.put("CheckBox.icon.focusedBorderColor", new ColorUIResource(Utility.DARK_GREEN));
+		UIManager.put("CheckBox.icon.pressedBorderColor", new ColorUIResource(Utility.DARK_GREEN));
+		UIManager.put("CheckBox.icon.checkmarkColor", new ColorUIResource(Utility.DARK_GREEN));
 	}
 
 	/**
