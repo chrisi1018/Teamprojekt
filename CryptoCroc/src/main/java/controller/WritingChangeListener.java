@@ -36,7 +36,9 @@ public class WritingChangeListener implements DocumentListener {
 			Runnable overwrite = new Runnable() {
 				@Override
 				public void run() {
+					int caretPosition = text.getCaretPosition();
 					text.setText(TextEdit.editText(text.getText()));
+					text.setCaretPosition(caretPosition);
 				}
 			};
 
@@ -47,7 +49,9 @@ public class WritingChangeListener implements DocumentListener {
 				Runnable overwrite = new Runnable() {
 					@Override
 					public void run() {
+						int caretPosition = text.getCaretPosition();
 						text.setText(TextEdit.editText(text.getText()));
+						text.setCaretPosition(caretPosition);
 						activated = false;
 					}
 				};
