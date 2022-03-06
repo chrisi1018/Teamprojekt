@@ -175,7 +175,6 @@ public class FATable {
 		}
 		
 		bottom.updateCryptoText();
-		FAController.updateGraph(this.graph);
 	}
 
 	/**
@@ -209,7 +208,6 @@ public class FATable {
 		}
 		
 		bottom.updateCryptoText();
-		FAController.updateGraph(this.graph);
 	}
 
 	/**

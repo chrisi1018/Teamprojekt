@@ -342,12 +342,18 @@ public class FAController {
 		this.left = new GradientButton("\u00ab");
 		this.left.setMargin(new Insets(1, 10, 1, 10));
 		this.left.setFont(new Font("Arial", Font.PLAIN, 14));
-		this.left.addActionListener(e -> this.tables[this.keyChar.getSelectedIndex()].shiftLeft());
+		this.left.addActionListener(e -> {
+			this.tables[this.keyChar.getSelectedIndex()].shiftLeft();
+			updateGraph(this.tables[this.keyChar.getSelectedIndex()].getGraph());
+		});
 
 		this.right = new GradientButton("\u00bb");
 		this.right.setMargin(new Insets(1, 10, 1, 10));
 		this.right.setFont(new Font("Arial", Font.PLAIN, 14));
-		this.right.addActionListener(e -> this.tables[this.keyChar.getSelectedIndex()].shiftRight());
+		this.right.addActionListener(e -> {
+			this.tables[this.keyChar.getSelectedIndex()].shiftRight();
+			updateGraph(this.tables[this.keyChar.getSelectedIndex()].getGraph());
+		});
 	}
 
 	/**
