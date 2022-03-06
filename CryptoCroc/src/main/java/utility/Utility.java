@@ -29,6 +29,10 @@ public final class Utility {
 	public static final int WIDTH_TEXTFIELD = 200;
 	/** Breite der Textfelder fuer 1 Buchstabe */
 	public static final int WIDTH_TEXTFIELD_ONE_LETTER = 20;
+	/** Standard-Höhe der Textfelder in der FA */
+	public static final int HEIGHT_TEXTFIELD_IN_FA = 24;
+	/** Breite der Textfelder fuer 1 Buchstabe in der FA */
+	public static final int WIDTH_TEXTFIELD_ONE_LETTER_IN_FA = 25;
 
 	/** erster Buchstabe des Alphabets */
 	public static final char FIRST_LETTER = 'A';

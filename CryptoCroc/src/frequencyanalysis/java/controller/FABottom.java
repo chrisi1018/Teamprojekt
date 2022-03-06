@@ -1,5 +1,6 @@
 package controller;
 
+import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -7,6 +8,8 @@ import javax.swing.JScrollPane;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.FlowLayout;
 
 import model.Crypt;
@@ -16,8 +19,8 @@ import utility.Utility;
 /**
  * Die Klasse erzeugt den unteren Teil der Haufigkeitsanalyse, und dient als Schnittstelle zum Hauptprogramm
  * 
- * @author Julian
- * @version 1.0
+ * @author Julian, chrisi
+ * @version 1.1
  */
 public class FABottom {
 	
@@ -71,32 +74,34 @@ public class FABottom {
 	 * @return das erzeugte Panel
 	 */
 	public JPanel createBottomPanel() {
-		JPanel bottomPanel = new JPanel();
-		bottomPanel.setLayout(new BorderLayout());
+		JPanel bottomPanel = new JPanel(new BorderLayout());
 		
 		//Erzeugt den Linken Teil des Unteren Panels mit dem GeheimText
-		JPanel leftPanel = new JPanel(new BorderLayout());
-		JLabel crypto = new JLabel("   Geheimtext");
+		JPanel leftPanel = new JPanel();
+		leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.PAGE_AXIS));
+		
+		JLabel crypto = new JLabel("Geheimtext");
 		crypto.setFont(Utility.LABEL_FONT);
 		crypto.setForeground(Utility.DARK_GREEN);
-		crypto.setVisible(true);
+		//crypto.setVisible(true);
 		JScrollPane scroll = new JScrollPane(this.cryptoText, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		this.cryptoText.setVisible(true);
 		scroll.setPreferredSize(new Dimension(500, 60));
 		scroll.setBorder(Utility.TEXTFIELD_BORDER);
-		leftPanel.add(crypto, BorderLayout.NORTH);
-		leftPanel.add(scroll, BorderLayout.CENTER);
-		leftPanel.add(new JPanel(), BorderLayout.WEST);
+		
+		leftPanel.add(crypto);
+		leftPanel.add(scroll);
+
 		bottomPanel.add(leftPanel, BorderLayout.WEST);
 		
 		//Erzeugt den mittleren Teil des unteren Panels mit den KeyText feldern
 		JPanel middlePanel = new JPanel(new GridLayout(2, 1, 0, 0));
-		JLabel key = new JLabel("    Schl\u00fcssel");
+		JLabel key = new JLabel("Schl\u00fcssel");
 		key.setFont(Utility.HEADLINE_LABEL_FONT);
 		key.setForeground(Utility.DARK_GREEN);
 		key.setVisible(true);
-		JLabel keyText = new JLabel("     Gebe hier deinen Schl\u00fcssel ein:");
+		JLabel keyText = new JLabel("Gebe hier deinen Schl\u00fcssel ein:");
 		keyText.setFont(Utility.LABEL_FONT);
 		keyText.setForeground(Utility.DARK_GREEN);
 		keyText.setVisible(true);
@@ -136,8 +141,25 @@ public class FABottom {
 			this.keyText[i].setForeground(Utility.DARK_GREEN);
 			this.keyText[i].setFont(Utility.TEXT_FONT);
 			this.keyText[i].setHorizontalAlignment(JTextField.CENTER);
-			this.keyText[i].setPreferredSize(new Dimension(30, 30));
+			// Setzt die Breite und die Hoehe des Textfelds
+			this.keyText[i].setPreferredSize(new Dimension(Utility.WIDTH_TEXTFIELD_ONE_LETTER_IN_FA, Utility.HEIGHT_TEXTFIELD_IN_FA));
 			this.keyText[i].setText("A");
+			
+			// sorgt dafuer dass Text im Textfeld markiert wird beim Klicken
+			// benoetigt extra variable j, da i sich veraendert
+			int j = i;
+			keyText[i].addFocusListener(new FocusListener() {
+				@Override
+				public void focusGained(FocusEvent e) {
+					keyText[j].selectAll();
+					keyText[j].setBorder(Utility.FOCUS_TEXTFIELD_BORDER);
+				}
+
+				@Override
+				public void focusLost(FocusEvent e) {
+					keyText[j].setBorder(Utility.TEXTFIELD_BORDER);
+				}
+			});
 		}
 	}
 	

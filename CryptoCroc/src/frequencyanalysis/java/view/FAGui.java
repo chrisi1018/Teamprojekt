@@ -1,5 +1,7 @@
 package view;
 
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -18,6 +20,7 @@ import controller.MoveMouseListener;
 import utility.Utility;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
@@ -30,7 +33,7 @@ import java.awt.event.WindowEvent;
  * Erstellt den Frame und legt das Layout der Haeufigkeitsanalyse fest
  * 
  * @author zes, Julian Singer, chrisi
- * @version 1.3
+ * @version 1.4
  */
 public class FAGui {
 
@@ -75,7 +78,7 @@ public class FAGui {
 		this.frame.setSize(1300, 730);
 		this.frame.setResizable(false);
 		this.frame.setVisible(true);
-		this.frame.setLayout(new GridBagLayout());
+		this.frame.setLayout(new BorderLayout(0, 0));
 		this.mainPanel = new JPanel(new BorderLayout(4, 4));
 		this.menu = menu; // muss hier initialisiert werden, 
 					      // damit der MoveMouseListener hinzugefuegt werden kann
@@ -147,7 +150,12 @@ public class FAGui {
 	 * Richtungen hinzu
 	 */
 	private void initFrameBorders() {
-		GridBagConstraints c = new GridBagConstraints();
+		this.frame.add(this.mainPanel, BorderLayout.CENTER);
+		this.frame.add(new JPanel(), BorderLayout.NORTH);
+		this.frame.add(new JPanel(), BorderLayout.SOUTH);
+		this.frame.add(new JPanel(), BorderLayout.WEST);
+		this.frame.add(new JPanel(), BorderLayout.EAST);
+		/*GridBagConstraints c = new GridBagConstraints();
 		c.gridx = 0;
 		c.gridy = 0;
 		c.ipadx = 30;
@@ -170,7 +178,7 @@ public class FAGui {
 		c.gridy = 2;
 		c.ipadx = 30;
 		c.fill = GridBagConstraints.HORIZONTAL;
-		this.frame.add(new JPanel(), c);
+		this.frame.add(new JPanel(), c);*/
 	}
 
 	/**
@@ -180,7 +188,23 @@ public class FAGui {
 	 * MonoCheckBox
 	 */
 	private JPanel initTopPanelForFrame() {
-		GridLayout gl = new GridLayout(1, 2);
+		JPanel top = new JPanel(new BorderLayout());
+		top.add(this.mainLabel, BorderLayout.NORTH);
+		top.add(Box.createRigidArea(new Dimension(0, 20)), BorderLayout.CENTER);
+		
+		JPanel keyLengthPanel = new JPanel(new FlowLayout(100));
+		keyLengthPanel.add(this.lengthLabel);
+		keyLengthPanel.add(this.lengthTextField);
+		
+		// Setzt die Breite und die Hoehe des Textfeldes
+		this.lengthTextField.setMaximumSize(new Dimension(Utility.WIDTH_TEXTFIELD, Utility.HEIGHT_TEXTFIELD));
+		// Wird benoetigt um die Hoehe zu setzen
+		this.lengthTextField.setPreferredSize(new Dimension(Utility.WIDTH_TEXTFIELD, Utility.HEIGHT_TEXTFIELD));
+		
+		keyLengthPanel.add(this.monoCheckBox);
+		
+		top.add(keyLengthPanel, BorderLayout.SOUTH);
+		/*GridLayout gl = new GridLayout(1, 2);
 		// enthaelt toptop und topbottom
 		JPanel top = new JPanel();
 		// enthaelt das Label Haeufigkeitsanalyse
@@ -204,18 +228,30 @@ public class FAGui {
 		topbottom.add(lengthTextField, BorderLayout.CENTER);
 		topbottom.add(monoCheckBox, BorderLayout.LINE_END);
 		top.add(topbottom, BorderLayout.PAGE_END);
-		top.setPreferredSize(new Dimension(600, 100));
+		top.setPreferredSize(new Dimension(600, 100));*/
+		
 		return top;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	private JPanel initMiddlePanelForFrame() {
+		JPanel middle = new JPanel(new BorderLayout());
+		middle.add(this.tablePanel, BorderLayout.NORTH);
+		middle.add(this.graphPanel, BorderLayout.CENTER);
+		return middle;
 	}
 
 	/**
 	 * Initialisiert das linke Panel mit ComboBoxen fuer die Sprache und Buchstaben
 	 */
 	private JPanel initComboBoxPanel() {
-		JPanel left = new JPanel();
-		left.add(language, BorderLayout.PAGE_START);
-		left.add(keyChar, BorderLayout.PAGE_END);
-		left.setPreferredSize(new Dimension(150, 50));
+		JPanel left = new JPanel(new FlowLayout(0));
+		left.add(language);
+		left.add(keyChar);
+		left.setPreferredSize(new Dimension(160, 80));
 		return left;
 	}
 
@@ -226,10 +262,14 @@ public class FAGui {
 	private JPanel initTable() {
 		JPanel total = new JPanel(new BorderLayout());
 
-		JPanel tableWithButtons = new JPanel(new FlowLayout(FlowLayout.LEADING));
-		JPanel filler = new JPanel();
-		filler.setPreferredSize(new Dimension(40, 0));
-		tableWithButtons.add(filler);
+		JPanel addSpacePanel = new JPanel();
+		addSpacePanel.setLayout(new BoxLayout(addSpacePanel, BoxLayout.PAGE_AXIS));
+		addSpacePanel.add(Box.createRigidArea(new Dimension(0, 5)));
+		
+		JPanel tableWithButtons = new JPanel(new FlowLayout(0));
+		// JPanel filler = new JPanel();
+		// filler.setPreferredSize(new Dimension(100, 0));
+		// tableWithButtons.add(filler);
 
 		tableWithButtons.add(left);
 		if (this.currentTable >= table.length) {
@@ -239,9 +279,11 @@ public class FAGui {
 			tableWithButtons.add(table[this.currentTable].getTablePanel());
 		}
 		tableWithButtons.add(right);
+		
+		addSpacePanel.add(tableWithButtons);
 
-		total.add(initComboBoxPanel(), BorderLayout.CENTER);
-		total.add(tableWithButtons, BorderLayout.EAST);
+		total.add(initComboBoxPanel(), BorderLayout.WEST);
+		total.add(addSpacePanel, BorderLayout.CENTER);
 
 		return total;
 	}
@@ -282,8 +324,8 @@ public class FAGui {
 	 * Fuellt das MainPanel mit dem Graph, sowie der Buchstabenreihe und den Buttons
 	 */
 	private void initMainPanel() {
-		this.mainPanel.add(this.tablePanel, BorderLayout.NORTH);
-		this.mainPanel.add(this.graphPanel, BorderLayout.CENTER);
+		this.mainPanel.add(this.initTopPanelForFrame(), BorderLayout.NORTH);
+		this.mainPanel.add(this.initMiddlePanelForFrame(), BorderLayout.CENTER);
 		this.mainPanel.add(this.bottom, BorderLayout.SOUTH);
 	}
 
@@ -338,7 +380,7 @@ public class FAGui {
 	}
 	
 	/**
-	 * Methode die den Frame Schlie�t
+	 * Methode die den Frame Schliesst
 	 */
 	public void disposeFrame() {
 		if (this.frame != null) {
