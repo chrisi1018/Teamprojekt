@@ -7,5 +7,8 @@ Jeder Buchstabe deiner geheimen Nachricht wird um eine bestimmte Anzahl Buchstab
 
 Der Buchstabe mit dem du das A ersetzen willst, wird Schlüssel genannt. Diesen braucht man auch um den Text wieder zu entschlüsseln und das Alphabet zurück zu schieben.
 
+Beispiel:
+Der Satz “ich bin der cryptocroc” mit dem Schlüssel Q wird zu “ysx ryd tuh shofjeshes”
+
 Wie sicher ist die Cäsar-Verschlüsselung?
 Sie ist nicht sicher, da es nur 25 Möglichkeiten gibt eine Nachricht zu kodieren. So kann das Verfahren zum Beispiel durch ausprobieren oder eine Häufigkeitsanalyse sehr leicht geknackt werden.
