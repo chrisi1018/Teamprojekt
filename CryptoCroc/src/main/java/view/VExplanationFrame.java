@@ -33,7 +33,7 @@ public class VExplanationFrame extends JFrame {
 				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scroll.setVisible(true);
 		this.add(scroll);
-		this.setSize(new Dimension(1200, 600));
+		this.setSize(new Dimension(1200, 700));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		// Setze das Icon im Fenster
