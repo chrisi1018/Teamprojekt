@@ -208,6 +208,7 @@ public class FABottom {
 	 */
 	public void updateCryptoText() {
 		updateKeyString();
+		this.cryptString = key.getController().getCryptoText();
 		this.cryptoText.setText("<html><p align=\"justify\" style=\"width:370px\">"
 				+ this.crypt.decryptAll(cryptString, keyString)
 				+ "</p></html>");

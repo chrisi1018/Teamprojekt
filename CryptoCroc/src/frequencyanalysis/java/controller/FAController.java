@@ -210,7 +210,8 @@ public class FAController {
 					gui.setTable(tables);
 					gui.setTablePanel();
 					gui.updateKeyChar(keyChar);
-					// TODO Update der Schluesselfelder
+					tables[keyChar.getSelectedIndex()].shiftRight();
+					tables[keyChar.getSelectedIndex()].shiftLeft();
 				}
 			}
 
@@ -282,11 +283,11 @@ public class FAController {
 					languageData = FAData.ENGLISCH;
 				}
 				initFATable();
+				bottom.updateKeyText(tables);
 				gui.setTable(tables);
-				gui.updateGraph(graph);
 				gui.setTablePanel();
-				gui.repaint();
-
+				tables[keyChar.getSelectedIndex()].shiftRight();
+				tables[keyChar.getSelectedIndex()].shiftLeft();
 			}
 
 		});
@@ -367,7 +368,7 @@ public class FAController {
 			keyLength = Integer.valueOf(this.lengthTextField.getText());
 			this.tables = new FATable[keyLength];
 		}
-		for (int i = 0; i < keyLength; i++) {
+		for (int i = keyLength - 1; i >= 0; i--) {
 			this.tables[i] = new FATable(this.data[i], this.languageData, currentLanguage, max);
 		}
 	}
@@ -388,7 +389,8 @@ public class FAController {
 				max = calcMax();
 				initFATable();
 				checkCheckbox();
-				initFABottom();
+				bottom.updateKeyText(tables);
+				bottom.updateCryptoText();
 				gui.setTable(tables);
 				gui.setTablePanel();
 				gui.repaint();
@@ -429,7 +431,7 @@ public class FAController {
 		}
 		float[][] allFrequencies = FAData.analyse(this.key.getController().getCryptoText(), keyLength);
 		// 2D-Array wird in 1D-Array umgewandelt und im Konstruktor uebergeben
-		for (int i = 0; i < keyLength; i++) {
+		for (int i = keyLength - 1; i >= 0; i--) {
 			float[] oneFrequencies = new float[allFrequencies[i].length];
 			for (int j = 0; j < allFrequencies[i].length; j++) {
 				oneFrequencies[j] = allFrequencies[i][j];
