@@ -19,7 +19,7 @@ import view.Messages;
  * CryptoCroc
  * 
  * @author chrisi, zes
- * @version 1.2
+ * @version 1.3
  */
 public abstract class KeyPanel {
 	private JButton encrypt = new GradientButton("verschl\u00fcsseln");
@@ -87,8 +87,7 @@ public abstract class KeyPanel {
 	 * @return ein JPanel mit die Buttons "verschluesseln" und "entschluesseln"
 	 */
 	protected JPanel createButtonPanel() {
-		JPanel panel = new JPanel();
-		panel.setLayout(new BorderLayout());
+		JPanel panel = new JPanel(new BorderLayout());
 		
 		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER)); // FlowLayout wichtig damit Button passende Groesse haben
 		buttonPanel.add(encrypt);											// und sie mittig ausgerichtet werden

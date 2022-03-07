@@ -84,8 +84,8 @@ public class MKeyPanel extends KeyPanel {
 	public JPanel createKeyPanel() {
 		// Alphabet in Array schreiben
 		this.initNames();
-
-		BorderLayout layout = new BorderLayout();
+		
+		// inialisiert Ueberschrift und setzt Textstil
 		JLabel description = new JLabel("Schl\u00fcssel");
 		description.setFont(Utility.HEADLINE_LABEL_FONT);
 		description.setForeground(Utility.DARK_GREEN);
@@ -116,27 +116,31 @@ public class MKeyPanel extends KeyPanel {
 				}
 			});
 
+			// fuegt das Textfeld und den passenden Buchstaben zu einem Panel zusammen
 			JPanel nameKeyPanel = new JPanel();
 			nameKeyPanel.setLayout(new BoxLayout(nameKeyPanel, BoxLayout.PAGE_AXIS));
 			nameKeyPanel.add(names[i]);
 			names[i].setAlignmentX(Component.CENTER_ALIGNMENT);
 			nameKeyPanel.add(keys[i]);
 			keys[i].setAlignmentX(Component.CENTER_ALIGNMENT);
+			
 			// Setzt die Breite und die Hoehe des Textfelds
 			keys[i].setMaximumSize(new Dimension(Utility.WIDTH_TEXTFIELD_ONE_LETTER, Utility.HEIGHT_TEXTFIELD));
 			// Wird benoetigt um die Hoehe zu setzen
 			keys[i].setPreferredSize(new Dimension(Utility.WIDTH_TEXTFIELD_ONE_LETTER, Utility.HEIGHT_TEXTFIELD));
+			
 			nameKeyPanels[i] = nameKeyPanel;
 		}
 
-		// fuer die Buchstaben und Textfelder
-		FlowLayout fLayout = new FlowLayout();
-		JPanel inputPanel = new JPanel(fLayout);
+		// fuegt alle Textfeld Panels zu einem Panel zusammen
+		JPanel inputPanel = new JPanel(new FlowLayout());
 		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
 			inputPanel.add(nameKeyPanels[i]);
 		}
+		// setzt die hoehe des Panels, sodass ein Umbruch entsteht
 		inputPanel.setPreferredSize(new Dimension(0, 130));
 		
+		// fuegt die Ueberschift und das Textpanel zusammen
 		JPanel textPanel = new JPanel();
 		textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.PAGE_AXIS));
 		textPanel.add(description);
@@ -144,8 +148,8 @@ public class MKeyPanel extends KeyPanel {
 		textPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		textPanel.add(inputPanel);
 		
-		// alles zusammenfuegen und Buttons dazu machen
-		JPanel total = new JPanel(layout);
+		// fuegt die Buttons hinzu
+		JPanel total = new JPanel(new BorderLayout());
 		total.add(textPanel, BorderLayout.PAGE_START);
 		textPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		total.add(this.createButtonPanel(), BorderLayout.CENTER);

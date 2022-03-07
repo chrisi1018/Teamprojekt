@@ -44,7 +44,7 @@ public class VKeyPanel extends KeyPanel {
 	@Override
 	public JPanel createKeyPanel() {
 		
-		BorderLayout layout = new BorderLayout();
+		// inialisiert Ueberschrift und setzt den Stil der Elemente
 		JLabel description = new JLabel("Schl\u00fcssel");
 		description.setFont(Utility.HEADLINE_LABEL_FONT);
 		description.setForeground(Utility.DARK_GREEN);
@@ -67,13 +67,13 @@ public class VKeyPanel extends KeyPanel {
 		textPanel.add(key);
 		key.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-		// Setzt die Breite und die Hoehe des Textfelds
+		// setzt die Breite und die Hoehe des Textfelds
 		key.setMaximumSize(new Dimension(Utility.WIDTH_TEXTFIELD, Utility.HEIGHT_TEXTFIELD));
-		// Wird benoetigt um die Hoehe zu setzen
+		// wird benoetigt um die Hoehe zu setzen
 		key.setPreferredSize(new Dimension(Utility.WIDTH_TEXTFIELD, Utility.HEIGHT_TEXTFIELD));
 		
 		// fuegt das Text- und Buttonpanel zu einem Panel zusammen
-		JPanel keyPanel = new JPanel(layout);
+		JPanel keyPanel = new JPanel(new BorderLayout());
 		keyPanel.add(textPanel, BorderLayout.PAGE_START);
 		textPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		keyPanel.add(this.createButtonPanel(), BorderLayout.CENTER);
