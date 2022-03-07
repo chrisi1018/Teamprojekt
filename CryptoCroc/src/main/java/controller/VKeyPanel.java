@@ -19,7 +19,7 @@ import utility.Utility;
  * Schluesseltextfeld
  * 
  * @author Julian Singer, chrisi
- * @version 1.1
+ * @version 1.2
  *
  */
 public class VKeyPanel extends KeyPanel {
@@ -43,8 +43,8 @@ public class VKeyPanel extends KeyPanel {
 	 */
 	@Override
 	public JPanel createKeyPanel() {
-		key.setDocument(new LimitedTextfield(Utility.MAXIMUM_KEY_LENGTH));
-		BorderLayout layout = new BorderLayout();
+		
+		// inialisiert Ueberschrift und setzt den Stil der Elemente
 		JLabel description = new JLabel("Schl\u00fcssel");
 		description.setFont(Utility.HEADLINE_LABEL_FONT);
 		description.setForeground(Utility.DARK_GREEN);
@@ -52,6 +52,9 @@ public class VKeyPanel extends KeyPanel {
 		name.setForeground(Utility.DARK_GREEN);
 		key.setFont(Utility.TEXT_FONT);
 		key.setBorder(Utility.TEXTFIELD_BORDER);
+		key.setHorizontalAlignment(JTextField.CENTER);
+		
+		key.setDocument(new LimitedTextfield(Utility.MAXIMUM_KEY_LENGTH));
 
 		// definiert ein Panel fuer die Schluesseleingabe
 		JPanel textPanel = new JPanel();
@@ -61,14 +64,18 @@ public class VKeyPanel extends KeyPanel {
 		textPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		textPanel.add(name);
 		name.setAlignmentX(Component.CENTER_ALIGNMENT);
-		textPanel.add(Box.createRigidArea(new Dimension(0, 5)));
 		textPanel.add(key);
-		key.setHorizontalAlignment(JTextField.CENTER);
 		key.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+		// setzt die Breite und die Hoehe des Textfelds
+		key.setMaximumSize(new Dimension(Utility.WIDTH_TEXTFIELD, Utility.HEIGHT_TEXTFIELD));
+		// wird benoetigt um die Hoehe zu setzen
+		key.setPreferredSize(new Dimension(Utility.WIDTH_TEXTFIELD, Utility.HEIGHT_TEXTFIELD));
+		
 		// fuegt das Text- und Buttonpanel zu einem Panel zusammen
-		JPanel keyPanel = new JPanel(layout);
+		JPanel keyPanel = new JPanel(new BorderLayout());
 		keyPanel.add(textPanel, BorderLayout.PAGE_START);
+		textPanel.add(Box.createRigidArea(new Dimension(0, 20)));
 		keyPanel.add(this.createButtonPanel(), BorderLayout.CENTER);
 
 		return keyPanel;

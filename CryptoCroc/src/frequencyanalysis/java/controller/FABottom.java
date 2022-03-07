@@ -1,12 +1,13 @@
 package controller;
 
+import javax.swing.Box;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
-import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.GridLayout;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.FlowLayout;
 
 import model.Crypt;
@@ -16,8 +17,8 @@ import utility.Utility;
 /**
  * Die Klasse erzeugt den unteren Teil der Haufigkeitsanalyse, und dient als Schnittstelle zum Hauptprogramm
  * 
- * @author Julian
- * @version 1.0
+ * @author Julian, chrisi
+ * @version 1.1
  */
 public class FABottom {
 	
@@ -66,62 +67,73 @@ public class FABottom {
 	}
 	
 	/**
-	 * Erzeugt das Panel fuer den Unteren Teil der Haeufigkeitsanalyse
+	 * Erzeugt das Panel fuer den Geheimtext, die Schluesselfelder und dem Button.
+	 * Und setzt die Anordnung der Elemente und den Stil.
 	 * 
-	 * @return das erzeugte Panel
+	 * @return das Panel fuer den Geheimtext, die Schlusselfelder und dem Button
 	 */
 	public JPanel createBottomPanel() {
-		JPanel bottomPanel = new JPanel();
-		bottomPanel.setLayout(new BorderLayout());
+		JPanel bottomPanel = new JPanel(new FlowLayout(0));
 		
 		//Erzeugt den Linken Teil des Unteren Panels mit dem GeheimText
-		JPanel leftPanel = new JPanel(new BorderLayout());
-		JLabel crypto = new JLabel("   Geheimtext");
-		crypto.setFont(Utility.LABEL_FONT);
+		JPanel leftPanel = new JPanel(new FlowLayout(0));
+		
+		//Erstellt die Ueberschift und setzt den Stil
+		JLabel crypto = new JLabel("Geheimtext");
+		crypto.setFont(Utility.HEADLINE_LABEL_FONT);
 		crypto.setForeground(Utility.DARK_GREEN);
-		crypto.setVisible(true);
+
+		//Erstellt das Textfeld fuer den Geheimtext
 		JScrollPane scroll = new JScrollPane(this.cryptoText, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		this.cryptoText.setVisible(true);
-		scroll.setPreferredSize(new Dimension(500, 60));
+		scroll.setPreferredSize(new Dimension(400, 110));
 		scroll.setBorder(Utility.TEXTFIELD_BORDER);
-		leftPanel.add(crypto, BorderLayout.NORTH);
-		leftPanel.add(scroll, BorderLayout.CENTER);
-		leftPanel.add(new JPanel(), BorderLayout.WEST);
-		bottomPanel.add(leftPanel, BorderLayout.WEST);
 		
-		//Erzeugt den mittleren Teil des unteren Panels mit den KeyText feldern
-		JPanel middlePanel = new JPanel(new GridLayout(2, 1, 0, 0));
-		JLabel key = new JLabel("    Schl\u00fcssel");
+		//Fuegt die Elemente dem Panel hinzu
+		leftPanel.add(crypto);
+		leftPanel.add(scroll);
+		leftPanel.setPreferredSize(new Dimension(410, 150));
+		
+		//Erzeugt den mittleren Teil des unteren Panels mit den Schluessel-Textfeldern
+		JPanel middlePanel = new JPanel(new FlowLayout(0));
+		
+		//Erstellt die Ueberschift und setzt den Stil
+		JLabel key = new JLabel("Schl\u00fcssel");
 		key.setFont(Utility.HEADLINE_LABEL_FONT);
 		key.setForeground(Utility.DARK_GREEN);
-		key.setVisible(true);
-		JLabel keyText = new JLabel("     Gebe hier deinen Schl\u00fcssel ein:");
+		
+		//Erstellt den beschreibenden Text und setzt den Stil
+		JLabel keyText = new JLabel("Gebe hier deinen Schl\u00fcssel ein:");
 		keyText.setFont(Utility.LABEL_FONT);
 		keyText.setForeground(Utility.DARK_GREEN);
-		keyText.setVisible(true);
-		JPanel textPanel = new JPanel(new GridLayout(2, 1));
+		
+		//Setzt die Texte zusammen in ein Panel 
+		JPanel textPanel = new JPanel(new FlowLayout(0));
 		textPanel.add(key);
 		textPanel.add(keyText);
-		middlePanel.add(textPanel);
-		JPanel keyPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
-		keyPanel.add(new JPanel());
+		textPanel.setPreferredSize(new Dimension(250, 55));
+
+		//Erzeugt alle noetigen Schluesselfelder
+		JPanel keyPanel = new JPanel(new FlowLayout(0));
 		for (int i = 0; i < this.keyText.length; i++) {
 			keyPanel.add(this.keyText[i]);
 		}
-		middlePanel.add(keyPanel);
-		bottomPanel.add(middlePanel, BorderLayout.CENTER);
 		
-		//ERzeugt den Rechten Teil des Unteren Panels den Button
-		JPanel rightPanel = new JPanel(new GridLayout(2, 1));
-		JPanel buttonPanel = new JPanel();
-		buttonPanel.add(button);
-		rightPanel.add(new JPanel());
-		rightPanel.add(buttonPanel);
-		bottomPanel.add(rightPanel, BorderLayout.EAST);
-		this.button.setVisible(true);
-		bottomPanel.setVisible(true);
-		bottomPanel.setVisible(true);
+		//Erzeugt ein Panel fuer den Button, damit der Rand gleich bleibt
+		JPanel buttonPanel = new JPanel(new FlowLayout(0));
+		buttonPanel.add(this.button);
+		
+		//Fuegt alle Elemente mit Abstanden dem Panel hinzu
+		middlePanel.add(textPanel);
+		middlePanel.add(Box.createRigidArea(new Dimension(460, 0)));
+		middlePanel.add(keyPanel);
+		middlePanel.add(Box.createRigidArea(new Dimension(460, 0)));
+		middlePanel.add(buttonPanel);
+		middlePanel.setPreferredSize(new Dimension(460, 150));
+		
+		bottomPanel.add(leftPanel);
+		bottomPanel.add(middlePanel);
+		
 		return bottomPanel;
 	}
 	
@@ -136,8 +148,25 @@ public class FABottom {
 			this.keyText[i].setForeground(Utility.DARK_GREEN);
 			this.keyText[i].setFont(Utility.TEXT_FONT);
 			this.keyText[i].setHorizontalAlignment(JTextField.CENTER);
-			this.keyText[i].setPreferredSize(new Dimension(30, 30));
+			// Setzt die Breite und die Hoehe des Textfelds
+			this.keyText[i].setPreferredSize(new Dimension(Utility.WIDTH_TEXTFIELD_ONE_LETTER_IN_FA, Utility.HEIGHT_TEXTFIELD_IN_FA));
 			this.keyText[i].setText("A");
+			
+			// sorgt dafuer dass Text im Textfeld markiert wird beim Klicken
+			// benoetigt extra variable j, da i sich veraendert
+			int j = i;
+			keyText[i].addFocusListener(new FocusListener() {
+				@Override
+				public void focusGained(FocusEvent e) {
+					keyText[j].selectAll();
+					keyText[j].setBorder(Utility.FOCUS_TEXTFIELD_BORDER);
+				}
+
+				@Override
+				public void focusLost(FocusEvent e) {
+					keyText[j].setBorder(Utility.TEXTFIELD_BORDER);
+				}
+			});
 		}
 	}
 	

@@ -68,7 +68,6 @@ public class FATable {
 	public void createTablePanel() {
 		int maxInput = 1;
 		FlowLayout fLayout = new FlowLayout();
-		fLayout.setVgap(25);
 		JPanel tablePanel = new JPanel(fLayout);
 		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
 			// erstellt JPanel mit JLabel als Titel
@@ -108,7 +107,11 @@ public class FATable {
 			letterPanel.setLayout(new BoxLayout(letterPanel, BoxLayout.PAGE_AXIS));
 			letterPanel.add(this.textLabels[i]);
 			letterPanel.add(this.textFields[i]);
-			letterPanel.setPreferredSize(new Dimension(30, 50));
+			this.textFields[i].setAlignmentX(Component.CENTER_ALIGNMENT);
+			// Setzt die Breite und die Hoehe des Textfelds
+			this.textFields[i].setMaximumSize(new Dimension(Utility.WIDTH_TEXTFIELD_ONE_LETTER_IN_FA, Utility.HEIGHT_TEXTFIELD_IN_FA));
+			// Wird benoetigt um die Hohe zu setzen
+			this.textFields[i].setPreferredSize(new Dimension(Utility.WIDTH_TEXTFIELD_ONE_LETTER_IN_FA, Utility.HEIGHT_TEXTFIELD_IN_FA));
 			tablePanel.add(letterPanel);
 		}
 

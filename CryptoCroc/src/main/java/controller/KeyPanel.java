@@ -2,11 +2,12 @@ package controller;
 
 import java.awt.FlowLayout;
 import java.awt.Image;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 
 import model.Crypt;
 import model.TextEdit;
@@ -18,7 +19,7 @@ import view.Messages;
  * CryptoCroc
  * 
  * @author chrisi, zes
- * @version 1.2
+ * @version 1.3
  */
 public abstract class KeyPanel {
 	private JButton encrypt = new GradientButton("verschl\u00fcsseln");
@@ -86,12 +87,18 @@ public abstract class KeyPanel {
 	 * @return ein JPanel mit die Buttons "verschluesseln" und "entschluesseln"
 	 */
 	protected JPanel createButtonPanel() {
-		JPanel panel = new JPanel(new FlowLayout()); // FlowLayout wichtig damit Button passende Groesse haben
-		panel.add(encrypt);
-		panel.add(decrypt);
-		panel.add(freqAna);
-		panel.add(randomKey);
-		panel.add(this.createCroc());
+		JPanel panel = new JPanel(new BorderLayout());
+		
+		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER)); // FlowLayout wichtig damit Button passende Groesse haben
+		buttonPanel.add(encrypt);											// und sie mittig ausgerichtet werden
+		buttonPanel.add(decrypt);
+		buttonPanel.add(freqAna);
+		buttonPanel.add(randomKey);
+		// Setzt die Hoehe des Panels
+		buttonPanel.setPreferredSize(new Dimension(0, 120));
+		
+		panel.add(buttonPanel, BorderLayout.PAGE_START);
+		panel.add(this.createCroc(), BorderLayout.PAGE_END);
 		return panel;
 	}
 

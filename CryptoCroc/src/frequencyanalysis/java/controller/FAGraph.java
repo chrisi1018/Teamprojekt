@@ -1,11 +1,11 @@
 package controller;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.io.IOException;
 
+import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 
 import org.jfree.chart.ChartFactory;
@@ -33,8 +33,8 @@ import utility.Utility;
 /**
  * Erstellt die Grafik zur Buchstabenverteilung der Haeufigkeitsanalyse
  * 
- * @author zes
- * @version 1.5
+ * @author zes, chrisi
+ * @version 1.6
  */
 public class FAGraph {
 
@@ -148,6 +148,7 @@ public class FAGraph {
 		rangeAxis.setTickUnit(new NumberTickUnit(10.0));
 
 		graphPanel = new JPanel();
+		graphPanel.setLayout(new BoxLayout(graphPanel, BoxLayout.PAGE_AXIS));
 
 		// konvertieren zu ChartPanel, sodass es zum graphPanel hinzugefuegt werden kann
 		ChartPanel chP = new ChartPanel(barChart);
@@ -155,7 +156,7 @@ public class FAGraph {
 		chP.setPopupMenu(null);
 		chP.setDomainZoomable(false);
 		chP.setRangeZoomable(false);
-		graphPanel.add(chP, BorderLayout.CENTER);
+		graphPanel.add(chP);
 
 	}
 
