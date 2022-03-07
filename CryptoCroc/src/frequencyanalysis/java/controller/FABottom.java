@@ -96,7 +96,7 @@ public class FABottom {
 		key.setFont(Utility.HEADLINE_LABEL_FONT);
 		key.setForeground(Utility.DARK_GREEN);
 		key.setVisible(true);
-		JLabel keyText = new JLabel("     Gebe hier deinen Schl\u00fcssel ein:");
+		JLabel keyText = new JLabel("     Gib hier deinen Schl\u00fcssel ein:");
 		keyText.setFont(Utility.LABEL_FONT);
 		keyText.setForeground(Utility.DARK_GREEN);
 		keyText.setVisible(true);
@@ -209,8 +209,14 @@ public class FABottom {
 	public void updateCryptoText() {
 		updateKeyString();
 		this.cryptString = key.getController().getCryptoText();
+		String temp;
+		if (this.mono) {
+			temp = this.monoString;
+		} else {
+			temp = this.keyString;
+		}
 		this.cryptoText.setText("<html><p align=\"justify\" style=\"width:370px\">"
-				+ this.crypt.decryptAll(cryptString, keyString)
+				+ this.crypt.decryptAll(this.cryptString, temp)
 				+ "</p></html>");
 	}
 

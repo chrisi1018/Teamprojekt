@@ -6,37 +6,37 @@ getestet von: Julian Sturm
 
 1: Normaler Start der Haeufigkeitsanalyse
 1.1 Ich drücke im Hauptfenster auf den Button Haeufigkeitsanalyse, ohne eingabe eines Schluessels in das Schluesselfeld,
-	mit ausgewaehlter Verschluesselung Caesar.
+	ohne eingeben Geiheimtext, mit ausgewaehlter Verschluesselung Caesar.
 Erwartungen: Das Fenster der Haeufigkeitsanalyse oeffnet sich, die Schluessellaenge ist 1, die Monocheckbox
 	ist ungescheckt, die Buchstaben in den Schluesselfeldern sind in korrekte Reihenfolge und beginnen mit A.
 	Im unteren Teil wird ein Feld fuer die Eingabe des Schluessels angezeigt.
 Realitaet: Entspricht den Erwartungen.
 1.2 Ich drücke im Hauptfenster auf den Button Haeufigkeitsanalyse, ohne eingabe eines Schluessels in das Schluesselfeld,
-	mit ausgewaehlter Verschluesselung Monoalphabetisch.
+	ohne eingeben Geiheimtext, mit ausgewaehlter Verschluesselung Monoalphabetisch.
 Erwartungen: Das Fenster der Haeufigkeitsanalyse oeffnet sich, die Schluessellaenge ist 1, die Monocheckbox
 	ist gescheckt, die Buchstaben in den Schluesselfeldern sind in korrekte Reihenfolge und beginnen mit A.
 	Im untern Teil wird kein Feld fuer die Eingabe des Schluessels angezeigt.
 Realitaet: Entspricht den Erwartungen.
 1.3 Ich drücke im Hauptfenster auf den Button Haeufigkeitsanalyse, ohne eingabe eines Schluessels in das Schluesselfeld,
-	mit ausgewaehlter Verschluesselung Viginere.
+	ohne eingeben Geiheimtext, mit ausgewaehlter Verschluesselung Viginere.
 Erwartungen: Wie in 1.1
 Realitaet: Entspricht den Erwartungen.
 
 2: Start mit Vorhandendem Schluessel:
 2.1 Ich drücke im Hauptfenster auf den Button Haeufigkeitsanalyse, mit einem Zufaelligen Schluessel X,
-	mit ausgewaehlter Verschluesselung Caesar.
+	ohne eingeben Geiheimtext, mit ausgewaehlter Verschluesselung Caesar.
 Erwartungen: Das Fenster der Haeufigkeitsanalyse oeffnet sich, die Schluessellaenge ist 1, die Monocheckbox
 	ist ungescheckt, die Buchstaben in den Schluesselfeldern sind in korrekte Reihenfolge und beginnen mit X.
 	Im unteren Teil wird ein Feld fuer die Eingabe des Schluessels angezeigt.
 Realitaet: Entspricht den Erwartungen.
 2.2 Ich drücke im Hauptfenster auf den Button Haeufigkeitsanalyse, mit einem zufällig erstelten Schluessel X,
-	mit ausgewaehlter Verschluesselung Monoalphabetisch.
+	ohne eingeben Geiheimtext, mit ausgewaehlter Verschluesselung Monoalphabetisch.
 Erwartungen: Das Fenster der Haeufigkeitsanalyse oeffnet sich, die Schluessellaenge ist 1, die Monocheckbox
 	ist gescheckt, die Buchstaben in den Schluesselfeldern und sind in der Reihenfolge von X.
 	Im untern Teil wird kein Feld fuer die Eingabe des Schluessels angezeigt.
 Realitaet: Entspricht den Erwartungen.
 2.3.1 Ich drücke im Hauptfenster auf den Button Haeufigkeitsanalyse, mit einem zufällig erstelten Schluessel X,
-	mit ausgewaehlter Verschluesselung Viginere.
+	ohne eingeben Geiheimtext, mit ausgewaehlter Verschluesselung Viginere.
 Erwartungen: Das Fenster der Haeufigkeitsanalyse oeffnet sich, die Schluessellaenge entspricht der Laenge von X,
 	die MonoCHeckbox ist ungecheckt, die Schluesellfelder sind geordnet und beginnen mit dem ersten Buchstaben von X,
 	Im unteren Teil werden der Schluessellaenge entsrpechend viele Felder fuer die EIngabe des Schluessels angezeigt.
@@ -47,4 +47,36 @@ Erwartungen: Die Schluesselfelder werden in korrekter Reihenfolge angezeigt und 
 Realitaet: Entspricht den Erwartungen.
 
 3: Start mit Vorhandem Schluessel und Text:
-3.1 
+3.1 Ich drücke im Hauptfenster auf den Button Haeufigkeitsanalyse, mit einem Zufaelligen Schluessel X,
+	mit beliebigem Geiheimtext, bei beiliebiger Verschluesselung.
+Erwartung: Wie in 2. Im Graph wird die Häufigkeit angezeigt, und im unteren linken Teil des Fensters der Geheimtext,
+	auf den Der Schluessel X rueckwaerts mit dem entsprechenden Verschluesselungverfahren angewendet wird.
+Realitaet: Entspricht den Erwartungen.
+
+4. Wechsel zur MonoAlphabetischen Verschluesselung
+4.1 Wie bei 2.2 Ich klicke Zwei Mal auf die CheckBox Monoalhabetische Verschluesselung
+Erwartungen: Beim ersten mal setzt sich die Reihenfolge der Schluesselfelder zuruek (ABC...), beim Zweiten mal wird
+	der Schluessel X wieder hergestellt.
+Realitaet: Entspricht den Erwartungen.
+
+5. Schluessel uebernehmen Button
+5.1 Ich klicke auf den Button Haeufigkeitsanalyse, von einer beliebigen Verschluesselung aus, und gebe in das untere
+	Schluesselfeld den Buchstaben 'C' ein. Ich klicke nun auf den Button Schluessel uebernehmen.
+Erwartungen: Das Fenster der Haeufigkeitsanalyse schließt sich und im Hauptfenster wird die Caesar Verschluesselung
+	ausgewaehlt und der Buchstabe 'C' ind das Schluesselfeld geschrieben.
+Realitaet: Entspricht den Erwartungen.
+5.2 Ich klicke auf den Button Haeufigkeitsanalyse, von einer beliebigen Verschluesselung aus, und gebe in das Fenster
+	der Schluessellaenge '4' ein, dann gebe ich in die unteren Schluesselfelder 'T' 'E' 'S' 'T' ein und klicker den
+	Button Schluessel uebernehmen.
+Erwartungen: Das Fenster der Haeufigkeitsanalyse schließt sich und im Hauptfenster wird die Viginere Verschluesselung
+	ausgewaelt und das Word TEST steht im Schluesselfeld geschrieben.
+Realitaet: Entspricht den Erwartungen.
+5.3 Ich Klicke auf den Button Haufigkeitsanalyse, von einer beliebigen Verschluesselung aus, und checke die MonoCheckbox
+	sollte sie noch nicht gecheckt sein. Im anschluss gebe ich in die obigen Schluesselfelder einen beliebigen
+	Schluessel ein und klicke auf Schluessel uebernehmen.
+Erwartungen: Die Haufigkeitsanalyse schließt sich und im Hauptfenster wird die Monoalphabetische Verschluesselung
+	ausgewaelt und der eingegebene Schluessel wurde uebernommen.
+Realitaet: Entspricht den Erwartungen.
+
+6. Label mit Geheimtext
+6.1
