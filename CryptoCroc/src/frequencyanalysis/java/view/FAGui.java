@@ -50,6 +50,7 @@ public class FAGui {
 	private JCheckBox monoCheckBox;
 	private int currentTable;
 	private JPanel bottom;
+	private JPanel middle = new JPanel(new BorderLayout());
 
 	/**
 	 * Konstruktor, der den Frame fuer die Haeufigkeitsanalyse erstellt und das
@@ -244,11 +245,9 @@ public class FAGui {
 	 * 
 	 * @return
 	 */
-	private JPanel initMiddlePanelForFrame() {
-		JPanel middle = new JPanel(new BorderLayout());
-		middle.add(this.tablePanel, BorderLayout.NORTH);
-		middle.add(this.graphPanel, BorderLayout.CENTER);
-		return middle;
+	private void initMiddlePanelForFrame() {
+		this.middle.add(this.tablePanel, BorderLayout.NORTH);
+		this.middle.add(this.graphPanel, BorderLayout.CENTER);
 	}
 
 	/**
@@ -301,12 +300,12 @@ public class FAGui {
 	 * Schluesselbuchstaben
 	 */
 	public void setTablePanel() {
-		this.mainPanel.remove(this.tablePanel);
-		this.mainPanel.remove(this.graphPanel);
+		this.middle.remove(this.tablePanel);
+		this.middle.remove(this.graphPanel);
 		this.tablePanel = initTable();
 		this.graph = this.table[this.currentTable].getGraph();
 		this.graphPanel = this.graph.getGraphPanel();
-		initMainPanel();
+		initMiddlePanelForFrame();
 		repaint();
 	}
 
@@ -332,8 +331,9 @@ public class FAGui {
 	 * Fuellt das MainPanel mit dem Graph, sowie der Buchstabenreihe und den Buttons
 	 */
 	private void initMainPanel() {
+		initMiddlePanelForFrame();
 		this.mainPanel.add(this.initTopPanelForFrame());
-		this.mainPanel.add(this.initMiddlePanelForFrame());
+		this.mainPanel.add(this.middle);
 		this.mainPanel.add(this.bottom);
 	}
 
@@ -344,10 +344,10 @@ public class FAGui {
 	 * @param graph der neue Graph
 	 */
 	public void updateGraph(FAGraph graph) {
-		this.mainPanel.remove(this.graph.getGraphPanel());
+		this.middle.remove(this.graph.getGraphPanel());
 		this.graph = graph;
 		this.graphPanel = graph.getGraphPanel();
-		//this.mainPanel.add(this.graphPanel);
+		this.middle.add(this.graphPanel);
 		this.repaint();
 	}
 
@@ -356,8 +356,8 @@ public class FAGui {
 	 * aufgerufen)
 	 */
 	public void repaint() {
-		this.mainPanel.revalidate();
-		this.mainPanel.repaint();
+		this.middle.revalidate();
+		this.middle.repaint();
 	}
 
 	/**
@@ -372,10 +372,10 @@ public class FAGui {
 		// wird
 		this.keyChar = keyChar;
 		this.keyChar.setPrototypeDisplayValue("999. Buchstabe");
-		this.mainPanel.remove(this.tablePanel);
+		this.middle.remove(this.tablePanel);
 		this.tablePanel = initTable();
 		this.graphPanel = this.table[this.currentTable].getGraph().getGraphPanel();
-		initMainPanel();
+		initMiddlePanelForFrame();
 		repaint();
 
 	}
