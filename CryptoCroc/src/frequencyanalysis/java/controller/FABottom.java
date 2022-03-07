@@ -125,12 +125,11 @@ public class FABottom {
 		
 		JPanel buttonPanel = new JPanel(new FlowLayout(0));
 		buttonPanel.add(this.button);
-		//buttonPanel.setBackground(Utility.LIGHT_GREEN);
+		middlePanel.add(Box.createRigidArea(new Dimension(460, 0)));
 		middlePanel.add(keyPanel);
-		middlePanel.add(Box.createRigidArea(new Dimension(250, 0)));
+		middlePanel.add(Box.createRigidArea(new Dimension(460, 0)));
 		middlePanel.add(buttonPanel);
-		middlePanel.setPreferredSize(new Dimension(250, 150));
-		//middlePanel.setBackground(Utility.ORANGE);
+		middlePanel.setPreferredSize(new Dimension(460, 150));
 		bottomPanel.add(middlePanel);
 		
 		//Erzeugt den Rechten Teil des Unteren Panels den Button
