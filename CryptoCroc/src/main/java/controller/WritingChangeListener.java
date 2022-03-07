@@ -36,7 +36,15 @@ public class WritingChangeListener implements DocumentListener {
 			Runnable overwrite = new Runnable() {
 				@Override
 				public void run() {
+					// aktualisiert die Cursor-Position und den eingegebenen Text
 					int caretPosition = text.getCaretPosition();
+					String currentText = text.getText();
+					char lastChar = currentText.charAt(currentText.length() - 1);
+					// Bei Umlauten wird der Cursor um ein Zeichen verschoben
+					if (lastChar == 196 || lastChar == 214 || lastChar == 220 || lastChar == 223 
+					|| lastChar == 228 | lastChar == 246 || lastChar == 252) {
+						caretPosition++;
+					}
 					text.setText(TextEdit.editText(text.getText()));
 					text.setCaretPosition(caretPosition);
 				}
@@ -49,6 +57,7 @@ public class WritingChangeListener implements DocumentListener {
 				Runnable overwrite = new Runnable() {
 					@Override
 					public void run() {
+						// aktualisiert die Cursor-Position und den eingegebenen Text
 						int caretPosition = text.getCaretPosition();
 						text.setText(TextEdit.editText(text.getText()));
 						text.setCaretPosition(caretPosition);

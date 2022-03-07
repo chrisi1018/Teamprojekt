@@ -112,3 +112,15 @@ Erwartung: Solange sich die Maus auf einer Option befindet, erhaelt diese einen 
 Schrift der Option wird weiss, waehrend alle nicht ausgewaehlten Optionen einen weissen Hintergrund und eine
 dunkelgruene Schrift besitzen
 Realitaet: entspricht der Erwartung
+
+T42:
+22. Ich klicke mit der Maus auf den Button "Haeufigkeitsanalyse" und fahre langsam mit der Maus ueber die 
+CheckBox fuer die Monoalphabetische Verschluesselung
+Erwartung: Die CheckBox erhaelt einen dunkelgruenen Rand bei Betreten der Maus und verliert diesen wieder 
+waehrend die Maus die CheckBox verlaesst
+Realitaet: entspricht der Erwartung
+
+23. Ich klicke nach 22. mit der Maus auf die Checkbox
+Erwartung: Die CheckBox erhaelt im Inneren einen dunkelgruenen Haken und beim Klicken wird der Hintergrund 
+der CheckBox kurz dunkel
+Realitaet: entspricht der Erwartung
