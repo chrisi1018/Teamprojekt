@@ -1,5 +1,6 @@
 package controller;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -74,59 +75,74 @@ public class FABottom {
 	 * @return das erzeugte Panel
 	 */
 	public JPanel createBottomPanel() {
-		JPanel bottomPanel = new JPanel(new BorderLayout());
+		JPanel bottomPanel = new JPanel(new FlowLayout(0));
 		
 		//Erzeugt den Linken Teil des Unteren Panels mit dem GeheimText
-		JPanel leftPanel = new JPanel();
-		leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.PAGE_AXIS));
+		JPanel leftPanel = new JPanel(new FlowLayout(0));
 		
 		JLabel crypto = new JLabel("Geheimtext");
-		crypto.setFont(Utility.LABEL_FONT);
+		crypto.setFont(Utility.HEADLINE_LABEL_FONT);
 		crypto.setForeground(Utility.DARK_GREEN);
 		//crypto.setVisible(true);
 		JScrollPane scroll = new JScrollPane(this.cryptoText, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		this.cryptoText.setVisible(true);
-		scroll.setPreferredSize(new Dimension(500, 60));
+		//this.cryptoText.setVisible(true);
+		scroll.setPreferredSize(new Dimension(400, 110));
 		scroll.setBorder(Utility.TEXTFIELD_BORDER);
 		
 		leftPanel.add(crypto);
 		leftPanel.add(scroll);
+		leftPanel.setPreferredSize(new Dimension(410, 150));
+		//leftPanel.setBackground(Utility.LIGHT_GREEN);
 
-		bottomPanel.add(leftPanel, BorderLayout.WEST);
+		bottomPanel.add(leftPanel);
 		
 		//Erzeugt den mittleren Teil des unteren Panels mit den KeyText feldern
-		JPanel middlePanel = new JPanel(new GridLayout(2, 1, 0, 0));
+		JPanel middlePanel = new JPanel(new FlowLayout(0));
+		
 		JLabel key = new JLabel("Schl\u00fcssel");
 		key.setFont(Utility.HEADLINE_LABEL_FONT);
 		key.setForeground(Utility.DARK_GREEN);
-		key.setVisible(true);
+		//key.setVisible(true);
+		
 		JLabel keyText = new JLabel("Gebe hier deinen Schl\u00fcssel ein:");
 		keyText.setFont(Utility.LABEL_FONT);
 		keyText.setForeground(Utility.DARK_GREEN);
-		keyText.setVisible(true);
-		JPanel textPanel = new JPanel(new GridLayout(2, 1));
+		//keyText.setVisible(true);
+		
+		JPanel textPanel = new JPanel(new FlowLayout(0));
 		textPanel.add(key);
 		textPanel.add(keyText);
+		textPanel.setPreferredSize(new Dimension(250, 55));
+		//textPanel.setBackground(Utility.ORANGE);
 		middlePanel.add(textPanel);
-		JPanel keyPanel = new JPanel(new FlowLayout(FlowLayout.LEADING));
-		keyPanel.add(new JPanel());
+		
+		JPanel keyPanel = new JPanel(new FlowLayout(0));
+		//keyPanel.add(new JPanel());
 		for (int i = 0; i < this.keyText.length; i++) {
 			keyPanel.add(this.keyText[i]);
 		}
-		middlePanel.add(keyPanel);
-		bottomPanel.add(middlePanel, BorderLayout.CENTER);
 		
-		//ERzeugt den Rechten Teil des Unteren Panels den Button
-		JPanel rightPanel = new JPanel(new GridLayout(2, 1));
+		JPanel buttonPanel = new JPanel(new FlowLayout(0));
+		buttonPanel.add(this.button);
+		//buttonPanel.setBackground(Utility.LIGHT_GREEN);
+		middlePanel.add(keyPanel);
+		middlePanel.add(Box.createRigidArea(new Dimension(250, 0)));
+		middlePanel.add(buttonPanel);
+		middlePanel.setPreferredSize(new Dimension(250, 150));
+		//middlePanel.setBackground(Utility.ORANGE);
+		bottomPanel.add(middlePanel);
+		
+		//Erzeugt den Rechten Teil des Unteren Panels den Button
+		/*JPanel rightPanel = new JPanel(new GridLayout(2, 1));
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.add(button);
 		rightPanel.add(new JPanel());
 		rightPanel.add(buttonPanel);
-		bottomPanel.add(rightPanel, BorderLayout.EAST);
-		this.button.setVisible(true);
-		bottomPanel.setVisible(true);
-		bottomPanel.setVisible(true);
+		bottomPanel.add(rightPanel);*/
+		//this.button.setVisible(true);
+		//bottomPanel.setVisible(true);
+		//bottomPanel.setVisible(true);
 		return bottomPanel;
 	}
 	

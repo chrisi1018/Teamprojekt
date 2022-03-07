@@ -20,12 +20,8 @@ import controller.MoveMouseListener;
 import utility.Utility;
 
 import java.awt.BorderLayout;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -78,8 +74,9 @@ public class FAGui {
 		this.frame.setSize(1300, 730);
 		this.frame.setResizable(false);
 		this.frame.setVisible(true);
-		this.frame.setLayout(new BorderLayout(0, 0));
-		this.mainPanel = new JPanel(new BorderLayout(4, 4));
+		this.frame.setLayout(new BorderLayout());
+		this.mainPanel = new JPanel();
+		this.mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
 		this.menu = menu; // muss hier initialisiert werden, 
 					      // damit der MoveMouseListener hinzugefuegt werden kann
 		
@@ -189,10 +186,19 @@ public class FAGui {
 	 */
 	private JPanel initTopPanelForFrame() {
 		JPanel top = new JPanel(new BorderLayout());
+		//top.setLayout(new BoxLayout(top, BoxLayout.PAGE_AXIS));
 		top.add(this.mainLabel, BorderLayout.NORTH);
-		top.add(Box.createRigidArea(new Dimension(0, 20)), BorderLayout.CENTER);
 		
-		JPanel keyLengthPanel = new JPanel(new FlowLayout(100));
+		JPanel languageComboBoxPanel = new JPanel(new FlowLayout(155));
+		languageComboBoxPanel.add(Box.createRigidArea(new Dimension(155, 5)));
+		languageComboBoxPanel.add(this.language);
+		//languageComboBoxPanel.setBackground(Utility.LIGHT_GREEN);
+		languageComboBoxPanel.setPreferredSize(new Dimension(155, 20));
+		
+		top.add(languageComboBoxPanel, BorderLayout.WEST);
+		//top.add(Box.createRigidArea(new Dimension(0, 20)));
+		
+		JPanel keyLengthPanel = new JPanel(new FlowLayout(0));
 		keyLengthPanel.add(this.lengthLabel);
 		keyLengthPanel.add(this.lengthTextField);
 		
@@ -204,6 +210,7 @@ public class FAGui {
 		keyLengthPanel.add(this.monoCheckBox);
 		
 		top.add(keyLengthPanel, BorderLayout.SOUTH);
+		
 		/*GridLayout gl = new GridLayout(1, 2);
 		// enthaelt toptop und topbottom
 		JPanel top = new JPanel();
@@ -249,9 +256,9 @@ public class FAGui {
 	 */
 	private JPanel initComboBoxPanel() {
 		JPanel left = new JPanel(new FlowLayout(0));
-		left.add(language);
+		//left.add(language);
 		left.add(keyChar);
-		left.setPreferredSize(new Dimension(160, 80));
+		//left.setPreferredSize(new Dimension(160, 80));
 		return left;
 	}
 
@@ -260,11 +267,11 @@ public class FAGui {
 	 * auch das Panel mit den ComboBoxen eingefuegt
 	 */
 	private JPanel initTable() {
-		JPanel total = new JPanel(new BorderLayout());
+		JPanel total = new JPanel(new FlowLayout(0));
 
-		JPanel addSpacePanel = new JPanel();
-		addSpacePanel.setLayout(new BoxLayout(addSpacePanel, BoxLayout.PAGE_AXIS));
-		addSpacePanel.add(Box.createRigidArea(new Dimension(0, 5)));
+		//JPanel addSpacePanel = new JPanel();
+		//addSpacePanel.setLayout(new BoxLayout(addSpacePanel, BoxLayout.PAGE_AXIS));
+		//addSpacePanel.add(Box.createRigidArea(new Dimension(0, 5)));
 		
 		JPanel tableWithButtons = new JPanel(new FlowLayout(0));
 		// JPanel filler = new JPanel();
@@ -280,10 +287,11 @@ public class FAGui {
 		}
 		tableWithButtons.add(right);
 		
-		addSpacePanel.add(tableWithButtons);
+		//addSpacePanel.add(tableWithButtons);
 
-		total.add(initComboBoxPanel(), BorderLayout.WEST);
-		total.add(addSpacePanel, BorderLayout.CENTER);
+		total.add(initComboBoxPanel());
+		total.add(tableWithButtons);
+		//total.setBackground(Utility.LIGHT_GREEN);
 
 		return total;
 	}
@@ -324,9 +332,9 @@ public class FAGui {
 	 * Fuellt das MainPanel mit dem Graph, sowie der Buchstabenreihe und den Buttons
 	 */
 	private void initMainPanel() {
-		this.mainPanel.add(this.initTopPanelForFrame(), BorderLayout.NORTH);
-		this.mainPanel.add(this.initMiddlePanelForFrame(), BorderLayout.CENTER);
-		this.mainPanel.add(this.bottom, BorderLayout.SOUTH);
+		this.mainPanel.add(this.initTopPanelForFrame());
+		this.mainPanel.add(this.initMiddlePanelForFrame());
+		this.mainPanel.add(this.bottom);
 	}
 
 	/**
@@ -339,7 +347,7 @@ public class FAGui {
 		this.mainPanel.remove(this.graph.getGraphPanel());
 		this.graph = graph;
 		this.graphPanel = graph.getGraphPanel();
-		this.mainPanel.add(this.graphPanel, BorderLayout.CENTER);
+		//this.mainPanel.add(this.graphPanel);
 		this.repaint();
 	}
 
