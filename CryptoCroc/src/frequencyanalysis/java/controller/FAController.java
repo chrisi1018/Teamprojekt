@@ -412,6 +412,8 @@ public class FAController {
 				}
 				bottom.updateKeyText(tables);
 				bottom.updateCryptoText();
+				tables[keyChar.getSelectedIndex()].shiftRight();
+				tables[keyChar.getSelectedIndex()].shiftLeft();
 				gui.setTable(tables);
 				gui.setTablePanel();
 				gui.repaint();
@@ -535,6 +537,8 @@ public class FAController {
 			this.tables[i].setBottom(this.bottom);
 		}
 		this.bottom.updateKeyText(tables);
+		tables[keyChar.getSelectedIndex()].shiftRight();
+		tables[keyChar.getSelectedIndex()].shiftLeft();
 	}
 
 	/**
