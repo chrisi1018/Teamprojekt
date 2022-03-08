@@ -13,7 +13,7 @@ Erwartung: Das Textfeld A verfaerbt sich weiﬂ.
 Realitaet: wie Erwartet.
 
 3. Wie in 1, dann: Ich entferne das "a" in A und B.
-Erwartung: Die Textfelder A, B, C verfaerbt sich weiﬂ.
+Erwartung: Die Textfelder A, B, C verfaerben sich weiﬂ.
 Realitaet: Wie erwartet.
 
 4. Wie in 1, dann: Ich ueberschreibe das "a" in A mit einem "b".
@@ -21,5 +21,5 @@ Erwartung: Das Textfeld A verfaerbt sich weiﬂ.
 Realitaet: wie Erwartet.
 
 5. Wie in 1, dann: Ich ueberschreibe das "a" in A mit einem "b" und das "a" in B mit einem "c".
-Erwartung: Die Textfelder A, B, C verfaerbt sich weiﬂ.
+Erwartung: Die Textfelder A, B, C verfaerben sich weiﬂ.
 Realitaet: Wie erwartet.

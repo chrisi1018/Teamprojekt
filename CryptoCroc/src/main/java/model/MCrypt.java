@@ -11,9 +11,9 @@ import utility.Utility;
 public class MCrypt extends Crypt {
 
 	/**
-	 * Ueberprueft ob ein Schluessel gueltig ist
+	 * Ueberprueft, ob ein Schluessel gueltig ist
 	 * 
-	 * @param keyString Der Schluessel der verwendet wird.
+	 * @param keyString Der Schluessel, der verwendet wird.
 	 * @return ob der Schluessel gueltig ist
 	 */
 	@Override
@@ -23,7 +23,7 @@ public class MCrypt extends Crypt {
 		}
 
 		boolean allGood = true;
-		// checkt ob jedes Zeichen nur einmal vorkommt
+		// checkt, ob jedes Zeichen nur einmal vorkommt
 		String[] key = this.convertKeyToArray(keyString);
 		for (int i = 0; i < key.length; i++) {
 			char c = key[i].charAt(0);
@@ -43,9 +43,9 @@ public class MCrypt extends Crypt {
 	}
 
 	/**
-	 * Macht aus einem Schluesselwort ein Array
+	 * Macht aus einem SchluesselWort ein Array
 	 * 
-	 * @param key das Schluesselwort als String
+	 * @param key das SchluesselWort als String
 	 * @return ein Array mit in jedem Slot ein Buchstabe
 	 */
 	public String[] convertKeyToArray(String key) {
@@ -68,7 +68,7 @@ public class MCrypt extends Crypt {
 
 	/**
 	 * Verschluesselt einen Buchstaben mit einem gegebenen Schluessel, indem der
-	 * Wert an der Stelle 'letter' aus dem Schluessel-Array abgelesen wird
+	 * Wert an der Stelle 'letter' aus dem SchluesselArray abgelesen wird
 	 * 
 	 * @param letter der aktuelle Buchstabe, der verschluesselt werden soll
 	 * @param key    ein Array mit dem aktuellen Schluessel
@@ -96,8 +96,8 @@ public class MCrypt extends Crypt {
 	}
 
 	/**
-	 * Verschluesselt einen Buchstaben indem es schaut an welcher Stelle der
-	 * Buchstabe im Schluessel-Array steht und dies dann in einen Grossbuchstaben
+	 * Verschluesselt einen Buchstaben, indem es schaut an welcher Stelle der
+	 * Buchstabe im SchluesselArray steht und diesen dann in einen Grossbuchstaben
 	 * umwandelt
 	 * 
 	 * @param letter

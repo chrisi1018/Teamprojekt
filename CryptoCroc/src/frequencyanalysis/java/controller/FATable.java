@@ -81,7 +81,6 @@ public class FATable {
 			this.textFields[i].setFont(Utility.TEXT_FONT);
 			this.textFields[i].setBorder(Utility.TEXTFIELD_BORDER);
 			this.textFields[i].setHorizontalAlignment(JTextField.CENTER);
-			// this.textFields[i].setColumns(1);
 			// dieser Aufruf loescht den aktuellen Inhalt der Textfelder (liegt am Setzen
 			// des Documents) :
 			this.textFields[i].setDocument(new LimitedTextfield(maxInput));
@@ -109,7 +108,7 @@ public class FATable {
 			// Setzt die Breite und die Hoehe des Textfelds
 			this.textFields[i].setMaximumSize(
 					new Dimension(Utility.WIDTH_TEXTFIELD_ONE_LETTER_IN_FA, Utility.HEIGHT_TEXTFIELD_IN_FA));
-			// Wird benoetigt um die Hohe zu setzen
+			// Wird benoetigt, um die Hoehe zu setzen
 			this.textFields[i].setPreferredSize(
 					new Dimension(Utility.WIDTH_TEXTFIELD_ONE_LETTER_IN_FA, Utility.HEIGHT_TEXTFIELD_IN_FA));
 			tablePanel.add(letterPanel);
@@ -156,9 +155,8 @@ public class FATable {
 	 */
 	public void shiftRight() {
 		for (int i = 0; i < this.textFields.length; i++) {
-			// alle Listener werden entfernt, da diese sonst beim Setzen des Texts
-			// getriggert
-			// werden
+			// alle Listener werden entfernt, da diese sonst beim Setzen des Textes
+			// getriggert werden
 			this.disableListener(i);
 			if (i < Utility.ALPHABET_SIZE - 1) {
 				this.textFields[i + 1].setText(Character.toString(this.data.getTextFieldChar(i)));
@@ -191,9 +189,8 @@ public class FATable {
 	 */
 	public void shiftLeft() {
 		for (int i = 0; i < this.textFields.length; i++) {
-			// alle Listener werden entfernt, da diese sonst beim Setzen des Texts
-			// getriggert
-			// werden
+			// alle Listener werden entfernt, da diese sonst beim Setzen des Textes
+			// getriggert werden
 			this.disableListener(i);
 			if (i < Utility.ALPHABET_SIZE - 1) {
 				this.textFields[i].setText(Character.toString(this.data.getTextFieldChar(i + 1)));
@@ -236,7 +233,7 @@ public class FATable {
 				newIndex = i;
 			}
 		}
-		// Listener werden entfernt, sonst triggert das Aendern des Texts auch den
+		// Listener werden entfernt, sonst triggert das Aendern des Textes auch den
 		// Listener
 		this.textFields[newIndex].getDocument().removeDocumentListener(tcl[newIndex]);
 
@@ -321,7 +318,7 @@ public class FATable {
 	}
 
 	/**
-	 * Setter Methode fuer die textFields updated auch FAData
+	 * Setter Methode fuer die textFields; updated auch FAData
 	 * 
 	 * @param textFields die TextFelder
 	 */

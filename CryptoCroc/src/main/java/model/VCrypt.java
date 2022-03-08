@@ -14,26 +14,26 @@ public class VCrypt extends Crypt {
 	CCrypt caesar = new CCrypt();
 
 	/**
-	 * Die Methode verschluesselt einen Text mit der Vigenere-Verschluesselung indem
-	 * mit einem Zaehler ueber das Schluesselwort gelaufen wird, und dann mit dem
-	 * Buchstaben des Schluesselworts die Caesar-Verschluesselung angewandt wird.
+	 * Die Methode verschluesselt einen Text mit der Vigenere-Verschluesselung, indem
+	 * mit einem Zaehler ueber das SchluesselWort gelaufen und dann mit dem
+	 * Buchstaben des SchluesselWortes die Caesar-Verschluesselung angewendet wird.
 	 * 
-	 * @param text Der mit der Vigenere-Verschluesselung zu verschluesselde Text
-	 * @param key  der Verwendete Text
-	 * @return der verschluesseltet Text
+	 * @param text Der mit der Vigenere-Verschluesselung zu verschluesselnde Text
+	 * @param key  der verwendete Text
+	 * @return der verschluesselte Text
 	 */
 	@Override
 	public String cryptAll(String text, String key) {
 		String ret = "";
-		int counter = 0; // Zaehlt ueber das Schluesselwort
+		int counter = 0; // Zaehlt ueber das SchluesselWort
 		for (int i = 0; i < text.length(); i++) {
 			char c = text.charAt(i);
 			ret = ret + caesar.cryptChar(c, castKey(key.charAt(counter)));
 			if (c >= 'A' && c <= 'z' && (c <= 'Z' || c >= 'a')) {
-				// Counter Zaehlt nur weiter wenn auch ein Buchstabe Verschluesselt wird
+				// Counter zaehlt nur weiter, wenn auch ein Buchstabe verschluesselt wird
 				counter++;
 			}
-			if (counter == key.length()) { // ueberprueft ob das Schluesselwort abgelaufen wurde
+			if (counter == key.length()) { // ueberprueft, ob das SchluesselWort abgelaufen wurde
 				counter = 0;
 			}
 		}
@@ -41,23 +41,23 @@ public class VCrypt extends Crypt {
 	}
 
 	/**
-	 * Die Methode entschluesselt einen Text der mit Vigenere-Verschluesselung
-	 * verschluesselt wurden, indem mit einem Zaehler ueber das Schluesselwort
-	 * gelaufen wird, und dann mit dem Buchstaben des Schluesselworts die
-	 * Entschluesselung des Caesar-Verfahren angewandt wird.
+	 * Die Methode entschluesselt einen Text, der mit Vigenere-Verschluesselung
+	 * verschluesselt wurden, indem mit einem Zaehler ueber das SchluesselWort
+	 * gelaufen und dann mit dem Buchstaben des SchluesselWortes die
+	 * Entschluesselung des Caesar-Verfahren angewendet wird.
 	 */
 	@Override
 	public String decryptAll(String text, String key) {
 		String ret = "";
-		int counter = 0; // Zaehlt ueber das Schluesselwort
+		int counter = 0; // Zaehlt ueber das SchluesselWort
 		for (int i = 0; i < text.length(); i++) {
 			char c = text.charAt(i);
 			ret = ret + caesar.decryptChar(c, castKey(key.charAt(counter)));
 			if (c >= 'A' && c <= 'z' && (c <= 'Z' || c >= 'a')) {
-				// Counter Zaehlt nur weiter wenn auch ein Buchstabe Verschluesselt wird
+				// Counter zaehlt nur weiter, wenn auch ein Buchstabe verschluesselt wird
 				counter++;
 			}
-			if (counter == key.length()) { // ueberprueft ob das Schluesselwort abgelaufen wurde
+			if (counter == key.length()) { // ueberprueft, ob das SchluesselWort abgelaufen wurde
 				counter = 0;
 			}
 		}
@@ -65,11 +65,11 @@ public class VCrypt extends Crypt {
 	}
 
 	/**
-	 * Die Methode ueberprueft ob der Schluessel das richtige Format hat, ein String
+	 * Die Methode ueberprueft, ob der Schluessel das richtige Format hat, ein String
 	 * aus arabischen Buchstaben
 	 * 
-	 * @param key der Verwedete Schluessel
-	 * @return Ein boolscher Wahrheitswert ob das Format des Schluessels passt
+	 * @param key der verwendete Schluessel
+	 * @return Ein boolescher Wahrheitswert, ob das Format des Schluessels passt
 	 */
 	public boolean checkKey(String key) {
 		if (key.equals("")) {

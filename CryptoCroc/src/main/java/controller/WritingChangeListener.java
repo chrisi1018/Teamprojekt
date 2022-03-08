@@ -30,7 +30,7 @@ public class WritingChangeListener implements DocumentListener {
 
 	@Override
 	public void insertUpdate(DocumentEvent e) {
-		// wenn gepastet wird ist die Laenge groesser 1
+		// wenn gepastet wird, ist die Laenge groesser 1
 		int changeLength = e.getLength();
 		if (changeLength == 1) {
 			Runnable overwrite = new Runnable() {

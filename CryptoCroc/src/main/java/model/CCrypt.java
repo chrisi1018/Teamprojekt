@@ -4,13 +4,14 @@ import utility.Utility;
 
 /**
  * Stellt die Caesar Verschuesselung zur Verfuegung.
+ * 
  * @author Julian Sturm
  * @version 1.0
  */
 public class CCrypt extends Crypt {
 
 	/**
-	 * Eine Methode die einen Buchstaben mit dem Caesar-Verfahren verschluesselt
+	 * Eine Methode, die einen Buchstaben mit dem Caesar-Verfahren verschluesselt
 	 * 
 	 * @param c der zu verschluesselnde Buchstabe
 	 * @param key der Schluessel mit dem verschluesselt wird
@@ -27,7 +28,7 @@ public class CCrypt extends Crypt {
 	}
 	
 	/**
-	 * Eine Methode die einen Buchstaben mit dem Caesar-Verfahren entschluesselt
+	 * Eine Methode, die einen Buchstaben mit dem Caesar-Verfahren entschluesselt
 	 * 
 	 * @param c der zu entschluesselnde Buchstabe
 	 * @param key der Schluessel mit dem entschluesselt wird
@@ -38,11 +39,11 @@ public class CCrypt extends Crypt {
 	}
 	
 	/**
-	 * Methode die einen String mit dem Caesar-Verfahren verschluesselt.
+	 * Methode, die einen String mit dem Caesar-Verfahren verschluesselt.
 	 * 
 	 * @param text der zu verschluesselnde Text
 	 * @param stringKey der verwendete Schluessel
-	 * @return der verschluesselde Text
+	 * @return der verschluesselte Text
 	 */
 	@Override
 	public String cryptAll(String text, String stringKey) {
@@ -55,7 +56,7 @@ public class CCrypt extends Crypt {
 	}
 	
 	/**
-	 *  Methode die einen String mit dem Caesar-Verfahren entschluesselt.
+	 *  Methode, die einen String mit dem Caesar-Verfahren entschluesselt.
 	 *  
 	 *  @param text der zu entschluesselnde Text
 	 *  @param stringKey der verwendete Schluessel
@@ -72,7 +73,7 @@ public class CCrypt extends Crypt {
 	}
 	
 	/**
-	 * Eine Methode die Ueberprueft ob der Schluessel das richtige Format hat.
+	 * Eine Methode, die ueberprueft, ob der Schluessel das richtige Format hat.
 	 */
 	@Override
 	public boolean checkKey(String key) {
@@ -91,10 +92,10 @@ public class CCrypt extends Crypt {
 	
 	
 	/**
-	 * Eine Methode die den keyString in eine IntegerVariable umwandelt.
+	 * Eine Methode, die den keyString in eine IntegerVariable umwandelt.
 	 * Bei ungueltiger Eingabe wird 0 als Schluessel zurueckgegeben.
 	 * 
-	 * @param stringKey der Schluessel in Stringform
+	 * @param stringKey der Schluessel als String
 	 * @param die Position 
 	 */
 	private int castKey(String stringKey) {

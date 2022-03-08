@@ -35,7 +35,7 @@ import javax.swing.text.BadLocationException;
 import javax.swing.text.PlainDocument;
 
 /**
- * Die Klasse stellt den Hauptcontroller der Haeufigkeitsanalyse dar
+ * Die Klasse stellt den HauptController der Haeufigkeitsanalyse dar
  * 
  * @author Julian Sturm, zes, Julian Singer, chrisi
  * @version 1.4
@@ -58,11 +58,10 @@ public class FAController {
 	private TableData[] data;
 	private FAGraph graph;
 	// speichert die zweite Ziffer der Schluessellaenge, um bei einem Wechsel einer
-	// Zahl zwischen
-	// 11 und 15 zu einer Zahl zwischen 16 und 19 zu ihrer vorherigen im validen
-	// Bereich zurueckzukehren
+	// Zahl zwischen 11 und 15 zu einer Zahl zwischen 16 und 19 zu ihrer vorherigen 
+	// im validen Bereich zurueckzukehren
 	private String previousSecondNumber;
-	// gui muss statisch sein, damit Update des Graphen auch aus FATable aufgerufen
+	// GUI muss statisch sein, damit Update des Graphen auch aus FATable aufgerufen
 	// werden kann
 	private static FAGui gui;
 	// speichert die aktuelle Sprache statisch ab, sodass andere Klassen hier auch
@@ -152,7 +151,7 @@ public class FAController {
 
 		// Setzt die Breite und die Hoehe des Textfeldes
 		this.lengthTextField.setMaximumSize(new Dimension(Utility.WIDTH_TEXTFIELD, Utility.HEIGHT_TEXTFIELD));
-		// Wird benoetigt um die Hoehe zu setzen
+		// Wird benoetigt, um die Hoehe zu setzen
 		this.lengthTextField.setPreferredSize(new Dimension(Utility.WIDTH_TEXTFIELD, Utility.HEIGHT_TEXTFIELD));
 
 		this.lengthTextField.setDocument(new PlainDocument() {
@@ -196,7 +195,7 @@ public class FAController {
 			}
 		});
 
-		// highlighted den Text wenn auf das Textfeld geklickt wird
+		// highlighted den Text, wenn auf das Textfeld geklickt wird
 		this.lengthTextField.addFocusListener(new FocusListener() {
 			@Override
 			public void focusGained(FocusEvent e) {
@@ -392,7 +391,7 @@ public class FAController {
 	}
 
 	/**
-	 * Initialisiert die Menueleiste und fuegt den Menues ActionListener hinzu
+	 * Initialisiert die MenueLeiste und fuegt den Menues ActionListener hinzu
 	 */
 	private void initFAMenuBar() {
 		this.menu = new FAMenuBar();
@@ -424,6 +423,7 @@ public class FAController {
 					lengthTextField.setText(Integer.toString(length));
 					break;
 				}
+				// updated das Fenster der FA
 				bottom.updateKeyText(tables);
 				bottom.updateCryptoText();
 				tables[keyChar.getSelectedIndex()].shiftRight();
@@ -506,7 +506,7 @@ public class FAController {
 	}
 
 	/**
-	 * Aktualisiert den Graphen der GUI; statische Methode damit diese auch aus
+	 * Aktualisiert den Graphen der GUI; statische Methode, damit diese auch aus
 	 * FATable aufgerufen werden kann ohne eine konkrete Instanz der GUI oder des
 	 * FAControllers zu brauchen
 	 * 
@@ -529,6 +529,7 @@ public class FAController {
 	 */
 	private void initFABottom() {
 		this.bottom = new FABottom(this.key, this.tables, this);
+		// Initialisierung in Abhaengigkeit der Verschluesselung
 		switch (this.key.getSerialnumber()) {
 		case 1:
 			this.lengthTextField.setText(Integer.toString(length));
@@ -556,7 +557,7 @@ public class FAController {
 	}
 
 	/**
-	 * Legt den focus auf die Haeufigkeitsanalyse
+	 * Legt den Fokus auf die Haeufigkeitsanalyse
 	 */
 	public void focus() {
 		gui.focus();

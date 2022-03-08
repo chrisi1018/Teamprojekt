@@ -56,7 +56,7 @@ public class FAGui {
 	 * Konstruktor, der den Frame fuer die Haeufigkeitsanalyse erstellt und das
 	 * Layout festlegt
 	 * 
-	 * @param menu            die Menueleiste
+	 * @param menu            die MenueLeiste
 	 * @param graph           der aktuelle Graph
 	 * @param table           das Panel, das die Reihe an Buchstaben enthaelt
 	 * @param left            der Links-Button
@@ -80,7 +80,7 @@ public class FAGui {
 		this.mainPanel = new JPanel();
 		this.mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
 		this.menu = menu; // muss hier initialisiert werden,
-							// damit der MoveMouseListener hinzugefuegt werden kann
+						  // damit der MoveMouseListener hinzugefuegt werden kann
 
 		// Setze das Icon im Fenster und den MouseListener fuer die MenueLeiste
 		String os = System.getProperty("os.name").toLowerCase();
@@ -123,7 +123,7 @@ public class FAGui {
 		this.tablePanel = initTable();
 		this.tablePanel.setVisible(true);
 
-		// Menueleiste einstellen
+		// MenueLeiste einstellen
 		this.frame.setJMenuBar(menu);
 
 		// Groesse der ComboBoxen einheitlich machen nach der maximalen Anzahl
@@ -144,7 +144,7 @@ public class FAGui {
 	}
 
 	/**
-	 * Fuegt eine Rand, um das Hauptfenster hinzu.
+	 * Fuegt einen Rand um das Hauptfenster hinzu.
 	 */
 	private void initFrameBorders() {
 		this.frame.add(this.mainPanel, BorderLayout.CENTER);
@@ -157,7 +157,7 @@ public class FAGui {
 	/**
 	 * Das Top-Panel wird erstellt und die einzelnen Elemente darin angeordnet.
 	 * 
-	 * @return das Panel mit der Ueberschift, das Sprachauswahl-Drop-Down-Menue und
+	 * @return das Panel mit der Ueberschift, das Sprachauswahl-DropDownMenue und
 	 *         der Schluessellaenge-Eingabe
 	 */
 	private JPanel initTopPanelForFrame() {
@@ -165,26 +165,29 @@ public class FAGui {
 		// Ueberschift der Seite hinzufuegen
 		top.add(this.mainLabel, BorderLayout.NORTH);
 
-		// erstellt des Panels fuer das Drop-Down-Menue
+		// erstellt das Panel fuer das DropDownMenue
 		JPanel languageComboBoxPanel;
 		String os = System.getProperty("os.name").toLowerCase();
+		// Ubuntu braucht andere Groesse
 		if (os.contains("nix") || os.contains("aix") || os.contains("nux")) {
 			languageComboBoxPanel = new JPanel(new FlowLayout(175));
 			// Abstand zwischen Ueberschrift und Drop-Down
 			languageComboBoxPanel.add(Box.createRigidArea(new Dimension(160, 5)));
 			languageComboBoxPanel.add(this.language);
-			languageComboBoxPanel.setPreferredSize(new Dimension(175, 35)); // wird benoetig fuer die richtige Anordnung
+			languageComboBoxPanel.setPreferredSize(new Dimension(175, 35)); // wird fuer die richtige
+			                                                                // Anordnung benoetigt
 		} else {
 			languageComboBoxPanel = new JPanel(new FlowLayout(155));
 			// Abstand zwischen Ueberschrift und Drop-Down
 			languageComboBoxPanel.add(Box.createRigidArea(new Dimension(160, 5)));
 			languageComboBoxPanel.add(this.language);
-			languageComboBoxPanel.setPreferredSize(new Dimension(155, 30)); // wird benoetig fuer die richtige Anordnung
+			languageComboBoxPanel.setPreferredSize(new Dimension(155, 30)); // wird fuer die richtige
+			                                                                // Anordnung benoetigt
 		}
 
 		top.add(languageComboBoxPanel, BorderLayout.WEST);
 
-		// erstellt des Panels fuer die Schluessellaenge-Eingabe und die CheckBox
+		// erstellt das Panel fuer die Schluessellaenge-Eingabe und die CheckBox
 		JPanel keyLengthPanel = new JPanel(new FlowLayout(0));
 		keyLengthPanel.add(this.lengthLabel);
 		keyLengthPanel.add(this.lengthTextField);
@@ -192,7 +195,7 @@ public class FAGui {
 
 		// Setzt die Breite und die Hoehe des Textfeldes
 		this.lengthTextField.setMaximumSize(new Dimension(Utility.WIDTH_TEXTFIELD, Utility.HEIGHT_TEXTFIELD));
-		// Wird benoetigt um die Hoehe zu setzen
+		// Wird benoetigt, um die Hoehe zu setzen
 		this.lengthTextField.setPreferredSize(new Dimension(Utility.WIDTH_TEXTFIELD, Utility.HEIGHT_TEXTFIELD));
 
 		top.add(keyLengthPanel, BorderLayout.SOUTH);
@@ -332,14 +335,14 @@ public class FAGui {
 	}
 
 	/**
-	 * Methode die den Frame fokusiert
+	 * Methode, die den Frame fokussiert
 	 */
 	public void focus() {
 		this.frame.toFront();
 	}
 
 	/**
-	 * Methode die den Frame Schliesst
+	 * Methode, die den Frame schliesst
 	 */
 	public void disposeFrame() {
 		if (this.frame != null) {

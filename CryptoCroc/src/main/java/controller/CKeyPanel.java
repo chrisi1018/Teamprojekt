@@ -82,9 +82,9 @@ public class CKeyPanel extends KeyPanel {
 		textPanel.add(key);
 		key.setAlignmentX(Component.CENTER_ALIGNMENT);
 		
-		//Setzt die Breite und die Hoehe des Textfelds
+		// Setzt die Breite und die Hoehe des Textfelds
 		key.setMaximumSize(new Dimension(Utility.WIDTH_TEXTFIELD_ONE_LETTER, Utility.HEIGHT_TEXTFIELD));
-		//Wird benoetigt um die Hoehe zu setzen
+		// Wird benoetigt, um die Hoehe zu setzen
 		key.setPreferredSize(new Dimension(Utility.WIDTH_TEXTFIELD_ONE_LETTER, Utility.HEIGHT_TEXTFIELD));
 
 		// fuegt das Text- und Buttonpanel zu einem Panel zusammen
@@ -107,7 +107,7 @@ public class CKeyPanel extends KeyPanel {
 	/**
 	 * Setzt einen Schluessel in das TextFeld
 	 * 
-	 * @param key der Zu setztende Schluessel
+	 * @param key der zu setzende Schluessel
 	 */
 	@Override
 	public void setKey(String key) {
@@ -124,7 +124,7 @@ public class CKeyPanel extends KeyPanel {
 		int targetStringLength = 1;
 		Random random = new Random();
 		StringBuilder buffer = new StringBuilder(targetStringLength);
-		for (int i = 0; i < targetStringLength; i++) { //Schleife fuer Stringbuilder des Random key
+		for (int i = 0; i < targetStringLength; i++) { // Schleife fuer StringBuilder des Random key
 			int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
 			buffer.append((char) randomLimitedInt);
 		}
@@ -135,7 +135,7 @@ public class CKeyPanel extends KeyPanel {
 	}
 	
 	/**
-	 * Die Methode gibt die Seriennumer des KeyPanels zurueck
+	 * Die Methode gibt die Seriennummer des KeyPanels zurueck
 	 * CKeypanel = 1
 	 * MKeypanel = 2
 	 * VKeypanel = 3

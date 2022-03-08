@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 import java.awt.Color;
 
 /**
- * Textfeld bei der immer nur ein Buchstabe zwischen A und Z eingegeben werden
+ * Textfeld, bei dem immer nur ein Buchstabe zwischen A und Z eingegeben werden
  * darf
  * 
  * @author zes, Julian Sturm
@@ -42,7 +42,7 @@ public class LimitedTextfield extends PlainDocument {
 	 * Konstruktor fuer ein LimitedTextfield mit einer Alphabets Permutation
 	 * 
 	 * @param limit      die maximale Anzahl an Zeichen in einem Textfeld
-	 * @param textFields die Textfelder in den die Permutation steht
+	 * @param textFields die Textfelder, in denen die Permutation steht
 	 * @param index      der Index des Textfeldes
 	 */
 	public LimitedTextfield(int limit, int index, JTextField[] textFields) {
@@ -53,14 +53,14 @@ public class LimitedTextfield extends PlainDocument {
 	}
 
 	/**
-	 * serial Nummer
+	 * Seriennummer
 	 */
 	private static final long serialVersionUID = 6389795108727999785L;
 
 	@Override
 	public void insertString(int offset, String str, AttributeSet att) throws BadLocationException {
 		String up = str.toUpperCase();
-		if (!this.checkValidString(up)) {
+		if (!this.checkValidString(up)) { // prueft auf gueltige Eingabe
 			if (illegalKeyError % Utility.MAX_ERROR_MESSAGES == 1) {
 				Messages.errorMessage("Hier k\u00f6nnen nur die Buchstaben A-Z bzw a-z eingegeben werden!");
 			}
@@ -71,7 +71,7 @@ public class LimitedTextfield extends PlainDocument {
 		} else if ((getLength() + up.length()) <= limit) {
 			super.insertString(offset, up, att);
 		} else {
-			if (limit == 1) {
+			if (limit == 1) { // Unterscheidung fuer Anzahl der Buchstaben
 				if (moreThanOneKeyError % Utility.MAX_ERROR_MESSAGES == 1) {
 					Messages.errorMessage("Hier kann nur ein Buchstabe eingegeben werden!");
 				}
@@ -96,7 +96,7 @@ public class LimitedTextfield extends PlainDocument {
 	}
 
 	/**
-	 * Ueberprueft ob ein String nur die Characters A-Z bzw a-z enthaelt
+	 * Ueberprueft, ob ein String nur die Characters A-Z bzw a-z enthaelt
 	 * 
 	 * @param str der zu ueberpruefende String
 	 * @return ob nur die erlaubten Characters enthalten sind
@@ -114,11 +114,11 @@ public class LimitedTextfield extends PlainDocument {
 	}
 
 	/**
-	 * Ueberprueft ob der der eingebene String schon in einem anderen Textfeld steht
+	 * Ueberprueft, ob der eingegebene String schon in einem anderen Textfeld steht
 	 * 
-	 * @param str der eingebene String
-	 * @retunr gibt -1 wenn eine Permuationvorliegt ansonsten den Index des
-	 *         TextFeldes, indem der Buchstabe schon steht
+	 * @param str der eingegebene String
+	 * @return gibt -1 wenn eine Permutation vorliegt, ansonsten den Index des
+	 *         TextFeldes, in dem der Buchstabe schon steht
 	 */
 	private void checkPermutation() {
 		for (int i = 0; i < 26; i++) {
@@ -132,8 +132,8 @@ public class LimitedTextfield extends PlainDocument {
 					red = true;
 					break;
 				}
-			}
-			if (red) {
+			} 
+			if (red) { // Zum Markieren der doppelten Buchstaben
 				textFields[i].setBackground(Color.RED);
 			} else {
 				textFields[i].setBackground(Color.WHITE);

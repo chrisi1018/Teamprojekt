@@ -5,7 +5,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import com.formdev.flatlaf.FlatLightLaf;
 
 /**
- * Main Klasse fuer CryptoCroc, welches MainController kreiert
+ * Main Klasse fuer CryptoCroc, welche MainController kreiert
  * 
  * @author zes, chrisi
  * @version 1.1
@@ -13,12 +13,12 @@ import com.formdev.flatlaf.FlatLightLaf;
 public class Main {
 
 	/**
-	 * main methode, die den MainController kreiert
+	 * main-Methode, die den MainController kreiert
 	 * 
 	 * @param args Eingabe String
 	 */
 	public static void main(String[] args) {
-		// falls Mac benutze die mac menu bar
+		// falls Mac, benutze die Mac-MenuBar
 		if (System.getProperty("os.name").toLowerCase().equals("mac os x")) {
 			System.setProperty("apple.laf.useScreenMenuBar", "true");
 			System.setProperty("apple.awt.application.name", "CryptoCroc");
@@ -26,7 +26,7 @@ public class Main {
 		
 		try {
 			UIManager.setLookAndFeel(new FlatLightLaf()); // Windows LookAndFeel
-															// "com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
+														  // "com.sun.java.swing.plaf.windows.WindowsLookAndFeel"
 			new MainController();
 		} catch (UnsupportedLookAndFeelException e) {
 			e.printStackTrace();

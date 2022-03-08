@@ -10,13 +10,13 @@ package model;
 public final class TextEdit {
 
 	/**
-	 * Privater Kunstruktor fuer Hilfsklasse
+	 * Privater Konstruktor fuer die Hilfsklasse
 	 */
 	private TextEdit() {
 	}
 
 	/**
-	 * Eine Methode die folgende Satzzeichen aendert: \u00e4 --> ae, \u00c4 --> Ae,
+	 * Eine Methode, die folgende Satzzeichen aendert: \u00e4 --> ae, \u00c4 --> Ae,
 	 * \u00f6 --> oe, \u00d6 --> Oe, \u00fc --> ue, \u00dc --> Ue, \u00df --> ss.
 	 * 
 	 * @param c das zu ueberpruefende Satzzeichen.
@@ -45,10 +45,10 @@ public final class TextEdit {
 	}
 
 	/**
-	 * Eine Methode die Kleinbuchstaben in Grossbuchstaben umwandelt
+	 * Eine Methode, die KleinBuchstaben in GrossBuchstaben umwandelt
 	 * 
-	 * @param c der Buchstabe der Umgewandelt werden soll
-	 * @return der Umgewandelte Buchstabe
+	 * @param c der Buchstabe, der umgewandelt werden soll
+	 * @return der umgewandelte Buchstabe
 	 */
 	public static char changeToCapitalLetter(char c) {
 		char ret = c;
@@ -71,9 +71,9 @@ public final class TextEdit {
 	}
 
 	/**
-	 * Eine Methode die in einem String alle Buchstaben gross schreibt
+	 * Eine Methode, die in einem String alle Buchstaben gross schreibt
 	 * 
-	 * @param text der String der umgewandelt werden soll
+	 * @param text der String, der umgewandelt werden soll
 	 * @return Der umgewandelte String
 	 */
 	public static String changeToCapitalLetter(String text) {
@@ -89,10 +89,10 @@ public final class TextEdit {
 
 	/**
 	 * Eine HilfsMethode, die sowohl Umlaute umwandelt, als auch alle Buchstaben in
-	 * Grossbuchstaben umwandelt.
+	 * GrossBuchstaben umwandelt.
 	 * 
-	 * @param text der Text der umgewandelt werden soll.
-	 * @return der Umgewandelte Text.
+	 * @param text der Text, der umgewandelt werden soll.
+	 * @return der umgewandelte Text.
 	 */
 	public static String editText(String text) {
 		String ret = "";

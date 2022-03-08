@@ -160,7 +160,7 @@ Realitaet: entspricht der Erwartung
 
 T31: (fuer Windows)
 28. Ich starte die Software
-Erwartung: Durch das eingestellt LookAndFeel wird in der Anwendung das Design diese Angezeigt.
+Erwartung: Durch das eingestellt LookAndFeel wird in der Anwendung das Design dieser angezeigt.
 Realitaet: entspricht der Erwartung
 
 T32: (fuer Windows)
@@ -173,6 +173,6 @@ Realitaet: entspricht der Erwartung
 Erwartung: Das Sprachauswahl-DropDown-Menue wird unterhalb der Ueberschrift "Haeufigkeitsanalyse" angezeigt. Der
 Text "Schluessellaenge", das Textfeld, die Checkbox und der Text "Monoalphabetische Verschluesselung" wird
 nebeneinander angezeigt und unterhalb des Sprachauswahl-DropDown-Menues. Darunter befindet sich das 
-Buchstaben-DropDown-Menue und daneben das Alphabet, mit den zugehoerigrn Textfeldern. Am unteren Rand des Fensters
+Buchstaben-DropDown-Menue und daneben das Alphabet, mit den zugehoerigen Textfeldern. Am unteren Rand des Fensters
 wird der Geheimtext angezeigt und daneben sind die Schluesselfelder. 
 Realitaet: entspricht der Erwartung

@@ -31,7 +31,7 @@ public abstract class KeyPanel {
 	private FAController fa;
 	private static boolean faIsOpen = false;
 
-	// zaehlen wie viele Fehlermeldungen es vom jeweiligen Typ schon gab
+	// zaehlen, wie viele Fehlermeldungen es vom jeweiligen Typ schon gab
 	private int wrongKeyError = 1;
 	private int emptyTextError = 1;
 
@@ -45,7 +45,7 @@ public abstract class KeyPanel {
 	}
 
 	/**
-	 * Initialisiert die Buttons durch die Action Listener
+	 * Initialisiert die Buttons durch die ActionListener
 	 */
 	public void initKey() {
 		encrypt.addActionListener(e -> this.clickButtonEncrypt());
@@ -72,7 +72,7 @@ public abstract class KeyPanel {
 	/**
 	 * Setzt einen Schluessel in die SchluesselTextfelder
 	 * 
-	 * @param key der Schluessel der in die Textfelder Gesetzt wird
+	 * @param key der Schluessel, der in die Textfelder gesetzt wird
 	 */
 	public abstract void setKey(String key);
 
@@ -84,11 +84,11 @@ public abstract class KeyPanel {
 	/**
 	 * Erzeugt die Buttons in einem JPanel
 	 * 
-	 * @return ein JPanel mit die Buttons "verschluesseln" und "entschluesseln"
+	 * @return ein JPanel mit den Buttons "verschluesseln" und "entschluesseln"
 	 */
 	protected JPanel createButtonPanel() {
 		JPanel panel = new JPanel(new BorderLayout());
-		// FlowLayout wichtig damit Button passende Groesse haben und sie mittig
+		// FlowLayout wichtig, damit Buttons passende Groesse haben und sie mittig
 		// ausgerichtet werden
 		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		buttonPanel.add(encrypt);
@@ -104,8 +104,8 @@ public abstract class KeyPanel {
 	}
 
 	/**
-	 * Erzeugt ein Label, dass das Bild des Krokodils beinhaltet, dies wird sofort
-	 * auf die passende groesse skaliert.
+	 * Erzeugt ein Label, das das Bild des Krokodils beinhaltet und welches sofort
+	 * auf die passende Groesse skaliert wird.
 	 * 
 	 * @return ein JLabel mit dem Bild des Krokodils
 	 */
@@ -145,9 +145,9 @@ public abstract class KeyPanel {
 	}
 
 	/**
-	 * Setzt die Crypt-Instanz der aktuellen Instanz auf eine neue Crypt-Instanz
+	 * Setzt die CryptInstanz der aktuellen Instanz auf eine neue CryptInstanz
 	 * 
-	 * @param newCrypt neue Crypt-Instanz
+	 * @param newCrypt neue CryptInstanz
 	 */
 	public void setCrypt(Crypt newCrypt) {
 		this.crypt = newCrypt;
@@ -163,8 +163,8 @@ public abstract class KeyPanel {
 	}
 
 	/**
-	 * Der Klartext wird verschluesselt und im Geheimtextfeld ausgegeben.
-	 * Ausfuehrung bei clicken auf den Button "verschluesseln".
+	 * Der Klartext wird verschluesselt und im GeheimTextfeld ausgegeben.
+	 * Ausfuehrung beim Klicken auf den Button "verschluesseln".
 	 */
 	public void clickButtonEncrypt() {
 		String plainText = this.controller.getPlainText();
@@ -176,13 +176,13 @@ public abstract class KeyPanel {
 				Messages.errorMessage("Zum Verschl\u00fcsseln muss im Klartextfeld ein Text eingegeben werden.");
 			}
 			emptyTextError++;
-		} else { // Wird ausgefuert nur wenn ein Klartext gegeben ist
+		} else { // Wird nur ausgefuehrt, wenn ein Klartext gegeben ist
 			if (this.crypt.checkKey(key)) {
 				if (cryptoText.isEmpty()
 						|| Messages.yesNoQuestion("Darf der Geheimtext im Geheimtextfeld \u00fcberschrieben werden?")) {
 					plainText = TextEdit.editText(plainText);
 					cryptoText = this.crypt.cryptAll(plainText, key); // Der verschluesselte Text wird erzeugt und
-					this.controller.setCryptoText(cryptoText); // im Geheimtextfeld ausgegeben
+					this.controller.setCryptoText(cryptoText);        // im Geheimtextfeld ausgegeben
 				}
 			} else {
 				if (wrongKeyError % Utility.MAX_ERROR_MESSAGES == 1) {
@@ -194,8 +194,8 @@ public abstract class KeyPanel {
 	}
 
 	/**
-	 * Der Geheimtext wird entschluesselt und im Klartestfeld ausgegeben.
-	 * Ausfuehrung bei clicken auf den Button "entschluesseln".
+	 * Der Geheimtext wird entschluesselt und im KlarTextfeld ausgegeben.
+	 * Ausfuehrung beim Klicken auf den Button "entschluesseln".
 	 */
 	public void clickButtonDecrypt() {
 		String plainText = this.controller.getPlainText();
@@ -207,13 +207,13 @@ public abstract class KeyPanel {
 				Messages.errorMessage("Zum Entschl\u00fcsseln muss im Geheimtextfeld ein Text eingegeben werden.");
 			}
 			emptyTextError++;
-		} else { // Wird ausgefuert nur wenn ein Geheimtext gegeben ist
+		} else { // Wird nur ausgefuehrt, wenn ein Geheimtext gegeben ist
 			if (this.crypt.checkKey(key)) {
 				if (plainText.isEmpty()
 						|| Messages.yesNoQuestion("Darf der Klartext im Klartextfeld \u00fcberschrieben werden?")) {
 					cryptoText = TextEdit.editText(cryptoText);
 					plainText = this.crypt.decryptAll(cryptoText, key); // Der entschluesselte Text wird erzeugt und
-					this.controller.setPlainText(plainText); // im Klartextfeld ausgegeben
+					this.controller.setPlainText(plainText);            // im Klartextfeld ausgegeben
 				}
 			} else {
 				if (wrongKeyError % Utility.MAX_ERROR_MESSAGES == 1) {
@@ -225,7 +225,7 @@ public abstract class KeyPanel {
 	}
 
 	/**
-	 * Wechselt den Zustand von faIsOpen; benutzt um zu ueberpruefen ob die
+	 * Wechselt den Zustand von faIsOpen; wird benutzt, um zu ueberpruefen, ob die
 	 * Haeufigkeitsanalyse bereits geoeffnet ist
 	 */
 	public static void faSwitchOpen() {
@@ -253,14 +253,14 @@ public abstract class KeyPanel {
 	}
 
 	/**
-	 * Ruft die Methoden auf die einen zufaelligen Schuessel erzeugen
+	 * Ruft die Methoden auf, die einen zufaelligen Schuessel erzeugen
 	 */
 	public void clickButtonRandomKey() {
 		this.randomKey();
 	}
 
 	/**
-	 * Die Methode gibt die Seriennumer des KeyPanels zurueck
+	 * Die Methode gibt die Seriennummer des KeyPanels zurueck
 	 * 
 	 * @return : CKeypanel = 1 MKeypanel = 2 VKeypanel = 3
 	 */

@@ -9,10 +9,10 @@ Erwartung: Alle Umlaute werden umgewandelt und der Text erscheint in Grossbuchst
 Realitaet: Entspricht der Erwartung
 
 -> Beobachtung: Copy-Pastet man den Text, so friert das Textfeld ein, da der DocumentListener auf jede Aenderung gleichzeitig reagiert
--> verbessert sodass Documentlistener nur einmal reagiert
+-> verbessert, sodass Documentlistener nur einmal reagiert
 
 2. Ich fuehre 1. mit dem Geheimtext-Feld durch
-Erwartung: genau wie bei 1. werden alle Umlaute geandert und der Text erscheint in Grossbuchstaben
+Erwartung: genau wie bei 1. werden alle Umlaute geaendert und der Text erscheint in Grossbuchstaben
 Realitaet: Entspricht der Erwartung
 
 3. Ich lade nacheinander in beide Textfelder eine .txt-Datei mit dem Text "abcdefghijklmnopqrstuvwxyz ae oe ue ue ue ABCDEFGHIJKLMNOPQRSTUVWXYZ +# ss 12o3ziui", wobei ae, oe, ue, und ss wieder die entsprechenden Umlaute sind

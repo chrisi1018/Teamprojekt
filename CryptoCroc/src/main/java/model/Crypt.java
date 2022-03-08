@@ -27,10 +27,10 @@ public abstract class Crypt {
 	public abstract String decryptAll(String cryptoText, String key);
 	
 	/**
-	 * Ueberfruefung ob der Schluessel das richtige Format hat
+	 * Ueberprueft, ob der Schluessel das richtige Format hat
 	 * 
-	 * @param key der Schluessel der verwendet wird
-	 * @return ein Wahrheitswert ob der verwendete Schluessel richtig ist
+	 * @param key der Schluessel, der verwendet wird
+	 * @return ein Wahrheitswert, ob der verwendete Schluessel richtig ist
 	 */
 	public abstract boolean checkKey(String key);
 }

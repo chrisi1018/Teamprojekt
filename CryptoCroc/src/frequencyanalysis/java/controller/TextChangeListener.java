@@ -5,7 +5,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 /**
- * Wechselt zwei Schluesselfelder miteinander aus
+ * Vertauscht zwei Schluesselfelder miteinander
  * 
  * @author zes
  * @version 1.5
@@ -29,7 +29,7 @@ public class TextChangeListener implements DocumentListener {
 
 	@Override
 	public void insertUpdate(DocumentEvent e) {
-		// fuer monoalphabetisch; wechselt zwei Schluesselfelder aus und deaktiviert
+		// fuer monoalphabetisch; vertauscht zwei Schluesselfelder und deaktiviert
 		// zeitlich in einem den DocumentListener
 		Runnable swap = new Runnable() {
 			@Override

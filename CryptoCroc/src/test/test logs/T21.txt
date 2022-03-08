@@ -8,7 +8,7 @@ getestet von: Zoe Sobota
 Erwartung: Es erscheint ein Pop-Up Fenster bei dem man Dateien auswaehlen kann
 Realitaet: entspricht der Erwartung
 
-2. Ich fuehre 1. aus und waehle im Dropdown-Menue des Filechoosers die Option "All Files" aus. Ich suche in meinen Dateien nach CryptoCroco.png und klicke auf "Open".
+2. Ich fuehre 1. aus und waehle im Dropdown-Menue des FileChoosers die Option "All Files" aus. Ich suche in meinen Dateien nach CryptoCroco.png und klicke auf "Open".
 Erwartung: Es erscheint ein Pop-Up Fenster mit einer Fehlermeldung
 Realitaet: Es passiert nichts
 

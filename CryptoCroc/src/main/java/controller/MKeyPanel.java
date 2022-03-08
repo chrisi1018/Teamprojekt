@@ -47,7 +47,7 @@ public class MKeyPanel extends KeyPanel {
 	}
 
 	/**
-	 * Methode die den aktuellen Schluessel zurueckgibt
+	 * Methode, die den aktuellen Schluessel zurueckgibt
 	 */
 	@Override
 	public String getKey() {
@@ -55,9 +55,9 @@ public class MKeyPanel extends KeyPanel {
 	}
 
 	/**
-	 * Wandelt das Array von Schluesselbuchstaben um in ein Schluesselwort
+	 * Wandelt das Array von SchluesselBuchstaben in ein SchluesselWort um
 	 * 
-	 * @return das Schluesselwort als String
+	 * @return das SchluesselWort als String
 	 */
 	private String keyAsString() {
 		this.key = "";
@@ -100,8 +100,8 @@ public class MKeyPanel extends KeyPanel {
 
 			keys[i].setDocument(new LimitedTextfield(maxInput, i, keys));
 
-			// sorgt dafuer dass Text im Textfeld markiert wird beim Klicken
-			// benoetigt extra variable j, da i sich veraendert
+			// sorgt dafuer, dass Text im Textfeld beim Klicken markiert wird
+			// benoetigt Extra-Variable j, da i sich veraendert
 			int j = i;
 			keys[i].addFocusListener(new FocusListener() {
 				@Override
@@ -126,7 +126,7 @@ public class MKeyPanel extends KeyPanel {
 			
 			// Setzt die Breite und die Hoehe des Textfelds
 			keys[i].setMaximumSize(new Dimension(Utility.WIDTH_TEXTFIELD_ONE_LETTER, Utility.HEIGHT_TEXTFIELD));
-			// Wird benoetigt um die Hoehe zu setzen
+			// Wird benoetigt, um die Hoehe zu setzen
 			keys[i].setPreferredSize(new Dimension(Utility.WIDTH_TEXTFIELD_ONE_LETTER, Utility.HEIGHT_TEXTFIELD));
 			
 			nameKeyPanels[i] = nameKeyPanel;
@@ -137,10 +137,10 @@ public class MKeyPanel extends KeyPanel {
 		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
 			inputPanel.add(nameKeyPanels[i]);
 		}
-		// setzt die hoehe des Panels, sodass ein Umbruch entsteht
+		// setzt die Hoehe des Panels, sodass ein Umbruch entsteht
 		inputPanel.setPreferredSize(new Dimension(0, 130));
 		
-		// fuegt die Ueberschift und das Textpanel zusammen
+		// fuegt die Ueberschift und das TextPanel zusammen
 		JPanel textPanel = new JPanel();
 		textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.PAGE_AXIS));
 		textPanel.add(description);
@@ -158,7 +158,7 @@ public class MKeyPanel extends KeyPanel {
 	}
 
 	/**
-	 * Methode die einen Zufaelligen Schluessel erzeugt
+	 * Methode, die einen zufaelligen Schluessel erzeugt
 	 */
 	@Override
 	public void randomKey() {
@@ -169,7 +169,7 @@ public class MKeyPanel extends KeyPanel {
 			keyString[i] = Character.toString((char) ('A' + i));
 		}
 		Random random = new Random();
-		// Random Shuffel des Array keyString erzeugt eienn Random Schluessel
+		// Random Shuffle des Array keyString erzeugt einen Random-Schluessel
 		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
 			int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
 			String temp = keyString[i];
@@ -184,9 +184,9 @@ public class MKeyPanel extends KeyPanel {
 	}
 
 	/**
-	 * Eine Methode die einen Schluessel in die Schluesselfelder Schreibt
+	 * Eine Methode, die einen Schluessel in die SchluesselFelder schreibt
 	 * 
-	 * @param key der Schluessel der in die Schluesselfelder Geschrieben wird
+	 * @param key der Schluessel, der in die SchluesselFelder geschrieben wird
 	 */
 	@Override
 	public void setKey(String key) {
@@ -207,8 +207,10 @@ public class MKeyPanel extends KeyPanel {
 	}
 
 	/**
-	 * Die Methode gibt die Seriennumer des KeyPanels zurueck CKeypanel = 1 MKeypanel
-	 * = 2 VKeypanel = 3
+	 * Die Methode gibt die Seriennummer des KeyPanels zurueck 
+	 * CKeypanel = 1 
+	 * MKeypanel = 2 
+	 * VKeypanel = 3
 	 * 
 	 * @return 2;
 	 */

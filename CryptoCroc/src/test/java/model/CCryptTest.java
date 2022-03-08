@@ -56,7 +56,7 @@ public class CCryptTest {
 			+ " bkhsz jzrc ftadqfqdm, mn rdz szjhlzsz rzmbstr drs Knqdl h" + "ortl cnknq rhs zlds.";
 
 	/**
-	 * Initalisiert den Test
+	 * Initialisiert den Test
 	 */
 	@BeforeEach
 	void init() {
@@ -72,7 +72,7 @@ public class CCryptTest {
 	}
 
 	/**
-	 * Testet die Caesarverschluesselung mit Buchstaben "A";
+	 * Testet die Caesar-Verschluesselung mit Buchstaben "A";
 	 */
 	@Test
 	void fixedTestNullCrypt() {
@@ -80,7 +80,7 @@ public class CCryptTest {
 	}
 
 	/**
-	 * Testet die Caesarentschluesselung mit Buchstaben "A";
+	 * Testet die Caesar-Entschluesselung mit Buchstaben "A";
 	 */
 	@Test
 	void ficedTestNullDecrypt() {
@@ -88,7 +88,7 @@ public class CCryptTest {
 	}
 
 	/**
-	 * Testet die Caesarverschluesselung mit Buchstaben "B";
+	 * Testet die Caesar-Verschluesselung mit Buchstaben "B";
 	 */
 	@Test
 	void fixedTestOneCrypt() {
@@ -96,7 +96,7 @@ public class CCryptTest {
 	}
 
 	/**
-	 * Testet die Caesarentschluesselung mit Buchstaben "B";
+	 * Testet die Caesar-Entschluesselung mit Buchstaben "B";
 	 */
 	@Test
 	void fixedTestOneDecrypt() {
@@ -104,7 +104,7 @@ public class CCryptTest {
 	}
 
 	/**
-	 * Testet die Caesarverschluesselung mit Buchstaben "M";
+	 * Testet die Caesar-Verschluesselung mit Buchstaben "M";
 	 */
 	@Test
 	void fixedTestTwelveCrypt() {
@@ -112,7 +112,7 @@ public class CCryptTest {
 	}
 
 	/**
-	 * Testet die Caesarentschluesselung mit Buchstaben "M";
+	 * Testet die Caesar-Entschluesselung mit Buchstaben "M";
 	 */
 	@Test
 	void fixedTestTwelveDecrypt() {
@@ -120,7 +120,7 @@ public class CCryptTest {
 	}
 
 	/**
-	 * Testet die Caesarverschluesselung mit Buchstaben "z";
+	 * Testet die Caesar-Verschluesselung mit Buchstaben "z";
 	 */
 	@Test
 	void fixedTestTwentyfiveCrypt() {
@@ -128,7 +128,7 @@ public class CCryptTest {
 	}
 
 	/**
-	 * Testet die Caesarentschluesselung mit Buchstaben "z";
+	 * Testet die Caesar-Entschluesselung mit Buchstaben "z";
 	 */
 	@Test
 	void fixedTestTwentyfiveDecrypt() {
@@ -136,7 +136,7 @@ public class CCryptTest {
 	}
 
 	/**
-	 * Testet wie die Verschluesselung mit Unicodezeichen umgeht.
+	 * Testet, wie die Verschluesselung mit UnicodeZeichen umgeht.
 	 */
 	@Test
 	void unicodeTest() {
@@ -146,7 +146,7 @@ public class CCryptTest {
 
 	/**
 	 * Testet die Verschluesselung und Entschluesselung mit zufaelligem Text und
-	 * zufaelligen Schluessel
+	 * zufaelligem Schluessel
 	 */
 	@Test
 	void randomTest() {
@@ -155,10 +155,10 @@ public class CCryptTest {
 		int targetStringLength = 100;
 		Random random = new Random();
 		StringBuilder buffer = new StringBuilder(targetStringLength);
-		for (int j = 0; j < 100; j++) { //Schleife um den Test mehrfach durch zu fuehren
+		for (int j = 0; j < 100; j++) { //Schleife, um den Test mehrfach durchzufuehren
 			random = new Random();
 			buffer = new StringBuilder(targetStringLength);
-			for (int i = 0; i < targetStringLength; i++) { //Schleife fuer Stringbuilder des Random Text
+			for (int i = 0; i < targetStringLength; i++) { //Schleife fuer StringBuilder des Random Text
 				int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
 				buffer.append((char) randomLimitedInt);
 			}
@@ -169,7 +169,7 @@ public class CCryptTest {
 			targetStringLength = 1;
 			random = new Random();
 			buffer = new StringBuilder(targetStringLength);
-			for (int i = 0; i < targetStringLength; i++) { //Schleife fuer Stringbuilder des Random key
+			for (int i = 0; i < targetStringLength; i++) { //Schleife fuer StringBuilder des Random key
 				int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
 				buffer.append((char) randomLimitedInt);
 			}
@@ -180,7 +180,7 @@ public class CCryptTest {
 	}
 
 	/**
-	 * Testet die checkKey Funktion mit Funktionalem Schluessel
+	 * Testet die checkKey Funktion mit funktionalem Schluessel
 	 */
 	@Test
 	void keyTestRight() {
@@ -197,7 +197,7 @@ public class CCryptTest {
 	}
 
 	/**
-	 * Testet die checkKey Funktion mit zu Langem Schluessel
+	 * Testet die checkKey Funktion mit zu langem Schluessel
 	 */
 	@Test
 	void keyTestLong() {

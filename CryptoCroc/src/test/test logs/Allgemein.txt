@@ -6,7 +6,7 @@ getestet von: Julian Singer
 
 1. Ich starte die Software
 Erwartung: Es oeffnet sich ein neues Fenster mit den auswaehlbaren Menues "Menue" und "Erklaerungen" in
-der Menueleiste, darunter einem Dropdownmenue und 2 Textfeldern namens "Klartext" und "Geheimtext" und 
+der Menueleiste, darunter einem DropdownMenue und 2 Textfeldern namens "Klartext" und "Geheimtext" und 
 dazwischen einem Schluesselfeld namens "A" und 2 Buttons "Verschluesseln" und "Entschluesseln"
 Realitaet: entspricht der Erwartung
 

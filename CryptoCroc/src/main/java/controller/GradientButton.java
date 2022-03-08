@@ -33,7 +33,7 @@ public class GradientButton extends JButton implements MouseListener {
 	private static final long serialVersionUID = 7651642719382287262L;
 
 	/**
-	 * Button wird mit den Standartwerten initialisiert.
+	 * Button wird mit den Standardwerten initialisiert.
 	 */
 	public GradientButton() {
 		super();
@@ -46,9 +46,9 @@ public class GradientButton extends JButton implements MouseListener {
 	}
 
 	/**
-	 * Button wird mit den Standartwerten initialisiert und der Text wird gesetzt.
+	 * Button wird mit den Standardwerten initialisiert und der Text wird gesetzt.
 	 * 
-	 * @param text Buttontext
+	 * @param text ButtonText
 	 */
 	public GradientButton(String text) {
 		super(text);
@@ -61,7 +61,7 @@ public class GradientButton extends JButton implements MouseListener {
 	}
 
 	/**
-	 * Setzt den Farbverlauf auf die uebergebene Farben.
+	 * Setzt den Farbverlauf auf die uebergebenen Farben.
 	 * 
 	 * @param color1 Grundfarbe fuer den Farbverlauf
 	 * @param color2 Abschlussfarbe fuer den Farbverlauf
@@ -73,6 +73,7 @@ public class GradientButton extends JButton implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		// tue nichts
 	}
 
 	@Override
@@ -83,6 +84,7 @@ public class GradientButton extends JButton implements MouseListener {
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
+		// tue nichts
 	}
 
 	@Override

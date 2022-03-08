@@ -16,7 +16,7 @@ import utility.Utility;
 
 /**
  * Definiert 'createKeyPanel'-Methode fuer Vigenere und speichert sein
- * Schluesseltextfeld
+ * SchluesselTextfeld
  * 
  * @author Julian Singer, chrisi
  * @version 1.2
@@ -44,7 +44,7 @@ public class VKeyPanel extends KeyPanel {
 	@Override
 	public JPanel createKeyPanel() {
 		
-		// inialisiert Ueberschrift und setzt den Stil der Elemente
+		// initialisiert Ueberschrift und setzt den Stil der Elemente
 		JLabel description = new JLabel("Schl\u00fcssel");
 		description.setFont(Utility.HEADLINE_LABEL_FONT);
 		description.setForeground(Utility.DARK_GREEN);
@@ -56,7 +56,7 @@ public class VKeyPanel extends KeyPanel {
 		
 		key.setDocument(new LimitedTextfield(Utility.MAXIMUM_KEY_LENGTH));
 
-		// definiert ein Panel fuer die Schluesseleingabe
+		// definiert ein Panel fuer die SchluesselEingabe
 		JPanel textPanel = new JPanel();
 		textPanel.setLayout(new BoxLayout(textPanel, BoxLayout.PAGE_AXIS));
 		textPanel.add(description);
@@ -69,10 +69,10 @@ public class VKeyPanel extends KeyPanel {
 
 		// setzt die Breite und die Hoehe des Textfelds
 		key.setMaximumSize(new Dimension(Utility.WIDTH_TEXTFIELD, Utility.HEIGHT_TEXTFIELD));
-		// wird benoetigt um die Hoehe zu setzen
+		// wird benoetigt, um die Hoehe zu setzen
 		key.setPreferredSize(new Dimension(Utility.WIDTH_TEXTFIELD, Utility.HEIGHT_TEXTFIELD));
 		
-		// fuegt das Text- und Buttonpanel zu einem Panel zusammen
+		// fuegt das Text- und ButtonPanel zu einem Panel zusammen
 		JPanel keyPanel = new JPanel(new BorderLayout());
 		keyPanel.add(textPanel, BorderLayout.PAGE_START);
 		textPanel.add(Box.createRigidArea(new Dimension(0, 20)));
@@ -112,7 +112,7 @@ public class VKeyPanel extends KeyPanel {
 		leftLimit = 65;
 		rightLimit = 90;
 		StringBuilder buffer = new StringBuilder(targetStringLength);
-		for (int i = 0; i < targetStringLength; i++) { // Schleife fuer Stringbuilder des Random key
+		for (int i = 0; i < targetStringLength; i++) { // Schleife fuer StringBuilder des Random key
 			int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
 			buffer.append((char) randomLimitedInt);
 		}
@@ -121,8 +121,10 @@ public class VKeyPanel extends KeyPanel {
 	}
 
 	/**
-	 * Die Methode gibt die Seriennumer des KeyPanels zurueck CKeypanel = 1
-	 * MKeypanel = 2 VKeypanel = 3
+	 * Die Methode gibt die Seriennummer des KeyPanels zurueck 
+	 * CKeypanel = 1
+	 * MKeypanel = 2 
+	 * VKeypanel = 3
 	 * 
 	 * @return 3;
 	 */

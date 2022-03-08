@@ -74,7 +74,7 @@ public class VCryptTest {
 	private String testkey = "qwertzuiopasdfghjklyxcvbnm";
 
 	/**
-	 * Initialisiert die Klasse in der die Verschluesselungmethoden gespeichert sind.
+	 * Initialisiert die Klasse, in der die Verschluesselungsmethoden gespeichert sind.
 	 */
 	@BeforeEach
 	void init() {
@@ -82,7 +82,7 @@ public class VCryptTest {
 	}
 
 	/**
-	 * Loescht die Klasse in der die Verschluesselungmethoden gespeichert sind.
+	 * Loescht die Klasse, in der die Verschluesselungsmethoden gespeichert sind.
 	 */
 	@AfterEach
 	void remove() {
@@ -100,7 +100,7 @@ public class VCryptTest {
 	}
 
 	/**
-	 * Testet die checkKey-Methode, ob sie einen Korekten Schluessel richtig erkennt
+	 * Testet die checkKey-Methode darauf, ob sie einen korrekten Schluessel richtig erkennt
 	 */
 	@Test
 	void testCheckKeyTrue() {
@@ -108,7 +108,7 @@ public class VCryptTest {
 	}
 
 	/**
-	 * Testet ob die checkKey-Methode richtig mit einem leeren Schluessel umgeht.
+	 * Testet, ob die checkKey-Methode richtig mit einem leeren Schluessel umgeht.
 	 */
 	@Test
 	void testCheckKeyEmpty() {
@@ -116,7 +116,7 @@ public class VCryptTest {
 	}
 
 	/**
-	 * Testet wie die checkKey-Methode mit einigen falschen Schluesseln umgeht.
+	 * Testet, wie die checkKey-Methode mit einigen falschen Schluesseln umgeht.
 	 */
 	@Test
 	void testCheckKeyFalse() {
@@ -130,7 +130,7 @@ public class VCryptTest {
 
 	/**
 	 * Testet die Verschluesselung und Entschluesselung mit zufaelligem Text und
-	 * zufaelligen Schluessel
+	 * zufaelligem Schluessel
 	 */
 	@Test
 	void randomTest() {
@@ -139,10 +139,10 @@ public class VCryptTest {
 		int targetStringLength = 1000;
 		Random random = new Random();
 		StringBuilder buffer = new StringBuilder(targetStringLength);
-		for (int j = 0; j < 100; j++) { //Schleife um den Test mehrfach durch zu fuehren
+		for (int j = 0; j < 100; j++) { // Schleife, um den Test mehrfach durchzufuehren
 			random = new Random();
 			buffer = new StringBuilder(targetStringLength);
-			for (int i = 0; i < targetStringLength; i++) { //Schleife fuer Stringbuilder fuer den Random Text
+			for (int i = 0; i < targetStringLength; i++) { //Schleife fuer StringBuilder fuer den Random Text
 				int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
 				buffer.append((char) randomLimitedInt);
 			}
@@ -153,7 +153,7 @@ public class VCryptTest {
 			targetStringLength = j + 1;
 			random = new Random();
 			buffer = new StringBuilder(targetStringLength);
-			for (int i = 0; i < targetStringLength; i++) { //Schleife fuer Stringbuilder fuer den Schluessel
+			for (int i = 0; i < targetStringLength; i++) { //Schleife fuer StringBuilder fuer den Schluessel
 				int randomLimitedInt = leftLimit + (int) (random.nextFloat() * (rightLimit - leftLimit + 1));
 				buffer.append((char) randomLimitedInt);
 			}

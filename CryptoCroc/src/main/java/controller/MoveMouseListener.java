@@ -41,7 +41,7 @@ public class MoveMouseListener extends MouseInputAdapter {
 		return new Point((int) (frameLoc.getX() + cursor.getX()), (int) (frameLoc.getY() + cursor.getY()));
 	}
 
-	// verschiebt das Fenster beim Ziehen der Maus
+	// Verschiebt das Fenster beim Ziehen der Maus
 	@Override
 	public void mouseDragged(MouseEvent e) {
 		Point current = this.getScreenLocation(e);

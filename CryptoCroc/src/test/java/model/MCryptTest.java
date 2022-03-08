@@ -46,7 +46,7 @@ public class MCryptTest {
 	private String randomKey = "";
 
 	/**
-	 * Initalisiert den Test und erstellt einen willkuerlichen Text und Schluessel.
+	 * Initialisiert den Test und erstellt einen willkuerlichen Text und Schluessel.
 	 * Dabei wird beim Schluessel darauf geachtet, dass jeder Buchstabe nur einmal
 	 * vorkommt, indem doppelt vorkommende Buchstaben ersetzt werden
 	 */
@@ -78,7 +78,7 @@ public class MCryptTest {
 			}
 		}
 
-		// falls Buchstaben doppelt vorkommen ersetze zweites Vorkommen durch Buchstaben
+		// falls Buchstaben doppelt vorkommen, ersetze zweites Vorkommen durch Buchstaben,
 		// der noch nicht vorkam
 		for (int i = 0; i < alphabet.length(); i++) {
 			// geht nacheinander alle Buchstaben im Schluessel durch
@@ -86,7 +86,7 @@ public class MCryptTest {
 			for (int j = i + 1; j < alphabet.length(); j++) {
 				char b = randomKey.charAt(j);
 
-				// schaut ob der gleiche Buchstabe nochmal vorkommt, falls ja ersetze das zweite
+				// schaut, ob der gleiche Buchstabe nochmals vorkommt, falls ja, ersetze das zweite
 				// Vorkommen durch den naechsten freien Buchstaben
 				if (c == b) {
 					int it = 0;
@@ -124,7 +124,7 @@ public class MCryptTest {
 	}
 
 	/**
-	 * Testet ob ein nicht gueltiger Schluessel als solcher erkannt wird
+	 * Testet, ob ein nicht gueltiger Schluessel als solcher erkannt wird
 	 */
 	@Test
 	void invalidKey() {
@@ -140,7 +140,7 @@ public class MCryptTest {
 	}
 
 	/**
-	 * Testet ob ein gueltiger Schluessel als solcher erkannt wird
+	 * Testet, ob ein gueltiger Schluessel als solcher erkannt wird
 	 */
 	@Test
 	void validKey() {
@@ -151,7 +151,7 @@ public class MCryptTest {
 	}
 
 	/**
-	 * Testet ob Text gleichbleibt bei unveraendertem Schluessel
+	 * Testet, ob Text gleich bleibt bei unveraendertem Schluessel
 	 */
 	@Test
 	void noChange() {
@@ -172,7 +172,7 @@ public class MCryptTest {
 	}
 
 	/**
-	 * Testet ob Text richtig entschluesselt wird
+	 * Testet, ob Text richtig entschluesselt wird
 	 */
 
 	@Test
@@ -183,7 +183,7 @@ public class MCryptTest {
 	}
 
 	/**
-	 * Testet wie die Verschluesselung mit Unicodezeichen umgeht
+	 * Testet, wie die Verschluesselung mit UnicodeZeichen umgeht
 	 */
 	@Test
 	void unicode() {

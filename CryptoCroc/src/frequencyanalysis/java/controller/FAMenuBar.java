@@ -13,7 +13,7 @@ import javax.swing.JMenuBar;
 import utility.Utility;
 
 /**
- * Beschreibt Aufbau und Funktion der Menueleiste im Fenster der
+ * Beschreibt Aufbau und Funktion der MenueLeiste im Fenster der
  * Haeufigkeitsanalyse
  * 
  * @author Julian Singer
@@ -26,8 +26,8 @@ public class FAMenuBar {
 	private GradientMenuBar menuBar;
 
 	/**
-	 * Konstruktor, der die im Array "options" festgelegten Menuepunkte der
-	 * Menueleiste hinzufuegt
+	 * Konstruktor, der die im Array "options" festgelegten MenuePunkte der
+	 * MenueLeiste hinzufuegt
 	 */
 	public FAMenuBar() {
 		this.menuBar = new GradientMenuBar();
@@ -40,10 +40,10 @@ public class FAMenuBar {
 	}
 
 	/**
-	 * Oeffnet einen uebergebenen Frame, sobald das Menueitem an uebergebener Stelle
+	 * Oeffnet einen uebergebenen Frame, sobald das MenueItem an uebergebener Stelle
 	 * angeklickt wird
 	 * 
-	 * @param barIndex Index des Menues in der Menueleiste
+	 * @param barIndex Index des Menues in der MenueLeiste
 	 * @param newFrame zu erstellendes Fenster
 	 */
 	public void initExplanationItem(int barIndex, JFrame newFrame) {
@@ -99,9 +99,9 @@ public class FAMenuBar {
 	}
 
 	/**
-	 * Gibt die Menueleiste der aktuellen Instanz zurueck
+	 * Gibt die MenueLeiste der aktuellen Instanz zurueck
 	 * 
-	 * @return this.menuBar Menueleiste
+	 * @return this.menuBar MenueLeiste
 	 */
 	public JMenuBar getMenuBar() {
 		return this.menuBar;

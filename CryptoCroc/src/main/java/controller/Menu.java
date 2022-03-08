@@ -23,7 +23,7 @@ import utility.Utility;
 import view.Messages;
 
 /**
- * Beschreibt Aufbau und Funktion der Menueleiste in CryptoCroc
+ * Beschreibt Aufbau und Funktion der MenueLeiste in CryptoCroc
  * 
  * @author Julian Singer
  * @version 1.6
@@ -36,10 +36,10 @@ public class Menu {
 	private GradientMenuBar menuBar;
 
 	/**
-	 * Konstruktor, der Menuepunkte entgegennimmt und diese der Menueleiste
+	 * Konstruktor, der MenuePunkte entgegennimmt und diese der MenueLeiste
 	 * hinzufuegt
 	 * 
-	 * @param menus zu hinzufuegende Menuepunkte
+	 * @param menus zu hinzufuegende MenuePunkte
 	 */
 	public Menu(String[] menus) {
 		menuBar = new GradientMenuBar();
@@ -53,10 +53,10 @@ public class Menu {
 	}
 
 	/**
-	 * Fuegt der Menueleiste ein neues Menue mit uebergebenen Unterpunkten hinzu
+	 * Fuegt der MenueLeiste ein neues Menue mit uebergebenen Unterpunkten hinzu
 	 * 
 	 * @param name  Name des neuen Menues
-	 * @param menus zugehoerige Menuepunkte
+	 * @param menus zugehoerige MenuePunkte
 	 */
 	public void addMenu(String name, String[] menus) {
 		JMenu newMenu = new JMenu(name);
@@ -68,10 +68,10 @@ public class Menu {
 	}
 
 	/**
-	 * Oeffnet einen uebergebenen Frame, sobald das Menueitem an uebergebener Stelle
+	 * Oeffnet einen uebergebenen Frame, sobald das MenueItem an uebergebener Stelle
 	 * angeklickt wird
 	 * 
-	 * @param barIndex  Index des Menues in der Menueleiste
+	 * @param barIndex  Index des Menues in der MenueLeiste
 	 * @param menuIndex Index des Items im Menue
 	 * @param newFrame  zu erstellendes Fenster
 	 */
@@ -120,14 +120,14 @@ public class Menu {
 	 * speichernden Textdatei selbst festlegen kann und erzeugt eine Textdatei mit
 	 * ausgesuchtem Inhalt
 	 * 
-	 * @param barIndex   Index des Menues in der Menueleiste
+	 * @param barIndex   Index des Menues in der MenueLeiste
 	 * @param menuIndex  Index des Items im Menue
-	 * @param plainText  uebergebenes Klartextfeld
-	 * @param cryptoText uebergebenes Geheimtextfeld
+	 * @param plainText  uebergebenes KlartextFeld
+	 * @param cryptoText uebergebenes GeheimtextFeld
 	 */
 	public void initSaveItem(int barIndex, int menuIndex, TextField plainText, TextField cryptoText) {
 		JFileChooser fileChooser = new JFileChooser();
-		// legt fest, was beim Anklicken des Menueitems passiert
+		// legt fest, was beim Anklicken des MenueItems passiert
 		menuBar.getMenu(barIndex).getItem(menuIndex).addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -194,10 +194,10 @@ public class Menu {
 	 * allen Textdateien selbst auswaehlen kann und ueberschreibt den Text im
 	 * ausgewaehlten Textfeld mit dem Inhalt der gewaehlten Textdatei
 	 * 
-	 * @param barIndex   Index des Menues in der Menueleiste
+	 * @param barIndex   Index des Menues in der MenueLeiste
 	 * @param menuIndex  Index des Items im Menue
-	 * @param plainText  uebergebenes Klartextfeld
-	 * @param cryptoText uebergebenes Geheimtextfeld
+	 * @param plainText  uebergebenes KlartextFeld
+	 * @param cryptoText uebergebenes GeheimtextFeld
 	 */
 	public void initOpenItem(int barIndex, int menuIndex, TextField plainText, TextField cryptoText) {
 		menuBar.getMenu(barIndex).getItem(menuIndex).addActionListener(new ActionListener() {
@@ -255,6 +255,7 @@ public class Menu {
 										}
 									}
 								}
+							// Abfangen von Problemen beim Oeffnen
 							} catch (FileNotFoundException e1) {
 								Messages.errorMessage("Die Datei " + file.getName() + " konnte nicht gefunden "
 										+ "oder ausgelesen werden");
@@ -288,9 +289,9 @@ public class Menu {
 	}
 
 	/**
-	 * Gibt die Menueleiste der aktuellen Instanz zurueck
+	 * Gibt die MenueLeiste der aktuellen Instanz zurueck
 	 * 
-	 * @return this.menuBar Menueleiste
+	 * @return this.menuBar MenueLeiste
 	 */
 	public JMenuBar getJMenuBar() {
 		return this.menuBar;

@@ -3,7 +3,7 @@ package view;
 import javax.swing.JOptionPane;
 
 /**
- * Eine Hilfsklasse die Methoden fuer die Ausgabe von Pop-Up Mitteilungen bereit
+ * Eine Hilfsklasse, die Methoden fuer die Ausgabe von Pop-Up Mitteilungen bereit
  * stellt.
  * 
  * @author Julian Sturm
@@ -30,7 +30,7 @@ public final class Messages {
 	/**
 	 * Erzeugt ein Pop-Up Fenster mit einem Warnhinweis.
 	 * 
-	 * @param message Die Warnnachricht die Ausgegeben wird.
+	 * @param message Die Warnnachricht, die ausgegeben wird.
 	 */
 	public static void warningMessage(String message) {
 		JOptionPane.showOptionDialog(null, message, "Achtung", JOptionPane.OK_OPTION, JOptionPane.WARNING_MESSAGE, null,
@@ -41,7 +41,7 @@ public final class Messages {
 	 * Erzeugt eine Pop-Up Abfrage fuer eine Ja oder Nein Frage
 	 * 
 	 * @param message die angezeigte Frage
-	 * @return ein boolscher Wert ob die Frage mit Ja beantwortet wurde
+	 * @return ein boolescher Wert, ob die Frage mit Ja beantwortet wurde
 	 */
 	public static boolean yesNoQuestion(String message) {
 		int temp = JOptionPane.showOptionDialog(null, message, "Achtung", JOptionPane.YES_NO_CANCEL_OPTION,
@@ -53,12 +53,12 @@ public final class Messages {
 	}
 
 	/**
-	 * Implementiert ein Pop-Up-Fenster, dass dem Benutzer erlaubt eine Option von
-	 * mehreren zu waehlen
+	 * Implementiert ein Pop-Up-Fenster, das dem Benutzer erlaubt eine von mehreren Optionen
+	 * zu waehlen
 	 * 
-	 * @param message Die Nachricht die im Pop-Up-Fenster Angezeigt wird
-	 * @param option  Ein Array indem die moeglichen optionen uebergeben werden
-	 * @return Gibt an welches Position im Arry options ausgewaehlt wurde.
+	 * @param message Die Nachricht, die im Pop-Up-Fenster angezeigt wird
+	 * @param option  Ein Array, in dem die moeglichen Optionen uebergeben werden
+	 * @return Gibt an, welche Position im Array options ausgewaehlt wurde.
 	 */
 	public static int query(String message, String[] option) {
 		return JOptionPane.showOptionDialog(null, message, "Frage", JOptionPane.DEFAULT_OPTION,

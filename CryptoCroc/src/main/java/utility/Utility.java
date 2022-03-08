@@ -27,11 +27,11 @@ public final class Utility {
 	public static final int HEIGHT_TEXTFIELD = 19;
 	/** Standard-Breite der Textfelder */
 	public static final int WIDTH_TEXTFIELD = 200;
-	/** Breite der Textfelder fuer 1 Buchstabe */
+	/** Breite der Textfelder fuer einen Buchstaben */
 	public static final int WIDTH_TEXTFIELD_ONE_LETTER = 20;
 	/** Standard-Höhe der Textfelder in der FA */
 	public static final int HEIGHT_TEXTFIELD_IN_FA = 24;
-	/** Breite der Textfelder fuer 1 Buchstabe in der FA */
+	/** Breite der Textfelder fuer einen Buchstaben in der FA */
 	public static final int WIDTH_TEXTFIELD_ONE_LETTER_IN_FA = 25;
 
 	/** erster Buchstabe des Alphabets */
@@ -52,17 +52,17 @@ public final class Utility {
 	public static final Font MENU_FONT = new Font("Arial", Font.BOLD, 14);
 	/** Standard-Schriftzug fuer Text in Textfeld */
 	public static final Font TEXT_FONT = new Font("Arial", Font.PLAIN, 14);
-	/** Standard-Schriftzug fuer Ueberschriften Labels */
+	/** Standard-Schriftzug fuer Ueberschriften-Labels */
 	public static final Font HEADLINE_LABEL_FONT = new Font("Arial", Font.BOLD, 20);
 	/** Standard-Schriftzug fuer Labels */
 	public static final Font LABEL_FONT = new Font("Arial", Font.BOLD, 16);
 
 	/** Standard-Umrandung fuer die Textfelder */
 	public static final Border TEXTFIELD_BORDER = BorderFactory.createMatteBorder(1, 1, 1, 1, Utility.DARK_GREEN);
-	/** Umrandung ausgewaeltes Textfeld */
+	/** Umrandung fuer ausgewaehlte Textfelder */
 	public static final Border FOCUS_TEXTFIELD_BORDER = BorderFactory.createMatteBorder(1, 1, 1, 1, Utility.ORANGE);
 
-	/** Maximale Anzahl wie oft Fehlermeldungen angezeigt werden */
+	/** Maximale Anzahl, wie oft Fehlermeldungen angezeigt werden */
 	public static final int MAX_ERROR_MESSAGES = 4;
 
 	// privater Konstruktor

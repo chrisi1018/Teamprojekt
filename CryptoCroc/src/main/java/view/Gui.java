@@ -28,12 +28,12 @@ public class Gui {
 	/**
 	 * Konstruktor erzeugt den Frame und legt das Layout fest.
 	 * 
-	 * @param menu       Die Menu-Bar
+	 * @param menu       Die MenueBar
 	 * @param clearText  enthaelt das Textfeld fuer den Klartext
 	 * @param cryptoText enthaelt das Textfeld fuer den Cryptotext
-	 * @param keyPanel        enthaelt die Buttons verschluesseln und die Textfelder fuer
-	 *                   den Schluessel
-	 * @param dropDown   enthaelt das Dropdown-menue
+	 * @param keyPanel   enthaelt die Buttons "verschluesseln" und "entschluesseln" und 
+	 *                   die Textfelder fuer den Schluessel
+	 * @param dropDown   enthaelt das DropdownMenue
 	 */
 	public Gui(JMenuBar menu, JPanel clearText, JPanel cryptoText, JPanel keyPanel, JPanel dropDown) {
 		//Erstellt den Frame
@@ -64,7 +64,7 @@ public class Gui {
 		this.keyPanel = keyPanel;
 		this.keyPanel.setVisible(true);
 		
-		initMainPanel(); //Plaziert die JPanels im MainPanel
+		initMainPanel(); //Platziert die JPanels im MainPanel
 		initBorder(); //Erzeugt den aeusseren Rahmen
 		
 		this.frame.setResizable(false);
@@ -74,7 +74,7 @@ public class Gui {
 	/**
 	 * Tauscht das KeyPanel aus
 	 * 
-	 * @param keyPanel das KeyPanel panel, das eingesetzt wird
+	 * @param keyPanel das KeyPanel, das eingesetzt wird
 	 */
 	public void setKeyPanel(JPanel keyPanel) {
 		this.mainPanel.remove(this.keyPanel);
@@ -85,7 +85,7 @@ public class Gui {
 	}
 	
 	/**
-	 * Methode die den Frame repainted, muss nach Veraenderungen der Gui aufgerufen werden
+	 * Methode, die den Frame repainted (muss nach Veraenderungen der GUI aufgerufen werden)
 	 * 
 	 */
 	public void repaintFrame() {
@@ -94,7 +94,7 @@ public class Gui {
 	}
 	
 	/**
-	 * Die Methode initialisert das MainPanel
+	 * Die Methode initialisiert das MainPanel
 	 */
 	private void initMainPanel() {
 		this.mainPanel.add(this.clearText, BorderLayout.WEST);
@@ -115,7 +115,7 @@ public class Gui {
 	}
 	
 	/**
-	 * DIe Methode erzeugt des Rhamen
+	 * Die Methode erzeugt den Rahmen
 	 */
 	private void initBorder() {
 		this.frame.add(this.mainPanel, BorderLayout.CENTER);

@@ -32,7 +32,7 @@ public class TextField {
 		text.setFont(Utility.TEXT_FONT);
 		text.setBorder(Utility.TEXTFIELD_BORDER);
 		text.setLineWrap(true);
-		// sorgt dafuer, dass ganzes Wort in die naechste Zeile wandert
+		// sorgt dafuer, dass das ganze Wort in die naechste Zeile wandert
 		text.setWrapStyleWord(true);
 		text.getDocument().addDocumentListener(wcl);
 		label.setFont(Utility.HEADLINE_LABEL_FONT);
@@ -50,7 +50,7 @@ public class TextField {
 		panel.add(label, BorderLayout.PAGE_START);
 		panel.add(text, BorderLayout.CENTER);
 		
-		// zum scrollen durch die TextArea; wird nur angezeigt wenn noetig
+		// zum Scrollen durch die TextArea; wird nur angezeigt, wenn noetig
 		JScrollPane scroll = new JScrollPane(text);
 		scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
 		scroll.setVisible(true);

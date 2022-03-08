@@ -15,7 +15,7 @@ import utility.Utility;
 
 
 /**
- * Die Klasse erzeugt den unteren Teil der Haufigkeitsanalyse, und dient als Schnittstelle zum Hauptprogramm
+ * Die Klasse erzeugt den unteren Teil der Haufigkeitsanalyse und dient als Schnittstelle zum Hauptprogramm
  * 
  * @author Julian, chrisi
  * @version 1.1
@@ -36,9 +36,10 @@ public class FABottom {
 	
 	/**
 	 * Konstruktor von FABottom
+	 * 
 	 * @param key Das KeyPanel des Hauptfeldes
 	 * @param tables gibt die FATable weiter
-	 * @param faController der FAController der Haeufigkeitsanalyse um den Frame zu schliessen
+	 * @param faController der FAController der Haeufigkeitsanalyse, um den Frame zu schliessen
 	 */
 	FABottom(KeyPanel key, FATable[] tables, FAController faController) {
 		this.key = key;
@@ -48,6 +49,7 @@ public class FABottom {
 		this.crypt = this.key.getCrypt();
 		this.button = new GradientButton("Schl\u00fcssel \u00fcbernehmen");
 		this.button.addActionListener(e -> buttonClick());
+		// initialisiert die Textfelder der SchluesselBuchstaben
 		for (int i = 0; i < this.keyText.length; i++) {
 			this.keyText[i] = new JTextField();
 			this.keyText[i].setDocument(new LimitedTextfield(1));
@@ -67,15 +69,15 @@ public class FABottom {
 	}
 	
 	/**
-	 * Erzeugt das Panel fuer den Geheimtext, die Schluesselfelder und dem Button.
-	 * Und setzt die Anordnung der Elemente und den Stil.
+	 * Erzeugt das Panel fuer den Geheimtext, die Schluesselfelder und den Button,
+	 * setzt die Anordnung der Elemente und den Stil.
 	 * 
-	 * @return das Panel fuer den Geheimtext, die Schlusselfelder und dem Button
+	 * @return das Panel fuer den Geheimtext, die Schlusselfelder und den Button
 	 */
 	public JPanel createBottomPanel() {
 		JPanel bottomPanel = new JPanel(new FlowLayout(0));
 		
-		//Erzeugt den Linken Teil des Unteren Panels mit dem GeheimText
+		//Erzeugt den linken Teil des unteren Panels mit dem Geheimtext
 		JPanel leftPanel = new JPanel(new FlowLayout(0));
 		
 		//Erstellt die Ueberschift und setzt den Stil
@@ -114,7 +116,7 @@ public class FABottom {
 		textPanel.add(keyText);
 		textPanel.setPreferredSize(new Dimension(250, 55));
 
-		//Erzeugt alle noetigen Schluesselfelder
+		//Erzeugt alle noetigen SchluesselFelder
 		JPanel keyPanel = new JPanel(new FlowLayout(0));
 		for (int i = 0; i < this.keyText.length; i++) {
 			keyPanel.add(this.keyText[i]);
@@ -124,7 +126,7 @@ public class FABottom {
 		JPanel buttonPanel = new JPanel(new FlowLayout(0));
 		buttonPanel.add(this.button);
 		
-		//Fuegt alle Elemente mit Abstanden dem Panel hinzu
+		//Fuegt alle Elemente mit Abstand dem Panel hinzu
 		middlePanel.add(textPanel);
 		middlePanel.add(Box.createRigidArea(new Dimension(460, 0)));
 		middlePanel.add(keyPanel);
@@ -139,7 +141,7 @@ public class FABottom {
 	}
 	
 	/**
-	 * Initialisert die Textfelder fuer die Schuesseleingabe
+	 * Initialisiert die Textfelder fuer die SchuesselEingabe
 	 */
 	private void initKeyText() {
 		for (int i = 0; i < this.keyText.length; i++) {
@@ -152,8 +154,8 @@ public class FABottom {
 			this.keyText[i].setPreferredSize(new Dimension(Utility.WIDTH_TEXTFIELD_ONE_LETTER_IN_FA, Utility.HEIGHT_TEXTFIELD_IN_FA));
 			this.keyText[i].setText("A");
 			
-			// sorgt dafuer dass Text im Textfeld markiert wird beim Klicken
-			// benoetigt extra variable j, da i sich veraendert
+			// sorgt dafuer, dass Text im Textfeld beim Klicken markiert wird
+			// benoetigt Extra-Variable j, da i sich veraendert
 			int j = i;
 			keyText[i].addFocusListener(new FocusListener() {
 				@Override
@@ -171,13 +173,13 @@ public class FABottom {
 	}
 	
 	/**
-	 * Initalisiert das Label KryptoText
+	 * Initialisiert das Label CryptoText
 	 */
 	private void initCryptoText() {
 		this.cryptoText = new JLabel();
 		this.cryptoText.setFont(Utility.TEXT_FONT);
 		this.cryptString = key.getController().getCryptoText();
-		//HTML ist notwendig damit das Label Zeilenumbrueche hat
+		// HTML ist notwendig, damit das Label Zeilenumbrueche hat
 		this.cryptoText.setText("<html><p align=\"justify\" style=\"width:370px\">"
 		+ this.cryptString
 		+ "</p></html>");
@@ -185,7 +187,7 @@ public class FABottom {
 	}
 	
 	/**
-	 * Updated die Textfelder in denen der Schluessel eingeben werden kann abhaengig von der 
+	 * Updated die Textfelder, in denen der Schluessel eingegeben werden kann abhaengig von der 
 	 * Schluessellaenge
 	 * 
 	 * 
@@ -196,7 +198,7 @@ public class FABottom {
 		for (int i = 0; i < this.tables.length; i++) {
 			this.tables[i].setBottom(this);
 		}
-		if (this.mono) { //Macht die Schluesselfelder unsichtbar
+		if (this.mono) { // macht die SchluesselFelder unsichtbar
 			JTextField[] temp = this.tables[0].getTextFields();
 			for (int i = 0; i < temp.length; i++) {
 				temp[i].setText(this.monoString.substring(i, i + 1));
@@ -205,7 +207,7 @@ public class FABottom {
 				this.keyText[i].setVisible(false);
 			}
 			this.tables[0].setTextFields(temp);
-		} else { // Macht die Passende Anzahl der Schluesselfelder sichtbar
+		} else { // macht die passende Anzahl der SchluesselFelder sichtbar
 			for (int i = 0; i < this.tables.length; i++) {
 				JTextField[] temp = this.tables[i].getTextFields();
 				char keyChar;
@@ -225,6 +227,7 @@ public class FABottom {
 				this.keyText[i].setVisible(true);
 				this.tables[i].setTextFields(temp);
 			}
+			// macht die benoetigte Anzahl an EingabeFeldern sichtbar
 			for (int i = this.tables.length; i < this.keyText.length; i++) {
 				this.keyText[i].setVisible(false);
 			}
@@ -250,7 +253,7 @@ public class FABottom {
 	}
 
 	/**
-	 * Wechselt ob die Monoalphabetische Verschluesselung verwendet wird.
+	 * Wechselt, ob die Monoalphabetische Verschluesselung verwendet wird.
 	 */
 	public void switchMono() {
 		this.mono = !this.mono;
@@ -277,7 +280,7 @@ public class FABottom {
 	/**
 	 * Setter-Methode fuer Crypt
 	 * 
-	 * @param crypt die Verschluesselung die verwendet wird
+	 * @param crypt die Verschluesselung, die verwendet wird
 	 */
 	public void setCrypt(Crypt crypt) {
 		this.crypt = crypt;
@@ -292,9 +295,9 @@ public class FABottom {
 	}
 	
 	/**
-	 * Die Methode die ausgefuehrt wird wenn der Button "Schluessel uebernehmen"
+	 * Die Methode, die ausgefuehrt wird, wenn der Button "Schluessel uebernehmen"
 	 * angeklickt wird, der Schluessel wird im Hauptfenster ins Schluesseltextfeld
-	 * geschrieben und schlie�t den Frame
+	 * geschrieben und schliesst den Frame
 	 */
 	private void buttonClick() {
 		MainController controller = this.key.getController();
@@ -310,6 +313,7 @@ public class FABottom {
 				}
 			}
 		}
+		// uebernimmt den Schluessel ins Hauptfenster
 		this.key = controller.setKeyPanel(index);
 		if (this.mono) {
 			this.key.setKey(monoString);

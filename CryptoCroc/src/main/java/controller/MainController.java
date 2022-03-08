@@ -17,7 +17,7 @@ import view.MExplanationFrame;
 import view.VExplanationFrame;
 
 /**
- * Klasse die fuer das Erzeugen der GUI-Elemente zustaendig ist
+ * Klasse, die fuer das Erzeugen der GUI-Elemente zustaendig ist
  * 
  * @author zes, Julian Singer, Julian Sturm
  * @version 1.5
@@ -43,23 +43,22 @@ public class MainController {
 
 	/**
 	 * Konstruktor, der die GUI-Elemente erzeugt
-	 * 
 	 */
 	public MainController() {
 		this.setUI();
-		this.menuBar = new Menu(new String[] { "Speichern", "Laden" }); // definiert eine neue Menueleiste mit Menue
+		this.menuBar = new Menu(new String[] { "Speichern", "Laden" }); // definiert eine neue MenueLeiste mit Menue
 		this.menuBar.addMenu("Erkl\u00e4rungen", explanationOpt); // fuegt ein neues Menue hinzu
 		this.menuBar.fillRightSide();
 		this.dropDown = new Dropdown(encryptOpt, change);
-		this.gui = new Gui(this.menuBar.getJMenuBar(), // Menueleiste
-				plainText.createTextfieldPanel(), // Klartextpanel
-				cryptoText.createTextfieldPanel(), // Cryptotextpanel
-				key.createKeyPanel(), // Schluesselpanel
-				dropDown.createDropdown() // Dropdownmenue
+		this.gui = new Gui(this.menuBar.getJMenuBar(), // MenueLeiste
+				plainText.createTextfieldPanel(), // KlartextPanel
+				cryptoText.createTextfieldPanel(), // CryptotextPanel
+				key.createKeyPanel(), // SchluesselPanel
+				dropDown.createDropdown() // DropdownMenue
 		);
 
 		this.key.initKey();
-		//initialisiert die Menueitems
+		//initialisiert die MenueItems
 		this.menuBar.initExplanationItem(2, 0, new CExplanationFrame());
 		this.menuBar.initExplanationItem(2, 1, new MExplanationFrame());
 		this.menuBar.initExplanationItem(2, 2, new VExplanationFrame());
@@ -76,7 +75,7 @@ public class MainController {
 	}
 
 	/**
-	 * Definiert Farben und Schriftstil in der Menueleiste, im DropdownMenue und der CheckBox
+	 * Definiert Farben und Schriftstil in der MenueLeiste, im DropdownMenue und der CheckBox
 	 */
 	private void setUI() {
 		UIManager.put("Menu.font", new FontUIResource(Utility.MENU_FONT));
@@ -95,6 +94,7 @@ public class MainController {
 			UIManager.put("MenuBar.hoverBackground", new ColorUIResource(Utility.DARK_GREEN));
 			UIManager.put("Menu.selectionBackground", new ColorUIResource(Utility.DARK_GREEN));
 		}
+		// passt das Design der CheckBox an
 		UIManager.put("ComboBox.foreground", new ColorUIResource(Utility.DARK_GREEN));
 		UIManager.put("ComboBox.font", new FontUIResource(Utility.FONT));
 		UIManager.put("ComboBox.selectionBackground", new ColorUIResource(Utility.DARK_GREEN));
@@ -139,17 +139,17 @@ public class MainController {
 	/**
 	 * Setzt den neuen Geheimtext
 	 * 
-	 * @param text den Geheimtext
+	 * @param text der Geheimtext
 	 */
 	public void setCryptoText(String text) {
 		this.cryptoText.setText(text);
 	}
 
 	/**
-	 * Methode die das Key Panel austauscht
+	 * Methode, die das KeyPanel austauscht
 	 * 
-	 * @param index die SerienNummer des keypanels
-	 * @return das Erzeugte KeyPanel
+	 * @param index die Seriennummer des KeyPanels
+	 * @return das erzeugte KeyPanel
 	 */
 	public KeyPanel setKeyPanel(int index) {
 		switch (index) {

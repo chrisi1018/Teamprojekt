@@ -31,7 +31,6 @@ public final class FAData {
 			2.22f /* F */, 2.02f /* G */, 6.09f /* H */, 6.97f /* I */, 0.15f /* J */, 0.77f /* K */, 4.03f /* L */,
 			2.41f /* M */, 6.75f /* N */, 7.51f /* O */, 1.93f /* P */, 0.10f /* Q */, 5.99f /* R */, 6.33f /* S */,
 			9.06f /* T */, 2.76f /* U */, 0.98f /* V */, 2.36f /* W */, 0.15f /* X */, 1.97f /* Y */, 0.07f /* Z */ };
-	// TODO max fuer Englisch anpassen
 
 	/**
 	 * privater Konstruktor fur Hilfsklasse
@@ -40,14 +39,14 @@ public final class FAData {
 	}
 
 	/**
-	 * Erstellt eine Haeufigkeitsanlyse der Buchstaben fuer einen gegebenen Text in
-	 * Abhaengigkeit von der Laenge eines Schuesselworts und rundet diesen auf eine
+	 * Erstellt eine Haeufigkeitsanalyse der Buchstaben fuer einen gegebenen Text in
+	 * Abhaengigkeit von der Laenge eines SchuesselWortes und rundet diesen auf eine
 	 * Nachkommastelle
 	 * 
-	 * @param text      der Text, an dem die Hauefigkeitsanalyse gemacht wird
-	 * @param keyLength die Laenge des Schluesselworts
-	 * @return ein 2D-Array, die erste Dimension gibt den Index des Schluesselwortes
-	 *         an und die zweite Dimension die Haufigkeit von Buchstaben in Prozent
+	 * @param text      der Text, an dem die Haeufigkeitsanalyse gemacht wird
+	 * @param keyLength die Laenge des SchluesselWortes
+	 * @return ein 2D-Array, die erste Dimension gibt den Index des SchluesselWortes
+	 *         an und die zweite Dimension die Haeufigkeit von Buchstaben in Prozent
 	 *         von A - Z
 	 */
 	public static float[][] analyse(String text, int keyLength) {
@@ -67,7 +66,7 @@ public final class FAData {
 		String editedText = TextEdit.editText(text);
 		for (int i = 0; i < editedText.length(); i++) { // Schleife zaehlt ueber den Text
 			char temp = editedText.charAt(i);
-			if (temp >= 'A' && temp <= 'Z') { // ueberprueft ob Zeichen ein Buchstabe ist
+			if (temp >= 'A' && temp <= 'Z') { // ueberprueft, ob Zeichen ein Buchstabe ist
 				count[index][(temp - 'A')]++;
 				countChars[index]++;
 				index++;

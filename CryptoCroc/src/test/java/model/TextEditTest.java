@@ -27,7 +27,7 @@ public class TextEditTest {
 			+ " Erl\u00f6s erreichte Internet. Die zu das Medien wie, was T\u00fcr verwaschenen.";
 
 	/**
-	 * Der Test String in Grossbuchstaben
+	 * Der Test String in GrossBuchstaben
 	 */
 	private static String expectedTextOne = "ANGESICHTS NAMENS F\u00dcRSORGE ERF\u00dcLLT ER, IHN"
 			+ " ETWAS WILL AN BEINAHE HATTE EINZIGEN AUCH DA\u00df HABEN, DA\u00df NICHT IHM"
@@ -41,7 +41,7 @@ public class TextEditTest {
 			+ " ERREICHTE INTERNET. DIE ZU DAS MEDIEN WIE, WAS T\u00dcR VERWASCHENEN.";
 
 	/**
-	 * Der Test String in Grossbuchstaben und ohne Umlaute
+	 * Der Test String in GrossBuchstaben und ohne Umlaute
 	 */
 	private static String expectedTextTwo = "ANGESICHTS NAMENS FUERSORGE ERFUELLT ER, IHN"
 			+ " ETWAS WILL AN BEINAHE HATTE EINZIGEN AUCH DASS HABEN, DASS NICHT IHM"
@@ -71,7 +71,7 @@ public class TextEditTest {
 	}
 
 	/**
-	 * Testet die Methode "char changeToCpaitalLetter(Char c)"
+	 * Testet die Methode "char changeToCapitalLetter(Char c)"
 	 */
 	@Test
 	void testCapitalOne() {
@@ -83,12 +83,12 @@ public class TextEditTest {
 		assertEquals(TextEdit.changeToCapitalLetter('Z'), 'Z');
 		assertEquals(TextEdit.changeToCapitalLetter('.'), '.');
 		assertEquals(TextEdit.changeToCapitalLetter('\u00e4'), '\u00c4'); // ae --> Ae
-		assertEquals(TextEdit.changeToCapitalLetter('\u00f6'), '\u00d6'); // oe -->Oe
-		assertEquals(TextEdit.changeToCapitalLetter('\u00fc'), '\u00dc'); // ue -->Ue
+		assertEquals(TextEdit.changeToCapitalLetter('\u00f6'), '\u00d6'); // oe --> Oe
+		assertEquals(TextEdit.changeToCapitalLetter('\u00fc'), '\u00dc'); // ue --> Ue
 	}
 
 	/**
-	 * Testet die Methode "String change ToCapitalLetter(String text)
+	 * Testet die Methode "String changeToCapitalLetter(String text)"
 	 */
 	@Test
 	void testCapitalTwo() {

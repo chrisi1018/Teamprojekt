@@ -55,7 +55,7 @@ public class FAGraph {
 	 * @param fActual   eigentliche Buchstabenverteilung im Text
 	 * @param language  die Sprache mit der der eingegebene Text verglichen werden
 	 *                  soll
-	 * @param max       die groesste vorkommende Zahl um das Panel daran anzupassen
+	 * @param max       die groesste vorkommende Zahl, um das Panel daran anzupassen
 	 */
 	public FAGraph(float[] fLanguage, float[] fActual, String language, int max) throws IOException {
 		this.language = language;
@@ -82,7 +82,7 @@ public class FAGraph {
 
 		for (int i = 0; i < fLanguage.length; i++) {
 			// Wert alle nacheinander
-			// Reihenschluessel, gleiche gehoeren zur gleichen Series
+			// Reihenschluessel, gleiche gehoeren zur gleichen Serie
 			// Zeilenschluessel, gleiche gehoeren zum gleichen Buchstaben des Alphabets
 			m.addValue(fLanguage[i], language + "e Verteilung", Character.toString(alphabet.charAt(i)));
 			m.addValue(fActual[i], "Verteilung im Text", Character.toString(alphabet.charAt(i)));
