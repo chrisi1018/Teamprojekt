@@ -67,8 +67,8 @@ public class FAGraph {
 		for (int i = 0; i < fActual.length; i++) {
 			this.fActual[i] = Double.parseDouble(Float.toString(fActual[i]));
 		}
-		if (max > this.max) {
-			this.max = max + 15;
+		if (max >= this.max) {
+			this.max = max + 5;
 		}
 		createGraphPanel();
 	}

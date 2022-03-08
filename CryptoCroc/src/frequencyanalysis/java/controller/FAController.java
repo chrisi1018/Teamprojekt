@@ -147,12 +147,12 @@ public class FAController {
 		this.lengthTextField.setFont(Utility.TEXT_FONT);
 		this.lengthTextField.setBorder(Utility.TEXTFIELD_BORDER);
 		this.lengthTextField.setHorizontalAlignment(JTextField.CENTER);
-		
+
 		// Setzt die Breite und die Hoehe des Textfeldes
 		this.lengthTextField.setMaximumSize(new Dimension(Utility.WIDTH_TEXTFIELD, Utility.HEIGHT_TEXTFIELD));
 		// Wird benoetigt um die Hoehe zu setzen
 		this.lengthTextField.setPreferredSize(new Dimension(Utility.WIDTH_TEXTFIELD, Utility.HEIGHT_TEXTFIELD));
-		
+
 		this.lengthTextField.setDocument(new PlainDocument() {
 
 			private static final long serialVersionUID = 6389795108727999785L;
@@ -265,14 +265,13 @@ public class FAController {
 		this.languageData = FAData.GERMAN;
 		this.language = new JComboBox<String>(languages);
 		this.language.setBorder(new LineBorder(Utility.DARK_GREEN) {
-			
+
 			private static final long serialVersionUID = 1L;
 
 			@Override
-		    public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, 
-		    	    int width, int height) {
-		    	        g.drawRoundRect(x, y, width - 1, height - 1, 7, 7);
-		    	    }
+			public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, int width, int height) {
+				g.drawRoundRect(x, y, width - 1, height - 1, 7, 7);
+			}
 		});
 		this.language.setVisible(true);
 		this.language.addActionListener(new ActionListener() {
@@ -310,14 +309,13 @@ public class FAController {
 		}
 		this.keyChar = new JComboBox<String>(number);
 		this.keyChar.setBorder(new LineBorder(Utility.DARK_GREEN) {
-			
+
 			private static final long serialVersionUID = 1L;
 
 			@Override
-		    public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, 
-		    	    int width, int height) {
-		    	        g.drawRoundRect(x, y, width - 1, height - 1, 7, 7);
-		    	    }
+			public void paintBorder(java.awt.Component c, java.awt.Graphics g, int x, int y, int width, int height) {
+				g.drawRoundRect(x, y, width - 1, height - 1, 7, 7);
+			}
 		});
 		this.keyChar.setVisible(true);
 		// bei Auswahl der aktuellen Option
