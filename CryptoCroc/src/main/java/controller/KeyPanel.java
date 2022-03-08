@@ -88,15 +88,16 @@ public abstract class KeyPanel {
 	 */
 	protected JPanel createButtonPanel() {
 		JPanel panel = new JPanel(new BorderLayout());
-		
-		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER)); // FlowLayout wichtig damit Button passende Groesse haben
-		buttonPanel.add(encrypt);											// und sie mittig ausgerichtet werden
+		// FlowLayout wichtig damit Button passende Groesse haben und sie mittig
+		// ausgerichtet werden
+		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		buttonPanel.add(encrypt);
 		buttonPanel.add(decrypt);
 		buttonPanel.add(freqAna);
 		buttonPanel.add(randomKey);
 		// Setzt die Hoehe des Panels
 		buttonPanel.setPreferredSize(new Dimension(0, 120));
-		
+
 		panel.add(buttonPanel, BorderLayout.PAGE_START);
 		panel.add(this.createCroc(), BorderLayout.PAGE_END);
 		return panel;
