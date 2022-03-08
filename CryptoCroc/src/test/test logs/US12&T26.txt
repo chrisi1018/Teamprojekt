@@ -1,0 +1,67 @@
+US12&T26 (Git:a7c2ee5) :
+
+Java-Version: 1.8
+Betriebssystem: Windows 11, macOS Monterey
+getestet von: Julian Singer, Zoe Sobota
+
+1. Ich klicke im Menue "Erklaerungen" mit der Maus auf das Menue-Item "Caesar"
+Erwartung: Es oeffnet sich ein neues Fenster mit einer Erklaerung zum Caesar Verfahren und einer Scrollbar an der rechten Seite
+Realitaet: entspricht der Erwartung
+
+2. Ich klicke im Menue "Erklaerungen" mit der Maus auf das Menue-Item "Monoalphabetisch"
+Erwartung: Es oeffnet sich ein neues Fenster mit einer Erklaerung zum Monoalphabetischen Verfahren und einer Scrollbar an der rechten Seite
+Realitaet: entspricht der Erwartung
+
+3. Ich klicke im Menue "Erklaerungen" mit der Maus auf das Menue-Item "Haeufigkeitsanalyse"
+Erwartung: Es oeffnet sich ein neues Fenster mit einer Erklaerung zur Haeufigkeitsanalyse und einer Scrollbar an der rechten Seite
+Realitaet: entspricht der Erwartung
+
+4. Ich klicke im Menue "Erklaerungen" mit der Maus auf das Menue-Item "Vigenere"
+Erwartung: Es oeffnet sich ein neues Fenster mit einer Erklaerung zum Vigenere Verfahren und einer Scrollbar an der rechten Seite
+Realitaet: entspricht der Erwartung
+
+-> Beim Testen fiel auf, dass im Erklaerungs- und Dropdownmenue bei Vigenere der Akzent fehlte
+-> In Issue 10 festgehalten und verbessert
+
+5. Ich ziehe die Scrollbar im "Caesar"-Fenster mit der Maus nach unten und dann wieder nach oben
+Erwartung: Der Erklaerungstext scrollt bis ans Ende und dann wieder an den Anfang
+Realitaet: Entspricht der Erwartung
+
+6. Ich ziehe die Scrollbar im "Monoalphabetisch"-Fenster mit der Maus nach unten und dann wieder nach oben
+Erwartung: Der Erklaerungstext scrollt bis ans Ende und dann wieder an den Anfang
+Realitaet: Entspricht der Erwartung
+
+7. Ich ziehe die Scrollbar im "Vigenere"-Fenster mit der Maus nach unten und dann wieder nach oben
+Erwartung: Der Erklaerungstext scrollt bis ans Ende und dann wieder an den Anfang
+Realitaet: Entspricht der Erwartung
+
+8. Ich ziehe die Scrollbar im "Haeufigkeitsanalyse"-Fenster mit der Maus nach unten und dann wieder nach oben
+Erwartung: Der Erklaerungstext scrollt bis ans Ende und dann wieder an den Anfang
+Realitaet: Entspricht der Erwartung
+
+9. Ich fuehre 5.-6. nun durch, aber anstatt an der Scrollbar zu ziehen, benutze ich das Scrollrad der Maus
+Erwartung: Jede Erklaerung laesst sich nach unten und nach oben scrollen
+Realitaet: Entspricht der Erwartung
+
+10. Ich klicke mit den bereits geoeffneten Erklaerungsfenstern "Caesar" und "Monoalphabetisch" im 
+Menue auf "Vigenere"
+Erwartung: Alle geoeffneten Fenster bleiben offen und es oeffnet sich zusaetzlich ein neues Fenster fuer 
+die Vigenere-Erklaerung
+Realitaet: entspricht der Erwartung
+
+11. Ich oeffne die Erklaerungsfenster fuer "Caesar" und "Vigenere" und gehe mit der Maus in der Taskleiste 
+auf das Programm
+Erwartung: Ich kann jedes noch nicht geschlossene Fenster mit der Maus anklicken und so in den Vordergrund ziehen
+Realitaet: entspricht der Erwartung
+
+12. Ich oeffne das Erklaerungsfenster fuer "Caesar" und klicke im "Erklaerungen"-Menue nochmal auf "Caesar"
+Erwartung: Es oeffnet sich kein zweites uebereinstimmendes Fenster, sondern das bereits geoeffnete kommt in den Vordergrund
+Realitaet: entspricht der Erwartung
+
+13. Ich oeffne alle vier Erklaerungsfenster und klicke dort jeweils einmal oben rechts auf das Kreuz
+Erwartung: Das jeweilige Erklaerungsfenster schliesst sich, doch die uebrigen offenen Fenster bleiben offen
+Realitaet: entspricht der Erwartung
+
+14. Ich oeffne und schliesse das Erklaerungsfenster fuer "Caesar" und versuche es danach gleich wieder zu oeffnen
+Erwartung: Das gleiche Fenster oeffnet sich erneut
+Realitaet: entspricht der Erwartung
