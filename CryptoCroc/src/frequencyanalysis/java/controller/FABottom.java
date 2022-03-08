@@ -146,7 +146,6 @@ public class FABottom {
 			this.keyText[i] = new JTextField();
 			this.keyText[i].setDocument(new LimitedTextfield(1));
 			this.keyText[i].setBorder(Utility.TEXTFIELD_BORDER);
-			this.keyText[i].setForeground(Utility.DARK_GREEN);
 			this.keyText[i].setFont(Utility.TEXT_FONT);
 			this.keyText[i].setHorizontalAlignment(JTextField.CENTER);
 			// Setzt die Breite und die Hoehe des Textfelds

@@ -79,4 +79,15 @@ Erwartungen: Die Haufigkeitsanalyse schlieﬂt sich und im Hauptfenster wird die M
 Realitaet: Entspricht den Erwartungen.
 
 6. Label mit Geheimtext
-6.1
+6.1 Ich gebe im Hauptfenster im Geheimtext den Buchstaben 'A' ein und klicke auf Haeufigkeitsanalyse, dann klicke ich
+	auf den Button zum verschieben nach links 25 - mal.
+Erwartung: Der BUchstabe im Geheimtextfeld durchlauft das gesamte alphabet.
+Realitaet: Entspricht den Erwartungen.
+6.2 Ich gebe im Hauptfensert im Geheimtextfeld 15 - mal den Buchstaben 'A' ein und klicke auf Haeufigkeitsanalyse,
+	dann verschiebe ich nach einander, fuer alle Schluesselbuchstaben, die Schluesselfelder ein mal nach links.
+Erwartung: Im Geheimtextfeld werden die Buchstaben nacheinander zu einem 'B'.
+Realitaet: Entspricht den Erwartungen.
+6.3 Ich gebe im Hauptfenser im Gehimtext den Buchstaben 'A' ein und klicke auf Haeufigkeitsanalyse, dann klicke ich
+	die Checkboc fuer Monoalphabetische Verschluesselung und gebe in das Schluesselfeld fuer A den Buchstaben B ein.
+Erwartung: Im Geheimtextfeld wird der Buchstabe A zu einem B.
+Realitaet: Entspricht den Erwartungen. 

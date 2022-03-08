@@ -392,7 +392,24 @@ public class FAController {
 				initTableData();
 				max = calcMax();
 				initFATable();
-				checkCheckbox();
+				switch (key.getSerialnumber()) {
+				case 1:
+					lengthTextField.setText(Integer.toString(length));
+					break;
+				case 2:
+					monoCheckBox.setSelected(true);
+					checkCheckbox();
+					break;
+				case 3:
+					String temp = key.getKey();
+					if (!temp.isEmpty()) {
+						lengthTextField.setText(Integer.toString(temp.length()));
+					}
+					break;
+				default:
+					lengthTextField.setText(Integer.toString(length));
+					break;
+				}
 				bottom.updateKeyText(tables);
 				bottom.updateCryptoText();
 				gui.setTable(tables);
