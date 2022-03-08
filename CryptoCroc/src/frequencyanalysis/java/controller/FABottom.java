@@ -151,7 +151,8 @@ public class FABottom {
 			this.keyText[i].setFont(Utility.TEXT_FONT);
 			this.keyText[i].setHorizontalAlignment(JTextField.CENTER);
 			// Setzt die Breite und die Hoehe des Textfelds
-			this.keyText[i].setPreferredSize(new Dimension(Utility.WIDTH_TEXTFIELD_ONE_LETTER_IN_FA, Utility.HEIGHT_TEXTFIELD_IN_FA));
+			this.keyText[i].setPreferredSize(new Dimension(Utility.WIDTH_TEXTFIELD_ONE_LETTER_IN_FA, 
+					Utility.HEIGHT_TEXTFIELD_IN_FA));
 			this.keyText[i].setText("A");
 			
 			// sorgt dafuer, dass Text im Textfeld beim Klicken markiert wird

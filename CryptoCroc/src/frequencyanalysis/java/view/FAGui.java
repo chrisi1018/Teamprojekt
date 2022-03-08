@@ -67,6 +67,7 @@ public class FAGui {
 	 * @param lengthTextField das Textfeld fuer die Eingabe der Schluessellaenge
 	 * @param monoCheckBox    eine Checkbox fuer die monoalphabetische
 	 *                        Verschluesselung
+	 * @param bottom          Panel fuer die SchluesselEingabe und den entschluesselten Text
 	 */
 	public FAGui(JMenuBar menu, FAGraph graph, FATable[] table, JButton left, JButton right, JComboBox<String> language,
 			JComboBox<String> keyChar, JLabel lengthLabel, JTextField lengthTextField, JCheckBox monoCheckBox,
