@@ -140,3 +140,39 @@ Erwartung: Die Buttons "<<", ">>" und "Schluessel uebernehmen" haben im Hintergr
 von hell- zu dunkelgruen, die Ecken der Buttons sind abgerundet und die Buchstaben/Zeichen sind in dicker, weisser
 Druckschrift geschrieben.
 Realitaet: entspricht der Erwartung
+
+(Git: 6562c0e)
+T36: (fuer Windows)
+26. Ich starte die Software
+Erwartung: Die Textfelder "Klartext", "Geheimtext" und die Schluesselfelder sind gruen umrandet und der Text in
+den Textfeldern ist in Druckschrift geschrieben. Die Ueberschriften "Klartext", "Geheimtext", "Schluessel" und 
+die Schluesselfelder-Ueberschriften sind gruen, fett und in Druckschrift geschrieben. Das Aussehen der Textfelder
+und die Ueberschriften sind in jeder Ansicht gleich.
+Realitaet: entspricht der Erwartung
+
+27. Ich starte die Software und oeffne die Haeufigkeitsanalyse
+Erwartung: Die Textfelder "Schluessellaenge", "Geheimtext" und die Schluesselfelder sind gruen umrandet und der 
+Text in den Textfeldern ist in Druckschrift geschrieben. Die Ueberschriften "Haefigkeitsanalyse", 
+"Schluessellaenge", "Monoalphabetische Verschluesselung", "Geheimtext", "Schluessel", 
+"Gib hier deinen Schluessel ein:" und die Schluesselfelder-Ueberschriften sind gruen, fett und in Druckschrift 
+geschrieben.
+Realitaet: entspricht der Erwartung
+
+T31: (fuer Windows)
+28. Ich starte die Software
+Erwartung: Durch das eingestellt LookAndFeel wird in der Anwendung das Design diese Angezeigt.
+Realitaet: entspricht der Erwartung
+
+T32: (fuer Windows)
+29. Ich starte die Software
+Erwartung: Die Buttons "verschluesseln", "entschluesseln", "Haeufigkeitsanalyse" und "Zufallsschluessel" werden 
+mittig und untereinander angezeigt. Das Krokodil-Icon wird am unteren Rand des Fensters angezeigt.
+Realitaet: entspricht der Erwartung
+
+30. Ich starte die Software und oeffne die Haeufigkeitsanalyse
+Erwartung: Das Sprachauswahl-DropDown-Menue wird unterhalb der Ueberschrift "Haeufigkeitsanalyse" angezeigt. Der
+Text "Schluessellaenge", das Textfeld, die Checkbox und der Text "Monoalphabetische Verschluesselung" wird
+nebeneinander angezeigt und unterhalb des Sprachauswahl-DropDown-Menues. Darunter befindet sich das 
+Buchstaben-DropDown-Menue und daneben das Alphabet, mit den zugehoerigrn Textfeldern. Am unteren Rand des Fensters
+wird der Geheimtext angezeigt und daneben sind die Schluesselfelder. 
+Realitaet: entspricht der Erwartung
