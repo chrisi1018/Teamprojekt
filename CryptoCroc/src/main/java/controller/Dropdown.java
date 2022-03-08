@@ -74,4 +74,13 @@ public class Dropdown {
 	protected int index() {
 		return dropDown.getSelectedIndex();
 	}
+	
+	/**
+	 * Setzt das Dropdownmenu auf den passenden Index
+	 * 
+	 * @param index der Index auf den das Dropdownmenu gesetzt wird
+	 */
+	protected void setIndex(int index) {
+		dropDown.setSelectedIndex(index);
+	}
 }

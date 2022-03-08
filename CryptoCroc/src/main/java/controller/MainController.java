@@ -159,6 +159,7 @@ public class MainController {
 		default:
 			this.key = new VKeyPanel(controller);
 		}
+		this.dropDown.setIndex(index - 1);
 		this.gui.setKeyPanel(this.key.createKeyPanel());
 		// Wichtig: da ansonsten die Buttons nicht mehr funktionieren
 		key.initKey();
