@@ -10,6 +10,8 @@ import javax.swing.JComboBox;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.Insets;
@@ -191,6 +193,20 @@ public class FAController {
 						invalidLengthError++;
 					}
 				}
+			}
+		});
+
+		// highlighted den Text wenn auf das Textfeld geklickt wird
+		this.lengthTextField.addFocusListener(new FocusListener() {
+			@Override
+			public void focusGained(FocusEvent e) {
+				lengthTextField.selectAll();
+				lengthTextField.setBorder(Utility.FOCUS_TEXTFIELD_BORDER);
+			}
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				lengthTextField.setBorder(Utility.TEXTFIELD_BORDER);
 			}
 		});
 		this.lengthTextField.setText(Integer.toString(length));
