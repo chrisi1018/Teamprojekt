@@ -23,7 +23,7 @@ import utility.Utility;
  * @version 1.2
  */
 public class FATable {
-	
+
 	private TableData data;
 	private JTextField[] textFields = new JTextField[Utility.ALPHABET_SIZE];
 	private JLabel[] textLabels = new JLabel[Utility.ALPHABET_SIZE];
@@ -35,8 +35,6 @@ public class FATable {
 
 	private FABottom bottom;
 	private TextChangeListener[] tcl = new TextChangeListener[Utility.ALPHABET_SIZE];
-
-
 
 	/**
 	 * Konstruktor, der die Haeufigkeiten der Sprache und des Geheimtextes uebergibt
@@ -83,7 +81,7 @@ public class FATable {
 			this.textFields[i].setFont(Utility.TEXT_FONT);
 			this.textFields[i].setBorder(Utility.TEXTFIELD_BORDER);
 			this.textFields[i].setHorizontalAlignment(JTextField.CENTER);
-			//this.textFields[i].setColumns(1);
+			// this.textFields[i].setColumns(1);
 			// dieser Aufruf loescht den aktuellen Inhalt der Textfelder (liegt am Setzen
 			// des Documents) :
 			this.textFields[i].setDocument(new LimitedTextfield(maxInput));
@@ -109,13 +107,16 @@ public class FATable {
 			letterPanel.add(this.textFields[i]);
 			this.textFields[i].setAlignmentX(Component.CENTER_ALIGNMENT);
 			// Setzt die Breite und die Hoehe des Textfelds
-			this.textFields[i].setMaximumSize(new Dimension(Utility.WIDTH_TEXTFIELD_ONE_LETTER_IN_FA, Utility.HEIGHT_TEXTFIELD_IN_FA));
+			this.textFields[i].setMaximumSize(
+					new Dimension(Utility.WIDTH_TEXTFIELD_ONE_LETTER_IN_FA, Utility.HEIGHT_TEXTFIELD_IN_FA));
 			// Wird benoetigt um die Hohe zu setzen
-			this.textFields[i].setPreferredSize(new Dimension(Utility.WIDTH_TEXTFIELD_ONE_LETTER_IN_FA, Utility.HEIGHT_TEXTFIELD_IN_FA));
+			this.textFields[i].setPreferredSize(
+					new Dimension(Utility.WIDTH_TEXTFIELD_ONE_LETTER_IN_FA, Utility.HEIGHT_TEXTFIELD_IN_FA));
 			tablePanel.add(letterPanel);
 		}
 
-		// wegen setDocument-Aufruf nochmals initialisieren, sodass der Text angezeigt wird
+		// wegen setDocument-Aufruf nochmals initialisieren, sodass der Text angezeigt
+		// wird
 		char firstLetter = 'A';
 		for (int i = 0; i < this.textFields.length; i++) {
 			this.textFields[i].setText("" + (char) (i + firstLetter));
@@ -131,7 +132,8 @@ public class FATable {
 	 * Entfernt den DocumentListener an einer gegebenen Stelle, um zu verhindern,
 	 * dass dieser getriggert wird
 	 * 
-	 * @param loc die Stelle des Textfeldes, an dem der Listener entfernt werden muss
+	 * @param loc die Stelle des Textfeldes, an dem der Listener entfernt werden
+	 *            muss
 	 */
 	public void disableListener(int loc) {
 		this.textFields[loc].getDocument().removeDocumentListener(tcl[loc]);
@@ -154,7 +156,8 @@ public class FATable {
 	 */
 	public void shiftRight() {
 		for (int i = 0; i < this.textFields.length; i++) {
-			// alle Listener werden entfernt, da diese sonst beim Setzen des Texts getriggert
+			// alle Listener werden entfernt, da diese sonst beim Setzen des Texts
+			// getriggert
 			// werden
 			this.disableListener(i);
 			if (i < Utility.ALPHABET_SIZE - 1) {
@@ -164,7 +167,8 @@ public class FATable {
 			}
 		}
 
-		// alle Listener werden wieder aktiviert und die Textfelder in data werden gesetzt
+		// alle Listener werden wieder aktiviert und die Textfelder in data werden
+		// gesetzt
 		for (int i = 0; i < textFields.length; i++) {
 			this.data.setTextFieldChar(this.textFields[i].getText().charAt(0), i);
 			this.enableListener(i);
@@ -176,7 +180,7 @@ public class FATable {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		
+
 		bottom.updateCryptoText();
 	}
 
@@ -187,7 +191,8 @@ public class FATable {
 	 */
 	public void shiftLeft() {
 		for (int i = 0; i < this.textFields.length; i++) {
-			// alle Listener werden entfernt, da diese sonst beim Setzen des Texts getriggert
+			// alle Listener werden entfernt, da diese sonst beim Setzen des Texts
+			// getriggert
 			// werden
 			this.disableListener(i);
 			if (i < Utility.ALPHABET_SIZE - 1) {
@@ -197,7 +202,8 @@ public class FATable {
 			}
 		}
 
-		// alle Listener werden wieder aktiviert und die Textfelder in data werden gesetzt
+		// alle Listener werden wieder aktiviert und die Textfelder in data werden
+		// gesetzt
 		for (int i = 0; i < textFields.length; i++) {
 			this.data.setTextFieldChar(this.textFields[i].getText().charAt(0), i);
 			this.enableListener(i);
@@ -209,7 +215,7 @@ public class FATable {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		
+
 		bottom.updateCryptoText();
 	}
 
@@ -230,7 +236,8 @@ public class FATable {
 				newIndex = i;
 			}
 		}
-		// Listener werden entfernt, sonst triggert das Aendern des Texts auch den Listener
+		// Listener werden entfernt, sonst triggert das Aendern des Texts auch den
+		// Listener
 		this.textFields[newIndex].getDocument().removeDocumentListener(tcl[newIndex]);
 
 		this.textFields[newIndex].setText(String.valueOf(oldChar));
@@ -276,8 +283,8 @@ public class FATable {
 	/**
 	 * Veraendert die Aktivierung der Textfelder und die Editierbarkeit
 	 * 
-	 * @param enable true, falls die Textfelder aktiviert werden sollen und false, falls
-	 *               sie deaktiviert werden sollen
+	 * @param enable true, falls die Textfelder aktiviert werden sollen und false,
+	 *               falls sie deaktiviert werden sollen
 	 */
 	public void enableTextFields(boolean enable) {
 		for (int i = 0; i < this.textFields.length; i++) {
@@ -303,7 +310,7 @@ public class FATable {
 	public JPanel getTablePanel() {
 		return this.tablePanel;
 	}
-	
+
 	/**
 	 * Getter fuer textFields
 	 * 
@@ -312,9 +319,10 @@ public class FATable {
 	public JTextField[] getTextFields() {
 		return this.textFields;
 	}
-	
+
 	/**
 	 * Setter Methode fuer die textFields updated auch FAData
+	 * 
 	 * @param textFields die TextFelder
 	 */
 	public void setTextFields(JTextField[] textFields) {
@@ -323,9 +331,10 @@ public class FATable {
 			this.data.setTextFieldChar(this.textFields[i].getText().charAt(0), i);
 		}
 	}
-	
+
 	/**
 	 * Setter Methode fuer bottom
+	 * 
 	 * @param bottom Ein Object FABottom
 	 */
 	public void setBottom(FABottom bottom) {

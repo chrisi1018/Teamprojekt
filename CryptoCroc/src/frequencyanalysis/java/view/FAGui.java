@@ -69,7 +69,8 @@ public class FAGui {
 	 *                        Verschluesselung
 	 */
 	public FAGui(JMenuBar menu, FAGraph graph, FATable[] table, JButton left, JButton right, JComboBox<String> language,
-			JComboBox<String> keyChar, JLabel lengthLabel, JTextField lengthTextField, JCheckBox monoCheckBox, JPanel bottom) {
+			JComboBox<String> keyChar, JLabel lengthLabel, JTextField lengthTextField, JCheckBox monoCheckBox,
+			JPanel bottom) {
 		// erstellt den Frame
 		this.frame = new JFrame("H\u00e4ufigkeitsanalyse");
 		this.frame.setSize(1300, 730);
@@ -78,12 +79,12 @@ public class FAGui {
 		this.frame.setLayout(new BorderLayout());
 		this.mainPanel = new JPanel();
 		this.mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
-		this.menu = menu; // muss hier initialisiert werden, 
-					      // damit der MoveMouseListener hinzugefuegt werden kann
-		
-		//Setze das Icon im Fenster und den MouseListener fuer die MenueLeiste
+		this.menu = menu; // muss hier initialisiert werden,
+							// damit der MoveMouseListener hinzugefuegt werden kann
+
+		// Setze das Icon im Fenster und den MouseListener fuer die MenueLeiste
 		String os = System.getProperty("os.name").toLowerCase();
-		if (!os.equals("mac os x")) { //Nicht Betriebssystem Apple
+		if (!os.equals("mac os x")) { // Nicht Betriebssystem Apple
 			ImageIcon icon = new ImageIcon(this.getClass().getResource(("/controller/croc.png")));
 			this.frame.setIconImage(icon.getImage());
 			MoveMouseListener listener = new MoveMouseListener(this.frame);
@@ -156,41 +157,42 @@ public class FAGui {
 	/**
 	 * Das Top-Panel wird erstellt und die einzelnen Elemente darin angeordnet.
 	 * 
-	 * @return das Panel mit der Ueberschift, das Sprachauswahl-Drop-Down-Menue
-	 * 		   und der Schluessellaenge-Eingabe
+	 * @return das Panel mit der Ueberschift, das Sprachauswahl-Drop-Down-Menue und
+	 *         der Schluessellaenge-Eingabe
 	 */
 	private JPanel initTopPanelForFrame() {
 		JPanel top = new JPanel(new BorderLayout());
 		// Ueberschift der Seite hinzufuegen
 		top.add(this.mainLabel, BorderLayout.NORTH);
-		
+
 		// erstellt des Panels fuer das Drop-Down-Menue
 		JPanel languageComboBoxPanel = new JPanel(new FlowLayout(155));
-		languageComboBoxPanel.add(Box.createRigidArea(new Dimension(155, 5))); // Abstand zwischen Ueberschrift und Drop-Down
+		// Abstand zwischen Ueberschrift und Drop-Down
+		languageComboBoxPanel.add(Box.createRigidArea(new Dimension(155, 5)));
 		languageComboBoxPanel.add(this.language);
 		languageComboBoxPanel.setPreferredSize(new Dimension(155, 20)); // wird benoetig fuer die richtige Anordnung
-		
+
 		top.add(languageComboBoxPanel, BorderLayout.WEST);
-		
+
 		// erstellt des Panels fuer die Schluessellaenge-Eingabe und die CheckBox
 		JPanel keyLengthPanel = new JPanel(new FlowLayout(0));
 		keyLengthPanel.add(this.lengthLabel);
 		keyLengthPanel.add(this.lengthTextField);
 		keyLengthPanel.add(this.monoCheckBox);
-		
+
 		// Setzt die Breite und die Hoehe des Textfeldes
 		this.lengthTextField.setMaximumSize(new Dimension(Utility.WIDTH_TEXTFIELD, Utility.HEIGHT_TEXTFIELD));
 		// Wird benoetigt um die Hoehe zu setzen
 		this.lengthTextField.setPreferredSize(new Dimension(Utility.WIDTH_TEXTFIELD, Utility.HEIGHT_TEXTFIELD));
-		
+
 		top.add(keyLengthPanel, BorderLayout.SOUTH);
-		
+
 		return top;
 	}
-	
+
 	/**
-	 * Setzt das mittlere Panel mit der Tabelle und dem Graphen. Wichtig 
-	 * fuer eine passende Anordnung im Fenster.
+	 * Setzt das mittlere Panel mit der Tabelle und dem Graphen. Wichtig fuer eine
+	 * passende Anordnung im Fenster.
 	 */
 	private void initMiddlePanel() {
 		this.middle.add(this.tablePanel, BorderLayout.NORTH);
@@ -216,7 +218,7 @@ public class FAGui {
 	 */
 	private JPanel initTable() {
 		JPanel total = new JPanel(new FlowLayout(0));
-		
+
 		// erstellt das Panel mit den Pfeil-Buttons und der Buchstabenreihe
 		JPanel tableWithButtons = new JPanel(new FlowLayout(0));
 		tableWithButtons.add(left);
@@ -318,14 +320,14 @@ public class FAGui {
 		repaint();
 
 	}
-	
+
 	/**
 	 * Methode die den Frame fokusiert
 	 */
 	public void focus() {
 		this.frame.toFront();
 	}
-	
+
 	/**
 	 * Methode die den Frame Schliesst
 	 */
