@@ -83,7 +83,12 @@ public class MainController {
 		UIManager.put("MenuItem.font", new FontUIResource(Utility.FONT));
 		UIManager.put("MenuItem.foreground", new ColorUIResource(Utility.DARK_GREEN));
 		UIManager.put("MenuItem.selectionBackground", new ColorUIResource(Utility.DARK_GREEN));
-		if (System.getProperty("os.name").toLowerCase().equals("mac os x")) {
+		String os = System.getProperty("os.name").toLowerCase();
+		if (os.equals("mac os x")) {
+			UIManager.put("MenuBar.hoverBackground", new ColorUIResource(Utility.LIGHT_GREEN));
+			UIManager.put("Menu.selectionBackground", new ColorUIResource(Utility.LIGHT_GREEN));
+		} else if (os.contains("nix") || os.contains("aix") || os.contains("nux")) {
+			UIManager.put("MenuBar.background", new ColorUIResource(Utility.DARK_GREEN));
 			UIManager.put("MenuBar.hoverBackground", new ColorUIResource(Utility.LIGHT_GREEN));
 			UIManager.put("Menu.selectionBackground", new ColorUIResource(Utility.LIGHT_GREEN));
 		} else {

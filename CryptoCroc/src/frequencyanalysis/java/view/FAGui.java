@@ -166,11 +166,21 @@ public class FAGui {
 		top.add(this.mainLabel, BorderLayout.NORTH);
 
 		// erstellt des Panels fuer das Drop-Down-Menue
-		JPanel languageComboBoxPanel = new JPanel(new FlowLayout(155));
-		// Abstand zwischen Ueberschrift und Drop-Down
-		languageComboBoxPanel.add(Box.createRigidArea(new Dimension(160, 5)));
-		languageComboBoxPanel.add(this.language);
-		languageComboBoxPanel.setPreferredSize(new Dimension(155, 30)); // wird benoetig fuer die richtige Anordnung
+		JPanel languageComboBoxPanel;
+		String os = System.getProperty("os.name").toLowerCase();
+		if (os.contains("nix") || os.contains("aix") || os.contains("nux")) {
+			languageComboBoxPanel = new JPanel(new FlowLayout(175));
+			// Abstand zwischen Ueberschrift und Drop-Down
+			languageComboBoxPanel.add(Box.createRigidArea(new Dimension(160, 5)));
+			languageComboBoxPanel.add(this.language);
+			languageComboBoxPanel.setPreferredSize(new Dimension(175, 35)); // wird benoetig fuer die richtige Anordnung
+		} else {
+			languageComboBoxPanel = new JPanel(new FlowLayout(155));
+			// Abstand zwischen Ueberschrift und Drop-Down
+			languageComboBoxPanel.add(Box.createRigidArea(new Dimension(160, 5)));
+			languageComboBoxPanel.add(this.language);
+			languageComboBoxPanel.setPreferredSize(new Dimension(155, 30)); // wird benoetig fuer die richtige Anordnung
+		}
 
 		top.add(languageComboBoxPanel, BorderLayout.WEST);
 

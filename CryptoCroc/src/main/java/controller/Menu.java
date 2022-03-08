@@ -277,9 +277,14 @@ public class Menu {
 		JLabel title = new JLabel("CryptCroc");
 		title.setFont(Utility.HEADLINE_LABEL_FONT);
 		title.setForeground(Utility.WHITE);
+		String os = System.getProperty("os.name").toLowerCase();
+		if (os.contains("nix") || os.contains("aix") || os.contains("nux")) {
+			menuBar.add(Box.createHorizontalGlue());
+		} else {
 		menuBar.add(Box.createHorizontalStrut(385)); // zur mittigen Platzierung des Labels
 		menuBar.add(title);
 		menuBar.add(Box.createHorizontalGlue());
+		}
 	}
 
 	/**
