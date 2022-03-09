@@ -21,7 +21,7 @@ import view.Messages;
  * CryptoCroc
  * 
  * @author chrisi, zes
- * @version 1.3
+ * @version 1.4
  */
 public abstract class KeyPanel {
 	private JButton encrypt = new GradientButton("verschl\u00fcsseln");
@@ -32,8 +32,6 @@ public abstract class KeyPanel {
 	private MainController controller;
 	private FAController fa;
 	private static boolean faIsOpen = false;
-	
-	private JPanel test;
 
 	// zaehlen, wie viele Fehlermeldungen es vom jeweiligen Typ schon gab
 	private int wrongKeyError = 1;
@@ -106,7 +104,6 @@ public abstract class KeyPanel {
 
 		panel.add(buttonPanel, BorderLayout.PAGE_START);
 		panel.add(this.createCroc(), BorderLayout.PAGE_END);
-		this.test = buttonPanel;
 		return panel;
 	}
 
@@ -251,7 +248,6 @@ public abstract class KeyPanel {
 	 * Ruft die Methoden auf, die einen zufaelligen Schuessel erzeugen
 	 */
 	public void clickButtonRandomKey() {
-		System.out.println(this.test.getWidth() + ", " + this.test.getHeight());
 		this.randomKey();
 	}
 

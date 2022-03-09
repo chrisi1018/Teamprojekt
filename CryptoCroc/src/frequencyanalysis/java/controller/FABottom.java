@@ -19,7 +19,7 @@ import utility.Utility;
  * Die Klasse erzeugt den unteren Teil der Haufigkeitsanalyse und dient als Schnittstelle zum Hauptprogramm
  * 
  * @author Julian, chrisi
- * @version 1.1
+ * @version 1.2
  */
 public class FABottom {
 	
