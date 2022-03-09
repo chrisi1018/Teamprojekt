@@ -16,6 +16,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.nio.charset.StandardCharsets;
 
 import org.apache.commons.io.FilenameUtils;
 
@@ -220,7 +221,7 @@ public class Menu {
 							// versucht, die gewaehlte Datei auszulesen und ersetzt alle Zeilenumbrueche
 							// durch Leerzeichen
 							try {
-								fileScanner = new Scanner(file);
+								fileScanner = new Scanner(file, StandardCharsets.UTF_8.name());
 								if (file.isFile()) {
 									String text = "";
 									if (fileScanner.hasNextLine()) {

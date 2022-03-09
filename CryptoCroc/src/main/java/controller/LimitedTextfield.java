@@ -59,17 +59,16 @@ public class LimitedTextfield extends PlainDocument {
 
 	@Override
 	public void insertString(int offset, String str, AttributeSet att) throws BadLocationException {
-		String up = str.toUpperCase();
-		if (!this.checkValidString(up)) { // prueft auf gueltige Eingabe
+		if (!this.checkValidString(str)) { // prueft auf gueltige Eingabe
 			if (illegalKeyError % Utility.MAX_ERROR_MESSAGES == 1) {
 				Messages.errorMessage("Hier k\u00f6nnen nur die Buchstaben A-Z bzw a-z eingegeben werden!");
 			}
 			illegalKeyError++;
 		} else if (index != -1 && (getLength() + str.length()) <= limit) {
-			super.insertString(offset, up, att);
+			super.insertString(offset, str.toUpperCase(), att);
 			checkPermutation();
-		} else if ((getLength() + up.length()) <= limit) {
-			super.insertString(offset, up, att);
+		} else if ((getLength() + str.length()) <= limit) {
+			super.insertString(offset, str.toUpperCase(), att);
 		} else {
 			if (limit == 1) { // Unterscheidung fuer Anzahl der Buchstaben
 				if (moreThanOneKeyError % Utility.MAX_ERROR_MESSAGES == 1) {
