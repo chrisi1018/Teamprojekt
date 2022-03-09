@@ -5,6 +5,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JScrollPane;
+import javax.swing.JButton;
 import java.awt.Dimension;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -31,7 +32,7 @@ public class FABottom {
 	private Crypt crypt;
 	private boolean mono;
 	private String cryptString;
-	private GradientButton button;
+	private JButton button;
 	private FAController faController;
 	
 	/**
