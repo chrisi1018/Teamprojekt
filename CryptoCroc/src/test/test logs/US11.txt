@@ -91,13 +91,13 @@ es jetzt die Optionen "1.Buchstabe", "2.Buchstabe", "3.Buchstabe", usw bis "13.B
 einer Scrollbar angezeigt.
 Realitaet: Entspricht der Erwartung
 
-16. Ich fuehre 15. durch, aber anstatt der Zahl 13 tippe ich die Zahl 999 ein
-Erwartung: Wie in 15. aendert sich der Inhalt des Textfeldes neben "Schluessellaenge" auf 999 und gibt es jetzt 
-999 Optionen im entsprechenden Dropdown-Menue, die ich mir anschauen kann durch scrollen.
+16. Ich fuehre 15. durch, aber anstatt der Zahl 13 tippe ich die Zahl 15 ein
+Erwartung: Wie in 15. aendert sich der Inhalt des Textfeldes neben "Schluessellaenge" auf 15 und gibt es jetzt 
+15 Optionen im entsprechenden Dropdown-Menue, die ich mir anschauen kann durch scrollen.
 Realitaet: Entspricht der Erwartung
 
-17. Ich fuehre 16. durch und klicke nacheinander im zugehoerigen Dropdown-Menue auf die Optionen "999.Buchstabe", 
-"30.Buchstabe", "573.Buchstabe".
+17. Ich fuehre 16. durch und klicke nacheinander im zugehoerigen Dropdown-Menue auf die Optionen "15.Buchstabe", 
+"11.Buchstabe", "7.Buchstabe".
 Erwartung: Das Dropdown-Menue zeigt immer die aktuell ausgewaehlte Option an
 Realitaet: Entspricht der Erwartung
 
@@ -117,9 +117,9 @@ Realitaet: Entspricht der Erwartung
 Erwartung: Es erscheinen nur die Zahlen 129 im Textfeld
 Realitaet: Entspricht der Erwartung
 
-22. Ich fuehre 16. durch und versuche noch eine zusaetzliche 9 hinzuzufuegen
-Erwartung: Es erscheint eine Fehlermeldung, die mir sagt, dass die maximale Schluessellaenge 999 ist und das 
-zugehoerige Dropdown-Menue geht nur bis 999
+22. Ich fuehre 16. durch, aber anstatt der Zahl 15 tippe ich die Zahl 16 ein
+Erwartung: Es erscheint eine Fehlermeldung, die mir sagt, dass die maximale Schluessellaenge 15 ist und das 
+zugehoerige Dropdown-Menue geht nur bis 15
 Realitaet: Entspricht der Erwartung
 
 T18:

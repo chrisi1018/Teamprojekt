@@ -7,12 +7,14 @@ getestet von: Julian Singer
 Vor den folgenden Tests tippe ich "abababababababcb" in das Geheimtextfeld und klicke dann auf den 
 Button "Haeufigkeitsanalyse"
 
-1. Ich versuche "21" in das Schluessellaengentextfeld einzutippen
+1. Ich versuche "21" in das Schluessellaengentextfeld einzutippen und waehle dann im DropDownMenue den
+2. Buchstaben
 Erwartung: Nach Eingabe von "1" erscheint ein Warnungsfenster mit der Meldung "Die Laenge des Schluessels darf 15 
 nicht ueberschreiten!", im Textfeld bleibt nur "2" stehen und der Graph zeigt nun die Haeufigkeiten A(0) und B(100)
 Realitaet: entspricht der Erwartung
 
-2. Ich versuche "15" in das Schluessellaengentextfeld einzutippen
+2. Ich versuche "15" in das Schluessellaengentextfeld einzutippen und waehle dann im DropDownMenue den
+15. Buchstaben
 Erwartung: Es steht "15" im Schluessellaengentextfeld und der Graph zeigt die Haeufigkeiten A(0), B(0) und C(100)
 Realitaet: entspricht der Erwartung
 
@@ -22,7 +24,8 @@ nicht ueberschreiten!", im Textfeld bleibt nur "1" stehen und der Graph zeigt nu
 und C(6,3)
 Realitaet: entspricht der Erwartung
 
-4. Ich versuche "142" in das Schluessellaengentextfeld einzutippen
+4. Ich versuche "142" in das Schluessellaengentextfeld einzutippen und waehle dann im DropDownMenue den
+14. Buchstaben
 Erwartung: Nach Eingabe von "2" erscheint ein Warnungsfenster mit der Meldung "Die Laenge des Schluessels darf 15 
 nicht ueberschreiten!", im Textfeld bleibt nur "14" stehen und der Graph zeigt nun die Haeufigkeiten A(0), B(100)
 und C(0)
