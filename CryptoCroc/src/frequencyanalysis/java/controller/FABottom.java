@@ -88,13 +88,13 @@ public class FABottom {
 		//Erstellt das Textfeld fuer den Geheimtext
 		JScrollPane scroll = new JScrollPane(this.cryptoText, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		scroll.setPreferredSize(new Dimension(400, 110));
+		scroll.setPreferredSize(new Dimension(490, 110));
 		scroll.setBorder(Utility.TEXTFIELD_BORDER);
 		
 		//Fuegt die Elemente dem Panel hinzu
 		leftPanel.add(crypto);
 		leftPanel.add(scroll);
-		leftPanel.setPreferredSize(new Dimension(410, 150));
+		leftPanel.setPreferredSize(new Dimension(500, 150));
 		
 		//Erzeugt den mittleren Teil des unteren Panels mit den Schluessel-Textfeldern
 		JPanel middlePanel = new JPanel(new FlowLayout(0));
