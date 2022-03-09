@@ -40,6 +40,15 @@ public class FAMenuBar {
 	}
 
 	/**
+	 * Gibt die MenueLeiste der aktuellen Instanz zurueck
+	 * 
+	 * @return this.menuBar MenueLeiste
+	 */
+	public JMenuBar getMenuBar() {
+		return this.menuBar;
+	}
+
+	/**
 	 * Oeffnet einen uebergebenen Frame, sobald das MenueItem an uebergebener Stelle
 	 * angeklickt wird
 	 * 
@@ -96,15 +105,6 @@ public class FAMenuBar {
 			menuBar.add(Box.createHorizontalGlue());
 			}
 		}
-	}
-
-	/**
-	 * Gibt die MenueLeiste der aktuellen Instanz zurueck
-	 * 
-	 * @return this.menuBar MenueLeiste
-	 */
-	public JMenuBar getMenuBar() {
-		return this.menuBar;
 	}
 
 }

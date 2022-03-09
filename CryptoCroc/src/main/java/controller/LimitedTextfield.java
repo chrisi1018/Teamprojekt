@@ -24,6 +24,10 @@ public class LimitedTextfield extends PlainDocument {
 	private int limit;
 	private int index = -1;
 	private JTextField[] textFields;
+	/**
+	 * Seriennummer
+	 */
+	private static final long serialVersionUID = 6389795108727999785L;
 	private static int illegalKeyError = 1;
 	private static int moreThanOneKeyError = 1;
 	private int tooManyKeysError = 1;
@@ -51,11 +55,6 @@ public class LimitedTextfield extends PlainDocument {
 		this.index = index;
 		this.textFields = textFields;
 	}
-
-	/**
-	 * Seriennummer
-	 */
-	private static final long serialVersionUID = 6389795108727999785L;
 
 	@Override
 	public void insertString(int offset, String str, AttributeSet att) throws BadLocationException {

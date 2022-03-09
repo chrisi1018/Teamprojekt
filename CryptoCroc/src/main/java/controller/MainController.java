@@ -37,7 +37,21 @@ public class MainController {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			int opt = dropDown.index() + 1;
-			setKeyPanel(opt);
+			switch (opt) {
+			case 1:
+				key = new CKeyPanel(controller);
+				break;
+			case 2:
+				key = new MKeyPanel(controller);
+				break;
+			case 3:
+				key = new VKeyPanel(controller);
+			default:
+				key = new VKeyPanel(controller);
+			}
+			gui.setKeyPanel(key.createKeyPanel());
+			// Wichtig: da ansonsten die Buttons nicht mehr funktionieren
+			key.initKey();
 		}
 	};
 
@@ -152,22 +166,7 @@ public class MainController {
 	 * @return das erzeugte KeyPanel
 	 */
 	public KeyPanel setKeyPanel(int index) {
-		switch (index) {
-		case 1:
-			this.key = new CKeyPanel(controller);
-			break;
-		case 2:
-			this.key = new MKeyPanel(controller);
-			break;
-		case 3:
-			this.key = new VKeyPanel(controller);
-		default:
-			this.key = new VKeyPanel(controller);
-		}
 		this.dropDown.setIndex(index - 1);
-		this.gui.setKeyPanel(this.key.createKeyPanel());
-		// Wichtig: da ansonsten die Buttons nicht mehr funktionieren
-		key.initKey();
 		return this.key;
 	}
 }

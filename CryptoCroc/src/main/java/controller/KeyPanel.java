@@ -225,18 +225,6 @@ public abstract class KeyPanel {
 	}
 
 	/**
-	 * Wechselt den Zustand von faIsOpen; wird benutzt, um zu ueberpruefen, ob die
-	 * Haeufigkeitsanalyse bereits geoeffnet ist
-	 */
-	public static void faSwitchOpen() {
-		if (faIsOpen) {
-			faIsOpen = false;
-		} else {
-			faIsOpen = true;
-		}
-	}
-
-	/**
 	 * Oeffnet den Controller fuer die Haeufigkeitsanalyse, falls diese nicht offen
 	 * ist und gibt eine Warnmeldung falls doch
 	 */
@@ -257,6 +245,18 @@ public abstract class KeyPanel {
 	 */
 	public void clickButtonRandomKey() {
 		this.randomKey();
+	}
+
+	/**
+	 * Wechselt den Zustand von faIsOpen; wird benutzt, um zu ueberpruefen, ob die
+	 * Haeufigkeitsanalyse bereits geoeffnet ist
+	 */
+	public static void faSwitchOpen() {
+		if (faIsOpen) {
+			faIsOpen = false;
+		} else {
+			faIsOpen = true;
+		}
 	}
 
 	/**

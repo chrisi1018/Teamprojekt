@@ -26,9 +26,10 @@ import java.util.Random;
  */
 public class MKeyPanel extends KeyPanel {
 
+	private final int serialnumber = 2;
+
 	private String key = this.keyAsString();
 
-	private final int serialnumber = 2;
 	private JTextField[] keys = new JTextField[Utility.ALPHABET_SIZE];
 	private JLabel[] names = new JLabel[Utility.ALPHABET_SIZE];
 	private JPanel[] nameKeyPanels = new JPanel[Utility.ALPHABET_SIZE];
@@ -77,6 +78,17 @@ public class MKeyPanel extends KeyPanel {
 	private void initTextFields() {
 		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
 			keys[i] = new JTextField();
+		}
+	}
+
+	/**
+	 * Methode zum Initialisieren der Namen der Textfelder (Alphabet)
+	 */
+	private void initNames() {
+		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
+			int val = 65 + i;
+			char c = (char) val;
+			this.names[i] = new JLabel(Character.toString(c), JLabel.CENTER);
 		}
 	}
 
@@ -158,6 +170,18 @@ public class MKeyPanel extends KeyPanel {
 	}
 
 	/**
+	 * Eine Methode, die einen Schluessel in die SchluesselFelder schreibt
+	 * 
+	 * @param key der Schluessel, der in die SchluesselFelder geschrieben wird
+	 */
+	@Override
+	public void setKey(String key) {
+		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
+			this.keys[i].setText(key.substring(i, i + 1));
+		}
+	}
+
+	/**
 	 * Methode, die einen zufaelligen Schluessel erzeugt
 	 */
 	@Override
@@ -181,29 +205,6 @@ public class MKeyPanel extends KeyPanel {
 			key = key + keyString[i];
 		}
 		this.setKey(key);
-	}
-
-	/**
-	 * Eine Methode, die einen Schluessel in die SchluesselFelder schreibt
-	 * 
-	 * @param key der Schluessel, der in die SchluesselFelder geschrieben wird
-	 */
-	@Override
-	public void setKey(String key) {
-		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
-			this.keys[i].setText(key.substring(i, i + 1));
-		}
-	}
-
-	/**
-	 * Methode zum Initialisieren der Namen der Textfelder (Alphabet)
-	 */
-	private void initNames() {
-		for (int i = 0; i < Utility.ALPHABET_SIZE; i++) {
-			int val = 65 + i;
-			char c = (char) val;
-			this.names[i] = new JLabel(Character.toString(c), JLabel.CENTER);
-		}
 	}
 
 	/**
