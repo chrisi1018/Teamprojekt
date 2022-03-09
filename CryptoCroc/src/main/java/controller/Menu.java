@@ -276,7 +276,7 @@ public class Menu {
 	 * auch einfaerben zu koennen
 	 */
 	public void fillRightSide() {
-		JLabel title = new JLabel("CryptCroc");
+		JLabel title = new JLabel("CryptoCroc");
 		title.setFont(Utility.HEADLINE_LABEL_FONT);
 		title.setForeground(Utility.WHITE);
 		String os = System.getProperty("os.name").toLowerCase();
