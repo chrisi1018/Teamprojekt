@@ -131,7 +131,6 @@ public class CKeyPanel extends KeyPanel {
 		String keyString = buffer.toString();
 		this.setKey(keyString);
 		
-		System.out.println("Height: " + key.getHeight() + ", Width: " + key.getWidth());
 	}
 	
 	/**
