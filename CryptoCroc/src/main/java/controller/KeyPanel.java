@@ -190,7 +190,7 @@ public abstract class KeyPanel {
 				}
 			} else {
 				if (wrongKeyError % Utility.MAX_ERROR_MESSAGES == 1) {
-					Messages.errorMessage("Der eingegebene Schl\u00fcssel ist nicht korrekt.");
+					Messages.errorMessage("Der Schl\u00fcssel ist nicht g\u00fcltig.");
 				}
 				wrongKeyError++;
 			}
