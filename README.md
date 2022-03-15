@@ -1,8 +1,8 @@
 Teamprojekt 2022 am KIT
 
 
-Dies ist ein Tool zur schnellen Verschlüsselungen von Texten mit dem Cäsar-, Vigenère-, oder monoalphabetischem Verfahren. Ausserdem ist es möglich eine Häufigkeitsanalyse durchzuführen und so manuell den Schlüssel eines verschlüsselten Texts herauszufinden, sowie diesen Entschlüsseln zu lassen.
-Das Tool ist gedacht für SuS der Klassenstufe 7 und 8 und bietet eine Möglichkeit das theoretische Wissen zu symmetrischen Verschlüsselungen praktisch anzuwenden.
+Dies ist ein Tool zur schnellen Verschlüsselung von Texten mit dem Cäsar-, Vigenère- oder monoalphabetischen Verfahren. Ausserdem ist es möglich eine Häufigkeitsanalyse durchzuführen und so manuell den Schlüssel eines verschlüsselten Texts herauszufinden, sowie diesen Entschlüsseln zu lassen.
+Das Tool ist gedacht für die Klassenstufen 7 und 8 und bietet eine Möglichkeit das theoretische Wissen zu symmetrischen Verschlüsselungen praktisch anzuwenden.
 
 
 Installation:
