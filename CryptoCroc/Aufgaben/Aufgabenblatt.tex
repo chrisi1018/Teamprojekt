@@ -1,0 +1,71 @@
+\documentclass[a4paper,11pt]{scrreprt} 
+\usepackage[german]{babel} 
+\usepackage[utf8]{inputenc} % Für Umlaute
+\usepackage[T1]{fontenc} % Für bessere Silbentrennung
+\usepackage{lmodern}
+\usepackage{graphicx} % Für Bilder
+\usepackage{enumerate} % Für einfache Umdefinierung der enumerate-Umgebung
+\usepackage{geometry} % Zur individuellen Anpassung der Seitenränder, z.B.:
+\geometry{top=15mm, bottom=15mm, left=20mm, right=15mm}
+%
+\setlength{\parindent}{0ex} % Kein Einrücken bei einem Absatz
+\pagestyle{empty}                   % keine Seitennummern
+\begin{document}
+
+\raisebox{-5mm}{\includegraphics[width=30mm]{CryptoCroco.jpg}} % Logo links einbinden und platzieren
+%
+\hfill \parbox{22mm} % Textblock rechts erzeugen
+{ 
+18.03.22
+}
+
+\vspace{3ex}  % zusätzlicher vertikaler Abstand
+
+
+
+\rule{\textwidth}{1pt}                                   % Linie über die ganze Textbreite
+%
+\begin{center} % Zentrierte Schrift beginnen
+\textbf{ % fette Schrift
+Kryptologie \\[1ex] % Zeilenumbruch mit Zusatzabstand
+%
+{ \Large Aufgabenblatt  zu CryptoCroc } \\[1ex] 
+Blach, Singer, Sturm, Sobota
+}
+\end{center}
+% 
+\rule{\textwidth}{1pt}                                 % Linie über die ganze Textbreite  
+\vspace{1ex}  % zusätzlicher vertikaler Abstand
+
+
+% Einführung
+% Englisch
+Mit dem Tool CryptoCroc kannst du Texte entweder mit Cäsar, Vigenère oder einer monoalphabetischen Verschlüsselung verschlüsseln und auch wieder entschlüsseln. Zum Entschlüsseln hilft dir die Häufigkeitsanalyse, welche über einen Button erreichbar ist. Außerdem ist es möglich über die Menüleiste .txt Dateien in die Software zu laden und Texte aus der Software abzuspeichern.
+
+Falls ihr euch nicht mehr sicher seid wie eine der Verschlüsselungen oder die Häufigkeitsanalyse funktioniert, gibt es die Option \glqq Erklärungen\grqq \ in der Menüleiste, wo ihr euch zu jeder Verschlüsselung und der Häufigkeitsanalyse kurze Erklärungen durchlesen könnt.
+
+\vspace{5ex}
+
+\textbf{\Large{Aufgabe 1}}
+
+\begin{enumerate}[a)]
+\item Finde in der ZIP die Datei \glqq Grünlinger Zeitung\grqq \ und öffne diese. Wie du sehen kannst, sind alle Artikel der Zeitung verschlüsselt und zwar mit unterschiedlichen Verfahren und Schlüsseln. Kannst du der Redaktion der Grünlinger Zeitung helfen und alle Artikel entschlüsseln, sodass diese ihre Zeitung noch rechtzeitig drucken können?
+
+Du kannst hierfür die  .txt Dateien der Zeitungsartikel in die Software laden oder die Artikel aus der PDF Kopieren und Einfügen.
+
+\textit{Hinweis: nicht alle Texte sind auf Deutsch}
+\item Jetzt wo alle Artikel lesbar sind, finde die Croco Codes. Kannst du diese in die richtige Reihenfolge bringen und einen sinnvollen Satz daraus machen? Was will der kleine CryptoCroc?
+
+
+\end{enumerate}
+
+\vspace{4ex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textbf{\Large{Aufgabe 2}}
+\vspace{2ex}
+
+Wenn du mit Aufgabe 1 fertig bist, darfst du jetzt selber einen Text verschlüsseln. Hierzu kannst du die Datei \glqq Text zum selber Verschlüsseln\grqq \ benutzen oder deinen eigenen Text schreiben. Nutze anschließend die \glqq Speichern\grqq \ Option im Menü und lass die entstandene .txt Datei deinem Sitznachbar zukommen. Kann dein Sitznachbar den Text wieder entschlüsseln?
+
+\end{document}  
