@@ -15,7 +15,7 @@ Ausführen der .jar Datei:
  - Über die Kommandozeile, indem erst in das Verzeichnis gewechselt wird, welches die .jar enthält und dann "java -jar [Name der .jar].jar" eingegeben wird
 
 
-Unter Releases findet sich auch eine .pdf Datei mit Aufgaben, sowie eine .zip Datei, welche die in der .pdf Datei enthaltenen verschlüsselten Texte als .txt's zur Verfügung stellt.
+Unter Releases findet sich auch eine .pdf Datei mit Aufgaben, sowie eine .zip Datei, welches die in der .pdf erwähnten Dateien enthält.
 
 
 
